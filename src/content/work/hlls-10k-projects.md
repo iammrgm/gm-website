@@ -13,6 +13,7 @@ images:
   - "/images/work/hlls-10k-projects/1.jpg"
   - "/images/work/hlls-10k-projects/2.png"
   - "/images/work/hlls-10k-projects/3.png"
+order: 2
 ---
 
 ## Situation

@@ -1,0 +1,15 @@
+---
+interface Props {
+  mark: string;
+  brand?: string;
+  number: string;
+  subtitle: string;
+}
+const { mark, brand = "GM®", number, subtitle } = Astro.props;
+---
+
+<div class="flex items-end justify-between border-t border-line pt-4">
+  <span class="text-xs font-semibold uppercase tracking-widest text-muted">© {mark}</span>
+  <span class="text-xs font-semibold uppercase tracking-widest text-muted">({brand} — {number})</span>
+</div>
+<p class="mt-2 text-sm font-semibold uppercase tracking-widest text-paper">{subtitle}</p>

@@ -13,6 +13,7 @@ images:
   - "/images/work/mulaa-joans-atlantic/1.png"
   - "/images/work/mulaa-joans-atlantic/2.png"
   - "/images/work/mulaa-joans-atlantic/3.png"
+order: 3
 ---
 
 ## Situation

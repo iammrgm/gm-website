@@ -13,6 +13,7 @@ images:
   - "/images/work/novelist-uniqlo/1.jpeg"
   - "/images/work/novelist-uniqlo/2.jpg"
   - "/images/work/novelist-uniqlo/3.png"
+order: 10
 ---
 
 ## Situation

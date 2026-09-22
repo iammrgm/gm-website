@@ -13,6 +13,7 @@ images:
   - "/images/work/novelist-rinse-kfc/1.png"
   - "/images/work/novelist-rinse-kfc/2.png"
   - "/images/work/novelist-rinse-kfc/3.png"
+order: 12
 ---
 
 ## Situation

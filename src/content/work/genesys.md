@@ -13,6 +13,7 @@ images:
   - "/images/work/genesys/1.png"
   - "/images/work/genesys/2.png"
   - "/images/work/genesys/3.png"
+order: 7
 ---
 
 ## Situation

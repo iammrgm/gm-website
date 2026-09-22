@@ -14,6 +14,7 @@ const work = defineCollection({
     liveUrl: z.string().optional().default(""),
     cover: z.string(),
     images: z.array(z.string()).default([]),
+    order: z.number(),
   }),
 });
 

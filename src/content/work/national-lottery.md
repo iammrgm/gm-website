@@ -13,6 +13,7 @@ images:
   - "/images/work/national-lottery/1.webp"
   - "/images/work/national-lottery/2.jpeg"
   - "/images/work/national-lottery/3.webp"
+order: 18
 ---
 
 ## Situation

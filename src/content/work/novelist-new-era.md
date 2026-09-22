@@ -13,6 +13,7 @@ images:
   - "/images/work/novelist-new-era/1.jpg"
   - "/images/work/novelist-new-era/2.jpeg"
   - "/images/work/novelist-new-era/3.jpeg"
+order: 14
 ---
 
 ## Situation

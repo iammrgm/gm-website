@@ -13,6 +13,7 @@ images:
   - "/images/work/boogle-asia-tour/1.png"
   - "/images/work/boogle-asia-tour/2.png"
   - "/images/work/boogle-asia-tour/3.png"
+order: 8
 ---
 
 ## Situation

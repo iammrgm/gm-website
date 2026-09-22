@@ -78,7 +78,7 @@ async function downloadImage(url, destDir, name) {
   return path.relative(path.join(process.cwd(), "public"), file);
 }
 
-async function extractOne(slug) {
+async function extractOne(slug, order) {
   const url = `${BASE}/work/${slug}`;
   const html = await fetch(url).then((r) => r.text());
   const $ = cheerio.load(html);
@@ -159,6 +159,7 @@ async function extractOne(slug) {
     liveUrl: liveWebsite,
     cover: coverLocal,
     images: localImages,
+    order,
   };
 
   const yaml = Object.entries(frontmatter)
@@ -181,9 +182,10 @@ async function extractOne(slug) {
   console.log(`✓ ${slug} (${localImages.length} images)`);
 }
 
-for (const slug of SLUGS) {
+for (let i = 0; i < SLUGS.length; i++) {
+  const slug = SLUGS[i];
   try {
-    await extractOne(slug);
+    await extractOne(slug, i + 1);
   } catch (e) {
     console.error(`✗ ${slug}: ${e.message}`);
   }

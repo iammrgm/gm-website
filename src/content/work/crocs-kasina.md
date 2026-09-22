@@ -13,6 +13,7 @@ images:
   - "/images/work/crocs-kasina/1.jpg"
   - "/images/work/crocs-kasina/2.webp"
   - "/images/work/crocs-kasina/3.jpg"
+order: 1
 ---
 
 ## Situation

@@ -1,5 +1,6 @@
 ---
 import Marquee from "./Marquee.astro";
+import SectionLabel from "./SectionLabel.astro";
 
 const requestOptions = [
   "Request Meeting",
@@ -26,7 +27,7 @@ const CONTACT_EMAIL = "contact@garethmatthews.uk";
 
 <footer id="contact" class="border-t border-line bg-ink">
   <div class="mx-auto max-w-[1480px] px-5 py-20 sm:px-10">
-    <p class="text-xs font-semibold uppercase tracking-widest text-muted">Contact / Open Lines</p>
+    <SectionLabel mark="CONTACT" number="05" subtitle="Open Lines" />
 
     <form class="mt-10 grid max-w-2xl gap-6" data-contact-form action="/api/contact" method="post">
       <label class="grid gap-2">

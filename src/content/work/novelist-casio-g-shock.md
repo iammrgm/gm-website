@@ -13,6 +13,7 @@ images:
   - "/images/work/novelist-casio-g-shock/1.jpeg"
   - "/images/work/novelist-casio-g-shock/2.jpeg"
   - "/images/work/novelist-casio-g-shock/3.jpeg"
+order: 11
 ---
 
 ## Situation

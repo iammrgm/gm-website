@@ -12,6 +12,7 @@ images:
   - "/images/work/ab-inbev-bees/0.jpeg"
   - "/images/work/ab-inbev-bees/1.jpeg"
   - "/images/work/ab-inbev-bees/2.webp"
+order: 17
 ---
 
 ## Situation

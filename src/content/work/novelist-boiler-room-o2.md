@@ -13,6 +13,7 @@ images:
   - "/images/work/novelist-boiler-room-o2/1.jpeg"
   - "/images/work/novelist-boiler-room-o2/2.jpg"
   - "/images/work/novelist-boiler-room-o2/3.jpg"
+order: 13
 ---
 
 ## Situation

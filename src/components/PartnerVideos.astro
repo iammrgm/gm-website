@@ -1,0 +1,42 @@
+---
+const videoIds = [
+  "tEJyLiw78Otl9HT31lSl71Igd1Q",
+  "5olowgzf0BM9OmmN6A4xMDB6k",
+  "FCXfnqK5mg3OLagHvnz8bTwiFVU",
+  "Wx86FMdjp6N48XUOZVyO07ZCsE",
+  "zwjFGabSp2mAmVuDqPu2ZZBOOc",
+];
+---
+
+<div class="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:-mx-10 sm:px-10" data-partner-videos>
+  {
+    videoIds.map((id) => (
+      <div class="aspect-[9/16] w-[70vw] shrink-0 snap-center overflow-hidden rounded-xl bg-line/20 sm:w-[320px]">
+        <video
+          src={`/videos/partners/${id}.mp4`}
+          muted
+          loop
+          playsinline
+          preload="none"
+          class="h-full w-full object-cover"
+          data-autoplay-in-view
+        />
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  const videos = document.querySelectorAll<HTMLVideoElement>("[data-autoplay-in-view]");
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const video = entry.target as HTMLVideoElement;
+        if (entry.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      }
+    },
+    { threshold: 0.5 }
+  );
+  videos.forEach((v) => io.observe(v));
+</script>

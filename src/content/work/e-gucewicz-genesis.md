@@ -13,6 +13,7 @@ images:
   - "/images/work/e-gucewicz-genesis/1.jpg"
   - "/images/work/e-gucewicz-genesis/2.jpg"
   - "/images/work/e-gucewicz-genesis/3.jpg"
+order: 9
 ---
 
 ## Situation

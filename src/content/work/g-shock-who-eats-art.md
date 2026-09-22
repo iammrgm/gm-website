@@ -13,6 +13,7 @@ images:
   - "/images/work/g-shock-who-eats-art/1.png"
   - "/images/work/g-shock-who-eats-art/2.png"
   - "/images/work/g-shock-who-eats-art/3.png"
+order: 5
 ---
 
 ## Situation

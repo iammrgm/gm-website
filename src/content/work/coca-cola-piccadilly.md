@@ -13,6 +13,7 @@ images:
   - "/images/work/coca-cola-piccadilly/1.png"
   - "/images/work/coca-cola-piccadilly/2.png"
   - "/images/work/coca-cola-piccadilly/3.webp"
+order: 19
 ---
 
 ## Situation

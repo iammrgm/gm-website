@@ -1,0 +1,35 @@
+---
+const logoIds = [
+  "T8uAOScR0xkvP4hhxllTYf1ZPI4",
+  "AvKlIpwI4O2Ws5lHYtL7BWaSY",
+  "R2myBgMMbe0q7niUKEh9od3Zdw",
+  "E21lJiPj6h90n7vTYyeyZSiZ0Y",
+  "Wr0gyvkynQO6OB9JGga4qfdrV0",
+  "FjrV6A6BMgIskLefRyIyKKghyk",
+  "rfiZuSlNifP1XA00obYNVBpbTUE",
+  "y96VKNNaIjlQE3bFRtU3N8Hc4",
+  "bqSpvsAFrdiCphSWU5uPtwaVbw",
+  "zJqyT4D83X29dP9syrdfPsOdfzo",
+  "AUEHB6WEWqPGdQCUOCZs3Kw2cJs",
+  "VGysfM7eIhu9bvbn1d7vVmqqs1I",
+  "SW3j5FpP9H6YKwpbJv505JfMwHA",
+];
+---
+
+<div
+  class="grid grid-cols-3 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-5"
+  aria-label="Client and partner logos"
+>
+  {
+    logoIds.map((id) => (
+      <div class="flex aspect-square items-center justify-center bg-ink p-6">
+        <img
+          src={`/images/logos/${id}.png`}
+          alt=""
+          loading="lazy"
+          class="max-h-full max-w-full object-contain opacity-80 brightness-0 invert"
+        />
+      </div>
+    ))
+  }
+</div>

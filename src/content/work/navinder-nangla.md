@@ -13,6 +13,7 @@ images:
   - "/images/work/navinder-nangla/1.webp"
   - "/images/work/navinder-nangla/2.jpeg"
   - "/images/work/navinder-nangla/3.jpeg"
+order: 6
 ---
 
 ## Situation
