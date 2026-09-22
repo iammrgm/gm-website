@@ -25,7 +25,7 @@ const cascadeLead =
         <RoleCycler client:load />
       </p>
       <div class="mt-4 grid gap-8 sm:grid-cols-[1.3fr_1fr] sm:items-end">
-        <h1 class="text-6xl font-semibold leading-[1.03] tracking-tight sm:text-8xl">
+        <h1 class="text-2xl font-medium leading-snug tracking-tight text-paper sm:text-3xl">
           Building the infrastructure for a more connected world.
         </h1>
         <div class="aspect-[4/3] w-full overflow-hidden rounded-2xl bg-line/20 sm:aspect-square">
@@ -39,7 +39,7 @@ const cascadeLead =
         </div>
       </div>
 
-      <h2 class="mt-8 select-none text-[13vw] font-bold leading-none tracking-tight text-paper sm:text-[7vw]">
+      <h2 class="mt-8 select-none text-[17vw] font-semibold leading-none tracking-[-0.04em] text-paper sm:text-[10vw]">
         GARETH MATTHEWS
       </h2>
 
@@ -50,8 +50,8 @@ const cascadeLead =
 
     <!-- Profile: headshot spans the full column, copy + logos wrap beside it -->
     <section class="mx-auto max-w-[1480px] px-5 py-20 sm:px-10">
-      <div class="grid gap-8 sm:grid-cols-[478fr_844fr] sm:items-stretch">
-        <div class="aspect-[3/5] w-full overflow-hidden rounded-2xl bg-line/20 sm:h-full sm:w-full">
+      <div class="flex flex-col gap-8 sm:flex-row sm:items-stretch">
+        <div class="aspect-[3/5] w-full shrink-0 overflow-hidden rounded-2xl bg-line/20 sm:w-[478px]">
           <img
             src="/images/about/headshot.png"
             alt="Gareth Matthews"
@@ -59,9 +59,9 @@ const cascadeLead =
             class="h-full w-full object-cover"
           />
         </div>
-        <div class="flex flex-col justify-between gap-10">
+        <div class="flex min-w-0 flex-1 flex-col justify-between gap-10">
           <div>
-            <p class="max-w-lg text-lg text-muted">
+            <p class="max-w-lg text-xl text-muted sm:text-2xl">
               15+ years<sup class="text-xs">™</sup> across culture and commerce — and the growing
               conviction that the two were never properly wired together.
             </p>

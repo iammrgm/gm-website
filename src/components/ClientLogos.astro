@@ -20,22 +20,29 @@ const logoIds = [
   "SW3j5FpP9H6YKwpbJv505JfMwHA",
 ];
 const NO_INVERT = new Set(["AvKlIpwI4O2Ws5lHYtL7BWaSY"]);
+// Grid is 5 columns wide, so round up to a full row of empty slots —
+// keeps the grid rectangular and ready for more logos later instead
+// of ending mid-row.
+const COLS = 5;
+const totalSlots = Math.ceil(logoIds.length / COLS) * COLS;
+const emptySlots = totalSlots - logoIds.length;
 ---
 
-<div class="grid grid-cols-3 sm:grid-cols-5" aria-label="Client and partner logos">
+<div class="grid grid-cols-3 gap-px overflow-hidden rounded-lg bg-ink sm:grid-cols-5" aria-label="Client and partner logos">
   {
     logoIds.map((id) => (
-      <div class="flex aspect-[169/154] items-center justify-center">
+      <div class="flex aspect-[169/154] items-center justify-center bg-ink">
         <img
           src={`/images/logos/${id}.png`}
           alt=""
           loading="lazy"
           class:list={[
-            "h-7 w-auto object-contain opacity-80 sm:h-10",
+            "max-h-8 max-w-[45%] object-contain opacity-80 sm:max-h-10",
             !NO_INVERT.has(id) && "brightness-0 invert",
           ]}
         />
       </div>
     ))
   }
+  {Array.from({ length: emptySlots }).map(() => <div class="aspect-[169/154] bg-ink" />)}
 </div>
