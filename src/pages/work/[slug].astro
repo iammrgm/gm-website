@@ -131,12 +131,14 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
       images.length > 0 && (
         <div class="mt-24 grid gap-4 sm:grid-cols-2" data-reveal>
           {images.map((src, i) => (
-            <img
-              src={src}
-              alt={`${title} — project photo ${i + 1} of ${images.length}`}
-              loading="lazy"
-              class="w-full rounded-lg object-cover"
-            />
+            <div class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-line/20">
+              <img
+                src={src}
+                alt={`${title} — project photo ${i + 1} of ${images.length}`}
+                loading="lazy"
+                class="h-full w-full object-cover"
+              />
+            </div>
           ))}
         </div>
       )
