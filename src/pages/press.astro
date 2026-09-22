@@ -1,0 +1,118 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionLabel from "../components/SectionLabel.astro";
+
+const CONTACT_EMAIL = "contact@garethmatthews.uk";
+
+const shortBio =
+  "Gareth Matthews is the Founder & CEO of DEPARTMNT, building the infrastructure that connects physical products and live events to the brands and audiences behind them.";
+
+const mediumBio =
+  "Gareth Matthews is the Founder & CEO of DEPARTMNT. He has 15+ years in culture, music, and global brand innovation — from artist management and live event production to brand activation for Crocs, Mercedes-Benz, AB InBev and The National Lottery. In 2025 he co-founded DEPARTMNT with Kadeem Henry to build TapTech: the tag, platform and app infrastructure that turns physical products and live moments into a digital relationship a brand actually owns.";
+
+const facts = [
+  { label: "Role", value: "Founder & CEO, DEPARTMNT" },
+  { label: "Location", value: "London, UK" },
+  { label: "Company", value: "DEPARTMNT (departmnt.xyz), incorporated 21 May 2025" },
+  { label: "Focus", value: "NFC infrastructure, ticketing, connected fashion, brand activation, live events" },
+  { label: "Background", value: "15+ years in culture, music and global brand innovation" },
+];
+---
+
+<Layout
+  title="Press — Gareth Matthews"
+  description="Press kit for Gareth Matthews, Founder & CEO of DEPARTMNT — boilerplate, bio, headshots and company facts for media use."
+>
+  <main class="mx-auto max-w-[1480px] px-5 pt-32 pb-28 sm:px-10">
+    <SectionLabel mark="PRESS" number="06" subtitle="Press Kit" />
+
+    <h1 class="mt-10 max-w-2xl text-5xl font-semibold tracking-tight sm:text-7xl">Press</h1>
+
+    <div class="mt-16 grid gap-16 lg:grid-cols-[1fr_320px]">
+      <div class="max-w-2xl space-y-16">
+        <section>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Boilerplate</p>
+          <p class="mt-4 text-lg leading-relaxed text-paper/90">
+            Gareth Matthews spent fifteen years watching culture generate attention no brand
+            could hold onto — and brands spend fortunes reaching people they'd never be able to
+            name. In 2025 he founded DEPARTMNT to build the infrastructure for that instead: tag,
+            platform, app, turning a physical object into the start of a relationship rather than
+            the end of a transaction.
+          </p>
+          <p class="mt-4 text-lg leading-relaxed text-paper/90">
+            Before DEPARTMNT, he built his career the same way brands couldn't: in the room —
+            managing artists, building fan infrastructure, and running the connected layer behind
+            product launches, live events and brand activations for clients including Crocs,
+            Mercedes-Benz, AB InBev and The National Lottery.
+          </p>
+        </section>
+
+        <section>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Short Bio</p>
+          <p class="mt-4 text-lg leading-relaxed text-paper/90">{shortBio}</p>
+        </section>
+
+        <section>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Medium Bio</p>
+          <p class="mt-4 text-lg leading-relaxed text-paper/90">{mediumBio}</p>
+        </section>
+
+        <section>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Headshots</p>
+          <div class="mt-4 max-w-xs overflow-hidden rounded-2xl bg-line/20">
+            <img
+              src="/images/about/headshot.png"
+              alt="Gareth Matthews, Founder and CEO of DEPARTMNT"
+              class="w-full object-cover"
+            />
+          </div>
+        </section>
+
+        <section>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Press & Interviews</p>
+          <p class="mt-4 text-lg leading-relaxed text-muted">
+            Coverage and interview requests to follow. In the meantime, press mentions of
+            DEPARTMNT's client work include Highsnobiety, Hypebeast Korea, Dazed Korea, Campaign,
+            NTS, GRM Daily, PAUSE and Versus — see individual{" "}
+            <a href="/work" class="text-paper underline decoration-paper/30 underline-offset-4">case studies</a>
+            {" "}for details.
+          </p>
+        </section>
+      </div>
+
+      <aside class="space-y-8 border-t border-line pt-8 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Company & Personal Facts</p>
+          <dl class="mt-4 space-y-4">
+            {
+              facts.map((fact) => (
+                <div>
+                  <dt class="text-xs text-muted">{fact.label}</dt>
+                  <dd class="mt-0.5 text-paper">{fact.value}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Press Enquiries</p>
+          <a
+            href={`mailto:${CONTACT_EMAIL}?subject=Press Enquiry`}
+            class="mt-1 inline-block text-paper underline decoration-paper/30 underline-offset-4"
+          >
+            {CONTACT_EMAIL}
+          </a>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Everything Else</p>
+          <a
+            href="/#contact"
+            class="mt-1 inline-block text-paper underline decoration-paper/30 underline-offset-4"
+          >
+            Use the contact form
+          </a>
+        </div>
+      </aside>
+    </div>
+  </main>
+</Layout>
