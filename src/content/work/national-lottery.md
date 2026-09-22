@@ -15,9 +15,18 @@ cover: "/images/work/national-lottery/0.webp"
 images:
   - "/images/work/national-lottery/0.webp"
   - "/images/work/national-lottery/1.webp"
-  - "/images/work/national-lottery/2.jpeg"
+  - "/images/work/national-lottery/2.webp"
   - "/images/work/national-lottery/3.webp"
 order: 18
+stats:
+  - value: "40,000+"
+    label: "Retail locations, new terminals"
+  - value: "11.8m"
+    label: "Player accounts migrated"
+  - value: "£8.1bn"
+    label: "Sales in 2025, up 3.5%"
+  - value: "£1.7bn"
+    label: "For Good Causes"
 ---
 
 ## Brief

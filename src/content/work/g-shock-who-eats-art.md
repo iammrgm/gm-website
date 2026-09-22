@@ -7,17 +7,26 @@ categories:
 market: "departmnt"
 clients:
   - name: "Casio · G-Shock"
-    url: ""
+    url: "https://www.gshock.casio.com"
 duration: "1 Week"
 location: "Singapore"
 liveUrl: "https://gshock.casio.com/sg/g-news/events/2025/gshock-active-lifestyle/"
-cover: "/images/work/g-shock-who-eats-art/3.png"
+cover: "/images/work/g-shock-who-eats-art/3.webp"
 images:
-  - "/images/work/g-shock-who-eats-art/0.png"
-  - "/images/work/g-shock-who-eats-art/1.png"
-  - "/images/work/g-shock-who-eats-art/2.png"
-  - "/images/work/g-shock-who-eats-art/3.png"
+  - "/images/work/g-shock-who-eats-art/0.webp"
+  - "/images/work/g-shock-who-eats-art/1.webp"
+  - "/images/work/g-shock-who-eats-art/2.webp"
+  - "/images/work/g-shock-who-eats-art/3.webp"
 order: 5
+stats:
+  - value: "92%"
+    label: "Completed the full journey"
+  - value: "39%"
+    label: "Shared to social, no incentive"
+  - value: "100%"
+    label: "Mobile traffic"
+  - value: "338"
+    label: "Total engagements"
 ---
 
 ## Brief

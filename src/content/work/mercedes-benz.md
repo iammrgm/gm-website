@@ -7,17 +7,22 @@ categories:
 market: "personal"
 clients:
   - name: "Mercedes-Benz UK"
-    url: ""
+    url: "https://www.mercedes-benz.co.uk"
 duration: "6 Months"
 location: "United Kingdom · Europe"
 liveUrl: "https://www.campaignlive.co.uk/article/omnicom-won-mercedes-holistic-marketing-buying-two-agencies/1728278"
-cover: "/images/work/mercedes-benz/0.jpeg"
+cover: "/images/work/mercedes-benz/0.webp"
 images:
-  - "/images/work/mercedes-benz/0.jpeg"
-  - "/images/work/mercedes-benz/1.png"
-  - "/images/work/mercedes-benz/2.jpg"
-  - "/images/work/mercedes-benz/3.jpg"
+  - "/images/work/mercedes-benz/0.webp"
+  - "/images/work/mercedes-benz/1.webp"
+  - "/images/work/mercedes-benz/2.webp"
+  - "/images/work/mercedes-benz/3.webp"
 order: 16
+stats:
+  - value: "£2.5m"
+    label: "Campaign, every UK channel"
+  - value: "100+"
+    label: "Showrooms transitioned"
 ---
 
 ## Brief

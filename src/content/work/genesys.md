@@ -7,17 +7,26 @@ categories:
 market: "departmnt"
 clients:
   - name: "Genesys"
-    url: ""
+    url: "https://www.genesys.com"
 duration: "1 Year"
 location: "London · LA"
 liveUrl: ""
-cover: "/images/work/genesys/0.png"
+cover: "/images/work/genesys/0.webp"
 images:
-  - "/images/work/genesys/0.png"
-  - "/images/work/genesys/1.png"
-  - "/images/work/genesys/2.png"
-  - "/images/work/genesys/3.png"
+  - "/images/work/genesys/0.webp"
+  - "/images/work/genesys/1.webp"
+  - "/images/work/genesys/2.webp"
+  - "/images/work/genesys/3.webp"
 order: 7
+stats:
+  - value: "1,320"
+    label: "Tickets sold"
+  - value: "88%"
+    label: "Of 1,500 capacity"
+  - value: "£17,219"
+    label: "Gross, remitted in full"
+  - value: "£0"
+    label: "Platform booking fee"
 ---
 
 ## Brief

@@ -7,17 +7,22 @@ categories:
 market: "personal"
 clients:
   - name: "Casio G-Shock"
-    url: ""
+    url: "https://www.gshock.casio.com"
 duration: "1 Year"
 location: "Europe"
 liveUrl: ""
-cover: "/images/work/novelist-casio-g-shock/0.jpeg"
+cover: "/images/work/novelist-casio-g-shock/0.webp"
 images:
-  - "/images/work/novelist-casio-g-shock/0.jpeg"
-  - "/images/work/novelist-casio-g-shock/1.jpeg"
-  - "/images/work/novelist-casio-g-shock/2.jpeg"
-  - "/images/work/novelist-casio-g-shock/3.jpeg"
+  - "/images/work/novelist-casio-g-shock/0.webp"
+  - "/images/work/novelist-casio-g-shock/1.webp"
+  - "/images/work/novelist-casio-g-shock/2.webp"
+  - "/images/work/novelist-casio-g-shock/3.webp"
 order: 11
+stats:
+  - value: "12mo"
+    label: "Partnership, two campaign phases"
+  - value: "8"
+    label: "European live shows"
 ---
 
 ## Brief

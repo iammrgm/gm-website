@@ -7,17 +7,26 @@ categories:
 market: "departmnt"
 clients:
   - name: "10K Projects / Atlantic Records"
-    url: ""
+    url: "https://www.10kprojects.com"
 duration: "2026"
 location: "London · Reading · Leeds"
 liveUrl: ""
-cover: "/images/work/mulaa-joans-atlantic/0.png"
+cover: "/images/work/mulaa-joans-atlantic/0.webp"
 images:
-  - "/images/work/mulaa-joans-atlantic/0.png"
-  - "/images/work/mulaa-joans-atlantic/1.png"
-  - "/images/work/mulaa-joans-atlantic/2.png"
-  - "/images/work/mulaa-joans-atlantic/3.png"
+  - "/images/work/mulaa-joans-atlantic/0.webp"
+  - "/images/work/mulaa-joans-atlantic/1.webp"
+  - "/images/work/mulaa-joans-atlantic/2.webp"
+  - "/images/work/mulaa-joans-atlantic/3.webp"
 order: 3
+stats:
+  - value: "2 wks"
+    label: "Brief to live pop-up"
+  - value: "1,500"
+    label: "Custom NFC notes, Scarlet Mafia Tour"
+  - value: "45"
+    label: "Resin tags per festival site"
+  - value: "3"
+    label: "Activations, three hardware formats"
 ---
 
 ## Brief

@@ -7,18 +7,25 @@ categories:
 market: "personal"
 clients:
   - name: "Coca-Cola"
-    url: ""
+    url: "https://www.coca-cola.com"
 role: "Interim Head of Digital Production, RCP"
 duration: "November to December 2021"
 location: "London"
 liveUrl: ""
-cover: "/images/work/coca-cola-piccadilly/0.png"
+cover: "/images/work/coca-cola-piccadilly/0.webp"
 images:
-  - "/images/work/coca-cola-piccadilly/0.png"
-  - "/images/work/coca-cola-piccadilly/1.png"
-  - "/images/work/coca-cola-piccadilly/2.png"
+  - "/images/work/coca-cola-piccadilly/0.webp"
+  - "/images/work/coca-cola-piccadilly/1.webp"
+  - "/images/work/coca-cola-piccadilly/2.webp"
   - "/images/work/coca-cola-piccadilly/3.webp"
 order: 19
+stats:
+  - value: "783.5m²"
+    label: "Curved screen, largest OOH ad display in Europe"
+  - value: "6"
+    label: "Brands sharing the rotation"
+  - value: "40s"
+    label: "Full takeover every 10 minutes"
 ---
 
 ## Brief

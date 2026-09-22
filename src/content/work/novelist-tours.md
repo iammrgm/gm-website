@@ -12,13 +12,20 @@ role: "Music and Partnerships Manager"
 duration: "2016 to 2017"
 location: "UK · Europe · Asia · Oceania"
 liveUrl: ""
-cover: "/images/work/novelist-tours/3.jpeg"
+cover: "/images/work/novelist-tours/3.webp"
 images:
-  - "/images/work/novelist-tours/0.jpg"
-  - "/images/work/novelist-tours/1.jpeg"
-  - "/images/work/novelist-tours/2.jpeg"
-  - "/images/work/novelist-tours/3.jpeg"
+  - "/images/work/novelist-tours/0.webp"
+  - "/images/work/novelist-tours/1.webp"
+  - "/images/work/novelist-tours/2.webp"
+  - "/images/work/novelist-tours/3.webp"
 order: 15
+stats:
+  - value: "2×"
+    label: "World tours booked, ages 18 and 20"
+  - value: "4"
+    label: "Continents routed"
+  - value: "2018"
+    label: "Mercury Prize shortlist, Novelist Guy"
 ---
 
 ## Brief

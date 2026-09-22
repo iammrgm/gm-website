@@ -58,7 +58,7 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
                     <a
                       href={c.url}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       class="underline decoration-paper/30 underline-offset-4 hover:text-muted"
                     >
                       {c.name} ↗
@@ -93,7 +93,7 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
             <a
               href={liveUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               class="inline-block rounded-full border border-line px-5 py-2.5 text-sm text-paper transition-colors hover:border-paper"
             >
               Live Website ↗

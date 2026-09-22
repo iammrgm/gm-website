@@ -14,12 +14,12 @@ clients:
 duration: "2 Weeks"
 location: "Seoul, South Korea"
 liveUrl: "https://www.kasina.co.kr/discover/77794"
-cover: "/images/work/crocs-kasina/0.jpeg"
+cover: "/images/work/crocs-kasina/0.webp"
 images:
-  - "/images/work/crocs-kasina/0.jpeg"
-  - "/images/work/crocs-kasina/1.jpg"
+  - "/images/work/crocs-kasina/0.webp"
+  - "/images/work/crocs-kasina/1.webp"
   - "/images/work/crocs-kasina/2.webp"
-  - "/images/work/crocs-kasina/3.jpg"
+  - "/images/work/crocs-kasina/3.webp"
 order: 1
 pullQuote:
   text: "The hottest pop up in Seoul right now"

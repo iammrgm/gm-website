@@ -7,16 +7,25 @@ categories:
 market: "personal"
 clients:
   - name: "AB InBev"
-    url: ""
+    url: "https://www.ab-inbev.com"
 duration: "6 Months"
 location: "Global"
 liveUrl: "https://consumergoods.com/ab-inbev-helps-drive-marketing-optimization-ml-powered-bees"
-cover: "/images/work/ab-inbev-bees/bees-cover.jpg"
+cover: "/images/work/ab-inbev-bees/bees-cover.webp"
 images:
-  - "/images/work/ab-inbev-bees/0.jpeg"
-  - "/images/work/ab-inbev-bees/1.jpeg"
+  - "/images/work/ab-inbev-bees/0.webp"
+  - "/images/work/ab-inbev-bees/1.webp"
   - "/images/work/ab-inbev-bees/2.webp"
 order: 17
+stats:
+  - value: "3.8M"
+    label: "Monthly active users"
+  - value: "27"
+    label: "Countries"
+  - value: "500+"
+    label: "Brands on platform"
+  - value: "$52.5bn"
+    label: "GMV transacted, 2025"
 ---
 
 ## Brief

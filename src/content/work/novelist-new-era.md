@@ -7,17 +7,17 @@ categories:
 market: "personal"
 clients:
   - name: "New Era"
-    url: ""
+    url: "https://www.neweracap.co.uk"
 role: "Music and Partnerships Manager"
 duration: "July 2017"
 location: "London"
 liveUrl: "https://www.neweracap.co.uk/blogs/discover/novelist"
-cover: "/images/work/novelist-new-era/0.jpeg"
+cover: "/images/work/novelist-new-era/0.webp"
 images:
-  - "/images/work/novelist-new-era/0.jpeg"
-  - "/images/work/novelist-new-era/1.jpg"
-  - "/images/work/novelist-new-era/2.jpeg"
-  - "/images/work/novelist-new-era/3.jpeg"
+  - "/images/work/novelist-new-era/0.webp"
+  - "/images/work/novelist-new-era/1.webp"
+  - "/images/work/novelist-new-era/2.webp"
+  - "/images/work/novelist-new-era/3.webp"
 order: 14
 ---
 

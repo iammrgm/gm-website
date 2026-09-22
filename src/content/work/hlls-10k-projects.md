@@ -7,17 +7,24 @@ categories:
 market: "departmnt"
 clients:
   - name: "H.LLS · 10K Projects"
-    url: ""
+    url: "https://www.10kprojects.com"
 duration: "Ongoing"
 location: "London · Paris"
 liveUrl: ""
-cover: "/images/work/hlls-10k-projects/0.png"
+cover: "/images/work/hlls-10k-projects/0.webp"
 images:
-  - "/images/work/hlls-10k-projects/0.png"
-  - "/images/work/hlls-10k-projects/1.jpg"
-  - "/images/work/hlls-10k-projects/2.png"
-  - "/images/work/hlls-10k-projects/3.png"
+  - "/images/work/hlls-10k-projects/0.webp"
+  - "/images/work/hlls-10k-projects/1.webp"
+  - "/images/work/hlls-10k-projects/2.webp"
+  - "/images/work/hlls-10k-projects/3.webp"
 order: 2
+stats:
+  - value: "50"
+    label: "Countries, audience built from zero"
+  - value: "~67%"
+    label: "Opt-in rate"
+  - value: "12mo"
+    label: "Partnership secured from trial"
 ---
 
 ## Brief

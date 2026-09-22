@@ -7,17 +7,24 @@ categories:
 market: "departmnt"
 clients:
   - name: "Navinder Nangala"
-    url: ""
-duration: "1 Month"
+    url: "https://www.instagram.com/navindernangla/"
+duration: "February 2025"
 location: "London · Paris"
 liveUrl: "https://www.endclothing.com/gb/features/navinder-nangla-presents-londone-fassion-weak"
-cover: "/images/work/navinder-nangla/0.jpeg"
+cover: "/images/work/navinder-nangla/0.webp"
 images:
-  - "/images/work/navinder-nangla/0.jpeg"
+  - "/images/work/navinder-nangla/0.webp"
   - "/images/work/navinder-nangla/1.webp"
-  - "/images/work/navinder-nangla/2.jpeg"
-  - "/images/work/navinder-nangla/3.jpeg"
+  - "/images/work/navinder-nangla/2.webp"
+  - "/images/work/navinder-nangla/3.webp"
 order: 6
+stats:
+  - value: "75"
+    label: "Verified entrants, zero duplicates"
+  - value: "49.3%"
+    label: "Opted into marketing"
+  - value: "0"
+    label: "Fraud anomalies detected"
 ---
 
 ## Brief

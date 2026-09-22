@@ -7,17 +7,24 @@ categories:
 market: "departmnt"
 clients:
   - name: "E Gucewicz Studios"
-    url: ""
+    url: "https://www.gucewicz.com"
 duration: "2021 to 2022"
 location: "London"
 liveUrl: "https://app.gitbook.com/o/aX1xNjECkX2sJi7lpSTG/s/EqBIy49LtxNLgMoosov1/"
-cover: "/images/work/e-gucewicz-genesis/0.jpg"
+cover: "/images/work/e-gucewicz-genesis/0.webp"
 images:
-  - "/images/work/e-gucewicz-genesis/0.jpg"
-  - "/images/work/e-gucewicz-genesis/1.jpg"
-  - "/images/work/e-gucewicz-genesis/2.jpg"
-  - "/images/work/e-gucewicz-genesis/3.jpg"
+  - "/images/work/e-gucewicz-genesis/0.webp"
+  - "/images/work/e-gucewicz-genesis/1.webp"
+  - "/images/work/e-gucewicz-genesis/2.webp"
+  - "/images/work/e-gucewicz-genesis/3.webp"
 order: 9
+stats:
+  - value: "2,000"
+    label: "One-of-one frames"
+  - value: "10,000+"
+    label: "Digital variations generated"
+  - value: "12mo"
+    label: "Sketch to working prototype"
 ---
 
 ## Brief

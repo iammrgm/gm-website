@@ -7,17 +7,24 @@ categories:
 market: "personal"
 clients:
   - name: "KFC"
-    url: ""
-duration: "1 Month"
+    url: "https://www.kfc.co.uk"
+duration: "December 2016"
 location: "London · Facebook Live"
 liveUrl: "https://www.campaignlive.co.uk/article/kfc-brings-gamers-grimers-together-facebook-live-video-first/1417532"
-cover: "/images/work/novelist-rinse-kfc/2.png"
+cover: "/images/work/novelist-rinse-kfc/2.webp"
 images:
-  - "/images/work/novelist-rinse-kfc/0.jpg"
-  - "/images/work/novelist-rinse-kfc/1.png"
-  - "/images/work/novelist-rinse-kfc/2.png"
-  - "/images/work/novelist-rinse-kfc/3.png"
+  - "/images/work/novelist-rinse-kfc/0.webp"
+  - "/images/work/novelist-rinse-kfc/1.webp"
+  - "/images/work/novelist-rinse-kfc/2.webp"
+  - "/images/work/novelist-rinse-kfc/3.webp"
 order: 12
+stats:
+  - value: "2.7M"
+    label: "People reached by the live stream"
+  - value: "87%"
+    label: "Of target audience reached in 5 days"
+  - value: "1st"
+    label: "Livestream Facebook ever promoted"
 ---
 
 ## Brief

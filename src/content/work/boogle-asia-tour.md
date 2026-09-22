@@ -10,14 +10,23 @@ clients:
     url: ""
 duration: "3 Months"
 location: "Seoul, South Korea · Tokyo, Japan · Singapore"
-liveUrl: "./boogle-asia-tour"
-cover: "/images/work/boogle-asia-tour/0.png"
+liveUrl: ""
+cover: "/images/work/boogle-asia-tour/0.webp"
 images:
-  - "/images/work/boogle-asia-tour/0.png"
-  - "/images/work/boogle-asia-tour/1.png"
-  - "/images/work/boogle-asia-tour/2.png"
-  - "/images/work/boogle-asia-tour/3.png"
+  - "/images/work/boogle-asia-tour/0.webp"
+  - "/images/work/boogle-asia-tour/1.webp"
+  - "/images/work/boogle-asia-tour/2.webp"
+  - "/images/work/boogle-asia-tour/3.webp"
 order: 8
+stats:
+  - value: "205%"
+    label: "Increase in registrations vs. prior events"
+  - value: "1,200"
+    label: "Unique sign-ups"
+  - value: "26"
+    label: "Countries represented"
+  - value: "78%"
+    label: "Engagement rate, ticketing platform"
 ---
 
 ## Brief

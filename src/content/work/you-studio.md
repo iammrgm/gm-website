@@ -11,13 +11,20 @@ clients:
 duration: "2026, ongoing"
 location: "London"
 liveUrl: ""
-cover: "/images/work/you-studio/0.png"
+cover: "/images/work/you-studio/0.webp"
 images:
-  - "/images/work/you-studio/0.png"
-  - "/images/work/you-studio/1.png"
-  - "/images/work/you-studio/2.png"
-  - "/images/work/you-studio/3.png"
+  - "/images/work/you-studio/0.webp"
+  - "/images/work/you-studio/1.webp"
+  - "/images/work/you-studio/2.webp"
+  - "/images/work/you-studio/3.webp"
 order: 4
+stats:
+  - value: "36,000"
+    label: "Sq ft creative studio"
+  - value: "3"
+    label: "Studio spaces, one booking system"
+  - value: "12"
+    label: "Competitor workspaces benchmarked"
 ---
 
 ## Brief

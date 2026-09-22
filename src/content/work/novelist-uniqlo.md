@@ -7,17 +7,17 @@ categories:
 market: "personal"
 clients:
   - name: "Uniqlo"
-    url: ""
+    url: "https://www.uniqlo.com"
 role: "Music and Partnerships Manager"
 duration: "December 2016"
 location: "London"
 liveUrl: "https://www.nts.live/events/star_wars"
-cover: "/images/work/novelist-uniqlo/2.jpg"
+cover: "/images/work/novelist-uniqlo/2.webp"
 images:
-  - "/images/work/novelist-uniqlo/0.jpeg"
-  - "/images/work/novelist-uniqlo/1.jpeg"
-  - "/images/work/novelist-uniqlo/2.jpg"
-  - "/images/work/novelist-uniqlo/3.png"
+  - "/images/work/novelist-uniqlo/0.webp"
+  - "/images/work/novelist-uniqlo/1.webp"
+  - "/images/work/novelist-uniqlo/2.webp"
+  - "/images/work/novelist-uniqlo/3.webp"
 order: 10
 ---
 
