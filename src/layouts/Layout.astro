@@ -17,6 +17,7 @@ const {
 } = Astro.props;
 
 const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url.origin).toString();
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
 
 const personSchema = {
   "@context": "https://schema.org",
@@ -51,6 +52,7 @@ const personSchema = {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />

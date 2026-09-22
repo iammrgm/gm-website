@@ -16,6 +16,20 @@ const { title, categories, clients, duration, location, liveUrl, images, pullQuo
 const marketLabel = market === "departmnt" ? "DEPARTMNT" : "Personal / Agency-Era";
 const { Content } = await render(entry);
 
+const caseStudySchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: title,
+  description: entry.data.description,
+  creator: { "@type": "Person", name: "Gareth Matthews" },
+  about: categories.join(", "),
+  ...(clients.length && {
+    client: clients.map((c) => ({ "@type": "Organization", name: c.name, ...(c.url && { url: c.url }) })),
+  }),
+  ...(location && { locationCreated: location }),
+  image: new URL(entry.data.cover, Astro.site ?? Astro.url.origin).toString(),
+};
+
 const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.data.order);
 const currentIndex = allWork.findIndex((w) => w.data.slug === entry.data.slug);
 const related = Array.from({ length: 2 }, (_, i) => allWork[(currentIndex + i + 1) % allWork.length]);
@@ -24,6 +38,7 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
 ---
 
 <Layout title={`${title} — Gareth Matthews`} description={entry.data.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(caseStudySchema)} />
   <main class="mx-auto max-w-[1480px] px-5 pt-32 pb-28 sm:px-10">
     <a href="/work" class="text-sm text-muted transition-colors hover:text-paper">{title} /</a>
     <h1 class="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">{title}</h1>
