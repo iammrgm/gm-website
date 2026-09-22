@@ -2,8 +2,11 @@
 title: "Navinder Nangla"
 slug: "navinder-nangla"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "Connected Fashion"
-client: "Navinder Nangala"
+categories:
+  - "Connected Fashion"
+clients:
+  - name: "Navinder Nangala"
+    url: ""
 duration: "1 Month"
 location: "London · Paris"
 liveUrl: "https://www.endclothing.com/gb/features/navinder-nangla-presents-londone-fassion-weak"

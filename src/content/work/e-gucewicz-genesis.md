@@ -2,8 +2,11 @@
 title: "E Gucewicz — Genesis Collection"
 slug: "e-gucewicz-genesis"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "Connected Product"
-client: "DEPARTMNT"
+categories:
+  - "Connected Product"
+clients:
+  - name: "DEPARTMNT"
+    url: ""
 duration: "1 Year"
 location: "London"
 liveUrl: "https://app.gitbook.com/o/aX1xNjECkX2sJi7lpSTG/s/EqBIy49LtxNLgMoosov1/"

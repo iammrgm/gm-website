@@ -2,8 +2,11 @@
 title: "Novelist × Casio G-Shock"
 slug: "novelist-casio-g-shock"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "Brand Partnership"
-client: "Casio G-Shock"
+categories:
+  - "Brand Partnership"
+clients:
+  - name: "Casio G-Shock"
+    url: ""
 duration: "1 Year"
 location: "Europe"
 liveUrl: ""

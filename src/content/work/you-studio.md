@@ -2,8 +2,11 @@
 title: "YOU Studio"
 slug: "you-studio"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "Platform Build"
-client: "YOU Studio"
+categories:
+  - "Platform Build"
+clients:
+  - name: "YOU Studio"
+    url: ""
 duration: "Ongoing"
 location: "London"
 liveUrl: ""

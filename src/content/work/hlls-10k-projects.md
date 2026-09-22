@@ -2,8 +2,11 @@
 title: "H.LLS"
 slug: "hlls-10k-projects"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "Fan Infrastructure"
-client: "H.LLS · 10K Projects"
+categories:
+  - "Fan Infrastructure"
+clients:
+  - name: "H.LLS · 10K Projects"
+    url: ""
 duration: "Ongoing"
 location: "London · Paris"
 liveUrl: ""

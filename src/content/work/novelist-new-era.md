@@ -2,8 +2,11 @@
 title: "Novelist × New Era"
 slug: "novelist-new-era"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "Culture Partnership"
-client: "Novelist"
+categories:
+  - "Culture Partnership"
+clients:
+  - name: "Novelist"
+    url: ""
 duration: "1 Year"
 location: "London"
 liveUrl: "https://www.neweracap.co.uk/blogs/discover/novelist"

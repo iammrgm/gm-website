@@ -2,8 +2,11 @@
 title: "BOOGLE Asia Tour"
 slug: "boogle-asia-tour"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "Live Infrastructure"
-client: "BOOGLE"
+categories:
+  - "Live Infrastructure"
+clients:
+  - name: "BOOGLE"
+    url: ""
 duration: "3 Months"
 location: "Seoul, South Korea · Tokyo, Japan · Singapore"
 liveUrl: "./boogle-asia-tour"

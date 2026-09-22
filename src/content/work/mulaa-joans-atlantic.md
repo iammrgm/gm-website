@@ -2,8 +2,11 @@
 title: "Mulaa Joans / Atlantic Records"
 slug: "mulaa-joans-atlantic"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "Fan Activation"
-client: "Mulaa Joans · Atlantic Records"
+categories:
+  - "Fan Activation"
+clients:
+  - name: "Mulaa Joans · Atlantic Records"
+    url: ""
 duration: "Ongoing"
 location: "London · Reading · Leeds"
 liveUrl: ""

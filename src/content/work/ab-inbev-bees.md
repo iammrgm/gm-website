@@ -2,8 +2,11 @@
 title: "AB InBev / BEES"
 slug: "ab-inbev-bees"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "Platform Brand"
-client: "AB InBev"
+categories:
+  - "Platform Brand"
+clients:
+  - name: "AB InBev"
+    url: ""
 duration: "6 Months"
 location: "Global"
 liveUrl: "https://consumergoods.com/ab-inbev-helps-drive-marketing-optimization-ml-powered-bees"

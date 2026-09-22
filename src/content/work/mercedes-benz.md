@@ -2,8 +2,11 @@
 title: "Mercedes-Benz"
 slug: "mercedes-benz"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "Retail Transformation"
-client: "Mercedes-Benz UK"
+categories:
+  - "Retail Transformation"
+clients:
+  - name: "Mercedes-Benz UK"
+    url: ""
 duration: "6 Months"
 location: "United Kingdom · Europe"
 liveUrl: "https://www.campaignlive.co.uk/article/omnicom-won-mercedes-holistic-marketing-buying-two-agencies/1728278"

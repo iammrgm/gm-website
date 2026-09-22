@@ -2,8 +2,11 @@
 title: "Coca-Cola — Piccadilly Circus"
 slug: "coca-cola-piccadilly"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "OOH / Interactive"
-client: "Coca-Cola"
+categories:
+  - "OOH / Interactive"
+clients:
+  - name: "Coca-Cola"
+    url: ""
 duration: "1 Month"
 location: "London"
 liveUrl: ""

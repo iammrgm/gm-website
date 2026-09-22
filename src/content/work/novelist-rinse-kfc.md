@@ -2,8 +2,11 @@
 title: "Novelist × Rinse × KFC"
 slug: "novelist-rinse-kfc"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "Brand Activation"
-client: "KFC"
+categories:
+  - "Brand Activation"
+clients:
+  - name: "KFC"
+    url: ""
 duration: "1 Month"
 location: "London · Facebook Live"
 liveUrl: "https://www.campaignlive.co.uk/article/kfc-brings-gamers-grimers-together-facebook-live-video-first/1417532"

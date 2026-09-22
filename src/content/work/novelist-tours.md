@@ -2,8 +2,11 @@
 title: "Novelist — Worldwide Tours"
 slug: "novelist-tours"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "Touring"
-client: "Novelist"
+categories:
+  - "Touring"
+clients:
+  - name: "Novelist"
+    url: ""
 duration: "2 Years"
 location: "UK · Europe · Asia · Oceania"
 liveUrl: ""

@@ -2,8 +2,11 @@
 title: "Novelist × Uniqlo"
 slug: "novelist-uniqlo"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "Retail Activation"
-client: "Uniqlo"
+categories:
+  - "Retail Activation"
+clients:
+  - name: "Uniqlo"
+    url: ""
 duration: "1 Month"
 location: "London"
 liveUrl: "https://www.nts.live/events/star_wars"

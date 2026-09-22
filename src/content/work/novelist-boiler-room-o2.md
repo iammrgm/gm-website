@@ -2,8 +2,11 @@
 title: "Novelist × Boiler Room × O2"
 slug: "novelist-boiler-room-o2"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
-category: "Culture Campaign"
-client: "O2 · Boiler Room"
+categories:
+  - "Culture Campaign"
+clients:
+  - name: "O2 · Boiler Room"
+    url: ""
 duration: "1 Month"
 location: "London · Global stream"
 liveUrl: "https://www.youtube.com/watch?v=-n-dZQxliw0"

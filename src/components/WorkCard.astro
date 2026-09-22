@@ -6,14 +6,15 @@ interface Props {
   index: number;
 }
 const { entry, index } = Astro.props;
-const { title, category, client, cover } = entry.data;
+const { title, categories, clients, cover } = entry.data;
 const num = String(index).padStart(2, "0");
+const clientNames = clients.map((c) => c.name).join(" · ");
 ---
 
 <a
   href={`/work/${entry.data.slug}`}
   data-work-card
-  data-search={`${title} ${category} ${client}`.toLowerCase()}
+  data-search={`${title} ${categories.join(" ")} ${clientNames}`.toLowerCase()}
   class="group flex items-center justify-between gap-6 py-8 transition-colors hover:bg-paper/[0.03]"
 >
   <div class="flex items-center gap-6 sm:gap-10">
@@ -27,7 +28,7 @@ const num = String(index).padStart(2, "0");
       />
     </div>
     <div>
-      <p class="text-xs font-semibold uppercase tracking-widest text-muted">{category}</p>
+      <p class="text-xs font-semibold uppercase tracking-widest text-muted">{categories.join(" / ")}</p>
       <p class="mt-1 text-xl font-semibold tracking-tight text-paper sm:text-2xl">{title}</p>
     </div>
   </div>
