@@ -17,6 +17,32 @@ const {
 } = Astro.props;
 
 const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url.origin).toString();
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Gareth Matthews",
+  jobTitle: "Founder & CEO",
+  worksFor: {
+    "@type": "Organization",
+    name: "DEPARTMNT",
+    url: "https://departmnt.xyz",
+  },
+  url: "https://www.garethmatthews.uk",
+  sameAs: [
+    "https://www.linkedin.com/in/gareth-matthews/",
+    "https://instagram.com/iammrgm",
+    "https://x.com/MandroDesign",
+    "https://iammrgm.substack.com/",
+  ],
+  knowsAbout: [
+    "NFC infrastructure",
+    "Ticketing systems",
+    "Connected fashion",
+    "Brand activation",
+    "Live events",
+  ],
+};
 ---
 
 <!doctype html>
@@ -35,6 +61,7 @@ const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url.origin).toString();
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
     <ClientRouter />
   </head>
   <body class="min-h-screen antialiased">

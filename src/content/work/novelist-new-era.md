@@ -4,6 +4,7 @@ slug: "novelist-new-era"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
 categories:
   - "Culture Partnership"
+market: "personal"
 clients:
   - name: "Novelist"
     url: ""

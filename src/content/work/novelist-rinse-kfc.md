@@ -4,6 +4,7 @@ slug: "novelist-rinse-kfc"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
 categories:
   - "Brand Activation"
+market: "personal"
 clients:
   - name: "KFC"
     url: ""

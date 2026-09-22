@@ -4,6 +4,7 @@ slug: "national-lottery"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
 categories:
   - "National Rebrand"
+market: "personal"
 clients:
   - name: "Halo"
     url: ""

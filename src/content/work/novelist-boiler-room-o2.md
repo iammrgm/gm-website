@@ -4,6 +4,7 @@ slug: "novelist-boiler-room-o2"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
 categories:
   - "Culture Campaign"
+market: "personal"
 clients:
   - name: "O2 · Boiler Room"
     url: ""

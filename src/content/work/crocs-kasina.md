@@ -5,6 +5,7 @@ description: "Nightclubs, national brands, artist campaigns, connected products.
 categories:
   - "Product Launch"
   - "Gamification"
+market: "departmnt"
 clients:
   - name: "Crocs"
     url: "https://www.crocs.com"

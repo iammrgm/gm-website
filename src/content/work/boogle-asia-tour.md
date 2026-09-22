@@ -4,6 +4,7 @@ slug: "boogle-asia-tour"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
 categories:
   - "Live Infrastructure"
+market: "personal"
 clients:
   - name: "BOOGLE"
     url: ""

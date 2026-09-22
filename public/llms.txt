@@ -1,0 +1,37 @@
+# Gareth Matthews
+
+> Founder & CEO of DEPARTMNT. 15+ years across culture and commerce, building
+> the infrastructure — tag, platform, app — that turns physical products,
+> live events and real-world moments into owned digital relationships.
+
+Gareth Matthews is the founder and CEO of DEPARTMNT (departmnt.xyz), a
+London-based company building NFC-powered connected-product infrastructure
+(TapTech: Tags, Portal, Core) for brands, artists and venues. Before
+DEPARTMNT he spent over a decade in artist management, brand partnerships
+and live event production across music and culture.
+
+## Site structure
+
+- [Home](/): Profile, client list, and featured work.
+- [Work](/work): Full case study index — 19 projects spanning connected
+  product infrastructure (DEPARTMNT), and earlier artist management /
+  brand consulting work. Each project page includes a Brief, What We Built
+  and Outcome section with named clients, categories and quantified results
+  where available.
+- [About](/#about): Background, speaking topics, and FAQ.
+- [Press](/press): Boilerplate, bio (short and medium), headshots and
+  company/personal facts for media use.
+- [Thoughts](https://iammrgm.substack.com/): Long-form writing. Full
+  articles are published on this site first; Substack carries a teaser
+  and link back.
+- [Contact](/#contact): Direct enquiry form.
+
+## Key facts
+
+- Role: Founder & CEO, DEPARTMNT (departmnt.xyz)
+- Location: London, UK
+- Areas of expertise: NFC infrastructure, ticketing systems, connected
+  fashion/product, brand activation, live events, artist management
+- DEPARTMNT clients referenced on this site: Genesys, Atlantic Records,
+  10K Projects, G-SHOCK, Crocs, Kasina, H.LLS, YOU Studio, Mulaa Joans
+- Social: LinkedIn, Instagram, X, Substack — linked in the site footer

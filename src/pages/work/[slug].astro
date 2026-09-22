@@ -12,7 +12,8 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { title, categories, clients, duration, location, liveUrl, images, pullQuote, stats } = entry.data;
+const { title, categories, clients, duration, location, liveUrl, images, pullQuote, stats, market } = entry.data;
+const marketLabel = market === "departmnt" ? "DEPARTMNT" : "Personal / Agency-Era";
 const { Content } = await render(entry);
 
 const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.data.order);
@@ -33,6 +34,10 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
       </article>
 
       <aside class="space-y-8 border-t border-line pt-8 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Market</p>
+          <p class="mt-1 text-paper">{marketLabel}</p>
+        </div>
         <div>
           <p class="text-xs font-semibold uppercase tracking-widest text-muted">Category</p>
           <div class="mt-2 flex flex-wrap gap-2">
@@ -117,8 +122,13 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
     {
       images.length > 0 && (
         <div class="mt-24 grid gap-4 sm:grid-cols-2" data-reveal>
-          {images.map((src) => (
-            <img src={src} alt="" loading="lazy" class="w-full rounded-lg object-cover" />
+          {images.map((src, i) => (
+            <img
+              src={src}
+              alt={`${title} — project photo ${i + 1} of ${images.length}`}
+              loading="lazy"
+              class="w-full rounded-lg object-cover"
+            />
           ))}
         </div>
       )

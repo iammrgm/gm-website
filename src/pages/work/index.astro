@@ -20,6 +20,29 @@ const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.da
         />
       </label>
     </div>
+    <div class="mt-6 flex flex-wrap gap-2" data-market-filter>
+      <button
+        type="button"
+        data-market-btn="all"
+        class="rounded-full border border-paper bg-paper px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-ink"
+      >
+        All
+      </button>
+      <button
+        type="button"
+        data-market-btn="departmnt"
+        class="rounded-full border border-line px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-muted transition-colors hover:border-paper hover:text-paper"
+      >
+        DEPARTMNT
+      </button>
+      <button
+        type="button"
+        data-market-btn="personal"
+        class="rounded-full border border-line px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-muted transition-colors hover:border-paper hover:text-paper"
+      >
+        Personal / Agency-Era
+      </button>
+    </div>
     <p class="mt-4 hidden text-sm text-muted" data-work-empty>No work matches that search.</p>
     <div class="mt-8 divide-y divide-line border-t border-line" data-work-list data-reveal>
       {allWork.map((entry, i) => <WorkCard entry={entry} index={i + 1} />)}
@@ -32,18 +55,40 @@ const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.da
     const input = document.querySelector<HTMLInputElement>("[data-work-search]");
     const cards = document.querySelectorAll<HTMLAnchorElement>("[data-work-card]");
     const empty = document.querySelector<HTMLParagraphElement>("[data-work-empty]");
+    const marketBtns = document.querySelectorAll<HTMLButtonElement>("[data-market-btn]");
     if (!input) return;
 
-    input.value = "";
-    input.addEventListener("input", () => {
-      const q = input.value.trim().toLowerCase();
+    let activeMarket = "all";
+
+    function applyFilters() {
+      const q = input!.value.trim().toLowerCase();
       let visibleCount = 0;
       cards.forEach((card) => {
-        const match = !q || (card.dataset.search ?? "").includes(q);
+        const matchesSearch = !q || (card.dataset.search ?? "").includes(q);
+        const matchesMarket = activeMarket === "all" || card.dataset.market === activeMarket;
+        const match = matchesSearch && matchesMarket;
         card.classList.toggle("hidden", !match);
         if (match) visibleCount++;
       });
       empty?.classList.toggle("hidden", visibleCount !== 0);
+    }
+
+    input.value = "";
+    input.addEventListener("input", applyFilters);
+
+    marketBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activeMarket = btn.dataset.marketBtn ?? "all";
+        marketBtns.forEach((b) => {
+          const isActive = b === btn;
+          b.classList.toggle("bg-paper", isActive);
+          b.classList.toggle("border-paper", isActive);
+          b.classList.toggle("text-ink", isActive);
+          b.classList.toggle("border-line", !isActive);
+          b.classList.toggle("text-muted", !isActive);
+        });
+        applyFilters();
+      });
     });
   }
 
