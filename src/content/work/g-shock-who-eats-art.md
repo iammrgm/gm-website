@@ -1,0 +1,46 @@
+---
+title: "G-Shock × Who Eats Art"
+slug: "g-shock-who-eats-art"
+description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
+category: "Gamified Installation"
+client: "Casio · G-Shock"
+duration: "1 Week"
+location: "Singapore"
+liveUrl: "https://gshock.casio.com/sg/g-news/events/2025/gshock-active-lifestyle/"
+cover: "/images/work/g-shock-who-eats-art/cover.jpg"
+images:
+  - "/images/work/g-shock-who-eats-art/0.png"
+  - "/images/work/g-shock-who-eats-art/1.png"
+  - "/images/work/g-shock-who-eats-art/2.png"
+  - "/images/work/g-shock-who-eats-art/3.png"
+---
+
+## Situation
+
+
+
+## What we built
+
+Spray. Bite. Log. Share.
+Eleven NFC tags embedded across a single artwork, running in the mobile browser. No app.
+— A visitor sprayed a cookie, ate it, then tapped the piece to log the moment
+— Name, social handle and the time of the bite were recorded against that tap
+— Each entry generated a shareable asset built for Instagram
+— The canvas accumulated the physical imprints. The platform accumulated everyone who made one
+The finished work exists twice: as an object, and as a record of the people who ate it.
+
+## What changed
+
+We built eleven tags and assumed the artwork would distribute attention across them.
+It didn't. Three placements produced 70% of all participants. One tag generated a single sign-up. Another produced none at all. The technology was identical at every point on the piece — what varied was whether a person could see the tag and reach it comfortably.
+The second thing the data settled: the connected layer doesn't create footfall, it converts it. Across four days, 80% of participants arrived on the single Saturday of the physical activation. Engagement that day ran 22× launch day. Put the tags where the people already are, at the height a hand naturally goes, and the rest takes care of itself.
+
+## Outcome
+
+Four days. One artwork. Eleven tags.
+— 92% of everyone who tapped completed the full journey
+— 39% shared to social, with no incentive offered
+— 100% mobile traffic
+— 85% of participants gave their name
+— 77 participants, 84 taps, 338 total engagements
+Credited by Casio as TapTech powered by DEPARTMNT on G-SHOCK Singapore's own site.

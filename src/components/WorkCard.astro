@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"work">;
+  index: number;
+}
+const { entry, index } = Astro.props;
+const { title, category, cover } = entry.data;
+const num = String(index).padStart(2, "0");
+---
+
+<a
+  href={`/work/${entry.data.slug}`}
+  class="group flex items-center justify-between gap-6 py-8 transition-colors hover:bg-paper/[0.03]"
+>
+  <div class="flex items-center gap-6 sm:gap-10">
+    <span class="text-sm text-muted">({num})</span>
+    <div class="h-16 w-24 shrink-0 overflow-hidden rounded-md bg-line/20 sm:h-20 sm:w-32">
+      <img
+        src={cover}
+        alt={title}
+        loading="lazy"
+        class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+    </div>
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-muted">{category}</p>
+      <p class="mt-1 text-xl font-semibold tracking-tight text-paper sm:text-2xl">{title}</p>
+    </div>
+  </div>
+  <span
+    class="hidden shrink-0 rounded-full border border-line px-4 py-2 text-sm text-muted transition-colors group-hover:border-paper group-hover:text-paper sm:inline-block"
+  >
+    View project
+  </span>
+</a>

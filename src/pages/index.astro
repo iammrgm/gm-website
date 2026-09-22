@@ -1,0 +1,72 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Marquee from "../components/Marquee.astro";
+import WorkCard from "../components/WorkCard.astro";
+
+const allWork = (await getCollection("work")).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title)
+);
+// Featured order matches the live site's homepage selection.
+const featuredSlugs = ["crocs-kasina", "hlls-10k-projects", "mulaa-joans-atlantic", "you-studio", "g-shock-who-eats-art"];
+const featured = featuredSlugs
+  .map((slug) => allWork.find((w) => w.data.slug === slug))
+  .filter((w) => w !== undefined);
+
+const cascade = [
+  "Fifteen years watching culture generate attention no brand could hold onto,",
+  "and brands spend fortunes reaching people they'd never be able to name.",
+  "The room was always the asset.",
+  "Nobody was building for it.",
+  "So I did.",
+];
+---
+
+<Layout title="Gareth Matthews — Founder & CEO, DEPARTMNT">
+  <main>
+    <section class="mx-auto flex min-h-screen max-w-[1480px] flex-col justify-center px-5 pt-28 sm:px-10">
+      <p class="text-xs font-semibold uppercase tracking-widest text-muted">Gareth Matthews</p>
+      <h1 class="mt-6 max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight sm:text-7xl">
+        Building the infrastructure for a more connected world.
+      </h1>
+      <p class="mt-8 max-w-lg text-lg text-muted">
+        15+ years<sup class="text-xs">™</sup> across culture and commerce — and the growing conviction
+        that the two were never properly wired together.
+      </p>
+    </section>
+
+    <Marquee items={["Culture", "Commerce", "Infrastructure", "Systems"]} />
+
+    <section class="mx-auto max-w-[1480px] px-5 py-28 sm:px-10">
+      <div class="grid gap-16 sm:grid-cols-2">
+        <div class="space-y-6 text-2xl font-medium leading-snug tracking-tight text-paper sm:text-3xl">
+          {cascade.map((line) => <p>{line}</p>)}
+        </div>
+        <div class="space-y-8 text-lg text-muted">
+          <p>
+            DEPARTMNT builds the infrastructure for connected products — tag, platform, app —
+            turning a physical object into the start of a relationship rather than the end of a
+            transaction.
+          </p>
+          <p>
+            Nightclubs, national brands, artist campaigns, connected products. Different rooms,
+            same question every time — how do you actually reach someone, and what happens once
+            you have?
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-[1480px] px-5 pb-28 sm:px-10">
+      <div class="flex items-baseline justify-between border-b border-line pb-6">
+        <h2 class="text-sm font-semibold uppercase tracking-widest text-muted">Featured Work</h2>
+        <a href="/work" class="text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4">
+          All works ({allWork.length})
+        </a>
+      </div>
+      <div class="mt-2 divide-y divide-line">
+        {featured.map((item, i) => <WorkCard entry={item!} index={i + 1} />)}
+      </div>
+    </section>
+  </main>
+</Layout>

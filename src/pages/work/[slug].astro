@@ -1,0 +1,91 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const allWork = await getCollection("work");
+  return allWork.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { title, category, client, duration, location, liveUrl, images } = entry.data;
+const { Content } = await render(entry);
+---
+
+<Layout title={`${title} — Gareth Matthews`} description={entry.data.description}>
+  <main class="mx-auto max-w-[1480px] px-5 pt-32 pb-28 sm:px-10">
+    <p class="text-sm text-muted">{title} /</p>
+    <h1 class="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">{title}</h1>
+
+    <div class="mt-16 grid gap-16 lg:grid-cols-[1fr_320px]">
+      <article class="prose-work max-w-2xl space-y-10 text-lg text-paper/90">
+        <Content />
+      </article>
+
+      <aside class="space-y-8 border-t border-line pt-8 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Category</p>
+          <p class="mt-1 text-paper">{category}</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Client</p>
+          <p class="mt-1 text-paper">{client}</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Duration</p>
+          <p class="mt-1 text-paper">{duration}</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Location</p>
+          <p class="mt-1 text-paper">{location}</p>
+        </div>
+        {
+          liveUrl && (
+            <a
+              href={liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-block rounded-full border border-line px-5 py-2.5 text-sm text-paper transition-colors hover:border-paper"
+            >
+              Live Website ↗
+            </a>
+          )
+        }
+      </aside>
+    </div>
+
+    {
+      images.length > 0 && (
+        <div class="mt-24 grid gap-4 sm:grid-cols-2">
+          {images.map((src) => (
+            <img src={src} alt="" loading="lazy" class="w-full rounded-lg object-cover" />
+          ))}
+        </div>
+      )
+    }
+
+    <a
+      href="/work"
+      class="mt-24 inline-block text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4"
+    >
+      ← Back to all works
+    </a>
+  </main>
+</Layout>
+
+<style>
+  .prose-work :global(h2) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-paper);
+    margin-top: 2rem;
+  }
+  .prose-work :global(p) {
+    margin-top: 0.75rem;
+    color: rgba(245, 244, 241, 0.75);
+  }
+</style>

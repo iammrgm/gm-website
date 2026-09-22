@@ -1,0 +1,34 @@
+---
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Gareth Matthews — Founder & CEO, DEPARTMNT. Building the infrastructure for a more connected world.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body class="min-h-screen antialiased">
+    <Nav />
+    <slot />
+    <Footer />
+  </body>
+</html>
