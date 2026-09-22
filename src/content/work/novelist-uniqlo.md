@@ -7,7 +7,7 @@ client: "Uniqlo"
 duration: "1 Month"
 location: "London"
 liveUrl: "https://www.nts.live/events/star_wars"
-cover: "/images/work/novelist-uniqlo/0.jpeg"
+cover: "/images/work/novelist-uniqlo/2.jpg"
 images:
   - "/images/work/novelist-uniqlo/0.jpeg"
   - "/images/work/novelist-uniqlo/1.jpeg"
