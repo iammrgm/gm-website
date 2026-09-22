@@ -22,19 +22,16 @@ const logoIds = [
 const NO_INVERT = new Set(["AvKlIpwI4O2Ws5lHYtL7BWaSY"]);
 ---
 
-<div
-  class="grid grid-cols-3 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-5"
-  aria-label="Client and partner logos"
->
+<div class="grid grid-cols-3 sm:grid-cols-5" aria-label="Client and partner logos">
   {
     logoIds.map((id) => (
-      <div class="flex aspect-[169/154] items-center justify-center bg-ink p-4 sm:p-5">
+      <div class="flex aspect-[169/154] items-center justify-center">
         <img
           src={`/images/logos/${id}.png`}
           alt=""
           loading="lazy"
           class:list={[
-            "max-h-full max-w-full object-contain opacity-80",
+            "h-7 w-auto object-contain opacity-80 sm:h-10",
             !NO_INVERT.has(id) && "brightness-0 invert",
           ]}
         />
