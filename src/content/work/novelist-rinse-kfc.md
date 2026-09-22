@@ -7,7 +7,7 @@ client: "KFC"
 duration: "1 Month"
 location: "London · Facebook Live"
 liveUrl: "https://www.campaignlive.co.uk/article/kfc-brings-gamers-grimers-together-facebook-live-video-first/1417532"
-cover: "/images/work/novelist-rinse-kfc/cover.jpg"
+cover: "/images/work/novelist-rinse-kfc/0.jpg"
 images:
   - "/images/work/novelist-rinse-kfc/0.jpg"
   - "/images/work/novelist-rinse-kfc/1.png"

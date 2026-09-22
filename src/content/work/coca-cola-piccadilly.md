@@ -7,7 +7,7 @@ client: "Coca-Cola"
 duration: "1 Month"
 location: "London"
 liveUrl: ""
-cover: "/images/work/coca-cola-piccadilly/cover.jpg"
+cover: "/images/work/coca-cola-piccadilly/0.png"
 images:
   - "/images/work/coca-cola-piccadilly/0.png"
   - "/images/work/coca-cola-piccadilly/1.png"

@@ -7,7 +7,7 @@ client: "YOU Studio"
 duration: "Ongoing"
 location: "London"
 liveUrl: ""
-cover: "/images/work/you-studio/cover.jpg"
+cover: "/images/work/you-studio/0.png"
 images:
   - "/images/work/you-studio/0.png"
   - "/images/work/you-studio/1.png"

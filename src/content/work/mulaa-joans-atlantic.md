@@ -7,7 +7,7 @@ client: "Mulaa Joans · Atlantic Records"
 duration: "Ongoing"
 location: "London · Reading · Leeds"
 liveUrl: ""
-cover: "/images/work/mulaa-joans-atlantic/cover.jpg"
+cover: "/images/work/mulaa-joans-atlantic/0.png"
 images:
   - "/images/work/mulaa-joans-atlantic/0.png"
   - "/images/work/mulaa-joans-atlantic/1.png"

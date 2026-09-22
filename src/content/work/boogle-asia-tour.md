@@ -7,7 +7,7 @@ client: "BOOGLE"
 duration: "3 Months"
 location: "Seoul, South Korea · Tokyo, Japan · Singapore"
 liveUrl: "./boogle-asia-tour"
-cover: "/images/work/boogle-asia-tour/cover.jpg"
+cover: "/images/work/boogle-asia-tour/0.png"
 images:
   - "/images/work/boogle-asia-tour/0.png"
   - "/images/work/boogle-asia-tour/1.png"

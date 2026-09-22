@@ -7,7 +7,7 @@ client: "Mercedes-Benz UK"
 duration: "6 Months"
 location: "United Kingdom · Europe"
 liveUrl: "https://www.campaignlive.co.uk/article/omnicom-won-mercedes-holistic-marketing-buying-two-agencies/1728278"
-cover: "/images/work/mercedes-benz/cover.jpg"
+cover: "/images/work/mercedes-benz/0.jpeg"
 images:
   - "/images/work/mercedes-benz/0.jpeg"
   - "/images/work/mercedes-benz/1.png"

@@ -7,7 +7,7 @@ client: "Crocs · Kasina"
 duration: "1 Week"
 location: "Seoul, South Korea"
 liveUrl: "https://www.kasina.co.kr/discover/77794"
-cover: "/images/work/crocs-kasina/cover.jpg"
+cover: "/images/work/crocs-kasina/0.jpeg"
 images:
   - "/images/work/crocs-kasina/0.jpeg"
   - "/images/work/crocs-kasina/1.jpg"

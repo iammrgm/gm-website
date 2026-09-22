@@ -7,7 +7,7 @@ client: "H.LLS · 10K Projects"
 duration: "Ongoing"
 location: "London · Paris"
 liveUrl: ""
-cover: "/images/work/hlls-10k-projects/cover.jpg"
+cover: "/images/work/hlls-10k-projects/0.png"
 images:
   - "/images/work/hlls-10k-projects/0.png"
   - "/images/work/hlls-10k-projects/1.jpg"

@@ -7,7 +7,7 @@ client: "Genesys"
 duration: "1 Year"
 location: "London · LA"
 liveUrl: ""
-cover: "/images/work/genesys/cover.jpg"
+cover: "/images/work/genesys/0.png"
 images:
   - "/images/work/genesys/0.png"
   - "/images/work/genesys/1.png"

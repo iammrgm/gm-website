@@ -7,7 +7,7 @@ client: "DEPARTMNT"
 duration: "1 Year"
 location: "London"
 liveUrl: "https://app.gitbook.com/o/aX1xNjECkX2sJi7lpSTG/s/EqBIy49LtxNLgMoosov1/"
-cover: "/images/work/e-gucewicz-genesis/cover.jpg"
+cover: "/images/work/e-gucewicz-genesis/0.jpg"
 images:
   - "/images/work/e-gucewicz-genesis/0.jpg"
   - "/images/work/e-gucewicz-genesis/1.jpg"

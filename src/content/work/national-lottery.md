@@ -7,7 +7,7 @@ client: "Halo"
 duration: "6 Months"
 location: "United Kingdom"
 liveUrl: "https://www.national-lottery.co.uk/"
-cover: "/images/work/national-lottery/cover.jpg"
+cover: "/images/work/national-lottery/0.webp"
 images:
   - "/images/work/national-lottery/0.webp"
   - "/images/work/national-lottery/1.webp"

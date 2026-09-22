@@ -85,7 +85,6 @@ async function extractOne(slug) {
 
   const title = $("title").text().replace(/\s*—\s*Gareth Matthews.*/, "").trim();
   const metaDescription = $('meta[name="description"]').attr("content") || "";
-  const ogImage = $('meta[property="og:image"]').attr("content") || "";
 
   const text = innerText($, $("body")[0]);
 
@@ -144,16 +143,10 @@ async function extractOne(slug) {
     }
   }
 
-  let coverLocal = "";
-  if (ogImage) {
-    try {
-      const rel = await downloadImage(ogImage.split("?")[0], destDir, "cover");
-      coverLocal = `/${rel}`;
-    } catch (e) {
-      console.warn(`  cover failed: ${e.message}`);
-    }
-  }
-  if (!coverLocal) coverLocal = localImages[0] || "";
+  // Note: og:image is a single sitewide fallback (the author's portrait) on
+  // this site, not a per-project image — use the project's own first gallery
+  // image as its cover instead.
+  const coverLocal = localImages[0] || "";
 
   const frontmatter = {
     title,

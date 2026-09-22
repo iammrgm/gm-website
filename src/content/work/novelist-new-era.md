@@ -7,7 +7,7 @@ client: "Novelist"
 duration: "1 Year"
 location: "London"
 liveUrl: "https://www.neweracap.co.uk/blogs/discover/novelist"
-cover: "/images/work/novelist-new-era/cover.jpg"
+cover: "/images/work/novelist-new-era/0.jpeg"
 images:
   - "/images/work/novelist-new-era/0.jpeg"
   - "/images/work/novelist-new-era/1.jpg"

@@ -7,7 +7,7 @@ client: "Novelist"
 duration: "2 Years"
 location: "UK · Europe · Asia · Oceania"
 liveUrl: ""
-cover: "/images/work/novelist-tours/cover.jpg"
+cover: "/images/work/novelist-tours/0.jpg"
 images:
   - "/images/work/novelist-tours/0.jpg"
   - "/images/work/novelist-tours/1.jpeg"

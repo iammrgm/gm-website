@@ -7,7 +7,7 @@ client: "Navinder Nangala"
 duration: "1 Month"
 location: "London · Paris"
 liveUrl: "https://www.endclothing.com/gb/features/navinder-nangla-presents-londone-fassion-weak"
-cover: "/images/work/navinder-nangla/cover.jpg"
+cover: "/images/work/navinder-nangla/0.jpeg"
 images:
   - "/images/work/navinder-nangla/0.jpeg"
   - "/images/work/navinder-nangla/1.webp"

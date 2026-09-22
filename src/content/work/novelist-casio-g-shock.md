@@ -7,7 +7,7 @@ client: "Casio G-Shock"
 duration: "1 Year"
 location: "Europe"
 liveUrl: ""
-cover: "/images/work/novelist-casio-g-shock/cover.jpg"
+cover: "/images/work/novelist-casio-g-shock/0.jpeg"
 images:
   - "/images/work/novelist-casio-g-shock/0.jpeg"
   - "/images/work/novelist-casio-g-shock/1.jpeg"
