@@ -48,18 +48,30 @@ const cascadeLead =
       </div>
     </section>
 
-    <!-- Profile: tagline, contact, client logos -->
+    <!-- Profile: headshot, tagline, contact, client logos -->
     <section class="mx-auto max-w-[1480px] px-5 py-20 sm:px-10">
-      <p class="max-w-lg text-lg text-muted">
-        15+ years<sup class="text-xs">™</sup> across culture and commerce — and the growing conviction
-        that the two were never properly wired together.
-      </p>
-      <a
-        href="/#contact"
-        class="mt-6 inline-block rounded-full bg-paper px-8 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-80"
-      >
-        Contact
-      </a>
+      <div class="grid gap-10 sm:grid-cols-[minmax(0,320px)_1fr] sm:items-center">
+        <div class="aspect-[4/5] w-full max-w-[320px] overflow-hidden rounded-2xl bg-line/20">
+          <img
+            src="/images/about/headshot.png"
+            alt="Gareth Matthews"
+            loading="lazy"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div>
+          <p class="max-w-lg text-lg text-muted">
+            15+ years<sup class="text-xs">™</sup> across culture and commerce — and the growing conviction
+            that the two were never properly wired together.
+          </p>
+          <a
+            href="/#contact"
+            class="mt-6 inline-block rounded-full bg-paper px-8 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-80"
+          >
+            Contact
+          </a>
+        </div>
+      </div>
       <div class="mt-16">
         <ClientLogos />
       </div>
