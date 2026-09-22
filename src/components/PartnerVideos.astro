@@ -1,19 +1,26 @@
 ---
-const videoIds = [
-  "tEJyLiw78Otl9HT31lSl71Igd1Q",
-  "5olowgzf0BM9OmmN6A4xMDB6k",
-  "FCXfnqK5mg3OLagHvnz8bTwiFVU",
-  "Wx86FMdjp6N48XUOZVyO07ZCsE",
-  "zwjFGabSp2mAmVuDqPu2ZZBOOc",
+// Paired with a subset of the client-logo set as a watermark per video.
+// Note: exact video↔brand pairings weren't recoverable from the source
+// site, so this pairing is a reasonable approximation, not verified fact.
+const items = [
+  { video: "tEJyLiw78Otl9HT31lSl71Igd1Q", logo: "T8uAOScR0xkvP4hhxllTYf1ZPI4" },
+  { video: "5olowgzf0BM9OmmN6A4xMDB6k", logo: "R2myBgMMbe0q7niUKEh9od3Zdw" },
+  { video: "FCXfnqK5mg3OLagHvnz8bTwiFVU", logo: "FjrV6A6BMgIskLefRyIyKKghyk" },
+  { video: "Wx86FMdjp6N48XUOZVyO07ZCsE", logo: "rfiZuSlNifP1XA00obYNVBpbTUE" },
+  { video: "zwjFGabSp2mAmVuDqPu2ZZBOOc", logo: "zJqyT4D83X29dP9syrdfPsOdfzo" },
 ];
+const NO_INVERT = new Set(["AvKlIpwI4O2Ws5lHYtL7BWaSY"]);
 ---
 
-<div class="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:-mx-10 sm:px-10" data-partner-videos>
+<div
+  class="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-5 pb-4 sm:-mx-10 sm:px-10"
+  data-partner-videos
+>
   {
-    videoIds.map((id) => (
-      <div class="aspect-[9/16] w-[70vw] shrink-0 snap-center overflow-hidden rounded-xl bg-line/20 sm:w-[320px]">
+    items.map(({ video, logo }) => (
+      <div class="relative aspect-[9/16] w-[70vw] shrink-0 snap-center overflow-hidden rounded-xl bg-line/20 sm:w-[320px]">
         <video
-          src={`/videos/partners/${id}.mp4`}
+          src={`/videos/partners/${video}.mp4`}
           muted
           loop
           playsinline
@@ -21,6 +28,13 @@ const videoIds = [
           class="h-full w-full object-cover"
           data-autoplay-in-view
         />
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-4">
+          <img
+            src={`/images/logos/${logo}.png`}
+            alt=""
+            class:list={["h-6 max-w-[60%] object-contain object-left opacity-90", !NO_INVERT.has(logo) && "brightness-0 invert"]}
+          />
+        </div>
       </div>
     ))
   }
@@ -40,3 +54,9 @@ const videoIds = [
   );
   videos.forEach((v) => io.observe(v));
 </script>
+
+<style>
+  [data-partner-videos] {
+    scrollbar-width: thin;
+  }
+</style>

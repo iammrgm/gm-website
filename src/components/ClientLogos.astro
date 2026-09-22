@@ -1,4 +1,9 @@
 ---
+// Most of these are transparent-background line-art logos, so a
+// brightness-0/invert filter safely normalizes them to a white mark.
+// Boiler Room's is a filled black circle with white text baked in —
+// that filter crushes the whole thing to a blank white disc, so it's
+// left unfiltered and rendered as-is instead.
 const logoIds = [
   "T8uAOScR0xkvP4hhxllTYf1ZPI4",
   "AvKlIpwI4O2Ws5lHYtL7BWaSY",
@@ -14,20 +19,24 @@ const logoIds = [
   "VGysfM7eIhu9bvbn1d7vVmqqs1I",
   "SW3j5FpP9H6YKwpbJv505JfMwHA",
 ];
+const NO_INVERT = new Set(["AvKlIpwI4O2Ws5lHYtL7BWaSY"]);
 ---
 
 <div
-  class="grid grid-cols-3 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-5"
+  class="grid grid-cols-4 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-7"
   aria-label="Client and partner logos"
 >
   {
     logoIds.map((id) => (
-      <div class="flex aspect-square items-center justify-center bg-ink p-6">
+      <div class="flex aspect-square items-center justify-center bg-ink p-3 sm:p-4">
         <img
           src={`/images/logos/${id}.png`}
           alt=""
           loading="lazy"
-          class="max-h-full max-w-full object-contain opacity-80 brightness-0 invert"
+          class:list={[
+            "max-h-full max-w-full object-contain opacity-80",
+            !NO_INVERT.has(id) && "brightness-0 invert",
+          ]}
         />
       </div>
     ))

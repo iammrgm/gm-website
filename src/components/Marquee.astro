@@ -2,16 +2,20 @@
 interface Props {
   items: string[];
   class?: string;
+  size?: "sm" | "lg";
 }
-const { items, class: className = "" } = Astro.props;
+const { items, class: className = "", size = "lg" } = Astro.props;
 const loopItems = [...items, ...items, ...items, ...items];
+const textSize = size === "sm" ? "text-sm sm:text-base" : "text-2xl sm:text-4xl";
+const gap = size === "sm" ? "gap-6" : "gap-10";
+const padding = size === "sm" ? "py-2.5" : "py-4";
 ---
 
-<div class={`group relative overflow-hidden bg-paper py-4 ${className}`}>
-  <div class="flex w-max animate-marquee gap-10 group-hover:[animation-play-state:paused]">
+<div class={`group relative overflow-hidden bg-paper ${padding} ${className}`}>
+  <div class={`flex w-max animate-marquee ${gap} group-hover:[animation-play-state:paused]`}>
     {
       loopItems.map((item) => (
-        <span class="flex items-center gap-10 whitespace-nowrap text-2xl font-semibold tracking-tight text-ink sm:text-4xl">
+        <span class={`flex items-center ${gap} whitespace-nowrap font-semibold uppercase tracking-tight text-ink ${textSize}`}>
           {item}
           <span class="text-ink/30" aria-hidden="true">
             ✺

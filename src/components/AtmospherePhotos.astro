@@ -1,25 +1,22 @@
 ---
 const photos = [
-  { src: "/images/about/navinder-brick-lane.jpg", caption: "Navinder Nangla × Cheetos, Brick Lane, London" },
-  { src: "/images/about/bar-tokyo.jpg", caption: "A Bar, Tokyo" },
-  { src: "/images/about/boiler-room-lee-valley.jpg", caption: "Boiler Room World Tour 2024, Lee Valley Showground, London" },
+  { src: "/images/about/navinder-brick-lane.jpg", alt: "Navinder Nangla × Cheetos, Brick Lane, London" },
+  { src: "/images/about/bar-tokyo.jpg", alt: "A Bar, Tokyo" },
+  { src: "/images/about/boiler-room-lee-valley.jpg", alt: "Boiler Room World Tour 2024, Lee Valley Showground, London" },
 ];
 ---
 
 <div class="grid grid-cols-3 gap-3 sm:gap-4">
   {
     photos.map((photo) => (
-      <figure class="group">
-        <div class="aspect-[3/4] overflow-hidden rounded-lg bg-line/20">
-          <img
-            src={photo.src}
-            alt={photo.caption}
-            loading="lazy"
-            class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-        </div>
-        <figcaption class="mt-2 text-xs text-muted">{photo.caption}</figcaption>
-      </figure>
+      <div class="group aspect-[3/4] overflow-hidden rounded-lg bg-line/20">
+        <img
+          src={photo.src}
+          alt={photo.alt}
+          loading="lazy"
+          class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+      </div>
     ))
   }
 </div>

@@ -13,24 +13,19 @@ const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.da
 // The live site features the first 5 works, in CMS order.
 const featured = allWork.slice(0, 5);
 
-const cascade = [
-  "Fifteen years watching culture generate attention no brand could hold onto,",
-  "and brands spend fortunes reaching people they'd never be able to name.",
-  "The room was always the asset.",
-  "Nobody was building for it.",
-  "So I did.",
-];
+const cascadeLead =
+  "Fifteen years watching culture generate attention no brand could hold onto, and brands spend fortunes reaching people they'd never be able to name. The room was always the asset. Nobody was building for it. So I did.";
 ---
 
 <Layout title="Gareth Matthews — Founder & CEO, DEPARTMNT">
   <main>
     <!-- Hero -->
     <section class="mx-auto max-w-[1480px] px-5 pt-32 sm:px-10">
-      <p class="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-widest text-muted">
+      <p class="text-sm font-semibold uppercase tracking-widest text-muted">
         <RoleCycler client:load />
       </p>
-      <div class="mt-6 grid gap-8 sm:grid-cols-[1.3fr_1fr] sm:items-end">
-        <h1 class="text-5xl font-semibold leading-[1.05] tracking-tight sm:text-7xl">
+      <div class="mt-4 grid gap-8 sm:grid-cols-[1.3fr_1fr] sm:items-end">
+        <h1 class="text-6xl font-semibold leading-[1.03] tracking-tight sm:text-8xl">
           Building the infrastructure for a more connected world.
         </h1>
         <div class="aspect-[4/3] w-full overflow-hidden rounded-2xl bg-line/20 sm:aspect-square">
@@ -44,9 +39,7 @@ const cascade = [
         </div>
       </div>
 
-      <h2
-        class="mt-10 select-none text-[15vw] font-bold leading-none tracking-tight text-paper sm:text-[9vw]"
-      >
+      <h2 class="mt-8 select-none text-[13vw] font-bold leading-none tracking-tight text-paper sm:text-[7vw]">
         GARETH MATTHEWS
       </h2>
 
@@ -57,19 +50,17 @@ const cascade = [
 
     <!-- Profile: tagline, contact, client logos -->
     <section class="mx-auto max-w-[1480px] px-5 py-20 sm:px-10">
-      <div class="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <p class="max-w-lg text-lg text-muted">
-          15+ years<sup class="text-xs">™</sup> across culture and commerce — and the growing conviction
-          that the two were never properly wired together.
-        </p>
-        <a
-          href="/#contact"
-          class="shrink-0 rounded-full bg-paper px-8 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-80"
-        >
-          Contact
-        </a>
-      </div>
-      <div class="mt-12">
+      <p class="max-w-lg text-lg text-muted">
+        15+ years<sup class="text-xs">™</sup> across culture and commerce — and the growing conviction
+        that the two were never properly wired together.
+      </p>
+      <a
+        href="/#contact"
+        class="mt-6 inline-block rounded-full bg-paper px-8 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-80"
+      >
+        Contact
+      </a>
+      <div class="mt-16">
         <ClientLogos />
       </div>
     </section>
@@ -88,22 +79,20 @@ const cascade = [
         <AtmospherePhotos />
       </div>
 
-      <div class="mt-16 grid gap-16 sm:grid-cols-2">
-        <div class="space-y-6 text-2xl font-medium leading-snug tracking-tight text-paper sm:text-3xl">
-          {cascade.map((line) => <p>{line}</p>)}
-        </div>
-        <div class="space-y-8 text-lg text-muted">
-          <p>
-            DEPARTMNT builds the infrastructure for connected products — tag, platform, app —
-            turning a physical object into the start of a relationship rather than the end of a
-            transaction.
-          </p>
-          <p>
-            Nightclubs, national brands, artist campaigns, connected products. Different rooms,
-            same question every time — how do you actually reach someone, and what happens once
-            you have?
-          </p>
-        </div>
+      <div class="mt-16 max-w-3xl">
+        <p class="text-3xl font-medium leading-snug tracking-tight text-paper sm:text-4xl">
+          {cascadeLead}
+        </p>
+        <p class="mt-8 text-lg leading-relaxed text-muted sm:text-xl">
+          DEPARTMNT builds the infrastructure for connected products — tag, platform, app —
+          turning a physical object into the start of a relationship rather than the end of a
+          transaction.
+        </p>
+        <p class="mt-6 text-lg leading-relaxed text-muted sm:text-xl">
+          Nightclubs, national brands, artist campaigns, connected products. Different rooms,
+          same question every time — how do you actually reach someone, and what happens once
+          you have?
+        </p>
       </div>
     </section>
 
@@ -123,7 +112,7 @@ const cascade = [
 
     <!-- Brand Partners -->
     <section class="mx-auto max-w-[1480px] px-5 pb-28 sm:px-10">
-      <SectionLabel mark="Brand Partners パートナー" brand="WDX®" number="08" subtitle="Creative Teams" />
+      <SectionLabel mark="Featured Clients" number="04" subtitle="Select Clients" />
       <div class="mt-10">
         <PartnerVideos />
       </div>
