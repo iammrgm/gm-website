@@ -36,12 +36,23 @@ const items = [
 
 <script>
   const videos = document.querySelectorAll<HTMLVideoElement>("[data-autoplay-in-view]");
+  // Belt-and-braces: set the muted property in JS too, not just the HTML
+  // attribute — some browsers can let sound through on a script-triggered
+  // play() after user interaction if only the attribute is set.
+  videos.forEach((v) => {
+    v.muted = true;
+    v.volume = 0;
+  });
   const io = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
         const video = entry.target as HTMLVideoElement;
-        if (entry.isIntersecting) video.play().catch(() => {});
-        else video.pause();
+        if (entry.isIntersecting) {
+          video.muted = true;
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
       }
     },
     { threshold: 0.5 }

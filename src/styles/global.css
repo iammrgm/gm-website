@@ -31,8 +31,19 @@
   font-display: swap;
 }
 
+/* Carbon — DEPARTMNT's "Technical, All Caps Only" typeface, used here
+   for the market-tag labels. Licensed file from the team's Drive. */
+@font-face {
+  font-family: "Carbon";
+  src: url("../fonts/Carbon-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sans: "Monument Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-carbon: "Carbon", ui-monospace, monospace;
   --color-ink: #050505;
   --color-paper: #f5f4f1;
   --color-line: rgba(245, 244, 241, 0.14);

@@ -1,0 +1,150 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionLabel from "../components/SectionLabel.astro";
+import AtmospherePhotos from "../components/AtmospherePhotos.astro";
+
+const cascadeLead =
+  "Fifteen years watching culture generate attention no brand could hold onto, and brands spend fortunes reaching people they'd never be able to name. The room was always the asset. Nobody was building for it. So I did.";
+
+// Draft — for review. Titles/descriptions inferred from demonstrated work, not confirmed.
+const speakingTopics = [
+  {
+    title: "Connected products & NFC infrastructure",
+    description: "Turning a physical object into the start of a relationship, not the end of a sale.",
+  },
+  {
+    title: "From culture to commerce",
+    description: "What brands get wrong about reaching audiences that don't live on a media plan.",
+  },
+  {
+    title: "Building fan infrastructure",
+    description: "Consent, identity and loyalty for artists and labels, without another app.",
+  },
+  {
+    title: "Gamification in physical retail & events",
+    description: "Designing discovery into a space instead of bolting on a screen.",
+  },
+  {
+    title: "Artist-brand partnerships",
+    description: "What actually works, from a decade managing talent on both sides of the deal.",
+  },
+  {
+    title: "Founding inside culture",
+    description: "Lessons from building DEPARTMNT at the edge of culture and technology.",
+  },
+];
+
+// Draft — answers inferred from site content; availability/sectors worth confirming.
+const faqs = [
+  {
+    question: "What sectors do you work with?",
+    answer:
+      "Culture, music, fashion, retail and live events — anywhere a physical moment needs to become a digital relationship a brand can own.",
+  },
+  {
+    question: "Where are you based?",
+    answer: "London, UK. DEPARTMNT's projects run internationally.",
+  },
+  {
+    question: "What kind of inquiries do you take?",
+    answer:
+      "Speaking engagements, partnerships, press & media and advisory work, alongside DEPARTMNT client enquiries — the contact form on the home page lets you specify which.",
+  },
+  {
+    question: "Are you available for new projects?",
+    answer: "Reach out via the contact form and I'll get back to you on timing.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
+---
+
+<Layout
+  title="About — Gareth Matthews"
+  description="Gareth Matthews — Founder & CEO of DEPARTMNT. Background, founder memo, speaking topics and FAQ."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <main class="mx-auto max-w-[1480px] px-5 pt-32 pb-28 sm:px-10">
+    <SectionLabel mark="ABOUT" number="02" subtitle="The Long Way Round" />
+
+    <h1 class="mt-10 max-w-2xl text-5xl font-semibold tracking-tight sm:text-7xl">About</h1>
+
+    <!-- About Story -->
+    <div class="mt-16" data-reveal>
+      <p class="text-xs font-semibold uppercase tracking-widest text-muted">About Story</p>
+      <p class="mt-4 max-w-xl text-2xl font-medium tracking-tight text-paper sm:text-3xl">
+        Nightclubs, then boardrooms.
+      </p>
+
+      <div class="mt-12">
+        <AtmospherePhotos />
+      </div>
+
+      <div class="mt-16 max-w-3xl">
+        <p class="text-3xl font-medium leading-snug tracking-tight text-paper sm:text-4xl">
+          {cascadeLead}
+        </p>
+        <p class="mt-8 text-lg font-normal leading-relaxed text-muted sm:text-xl">
+          DEPARTMNT builds the infrastructure for connected products — tag, platform, app —
+          turning a physical object into the start of a relationship rather than the end of a
+          transaction.
+        </p>
+        <p class="mt-6 text-lg font-normal leading-relaxed text-muted sm:text-xl">
+          Nightclubs, national brands, artist campaigns, connected products. Different rooms,
+          same question every time — how do you actually reach someone, and what happens once
+          you have?
+        </p>
+      </div>
+    </div>
+
+    <!-- Founder Memo -->
+    <div class="mt-24 max-w-3xl border-t border-line pt-16" data-reveal>
+      <p class="text-xs font-semibold uppercase tracking-widest text-muted">Founder Memo</p>
+      <p class="mt-4 text-lg leading-relaxed text-muted">
+        Short perspective pieces on the market, the product problem, and lessons from building —
+        first entries coming soon.
+      </p>
+    </div>
+
+    <!-- Speaking -->
+    <div class="mt-24 max-w-3xl border-t border-line pt-16" data-reveal>
+      <p class="text-xs font-semibold uppercase tracking-widest text-muted">Speaking</p>
+      <ul class="mt-6 divide-y divide-line border-t border-line">
+        {
+          speakingTopics.map((topic) => (
+            <li class="grid gap-1 py-5 sm:grid-cols-[1fr_2fr] sm:gap-8">
+              <p class="text-lg font-semibold tracking-tight text-paper">{topic.title}</p>
+              <p class="text-muted">{topic.description}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- FAQ -->
+    <div class="mt-24 max-w-3xl border-t border-line pt-16" data-reveal>
+      <p class="text-xs font-semibold uppercase tracking-widest text-muted">FAQ</p>
+      <div class="mt-6 divide-y divide-line border-t border-line">
+        {
+          faqs.map((faq) => (
+            <details class="group py-5">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-medium text-paper">
+                {faq.question}
+                <span class="shrink-0 text-muted transition-transform group-open:rotate-45">+</span>
+              </summary>
+              <p class="mt-3 text-muted">{faq.answer}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</Layout>

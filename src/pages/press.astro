@@ -2,7 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import SectionLabel from "../components/SectionLabel.astro";
 
-const CONTACT_EMAIL = "contact@garethmatthews.uk";
+const PRESS_EMAIL = "press@departmnt.xyz";
+const GENERAL_EMAIL = "hello@departmnt.xyz";
 
 const shortBio =
   "Gareth Matthews is the Founder & CEO of DEPARTMNT, building the infrastructure that connects physical products and live events to the brands and audiences behind them.";
@@ -70,13 +71,10 @@ const facts = [
 
         <section>
           <p class="text-xs font-semibold uppercase tracking-widest text-muted">Press & Interviews</p>
-          <p class="mt-4 text-lg leading-relaxed text-muted">
-            Coverage and interview requests to follow. In the meantime, press mentions of
-            DEPARTMNT's client work include Highsnobiety, Hypebeast Korea, Dazed Korea, Campaign,
-            NTS, GRM Daily, PAUSE and Versus — see individual{" "}
-            <a href="/work" class="text-paper underline decoration-paper/30 underline-offset-4">case studies</a>
-            {" "}for details.
-          </p>
+          <ul class="mt-4 space-y-2 text-lg leading-relaxed text-paper/90">
+            <li>— Speaker, Barclays</li>
+            <li>— Featured in a WGSN keynote</li>
+          </ul>
         </section>
       </div>
 
@@ -95,21 +93,21 @@ const facts = [
           </dl>
         </div>
         <div>
-          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Press Enquiries</p>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Press</p>
           <a
-            href={`mailto:${CONTACT_EMAIL}?subject=Press Enquiry`}
+            href={`mailto:${PRESS_EMAIL}`}
             class="mt-1 inline-block text-paper underline decoration-paper/30 underline-offset-4"
           >
-            {CONTACT_EMAIL}
+            {PRESS_EMAIL}
           </a>
         </div>
         <div>
           <p class="text-xs font-semibold uppercase tracking-widest text-muted">Everything Else</p>
           <a
-            href="/#contact"
+            href={`mailto:${GENERAL_EMAIL}`}
             class="mt-1 inline-block text-paper underline decoration-paper/30 underline-offset-4"
           >
-            Use the contact form
+            {GENERAL_EMAIL}
           </a>
         </div>
       </aside>
