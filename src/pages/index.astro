@@ -21,11 +21,13 @@ const cascadeLead =
   <main>
     <!-- Hero -->
     <section class="mx-auto max-w-[1480px] px-5 pt-32 sm:px-10">
-      <p class="text-sm font-semibold uppercase tracking-widest text-muted">
+      <SectionLabel mark="PROFILE" number="01" subtitle="Founder / Builder / Operator" />
+
+      <p class="mt-8 text-sm font-semibold uppercase tracking-widest text-muted">
         <RoleCycler client:load />
       </p>
 
-      <div class="mx-auto mt-4 grid max-w-4xl gap-8 sm:grid-cols-[1.3fr_1fr] sm:items-end">
+      <div class="mt-4 grid gap-8 sm:grid-cols-[1.3fr_1fr] sm:items-end">
         <h1 class="text-left text-6xl font-medium leading-[1.05] tracking-tight text-paper sm:text-8xl">
           Building the infrastructure for a more connected world.
         </h1>
@@ -38,10 +40,6 @@ const cascadeLead =
             loading="lazy"
           ></iframe>
         </div>
-      </div>
-
-      <div class="mt-8">
-        <SectionLabel mark="PROFILE" number="01" subtitle="Founder / Builder / Operator" />
       </div>
     </section>
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const ROLES = ["Founder", "Strategist", "Technologist", "DJ"];
+const ROLES = ["Founder", "Builder", "Operator", "Strategist", "Technologist", "DJ"];
 
 export default function RoleCycler() {
   const [index, setIndex] = useState(0);
