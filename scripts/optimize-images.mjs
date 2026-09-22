@@ -1,13 +1,15 @@
-// One-off pass to shrink the extracted images down to sane web sizes.
-// Keeps original filenames/extensions (so content frontmatter doesn't need
-// to change) — just resizes and recompresses in place.
+// Re-encodes every work/about image as WebP at a size that matches how it's
+// actually displayed (small cover thumbnails, a 2-col gallery grid — nothing
+// on the site renders these above ~1400px wide even at 2x). Converts PNG/JPG
+// source files to .webp in place and prints an old-path -> new-path map so
+// content frontmatter can be updated to match.
 import sharp from "sharp";
-import { readdir, stat } from "node:fs/promises";
+import { readdir, stat, rename, unlink } from "node:fs/promises";
 import path from "node:path";
 
 const ROOTS = [
-  { dir: "public/images/work", maxWidth: 1800 },
-  { dir: "public/images/about", maxWidth: 1600 },
+  { dir: "public/images/work", maxWidth: 1400 },
+  { dir: "public/images/about", maxWidth: 1200 },
 ];
 
 const IMG_EXT = new Set([".jpg", ".jpeg", ".png", ".webp"]);
@@ -22,6 +24,7 @@ async function* walk(dir) {
 
 let totalBefore = 0;
 let totalAfter = 0;
+const renames = [];
 
 for (const { dir, maxWidth } of ROOTS) {
   for await (const file of walk(dir)) {
@@ -29,25 +32,22 @@ for (const { dir, maxWidth } of ROOTS) {
     if (!IMG_EXT.has(ext)) continue;
 
     const before = (await stat(file)).size;
-    const buf = await sharp(file)
+    const target = file.slice(0, -ext.length) + ".webp";
+
+    await sharp(file)
       .rotate()
       .resize({ width: maxWidth, withoutEnlargement: true })
-      .toBuffer();
+      .webp({ quality: 78 })
+      .toFile(target + ".tmp");
+    await rename(target + ".tmp", target);
+    if (target !== file) await unlink(file);
 
-    let out = sharp(buf);
-    if (ext === ".png") out = out.png({ compressionLevel: 9, quality: 82 });
-    else if (ext === ".webp") out = out.webp({ quality: 82 });
-    else out = out.jpeg({ quality: 82, mozjpeg: true });
-
-    const finalBuf = await out.toBuffer();
-    await sharp(finalBuf).toFile(file + ".tmp");
-    await import("node:fs/promises").then((fs) => fs.rename(file + ".tmp", file));
-
-    const after = (await stat(file)).size;
+    const after = (await stat(target)).size;
     totalBefore += before;
     totalAfter += after;
+    if (target !== file) renames.push([file, target]);
     console.log(
-      `${file}: ${(before / 1024 / 1024).toFixed(2)}MB -> ${(after / 1024 / 1024).toFixed(2)}MB`
+      `${file}: ${(before / 1024 / 1024).toFixed(2)}MB -> ${target}: ${(after / 1024 / 1024).toFixed(2)}MB`
     );
   }
 }
@@ -55,3 +55,5 @@ for (const { dir, maxWidth } of ROOTS) {
 console.log(
   `\nTotal: ${(totalBefore / 1024 / 1024).toFixed(1)}MB -> ${(totalAfter / 1024 / 1024).toFixed(1)}MB`
 );
+console.log(`\n${renames.length} files renamed:`);
+for (const [from, to] of renames) console.log(`${from} -> ${to}`);
