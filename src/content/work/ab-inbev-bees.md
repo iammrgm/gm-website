@@ -7,7 +7,7 @@ client: "AB InBev"
 duration: "6 Months"
 location: "Global"
 liveUrl: "https://consumergoods.com/ab-inbev-helps-drive-marketing-optimization-ml-powered-bees"
-cover: "/images/work/ab-inbev-bees/0.jpeg"
+cover: "/images/work/ab-inbev-bees/bees-cover.jpg"
 images:
   - "/images/work/ab-inbev-bees/0.jpeg"
   - "/images/work/ab-inbev-bees/1.jpeg"

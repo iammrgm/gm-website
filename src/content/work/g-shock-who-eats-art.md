@@ -7,7 +7,7 @@ client: "Casio · G-Shock"
 duration: "1 Week"
 location: "Singapore"
 liveUrl: "https://gshock.casio.com/sg/g-news/events/2025/gshock-active-lifestyle/"
-cover: "/images/work/g-shock-who-eats-art/0.png"
+cover: "/images/work/g-shock-who-eats-art/3.png"
 images:
   - "/images/work/g-shock-who-eats-art/0.png"
   - "/images/work/g-shock-who-eats-art/1.png"
