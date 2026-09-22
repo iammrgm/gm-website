@@ -5,9 +5,11 @@ interface Props {
   size?: "sm" | "lg";
 }
 const { items, class: className = "", size = "lg" } = Astro.props;
-const loopItems = [...items, ...items, ...items, ...items];
+// Two copies is enough for a seamless -50% loop; more space between
+// words means we don't need four repeats to fill the track.
+const loopItems = [...items, ...items];
 const textSize = size === "sm" ? "text-sm sm:text-base" : "text-2xl sm:text-4xl";
-const gap = size === "sm" ? "gap-6" : "gap-10";
+const gap = size === "sm" ? "gap-12 sm:gap-16" : "gap-16 sm:gap-24";
 const padding = size === "sm" ? "py-2.5" : "py-4";
 ---
 
@@ -32,7 +34,7 @@ const padding = size === "sm" ? "py-2.5" : "py-4";
       transform: translateX(0);
     }
     to {
-      transform: translateX(-25%);
+      transform: translateX(-50%);
     }
   }
   .animate-marquee {

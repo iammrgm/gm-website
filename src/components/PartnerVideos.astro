@@ -1,10 +1,12 @@
 ---
+// Logo↔video pairings pulled directly from the reference site's DOM
+// (each video card's sibling image), not guessed.
 const items = [
-  { video: "tEJyLiw78Otl9HT31lSl71Igd1Q", label: "H.LLS" },
-  { video: "5olowgzf0BM9OmmN6A4xMDB6k", label: "Navinder Nangla" },
-  { video: "FCXfnqK5mg3OLagHvnz8bTwiFVU", label: "Crocs" },
-  { video: "Wx86FMdjp6N48XUOZVyO07ZCsE", label: "G-Shock" },
-  { video: "zwjFGabSp2mAmVuDqPu2ZZBOOc", label: "Genesys" },
+  { video: "tEJyLiw78Otl9HT31lSl71Igd1Q", logo: "FjrV6A6BMgIskLefRyIyKKghyk", label: "H.LLS" },
+  { video: "5olowgzf0BM9OmmN6A4xMDB6k", logo: "yuF8Glfc9MYdKuectWW9bWH02Dg", label: "Navinder Nangla" },
+  { video: "FCXfnqK5mg3OLagHvnz8bTwiFVU", logo: "bqSpvsAFrdiCphSWU5uPtwaVbw", label: "Crocs" },
+  { video: "Wx86FMdjp6N48XUOZVyO07ZCsE", logo: "AUEHB6WEWqPGdQCUOCZs3Kw2cJs", label: "G-Shock" },
+  { video: "zwjFGabSp2mAmVuDqPu2ZZBOOc", logo: "E21lJiPj6h90n7vTYyeyZSiZ0Y", label: "Genesys" },
 ];
 ---
 
@@ -13,8 +15,8 @@ const items = [
   data-partner-videos
 >
   {
-    items.map(({ video, label }) => (
-      <div class="relative aspect-[9/16] w-[70vw] shrink-0 snap-center overflow-hidden rounded-xl bg-line/20 sm:w-[320px]">
+    items.map(({ video, logo, label }) => (
+      <div class="relative aspect-[3/2] w-[85vw] shrink-0 snap-center overflow-hidden rounded-xl bg-line/20 sm:w-[420px]">
         <video
           src={`/videos/partners/${video}.mp4`}
           muted
@@ -24,8 +26,8 @@ const items = [
           class="h-full w-full object-cover"
           data-autoplay-in-view
         />
-        <div class="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-4">
-          <p class="text-sm font-semibold uppercase tracking-widest text-paper">{label}</p>
+        <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <img src={`/images/logos/${logo}.png`} alt={label} class="max-h-[12%] max-w-[35%] object-contain" />
         </div>
       </div>
     ))
