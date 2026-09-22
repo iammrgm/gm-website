@@ -2,7 +2,7 @@ import type { APIRoute } from "astro";
 
 export const prerender = false;
 
-const CONTACT_EMAIL = "contact@garethmatthews.uk";
+const CONTACT_EMAIL = "hello@departmnt.xyz";
 
 export const POST: APIRoute = async ({ request, locals }) => {
   const data = await request.formData();
