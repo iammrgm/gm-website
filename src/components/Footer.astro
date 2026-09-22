@@ -20,6 +20,12 @@ const networks = [
   { label: "X", href: "https://x.com/MandroDesign" },
 ];
 
+const departmntNetworks = [
+  { label: "Instagram", href: "https://www.instagram.com/departmnt_hq/" },
+  { label: "X", href: "https://x.com/departmnt_hq" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/departmnt-hq/" },
+];
+
 const CONTACT_EMAIL = "contact@garethmatthews.uk";
 ---
 
@@ -81,7 +87,7 @@ const CONTACT_EMAIL = "contact@garethmatthews.uk";
       Email Me
     </a>
 
-    <div class="mt-20 flex flex-col justify-between gap-10 border-t border-line pt-10 sm:flex-row">
+    <div class="mt-20 flex flex-col flex-wrap gap-10 border-t border-line pt-10 sm:flex-row sm:justify-between">
       <div>
         <p class="text-xs font-semibold uppercase tracking-widest text-muted">Quick Links</p>
         <div class="mt-3 flex flex-wrap gap-x-2 gap-y-1 text-sm text-paper">
@@ -101,6 +107,25 @@ const CONTACT_EMAIL = "contact@garethmatthews.uk";
                   {n.label}
                 </a>
                 {i < networks.length - 1 && ","}
+              </>
+            ))
+          }
+        </div>
+      </div>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-muted">DEPARTMNT</p>
+        <div class="mt-3 flex flex-wrap gap-x-2 gap-y-1 text-sm text-paper">
+          <a href="https://departmnt.xyz" target="_blank" rel="noreferrer" class="hover:text-muted">
+            departmnt.xyz
+          </a>
+          ,
+          {
+            departmntNetworks.map((n, i) => (
+              <>
+                <a href={n.href} target="_blank" rel="noreferrer" class="hover:text-muted">
+                  {n.label}
+                </a>
+                {i < departmntNetworks.length - 1 && ","}
               </>
             ))
           }

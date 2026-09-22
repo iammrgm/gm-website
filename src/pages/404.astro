@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Page not found — Gareth Matthews">
+  <main class="mx-auto flex min-h-[70vh] max-w-[1480px] flex-col justify-center px-5 pt-32 sm:px-10">
+    <p class="text-sm font-semibold uppercase tracking-widest text-muted">404</p>
+    <h1 class="mt-4 text-5xl font-medium leading-[1.05] tracking-tight text-paper sm:text-7xl">
+      This room's empty.
+    </h1>
+    <p class="mt-6 max-w-lg text-lg text-muted">
+      Whatever you were looking for isn't here. Try the work, or head back home.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a
+        href="/"
+        class="inline-block rounded-full bg-paper px-8 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-80"
+      >
+        Home
+      </a>
+      <a
+        href="/work"
+        class="inline-block rounded-full border border-line px-8 py-3 text-sm font-semibold text-paper transition-colors hover:border-paper"
+      >
+        See the work
+      </a>
+    </div>
+  </main>
+</Layout>

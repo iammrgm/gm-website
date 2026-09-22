@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import WorkCard from "../../components/WorkCard.astro";
 
 export async function getStaticPaths() {
   const allWork = await getCollection("work");
@@ -13,6 +14,10 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { title, category, client, duration, location, liveUrl, images } = entry.data;
 const { Content } = await render(entry);
+
+const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.data.order);
+const currentIndex = allWork.findIndex((w) => w.data.slug === entry.data.slug);
+const related = Array.from({ length: 2 }, (_, i) => allWork[(currentIndex + i + 1) % allWork.length]);
 ---
 
 <Layout title={`${title} — Gareth Matthews`} description={entry.data.description}>
@@ -67,9 +72,16 @@ const { Content } = await render(entry);
       )
     }
 
+    <div class="mt-24 border-t border-line pt-10">
+      <p class="text-xs font-semibold uppercase tracking-widest text-muted">More Work</p>
+      <div class="mt-2 divide-y divide-line">
+        {related.map((item) => <WorkCard entry={item} index={item.data.order} />)}
+      </div>
+    </div>
+
     <a
       href="/work"
-      class="mt-24 inline-block text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4"
+      class="mt-16 inline-block text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4"
     >
       ← Back to all works
     </a>
