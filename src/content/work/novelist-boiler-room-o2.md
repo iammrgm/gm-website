@@ -19,18 +19,19 @@ images:
 order: 13
 ---
 
-## Situation
+## Brief
 
+O2's Go Think Big ran workshops to get young people into music industry jobs. Boiler Room streamed the results. The London show needed a headliner with credibility in both rooms.
 
+## What We Built
 
-## What we built
-
-
-
-## What changed
-
-
+I booked Novelist to close it, in the foyer at O2 Academy Brixton. The kids who'd come through the two-day workshop ran the production on the night. The set went out on Boiler Room's channels and is still up.
 
 ## Outcome
 
+Campaign results (FRUKT / O2):
+— 1M+ viewers on the global stream
+— 9.4M+ social reach
+— 30% increase in Go Think Big website traffic
+— Measurable lift in programme applications
 

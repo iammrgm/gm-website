@@ -19,17 +19,13 @@ images:
 order: 19
 ---
 
-## Situation
+## Brief
 
+Coca-Cola's Christmas campaign on the Piccadilly Lights — a single 783.5m² screen where six resident brands rotate every 90 seconds and each takes a 40-second full-screen domination every ten minutes. Coca-Cola has held a sign at Piccadilly Circus since 1955.
 
+## What We Built
 
-## What we built
-
-
-
-## What changed
-
-
+The original concept let people record and share personalised holiday messages to the board. The interactive layer was cut mid-build. I pivoted to pre-selected festive messages shared publicly, and delivered on schedule. The finished work adapted the Chimneys TV campaign for both full-screen and patchwork formats, with photos and messages from people across the UK built into the animation.
 
 ## Outcome
 

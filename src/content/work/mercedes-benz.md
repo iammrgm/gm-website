@@ -19,17 +19,17 @@ images:
 order: 16
 ---
 
-## Situation
+## Brief
 
+Mercedes-Benz was moving from a franchise model to direct e-commerce — one of the most significant business model shifts the automotive sector has attempted. Dealers became agents. The customer relationship moved to the manufacturer. I led the UK team delivering it, working with Team X's managing partner and senior leadership.
+A change that size doesn't land as a launch; it lands in every system a customer or a dealer touches — primary website, microsites, dealership CRM, and the showrooms themselves. I also led UK adaptation and rollout of Showcasing Innovation, parts one and two.
 
+## What We Built
 
-## What we built
-
-
-
-## What changed
-
-
+— Digital systems integration across UK and EU teams to enable the franchise-to-e-commerce transition
+— Mixed-media retail experience strategies rolled out across 100+ UK showrooms
+— Delivery of Showcasing Innovation across ATL, TV, radio, digital, CRM, demand generation and OOH
+— Local execution aligned to global brand direction across markets and agencies
 
 ## Outcome
 

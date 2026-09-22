@@ -19,21 +19,20 @@ images:
 order: 9
 ---
 
-## Situation
+## Brief
 
+DEPARTMNT started with a question about objects: could a physical product carry verifiable ownership and unlock something beyond itself?
+The Origin Collection was the answer in prototype — eyewear built as a proof of concept for connected product, pairing a physical object with on-chain ownership and authentication.
 
-
-## What we built
+## What We Built
 
 — [TK: what the tag/chip actually did]
 — [TK: what the owner could access on tap]
 — [TK: authentication mechanism]
 
-## What changed
+## Outcome
 
 [TK: the NFT market crash and pivot from collectability to utility — was that during this project or after?]
-
-## Outcome
 
 — [TK: units, sell-through, or what it proved]
 Assets: [TK]

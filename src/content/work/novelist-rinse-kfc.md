@@ -19,18 +19,19 @@ images:
 order: 12
 ---
 
-## Situation
+## Brief
 
+BBH Live's social listening had found a 500% rise over three years in people mourning the death of split-screen gaming, and an organic conversation about KFC running alongside it. The answer was the Colonel's Couch and a live tournament: four grime artists against four gaming stars, the first outing for a format KFC called KFC Vs.
 
+## What We Built
 
-## What we built
-
-
-
-## What changed
-
-
+I placed Novelist. He competed alongside Big Narstie, P Money and D Double E against Ali-A, Clare Siobhan, MiniMinter and JMX, hosted by Maya Jama and streamed on Facebook Live and Twitch. The prize was chicken for life.
 
 ## Outcome
 
+Campaign results (BBH / KFC):
+— 2.7M people reached by the live stream
+— 87% of KFC's target audience saw the campaign within five days
+— Highest organic reach of any KFC video
+— First live stream Facebook had ever promoted
 

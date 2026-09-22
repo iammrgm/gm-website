@@ -18,18 +18,23 @@ images:
 order: 17
 ---
 
-## Situation
+## Brief
 
+BEES is AB InBev's B2B ordering platform — the system hundreds of thousands of retailers use to stock their shelves. It worked. It didn't look like it belonged in the top tier of global marketplaces, and it needed to. I led VBI 2.0 — the second-generation visual brand identity — across website, identity, asset system and investor materials, running a multi-phase programme alongside JKR's Group Business & Strategy Director and Creative Director, and working directly with BEES' VP of Marketing.
 
+## What We Built
 
-## What we built
-
-
-
-## What changed
-
-
+— Directed a full visual brand identity refresh and supported UX/UI design of the platform
+— Aligned product experience with brand and business strategy at leadership level
+— Built investor conference and pitch materials positioning BEES against the world's largest e-commerce players
 
 ## Outcome
 
+Platform scale at the time (AB InBev reported):
+— 2.8M+ active users
+— 1.7M orders processed weekly
+— Operating across 26 countries
+BEES since:
+— 3.8M monthly active users across 27 countries and 500+ brands
+— $52.5bn gross merchandise value transacted in 2025
 
