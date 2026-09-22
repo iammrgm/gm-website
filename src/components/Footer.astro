@@ -10,14 +10,16 @@ const requestOptions = [
   "Something else?",
 ];
 
+const SUBSTACK_URL = "https://iammrgm.substack.com/";
+
 const networks = [
   { label: "Instagram", href: "https://instagram.com/iammrgm" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/gareth-matthews/" },
-  { label: "SubStack", href: "https://garethmatthews.substack.com" },
+  { label: "SubStack", href: SUBSTACK_URL },
   { label: "X", href: "https://x.com/MandroDesign" },
 ];
 
-const CONTACT_EMAIL = "hello@garethmatthews.uk";
+const CONTACT_EMAIL = "contact@garethmatthews.uk";
 ---
 
 <Marquee items={["Speaking", "Partnerships", "Press", "Advisory"]} />
@@ -26,7 +28,7 @@ const CONTACT_EMAIL = "hello@garethmatthews.uk";
   <div class="mx-auto max-w-[1480px] px-5 py-20 sm:px-10">
     <p class="text-xs font-semibold uppercase tracking-widest text-muted">Contact / Open Lines</p>
 
-    <form class="mt-10 grid max-w-2xl gap-6" data-contact-form>
+    <form class="mt-10 grid max-w-2xl gap-6" data-contact-form action="/api/contact" method="post">
       <label class="grid gap-2">
         <span class="text-sm text-muted">Name</span>
         <input
@@ -84,9 +86,7 @@ const CONTACT_EMAIL = "hello@garethmatthews.uk";
         <div class="mt-3 flex flex-wrap gap-x-2 gap-y-1 text-sm text-paper">
           <a href="/" class="hover:text-muted">Home</a>,
           <a href="/work" class="hover:text-muted">Work</a>,
-          <a href="https://garethmatthews.substack.com" target="_blank" rel="noreferrer" class="hover:text-muted"
-            >Thoughts</a
-          >,
+          <a href={SUBSTACK_URL} target="_blank" rel="noreferrer" class="hover:text-muted">Thoughts</a>,
           <a href="/#contact" class="hover:text-muted">Contact</a>
         </div>
       </div>
@@ -109,3 +109,31 @@ const CONTACT_EMAIL = "hello@garethmatthews.uk";
     </div>
   </div>
 </footer>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
+  const status = form?.querySelector<HTMLParagraphElement>("[data-contact-status]");
+  const submitBtn = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!status || !submitBtn) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending…";
+    status.classList.remove("hidden");
+    status.textContent = "";
+
+    try {
+      const res = await fetch("/api/contact", { method: "POST", body: new FormData(form) });
+      if (!res.ok) throw new Error("Request failed");
+      status.textContent = "Thanks — I'll be in touch soon.";
+      form.reset();
+    } catch {
+      status.textContent = "Something went wrong sending that. Try emailing directly instead.";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit";
+    }
+  });
+</script>
