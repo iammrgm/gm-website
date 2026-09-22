@@ -6,9 +6,9 @@ categories:
   - "Fan Activation"
 market: "departmnt"
 clients:
-  - name: "Mulaa Joans · Atlantic Records"
+  - name: "10K Projects / Atlantic Records"
     url: ""
-duration: "Ongoing"
+duration: "2026"
 location: "London · Reading · Leeds"
 liveUrl: ""
 cover: "/images/work/mulaa-joans-atlantic/0.png"
@@ -22,16 +22,20 @@ order: 3
 
 ## Brief
 
-A pop-up at Reading and Leeds, built as a gamified scavenger hunt across the festival site.
-Festivals are the densest concentration of an artist's audience all year, and almost none of it gets captured.
+10K Projects had watched three months of our H.LLS activations from inside the room. Then they sent one of their own. Mulaa Joans, pop, 112K on Instagram, releasing *That Ain't You*. The ask: 100 NFC bank notes for a London pop-up two weeks out, so fans who turned up could unlock music nobody else could hear.
+
+A properly embedded NFC note is a four-week build. The date couldn't move.
 
 ## What We Built
 
-— [TK: scavenger hunt mechanic — how many points, what the journey was]
-— [TK: what completion unlocked]
-— [TK: pop-up format]
+We didn't decline and we didn't slip. We proposed the fix before anyone asked: a printed note carrying an NFC sticker, the same experience, on the original date. 10K took it, then widened the brief twice.
+
+— **The pop-up.** Note and sticker in hand, one tap into a gated portal open only to people who were there. Unreleased demos, behind-the-scenes footage, exclusive video messages.
+— **Leeds and Reading.** A festival treasure hunt. 45 resin tags per site across five landmark zones. Clues drop on Mulaa's Instagram at a set time; find any tag, in any order. First tag unlocks an unreleased track, five earns a T-shirt, ten a vinyl, and whoever finds the most gets a prize nobody announced.
+— **The tour.** 1,500 custom NFC notes for the 11-date Scarlet Mafia Tour. The format they asked for on day one, now with the lead time to build it properly, landing ahead of the Dublin opener.
+
+The portal was built as Phase 2 of the H.LLS system, not from zero. Sign-up, content hosting and access validation carried straight over from something already proven under festival conditions; new work went only where it was genuinely new. Two calls kept it deliverable: fixed rules rather than live edits, and clues run through social because festival signal can't be trusted.
 
 ## Outcome
 
-— [TK: participants, completion rate, fans captured]
-Assets: [TK]
+Brief to live pop-up in two weeks, on the original date. One pop-up and 100 notes became three activations across three hardware formats, and an account that came in through a referral became a three-month engagement.

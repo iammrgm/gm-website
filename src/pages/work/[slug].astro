@@ -72,6 +72,14 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
             }
           </p>
         </div>
+        {
+          entry.data.role && (
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-widest text-muted">Role</p>
+              <p class="mt-1 text-paper">{entry.data.role}</p>
+            </div>
+          )
+        }
         <div>
           <p class="text-xs font-semibold uppercase tracking-widest text-muted">Duration</p>
           <p class="mt-1 text-paper">{duration}</p>

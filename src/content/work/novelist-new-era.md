@@ -6,9 +6,10 @@ categories:
   - "Culture Partnership"
 market: "personal"
 clients:
-  - name: "Novelist"
+  - name: "New Era"
     url: ""
-duration: "1 Year"
+role: "Music and Partnerships Manager"
+duration: "July 2017"
 location: "London"
 liveUrl: "https://www.neweracap.co.uk/blogs/discover/novelist"
 cover: "/images/work/novelist-new-era/0.jpeg"
@@ -22,16 +23,19 @@ order: 14
 
 ## Brief
 
-Acts of Grime was a three-part documentary series tracing the genre from East London basements to global export, told through D Double E, Tempa T and Novelist — one originator, one veteran, one of the generation that inherited it. I managed Novelist's involvement across all three parts of the project: the films, a signature cap he designed with New Era, and the launch.
+New Era had been a fixture of grime since the pirate radio days, and wanted to tell the genre's story properly: three MCs, three eras. D Double E for the originators, Tempa T for the revival, and Novelist for the generation now taking it global. The project was *The Acts of Grime*.
 
 ## What We Built
 
-Novelist headlined the launch party at Red Gallery in Shoreditch on 26 July, alongside Big Zuu, Mez and PK. The limited-edition caps went on sale two days later at New Era's Carnaby Street and Westfield Stratford flagships.
-Most brands sponsor a scene. New Era funded the documentation of one, then let the artists design the product. That's the difference between borrowing culture and investing in it.
+I ran Novelist's side of the whole campaign:
+
+— **The film.** The third part of a three-part documentary series directed by Tim & Barry, telling grime's history through his eyes.
+— **The launch.** Novelist headlining the release party at Red Gallery in Shoreditch, on a line-up of the scene's newest names.
+— **The product.** A limited signature headwear collection designed with the three MCs, sold at New Era Carnaby Street and Westfield Stratford City.
+— **The editorial.** A New Era Music profile of Novelist running alongside the series.
+
+What made it work was that the partnership reached past the content. A film is watched once. A cap with the artist's name on it gets worn every day, in the places the music actually lives.
 
 ## Outcome
 
-— 3-part documentary series
-— Signature cap designed by Novelist, stocked at two London flagships
-— Headline launch at Red Gallery, Shoreditch
-— Coverage across PAUSE, Versus and streetwear press
+Novelist placed as the present and future of grime inside a heritage brand's own telling of the genre, in the film and on the product. Covered by Dazed on release. It's still the clearest version of what I care about: an object that carries an artist's credibility out of the room and into the world.

@@ -6,6 +6,36 @@ import AtmospherePhotos from "../components/AtmospherePhotos.astro";
 const cascadeLead =
   "Fifteen years watching culture generate attention no brand could hold onto, and brands spend fortunes reaching people they'd never be able to name. The room was always the asset. Nobody was building for it. So I did.";
 
+const memoNarrative = [
+  "I started in rooms. DJing since I was 13, then a residency at Ministry of Sound, club nights at Egg and Brixton Academy, stage management at SW4 and Farr Festival. Then managing Novelist: booking his first world tour through Tokyo, Shanghai and Seoul, and his partnerships with Uniqlo, New Era and Casio G-Shock.",
+  "Then I went to learn how the biggest brands actually work. Programme director on Mercedes-Benz, the National Lottery rebrand, AB InBev's BEES. National campaigns, global platforms, budgets in the millions.",
+  "Both sides had the same gap. Culture creates attention no brand can hold on to. Brands spend fortunes reaching people they can never name. The value was always in the room, and everyone kept building for the screen.",
+  "DEPARTMNT isn't a turn away from that past. It's the argument that past was making all along. We build the layer that lets a garment, a wristband or a door remember who was there, so the relationship made in the room doesn't disappear when the lights come up.",
+];
+
+const memoPrinciples = [
+  {
+    title: "Everything is branding. Everything is experience.",
+    description: "The queue, the door, the wristband, the message the morning after. People don't separate them, so I don't either.",
+  },
+  {
+    title: "Build slow. Move fast.",
+    description: "Take the time to get the foundations right, then move quickly on top of them.",
+  },
+  {
+    title: "Never compete. Just create.",
+    description: "When you're building something that doesn't exist yet, the only benchmark that matters is whether it works in the room.",
+  },
+  {
+    title: "Create systems, not chaos.",
+    description: "The programme years taught me that creative work only scales when the operation underneath it holds.",
+  },
+  {
+    title: "Build things that outlast you.",
+    description: "A campaign ends. Infrastructure keeps working after everyone's gone home.",
+  },
+];
+
 // Draft — for review. Titles/descriptions inferred from demonstrated work, not confirmed.
 const speakingTopics = [
   {
@@ -108,10 +138,35 @@ const faqSchema = {
     <!-- Founder Memo -->
     <div class="mt-24 max-w-3xl border-t border-line pt-16" data-reveal>
       <p class="text-xs font-semibold uppercase tracking-widest text-muted">Founder Memo</p>
-      <p class="mt-4 text-lg leading-relaxed text-muted">
-        Short perspective pieces on the market, the product problem, and lessons from building —
-        first entries coming soon.
-      </p>
+      <div class="mt-6 space-y-6">
+        {memoNarrative.map((para) => <p class="text-lg leading-relaxed text-paper/90">{para}</p>)}
+      </div>
+
+      <h2 class="mt-12 text-sm font-semibold uppercase tracking-widest text-muted">How I Work</h2>
+      <ul class="mt-6 divide-y divide-line border-t border-line">
+        {
+          memoPrinciples.map((p) => (
+            <li class="grid gap-1 py-5 sm:grid-cols-[1fr_2fr] sm:gap-8">
+              <p class="text-lg font-semibold tracking-tight text-paper">{p.title}</p>
+              <p class="text-muted">{p.description}</p>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="mt-12 max-w-2xl">
+        <h2 class="text-sm font-semibold uppercase tracking-widest text-muted">Open Lines</h2>
+        <p class="mt-4 text-lg leading-relaxed text-paper/90">
+          If you're building something at the edge of culture and technology, or want to put me
+          in front of a room: partnerships, speaking, press and advisory. Get in touch.
+        </p>
+        <a
+          href="/#contact"
+          class="mt-6 inline-block rounded-full bg-paper px-8 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-80"
+        >
+          Contact
+        </a>
+      </div>
     </div>
 
     <!-- Speaking -->

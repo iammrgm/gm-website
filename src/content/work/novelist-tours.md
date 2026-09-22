@@ -8,7 +8,8 @@ market: "personal"
 clients:
   - name: "Novelist"
     url: ""
-duration: "2 Years"
+role: "Music and Partnerships Manager"
+duration: "2016 to 2017"
 location: "UK · Europe · Asia · Oceania"
 liveUrl: ""
 cover: "/images/work/novelist-tours/3.jpeg"
@@ -22,20 +23,16 @@ order: 15
 
 ## Brief
 
-I directed Novelist's touring across four continents — bookings, logistics, partnerships, and folding live dates into brand campaigns so each funded the other.
+Novelist was the MC grime's new generation had been waiting for. BBC Sound of 2015, MOBO-nominated at 17, co-writer of "Lyrics" on Skepta's *Konnichiwa* at 18. The UK already knew. The job was to get the rest of the world to find out in person, in markets where grime had no radio, no promoter network and no one who'd done it before.
 
 ## What We Built
 
-Australia, New Zealand & Asia, 2016–17: Northern Bass in Auckland on the 30th, Origin NYE in Perth on the 31st, then four cities in four consecutive nights — Arkham in Shanghai with Yeti Out, Salon No.10 in Hong Kong, Sankeys Tokyo for Proxy Vol.03 alongside Double Clapperz and Carpainter, and Cakeshop Seoul with Murlo. A guest mix for Seoul Community Radio went out the afternoon of the final show.
-Nine days. Six cities. Five territories. New Year's Eve in the middle of it.
-Elsewhere:
-— Guest spot at Skepta's sold-out Alexandra Palace show alongside Kano, Giggs and Wretch 32, streamed globally on Apple Music
-— Headlined Reebok Classics × INDIE Magazine's Heritage Club at Säälchen during Berlin Fashion Week, stepping in at a renegotiated fee on short notice
-— Snowbombing, Mayrhofen
-— Rinse FM Boxing Day at Ministry of Sound
-— Hope Works Sheffield, Queen of Hoxton London, and a run of UK festivals through summer 2017
+I booked his first world tour and ran touring as a business: routing, promoter deals, contracts, logistics, travel, budgets and artist liaison, across Asia, Australia, New Zealand and Europe.
+
+The Asian dates were the real test. Tokyo, Shanghai and Seoul each had a grime scene, but a small, club-sized, mostly instrumental one, built by local DJs and producers rather than MCs. Shanghai put him on a bill alongside those producers. That meant working promoter by promoter, city by city, with none of the infrastructure a UK run takes for granted, and building the relationships as we went.
 
 ## Outcome
 
-Nine days, six cities, five territories on one leg alone — booked, routed and delivered as a single operation, with every date built to fund or feed the next.
+A first Asia, Australia and New Zealand run at 18, and a second by 20, to rooms that chanted his lyrics back word for word. By 2018 his independent debut, *Novelist Guy*, was shortlisted for the Mercury Prize.
 
+What I took from it: the relationship between an artist and a fan is made in the room, and nobody was keeping it once the lights came up. It's the model I reused for the BOOGLE Asia Tour, and the problem I've built a company around.

@@ -4,11 +4,11 @@ slug: "e-gucewicz-genesis"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
 categories:
   - "Connected Product"
-market: "personal"
+market: "departmnt"
 clients:
-  - name: "DEPARTMNT"
+  - name: "E Gucewicz Studios"
     url: ""
-duration: "1 Year"
+duration: "2021 to 2022"
 location: "London"
 liveUrl: "https://app.gitbook.com/o/aX1xNjECkX2sJi7lpSTG/s/EqBIy49LtxNLgMoosov1/"
 cover: "/images/work/e-gucewicz-genesis/0.jpg"
@@ -22,18 +22,22 @@ order: 9
 
 ## Brief
 
-DEPARTMNT started with a question about objects: could a physical product carry verifiable ownership and unlock something beyond itself?
-The Origin Collection was the answer in prototype — eyewear built as a proof of concept for connected product, pairing a physical object with on-chain ownership and authentication.
+E Gucewicz Studios, a London atelier known for couture-grade experimental eyewear, wanted a collection that kept working after it was sold. 2,000 one-of-one frames, each able to prove what it was, who owned it, and give that owner a reason to keep picking it up. One constraint sat above everything else: it had to feel like luxury first. If the technology was the first thing you noticed, it had failed.
 
 ## What We Built
 
-— [TK: what the tag/chip actually did]
-— [TK: what the owner could access on tap]
-— [TK: authentication mechanism]
+A generative design system, and a connected layer hidden inside every frame.
+
+— A rarity and trait map covering frame shape, material, hinge, lens engraving and accessories, driving a custom Blender script. 10,000+ digital variations generated, 2,000 selected as one-of-ones.
+— Materials held to atelier standard: Mazzucchelli double acetate, aluminium detailing, custom-plated hinges, ox horn on the rarest pieces.
+— A custom NTAG 424 chip housed in the temple arm, with a second tag in the case as an ownership backup.
+— An on-metal NFC casing, developed over weeks of lab testing after the aluminium started blocking the signal. Every frame was stress-tested for flex, moisture, impact and read consistency across devices.
+— A tap-to-browser experience showing authenticity, design metadata and unlockable drops and invites. No app, no wallet.
+
+The brief said authentication. Testing said something else. People didn't want the frame to prove itself. They wanted it to let them in. So we rebuilt the experience around access rather than verification, and that single finding is how every DEPARTMNT deployment has been designed since.
 
 ## Outcome
 
-[TK: the NFT market crash and pivot from collectability to utility — was that during this project or after?]
+Twelve months from sketch to working prototype. The frames were unveiled at Solana Breakpoint in Lisbon, November 2022, and drew industry validation and pre-order interest from the floor.
 
-— [TK: units, sell-through, or what it proved]
-Assets: [TK]
+The collection did not go to full production. At atelier quality, 2,000 one-of-ones didn't clear the cost of making them. What it left behind did: the on-metal casing and chip placement became the TapTech hardware standard, and the prototypes sit in the archive as the first connected product we ever built.

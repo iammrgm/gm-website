@@ -8,7 +8,8 @@ market: "personal"
 clients:
   - name: "Uniqlo"
     url: ""
-duration: "1 Month"
+role: "Music and Partnerships Manager"
+duration: "December 2016"
 location: "London"
 liveUrl: "https://www.nts.live/events/star_wars"
 cover: "/images/work/novelist-uniqlo/2.jpg"
@@ -22,15 +23,14 @@ order: 10
 
 ## Brief
 
-Uniqlo was marking the release of Rogue One with a night at its 311 Oxford Street global flagship — its largest store in Europe, reopened nine months earlier — on a bill with NTS Radio and Benji B. Entry was by prize draw: buy anything from the Star Wars collection in-store that day and you were in.
+Uniqlo was launching its *Star Wars: Rogue One* UT collection at 311 Oxford Street, its London flagship, for the film's December release. Disney's biggest release of the season, on the busiest shopping street in Europe, in the run-up to Christmas. The store needed to feel like an event, not a shop.
 
 ## What We Built
 
-I was managing Novelist's business and I put him on it. I negotiated the deal — fee, billing, usage, and what Uniqlo could do with the footage afterwards. That last term is the one that paid. NTS filmed the set, published it, and carried Benji B's as an episode of Live From 311 Oxford Street. Ten years on, both are still up. Novelist was twenty. He'd been booked by Disney, Uniqlo and NTS in the same week that Boiler Room and Casio were live.
+I brokered and ran Novelist's live set inside the store: the booking, the terms, the running order and the artist side on the day. NTS filmed the performance and published it as a session.
+
+The decision was the pairing itself. A Lewisham grime MC, performing on a retail floor, inside a global brand's biggest licensed launch of the season. In 2016 that wasn't the obvious booking. It was the right one, because it gave the launch something the product alone couldn't: a reason to walk in that wasn't the product.
 
 ## Outcome
 
-— Performance at Uniqlo's 311 Oxford Street global flagship
-— Set filmed and published by NTS Radio, still live as catalogue
-— Billed alongside Benji B and NTS on a Disney franchise launch
-— Coverage across music, lifestyle and trade press including NTS, GRM Daily and Campaign
+A flagship launch turned into a live moment, and an NTS film that carried it well beyond the people standing in the store. It sat in a run of brand work for Novelist across that period, alongside Casio G-Shock, New Era, KFC and Boiler Room × O2, and set the terms for all of it: culture first, and the brand earns its place by backing the artist on their own terms.

@@ -8,7 +8,7 @@ market: "departmnt"
 clients:
   - name: "YOU Studio"
     url: ""
-duration: "Ongoing"
+duration: "2026, ongoing"
 location: "London"
 liveUrl: ""
 cover: "/images/work/you-studio/0.png"
@@ -22,25 +22,19 @@ order: 4
 
 ## Brief
 
-YOU Studio is a multi-floor creative and events space at 60 Hythe Road, NW10 — three studios, co-working, client suites and event floors across 36,000 square feet. The stack was the usual assembly: a Squarespace front end, third-party ticketing taking a cut of every transaction, payments handled elsewhere again, and no membership layer at all. Access was manual. Nothing connected a person walking through the building to an identity the venue could see.
-Two costs, both invisible until you name them. A disjointed experience across a very large space. And a first-party audience sitting inside platforms YOU doesn't own.
+A 36,000 sq ft London creative studio needed one system serving three audiences under one roof: members booking space, agencies and brands hiring Studios 1 to 3, and the venue running all of it. Before building, we benchmarked 12 of the most relevant creative workspaces and members' clubs across the UK, Europe and the US. Not one ran a single member record across access, payments, community and events. That gap was the brief.
 
 ## What We Built
 
 One system, three faces. YOU, powered by DEPARTMNT.
-The member portal. Application, vetting and onboarding — discipline, intent, a written statement of creative vision, portfolio uploads. Every applicant reviewed personally, so the front door doubles as curation. Then tiered membership, studio booking against a token wallet, a catering wallet, event ticketing and a tap-to-connect member directory.
-The production portal. A separate B2B experience for the agencies and brands hiring Studios 1–3. Live session state — which studio, how long remaining, crew on site, the studio Wi-Fi password. Hospitality ordered mid-shoot and delivered to the floor, the green room or reception. Session history with hours and spend, exportable. Availability alerts when a cancellation opens up.
-The admin CRM underneath both. Membership and studio management in one back end: applications and approvals, access permissions, bookings, token balances, hospitality orders routed to the kitchen with lead times, and every session's spend assembled for invoicing. The member sees units. The venue sees the P&L.
-The hardware. TapTech cards, wristbands and resin tags as each member's physical key and identity. One credential opens a door, books a room, buys a ticket and knows who you are.
+
+— **Member portal.** Application, vetting and onboarding, every applicant reviewed personally so the front door doubles as curation. Tiered membership, studio booking against a token wallet, a catering wallet, event ticketing and a tap-to-connect member directory.
+— **Production portal.** A separate experience for agencies and brands: live session state, crew on site, time remaining, the Wi-Fi password. Hospitality ordered mid-shoot and delivered to the floor. Session history, hours and spend, exportable.
+— **Admin CRM.** Applications, access, bookings, token balances, kitchen orders with lead times, and every session's spend assembled for invoicing. The member sees units. The venue sees the numbers.
+— **Hardware.** TapTech cards, wristbands and resin tags as each member's physical key. One credential opens a door, books a room, buys a ticket and knows who you are.
+
+The instinct on a build like this is to digitise everything. We didn't. A production client spending five figures on a shoot wants their account manager on a direct line, not a booking form, so booking stays on the phone and everything around it goes digital. The same thinking ran through the rest: keep the Paxton access system already installed, settle payments straight to YOU through Stripe Connect rather than through us, and use NFC readers already going into the walls for wayfinding instead of buying an indoor positioning system. The build ran alongside an active fit-out, which forced a hard Phase 1 scope freeze. Least glamorous decision in the project, and the reason it held its dates.
 
 ## Outcome
 
-The instinct on a build like this is to digitise everything. We didn't.
-Studio booking stays on the phone, deliberately. A production client spending five figures on a shoot doesn't want a booking form — they want their account manager, by name, on a direct line. So the portal says exactly that: call your account manager to book or amend a session. What we digitised is everything around the booking. The session runs live in the app. Hospitality goes in without breaking the shoot. History and spend assemble themselves. The relationship stays human and the admin disappears.
-Three more calls made the same way:
-Access. We kept the Paxton system already installed and ran UniFi Access for co-working on the venue's existing network hardware. Less elegant on a diagram, considerably cheaper, and it protected money already spent.
-Payments. Stripe Connect wired to YOU's own account. Memberships and bookings settle directly to the venue rather than passing through us — a decision about who holds funds and who carries liability, made at architecture stage rather than negotiated later.
-Wayfinding. The scope called for an interactive 3D floor plan, which points straight at indoor-positioning infrastructure and a large bill. The MVP uses NFC pseudo-positioning through access readers already going into the walls. The hardware was being installed anyway. We gave it a second job.
-The whole build ran alongside an active fit-out. That forced a hard Phase 1 scope freeze — member directory, job board, in-portal messaging and the website migration explicitly parked. Freezing scope is the least glamorous decision here and probably the reason it's on track.
-Where it stands
-Soft launch to a founding cohort on an open-day model. Hardware in production, payment infrastructure coming online. Official launch Q4 2026.
+Phase 1 built against fixed September delivery dates, with a soft launch to a founding cohort on an open-day model. Hardware in production, payments coming online, Phase 2 in scoping. Official launch Q4 2026.
