@@ -41,5 +41,29 @@ const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url.origin).toString();
     <Nav />
     <slot />
     <Footer />
+
+    <script>
+      function initReveal() {
+        document.documentElement.classList.add("js-reveal");
+        const targets = document.querySelectorAll<HTMLElement>("[data-reveal]");
+        if (!targets.length) return;
+
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+        );
+        targets.forEach((el) => io.observe(el));
+      }
+
+      // Runs on first load and again after every client-side navigation.
+      document.addEventListener("astro:page-load", initReveal);
+    </script>
   </body>
 </html>

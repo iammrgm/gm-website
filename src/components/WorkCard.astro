@@ -6,12 +6,14 @@ interface Props {
   index: number;
 }
 const { entry, index } = Astro.props;
-const { title, category, cover } = entry.data;
+const { title, category, client, cover } = entry.data;
 const num = String(index).padStart(2, "0");
 ---
 
 <a
   href={`/work/${entry.data.slug}`}
+  data-work-card
+  data-search={`${title} ${category} ${client}`.toLowerCase()}
   class="group flex items-center justify-between gap-6 py-8 transition-colors hover:bg-paper/[0.03]"
 >
   <div class="flex items-center gap-6 sm:gap-10">

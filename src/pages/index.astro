@@ -21,7 +21,7 @@ const cascadeLead =
   <main>
     <!-- Hero -->
     <section class="mx-auto max-w-[1480px] px-5 pt-32 sm:px-10">
-      <div class="grid gap-8 sm:grid-cols-[1.3fr_1fr] sm:items-end">
+      <div class="grid gap-8 sm:grid-cols-[1.3fr_1fr] sm:items-end" data-reveal>
         <h1 class="text-left text-6xl font-medium leading-[1.05] tracking-tight text-paper sm:text-8xl">
           Building the infrastructure for a more connected world.
         </h1>
@@ -45,7 +45,7 @@ const cascadeLead =
 
     <!-- Profile: headshot spans the full column, copy + logos wrap beside it -->
     <section class="mx-auto max-w-[1480px] px-5 py-20 sm:px-10">
-      <div class="flex flex-col gap-8 sm:flex-row sm:items-stretch">
+      <div class="flex flex-col gap-8 sm:flex-row sm:items-stretch" data-reveal>
         <div class="aspect-[3/5] w-full shrink-0 overflow-hidden rounded-2xl bg-line/20 sm:w-[478px]">
           <img
             src="/images/about/headshot.png"
@@ -78,15 +78,15 @@ const cascadeLead =
     <section class="mx-auto max-w-[1480px] px-5 py-28 sm:px-10">
       <SectionLabel mark="ABOUT" number="02" subtitle="The Long Way Round" />
 
-      <p class="mt-10 max-w-xl text-2xl font-medium tracking-tight text-paper sm:text-3xl">
+      <p class="mt-10 max-w-xl text-2xl font-medium tracking-tight text-paper sm:text-3xl" data-reveal>
         Nightclubs, then boardrooms.
       </p>
 
-      <div class="mt-12">
+      <div class="mt-12" data-reveal>
         <AtmospherePhotos />
       </div>
 
-      <div class="mt-16 max-w-3xl">
+      <div class="mt-16 max-w-3xl" data-reveal>
         <p class="text-3xl font-medium leading-snug tracking-tight text-paper sm:text-4xl">
           {cascadeLead}
         </p>
@@ -112,7 +112,7 @@ const cascadeLead =
           All works ({allWork.length})
         </a>
       </div>
-      <div class="mt-2 divide-y divide-line">
+      <div class="mt-2 divide-y divide-line" data-reveal>
         {featured.map((item, i) => <WorkCard entry={item} index={i + 1} />)}
       </div>
     </section>
@@ -120,7 +120,7 @@ const cascadeLead =
     <!-- Brand Partners -->
     <section class="mx-auto max-w-[1480px] px-5 pb-28 sm:px-10">
       <SectionLabel mark="Featured Clients" number="04" subtitle="Select Clients" />
-      <div class="mt-10">
+      <div class="mt-10" data-reveal>
         <PartnerVideos />
       </div>
     </section>
