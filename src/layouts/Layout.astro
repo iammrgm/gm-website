@@ -65,8 +65,19 @@ const personSchema = {
     <meta name="twitter:image" content={ogImageUrl} />
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
     <ClientRouter />
+    <script
+      type="module"
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "7fea4352744b4e4f91ddc06f411671ed"}'
+    ></script>
   </head>
   <body class="min-h-screen antialiased">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-paper focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-ink"
+    >
+      Skip to content
+    </a>
     <Nav />
     <slot />
     <Footer />
