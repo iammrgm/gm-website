@@ -33,7 +33,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       from: "Website <onboarding@resend.dev>",
       to: CONTACT_EMAIL,
       reply_to: email,
-      subject: `New enquiry: ${requestType} — ${name}`,
+      subject: `New enquiry: ${requestType} from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nRequest: ${requestType}`,
     }),
   });

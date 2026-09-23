@@ -31,12 +31,12 @@ Most artist-brand deals are a post and a payment. I negotiated a year. I secured
 
 ## What We Built
 
-Practice Hours ran multiple activations and eight European live shows. No Comply opened G-Shock's 35th anniversary year. No Comply took its name from the skate trick and picked people who'd taken their own path — Novelist as the music leg alongside skaters Lucien Clarke and Benny Fairfax, in content built around how each of them actually works. Novelist carried the grime side of a brand whose story is built on skate and hip hop. Highsnobiety ran a full interview.
+Practice Hours ran multiple activations and eight European live shows. No Comply opened G-Shock's 35th anniversary year. No Comply took its name from the skate trick and picked people who'd taken their own path: Novelist as the music leg alongside skaters Lucien Clarke and Benny Fairfax, in content built around how each of them actually works. Novelist carried the grime side of a brand whose story is built on skate and hip hop. Highsnobiety ran a full interview.
 A twelve-month term meant the association compounded instead of expiring. By the time No Comply ran in the spring of 2017, Novelist had been a G-Shock artist for the best part of a year, and the campaign inherited a relationship rather than announcing one.
 
 ## Outcome
 
-— 12-month partnership across two campaigns
-— 8 European live shows
-— Anniversary-year campaign alongside Lucien Clarke and Benny Fairfax
-— Coverage in Highsnobiety and across streetwear press
+- 12-month partnership across two campaigns.
+- 8 European live shows.
+- Anniversary-year campaign alongside Lucien Clarke and Benny Fairfax.
+- Coverage in Highsnobiety and across streetwear press.

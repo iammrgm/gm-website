@@ -1,5 +1,5 @@
 ---
-title: "E Gucewicz — Genesis Collection"
+title: "E Gucewicz: Genesis Collection"
 slug: "e-gucewicz-genesis"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
 categories:
@@ -35,11 +35,11 @@ E Gucewicz Studios, a London atelier known for couture-grade experimental eyewea
 
 A generative design system, and a connected layer hidden inside every frame.
 
-— A rarity and trait map covering frame shape, material, hinge, lens engraving and accessories, driving a custom Blender script. 10,000+ digital variations generated, 2,000 selected as one-of-ones.
-— Materials held to atelier standard: Mazzucchelli double acetate, aluminium detailing, custom-plated hinges, ox horn on the rarest pieces.
-— A custom NTAG 424 chip housed in the temple arm, with a second tag in the case as an ownership backup.
-— An on-metal NFC casing, developed over weeks of lab testing after the aluminium started blocking the signal. Every frame was stress-tested for flex, moisture, impact and read consistency across devices.
-— A tap-to-browser experience showing authenticity, design metadata and unlockable drops and invites. No app, no wallet.
+- A rarity and trait map covering frame shape, material, hinge, lens engraving and accessories, driving a custom Blender script. 10,000+ digital variations generated, 2,000 selected as one-of-ones.
+- Materials held to atelier standard: Mazzucchelli double acetate, aluminium detailing, custom-plated hinges, ox horn on the rarest pieces.
+- A custom NTAG 424 chip housed in the temple arm, with a second tag in the case as an ownership backup.
+- An on-metal NFC casing, developed over weeks of lab testing after the aluminium started blocking the signal. Every frame was stress-tested for flex, moisture, impact and read consistency across devices.
+- A tap-to-browser experience showing authenticity, design metadata and unlockable drops and invites. No app, no wallet.
 
 The brief said authentication. Testing said something else. People didn't want the frame to prove itself. They wanted it to let them in. So we rebuilt the experience around access rather than verification, and that single finding is how every DEPARTMNT deployment has been designed since.
 

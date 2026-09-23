@@ -32,28 +32,32 @@ stats:
 ## Brief
 
 Art in Motion was the second chapter of G-SHOCK's collaboration with Unusual Running in Singapore. Five artists were commissioned to interpret the Active Lifestyle Series.
-Who Eats Art took the G-SQUAD — a watch built to track performance — and asked what tracking looks like when the sensor is a room full of people rather than a wrist.
+Who Eats Art took the G-SQUAD (a watch built to track performance) and asked what tracking looks like when the sensor is a room full of people rather than a wrist.
 
 ## What We Built
 
 Spray. Bite. Log. Share.
 Eleven NFC tags embedded across a single artwork, running in the mobile browser. No app.
-— A visitor sprayed a cookie, ate it, then tapped the piece to log the moment
-— Name, social handle and the time of the bite were recorded against that tap
-— Each entry generated a shareable asset built for Instagram
-— The canvas accumulated the physical imprints. The platform accumulated everyone who made one
+
+- A visitor sprayed a cookie, ate it, then tapped the piece to log the moment.
+- Name, social handle and the time of the bite were recorded against that tap.
+- Each entry generated a shareable asset built for Instagram.
+- The canvas accumulated the physical imprints. The platform accumulated everyone who made one.
+
 The finished work exists twice: as an object, and as a record of the people who ate it.
 
 ## Outcome
 
 We built eleven tags and assumed the artwork would distribute attention across them.
-It didn't. Three placements produced 70% of all participants. One tag generated a single sign-up. Another produced none at all. The technology was identical at every point on the piece — what varied was whether a person could see the tag and reach it comfortably.
+It didn't. Three placements produced 70% of all participants. One tag generated a single sign-up. Another produced none at all. The technology was identical at every point on the piece: what varied was whether a person could see the tag and reach it comfortably.
 The second thing the data settled: the connected layer doesn't create footfall, it converts it. Across four days, 80% of participants arrived on the single Saturday of the physical activation. Engagement that day ran 22× launch day. Put the tags where the people already are, at the height a hand naturally goes, and the rest takes care of itself.
 
 Four days. One artwork. Eleven tags.
-— 92% of everyone who tapped completed the full journey
-— 39% shared to social, with no incentive offered
-— 100% mobile traffic
-— 85% of participants gave their name
-— 77 participants, 84 taps, 338 total engagements
+
+- 92% of everyone who tapped completed the full journey.
+- 39% shared to social, with no incentive offered.
+- 100% mobile traffic.
+- 85% of participants gave their name.
+- 77 participants, 84 taps, 338 total engagements.
+
 Credited by Casio as TapTech powered by DEPARTMNT on G-SHOCK Singapore's own site.

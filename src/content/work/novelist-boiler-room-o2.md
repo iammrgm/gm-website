@@ -38,8 +38,9 @@ I booked Novelist to close it, in the foyer at O2 Academy Brixton. The kids who'
 ## Outcome
 
 Campaign results (FRUKT / O2):
-— 1M+ viewers on the global stream
-— 9.4M+ social reach
-— 30% increase in Go Think Big website traffic
-— Measurable lift in programme applications
+
+- 1M+ viewers on the global stream.
+- 9.4M+ social reach.
+- 30% increase in Go Think Big website traffic.
+- Measurable lift in programme applications.
 

@@ -37,10 +37,10 @@ A 36,000 sq ft London creative studio needed one system serving three audiences 
 
 One system, three faces. YOU, powered by DEPARTMNT.
 
-— **Member portal.** Application, vetting and onboarding, every applicant reviewed personally so the front door doubles as curation. Tiered membership, studio booking against a token wallet, a catering wallet, event ticketing and a tap-to-connect member directory.
-— **Production portal.** A separate experience for agencies and brands: live session state, crew on site, time remaining, the Wi-Fi password. Hospitality ordered mid-shoot and delivered to the floor. Session history, hours and spend, exportable.
-— **Admin CRM.** Applications, access, bookings, token balances, kitchen orders with lead times, and every session's spend assembled for invoicing. The member sees units. The venue sees the numbers.
-— **Hardware.** TapTech cards, wristbands and resin tags as each member's physical key. One credential opens a door, books a room, buys a ticket and knows who you are.
+- **Member portal.** Application, vetting and onboarding, every applicant reviewed personally so the front door doubles as curation. Tiered membership, studio booking against a token wallet, a catering wallet, event ticketing and a tap-to-connect member directory.
+- **Production portal.** A separate experience for agencies and brands: live session state, crew on site, time remaining, the Wi-Fi password. Hospitality ordered mid-shoot and delivered to the floor. Session history, hours and spend, exportable.
+- **Admin CRM.** Applications, access, bookings, token balances, kitchen orders with lead times, and every session's spend assembled for invoicing. The member sees units. The venue sees the numbers.
+- **Hardware.** TapTech cards, wristbands and resin tags as each member's physical key. One credential opens a door, books a room, buys a ticket and knows who you are.
 
 The instinct on a build like this is to digitise everything. We didn't. A production client spending five figures on a shoot wants their account manager on a direct line, not a booking form, so booking stays on the phone and everything around it goes digital. The same thinking ran through the rest: keep the Paxton access system already installed, settle payments straight to YOU through Stripe Connect rather than through us, and use NFC readers already going into the walls for wayfinding instead of buying an indoor positioning system. The build ran alongside an active fit-out, which forced a hard Phase 1 scope freeze. Least glamorous decision in the project, and the reason it held its dates.
 

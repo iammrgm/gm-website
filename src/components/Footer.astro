@@ -76,8 +76,8 @@ const CONTACT_EMAIL = "hello@departmnt.xyz";
 
     <p class="mt-16 max-w-xl text-lg text-muted">
       I build places. Physical or digital, loud or quiet, but always alive. If you're building
-      something at the edge of culture and technology — or you want to put me in front of a room
-      — get in touch.
+      something at the edge of culture and technology, or you want to put me in front of a room,
+      get in touch.
     </p>
 
     <a
@@ -157,7 +157,7 @@ const CONTACT_EMAIL = "hello@departmnt.xyz";
     try {
       const res = await fetch("/api/contact", { method: "POST", body: new FormData(form) });
       if (!res.ok) throw new Error("Request failed");
-      status.textContent = "Thanks — I'll be in touch soon.";
+      status.textContent = "Thanks, I'll be in touch soon.";
       form.reset();
     } catch {
       status.textContent = "Something went wrong sending that. Try emailing directly instead.";

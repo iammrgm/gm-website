@@ -29,27 +29,28 @@ stats:
 
 ## Brief
 
-TSKO — Total Sonic Knockout — puts MMA bouts and rave in the same room. Genesys built the audience in venues, not on feeds, and the people who turn up behave like a community rather than a customer list.
+TSKO (Total Sonic Knockout) puts MMA bouts and rave in the same room. Genesys built the audience in venues, not on feeds, and the people who turn up behave like a community rather than a customer list.
 The infrastructure underneath told them almost nothing. Ticketing ran on a general-purpose website builder charging a service fee on every ticket, which Genesys absorbed rather than passing to fans. The fan data belonged to the platform. There was no way to recognise someone who'd been to the last three.
 The constraints were sharp. A fight night can't afford door delays. The audience won't download an app. And nothing could add load to a production team already at full stretch.
 
 ## What We Built
 
 Four events, each proving one thing before the next layer went on.
-TSKO3 — the garment becomes the ticket. 100 NFC tags embedded into the Skin² collection at the London factory, pre-registered before the garments shipped. Each one carried three event entries, shown to the owner as a progress bar, validated by tap at the door. No QR, no barcode. The same tap opened the fight schedule and the post-event drops.
-TSKO4 — the venue becomes interactive. Up to 50 passive tags across Archives London — stickers and flat tags on walls, pillars, bar fronts. Tap to vote on fighters and sets. No wearables, no distribution, no change to ticketing, no extra work for venue staff.
-TSKO5 — tap-to-enter as the primary route for garment owners, with set times delivered through the same tap.
-TSKO6 — the full connected event. Ticketing, membership and content on one portal serving three audiences simultaneously: ticket buyers, garment owners, and the public arriving from social. Around ten touchpoints mapped to specific jobs — register at the door, vote at the stage, unlock a mix at the bar, claim the content pack on the way out. A skill-based prediction league ran across every bout with a live leaderboard on the venue screen and standings on each phone. Content drip-fed to members for seven days afterwards.
+TSKO3: the garment becomes the ticket. 100 NFC tags embedded into the Skin² collection at the London factory, pre-registered before the garments shipped. Each one carried three event entries, shown to the owner as a progress bar, validated by tap at the door. No QR, no barcode. The same tap opened the fight schedule and the post-event drops.
+TSKO4: the venue becomes interactive. Up to 50 passive tags across Archives London (stickers and flat tags on walls, pillars, bar fronts). Tap to vote on fighters and sets. No wearables, no distribution, no change to ticketing, no extra work for venue staff.
+TSKO5: tap-to-enter as the primary route for garment owners, with set times delivered through the same tap.
+TSKO6: the full connected event. Ticketing, membership and content on one portal serving three audiences simultaneously: ticket buyers, garment owners, and the public arriving from social. Around ten touchpoints mapped to specific jobs: register at the door, vote at the stage, unlock a mix at the bar, claim the content pack on the way out. A skill-based prediction league ran across every bout with a live leaderboard on the venue screen and standings on each phone. Content drip-fed to members for seven days afterwards.
 
 ## Outcome
 
 We could have built all of it for one event. Staging it instead is why it worked.
-TSKO4 is the clearest example. The assumption going in was that an interactive venue needs wearables — something to hand out, register, manage. So we tested the opposite: 50 passive tags stuck to walls and bar fronts, nothing distributed, ticketing untouched. It worked in a dark, dense, loud room with zero additional operational load. That single finding is what made everything after it cheap to deploy.
+TSKO4 is the clearest example. The assumption going in was that an interactive venue needs wearables: something to hand out, register, manage. So we tested the opposite: 50 passive tags stuck to walls and bar fronts, nothing distributed, ticketing untouched. It worked in a dark, dense, loud room with zero additional operational load. That single finding is what made everything after it cheap to deploy.
 The harder proof is environmental. Connected access usually gets demonstrated in a controlled retail activation with good lighting and patient customers. A fight night has neither. The door cannot slow down. If the tap doesn't read first time, you have a queue and an angry promoter.
 
-TSKO6, from verified payment and platform records.
-1,500 tickets sold — sold out.
-— £0 platform booking fee. Gross collected and remitted to the promoter in full, card processing at cost
-— 2.58% all-in payment cost, against 8–10% booking fees previously
-— One door system. Every third-party buyer reissued
-Modelled across a full year of Genesys events, removing the per-ticket fee returns roughly £4,560 to the promoter — with no service charge passed to fans.
+TSKO6, from verified payment and platform records. 1,500 tickets sold. Sold out.
+
+- £0 platform booking fee. Gross collected and remitted to the promoter in full, card processing at cost.
+- 2.58% all-in payment cost, against 8–10% booking fees previously.
+- One door system. Every third-party buyer reissued.
+
+Modelled across a full year of Genesys events, removing the per-ticket fee returns roughly £4,560 to the promoter, with no service charge passed to fans.

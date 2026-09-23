@@ -29,18 +29,18 @@ stats:
 
 ## Brief
 
-Mercedes-Benz was moving from a franchise model to direct e-commerce — one of the most significant business model shifts the automotive sector has attempted. Dealers became agents. The customer relationship moved to the manufacturer. I led the UK team delivering it, working with Team X's managing partner and senior leadership.
-A change that size doesn't land as a launch; it lands in every system a customer or a dealer touches — primary website, microsites, dealership CRM, and the showrooms themselves. I also led UK adaptation and rollout of Showcasing Innovations, parts one and two.
+Mercedes-Benz was moving from a franchise model to direct e-commerce: one of the most significant business model shifts the automotive sector has attempted. Dealers became agents. The customer relationship moved to the manufacturer. I led the UK team delivering it, working with Team X's managing partner and senior leadership.
+A change that size doesn't land as a launch; it lands in every system a customer or a dealer touches: primary website, microsites, dealership CRM, and the showrooms themselves. I also led UK adaptation and rollout of Showcasing Innovations, parts one and two.
 
 ## What We Built
 
-— Digital systems integration across UK and EU teams to enable the franchise-to-e-commerce transition
-— Mixed-media retail experience strategies rolled out across 100+ UK showrooms
-— Delivery of Showcasing Innovations across ATL, TV, radio, digital, CRM, demand generation and OOH
-— Local execution aligned to global brand direction across markets and agencies
+- Digital systems integration across UK and EU teams to enable the franchise-to-e-commerce transition.
+- Mixed-media retail experience strategies rolled out across 100+ UK showrooms.
+- Delivery of Showcasing Innovations across ATL, TV, radio, digital, CRM, demand generation and OOH.
+- Local execution aligned to global brand direction across markets and agencies.
 
 ## Outcome
 
-— £2.5m campaign delivered across every UK channel
-— 100+ showrooms transitioned
-— Growth in the private retail channel following the transition
+- £2.5m campaign delivered across every UK channel.
+- 100+ showrooms transitioned.
+- Growth in the private retail channel following the transition.

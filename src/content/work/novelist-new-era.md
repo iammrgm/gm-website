@@ -36,10 +36,10 @@ New Era had been a fixture of grime since the pirate radio days, and wanted to t
 
 I ran Novelist's side of the whole campaign:
 
-— **The film.** The third part of a three-part documentary series directed by Tim & Barry, telling grime's history through his eyes.
-— **The launch.** Novelist headlining the release party at Red Gallery in Shoreditch, on a line-up of the scene's newest names.
-— **The product.** A limited signature headwear collection designed with the three MCs, sold at New Era Carnaby Street and Westfield Stratford City.
-— **The editorial.** A New Era Music profile of Novelist running alongside the series.
+- **The film.** The third part of a three-part documentary series directed by Tim & Barry, telling grime's history through his eyes.
+- **The launch.** Novelist headlining the release party at Red Gallery in Shoreditch, on a line-up of the scene's newest names.
+- **The product.** A limited signature headwear collection designed with the three MCs, sold at New Era Carnaby Street and Westfield Stratford City.
+- **The editorial.** A New Era Music profile of Novelist running alongside the series.
 
 What made it work was that the partnership reached past the content. A film is watched once. A cap with the artist's name on it gets worn every day, in the places the music actually lives.
 

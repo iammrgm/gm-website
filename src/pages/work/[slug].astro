@@ -37,7 +37,11 @@ const prevWork = allWork[(currentIndex - 1 + allWork.length) % allWork.length];
 const nextWork = allWork[(currentIndex + 1) % allWork.length];
 ---
 
-<Layout title={`${title} — Gareth Matthews`} description={entry.data.description}>
+<Layout
+  title={`${title} | Gareth Matthews`}
+  description={entry.data.description}
+  ogImage={entry.data.cover}
+>
   <script type="application/ld+json" set:html={JSON.stringify(caseStudySchema)} />
   <main id="main-content" class="mx-auto max-w-[1480px] px-5 pt-32 pb-28 sm:px-10">
     <a href="/work" class="text-sm text-muted transition-colors hover:text-paper">{title} /</a>
@@ -137,7 +141,7 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
           <p class="text-2xl font-medium leading-snug tracking-tight text-paper sm:text-3xl">
             “{pullQuote.text}”
           </p>
-          <cite class="mt-3 block text-sm not-italic text-muted">— {pullQuote.source}</cite>
+          <cite class="mt-3 block text-sm not-italic text-muted">{pullQuote.source}</cite>
         </blockquote>
       )
     }
@@ -149,7 +153,7 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
             <div class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-line/20">
               <img
                 src={src}
-                alt={`${title} — project photo ${i + 1} of ${images.length}`}
+                alt={`${title}, project photo ${i + 1} of ${images.length}`}
                 loading="lazy"
                 class="h-full w-full object-cover"
               />
@@ -201,5 +205,17 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
   .prose-work :global(p) {
     margin-top: 0.75rem;
     color: rgba(245, 244, 241, 0.75);
+  }
+  .prose-work :global(ul) {
+    margin-top: 0.75rem;
+    padding-left: 1.25rem;
+    list-style: disc;
+  }
+  .prose-work :global(li) {
+    margin-top: 0.5rem;
+    color: rgba(245, 244, 241, 0.75);
+  }
+  .prose-work :global(li)::marker {
+    color: rgba(245, 244, 241, 0.4);
   }
 </style>

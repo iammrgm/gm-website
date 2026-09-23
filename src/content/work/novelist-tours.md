@@ -1,5 +1,5 @@
 ---
-title: "Novelist — Worldwide Tours"
+title: "Novelist: Worldwide Tours"
 slug: "novelist-tours"
 description: "Nightclubs, national brands, artist campaigns, connected products. Different rooms, same question: how do you actually reach someone?"
 categories:

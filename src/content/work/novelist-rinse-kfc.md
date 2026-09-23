@@ -40,8 +40,9 @@ I placed Novelist. He competed alongside Big Narstie, P Money and D Double E aga
 ## Outcome
 
 Campaign results (BBH / KFC):
-— 2.7M people reached by the live stream
-— 87% of KFC's target audience saw the campaign within five days
-— Highest organic reach of any KFC video
-— First live stream Facebook had ever promoted
+
+- 2.7M people reached by the live stream.
+- 87% of KFC's target audience saw the campaign within five days.
+- Highest organic reach of any KFC video.
+- First live stream Facebook had ever promoted.
 

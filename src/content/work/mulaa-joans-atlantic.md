@@ -39,9 +39,9 @@ A properly embedded NFC note is a four-week build. The date couldn't move.
 
 We didn't decline and we didn't slip. We proposed the fix before anyone asked: a printed note carrying an NFC sticker, the same experience, on the original date. 10K took it, then widened the brief twice.
 
-— **The pop-up.** Note and sticker in hand, one tap into a gated portal open only to people who were there. Unreleased demos, behind-the-scenes footage, exclusive video messages.
-— **Leeds and Reading.** A festival treasure hunt. 45 resin tags per site across five landmark zones. Clues drop on Mulaa's Instagram at a set time; find any tag, in any order. First tag unlocks an unreleased track, five earns a T-shirt, ten a vinyl, and whoever finds the most gets a prize nobody announced.
-— **The tour.** 1,500 custom NFC notes for the 11-date Scarlet Mafia Tour. The format they asked for on day one, now with the lead time to build it properly, landing ahead of the Dublin opener.
+- **The pop-up.** Note and sticker in hand, one tap into a gated portal open only to people who were there. Unreleased demos, behind-the-scenes footage, exclusive video messages.
+- **Leeds and Reading.** A festival treasure hunt. 45 resin tags per site across five landmark zones. Clues drop on Mulaa's Instagram at a set time; find any tag, in any order. First tag unlocks an unreleased track, five earns a T-shirt, ten a vinyl, and whoever finds the most gets a prize nobody announced.
+- **The tour.** 1,500 custom NFC notes for the 11-date Scarlet Mafia Tour. The format they asked for on day one, now with the lead time to build it properly, landing ahead of the Dublin opener.
 
 The portal was built as Phase 2 of the H.LLS system, not from zero. Sign-up, content hosting and access validation carried straight over from something already proven under festival conditions; new work went only where it was genuinely new. Two calls kept it deliverable: fixed rules rather than live edits, and clues run through social because festival signal can't be trusted.
 
