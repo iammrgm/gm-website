@@ -22,15 +22,4 @@ const work = defineCollection({
   }),
 });
 
-const thoughts = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/thoughts" }),
-  schema: z.object({
-    title: z.string(),
-    slug: z.string(),
-    description: z.string(),
-    date: z.coerce.date(),
-    cover: z.string().optional(),
-  }),
-});
-
-export const collections = { work, thoughts };
+export const collections = { work };
