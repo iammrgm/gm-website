@@ -1,0 +1,63 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const allThoughts = await getCollection("thoughts");
+  return allThoughts.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { title, description, date } = entry.data;
+const { Content } = await render(entry);
+
+const dateFormatter = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric" });
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  description,
+  datePublished: date.toISOString(),
+  author: { "@type": "Person", name: "Gareth Matthews" },
+};
+---
+
+<Layout title={`${title} — Gareth Matthews`} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <main id="main-content" class="mx-auto max-w-[1480px] px-5 pt-32 pb-28 sm:px-10">
+    <a href="/thoughts" class="text-sm text-muted transition-colors hover:text-paper">Thoughts /</a>
+    <p class="mt-4 text-xs font-semibold uppercase tracking-widest text-muted">
+      {dateFormatter.format(date)}
+    </p>
+    <h1 class="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">{title}</h1>
+
+    <article class="prose-thought mt-16 max-w-2xl space-y-6 text-lg text-paper/90">
+      <Content />
+    </article>
+
+    <a
+      href="/thoughts"
+      class="mt-16 inline-block text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4"
+    >
+      ← Back to Thoughts
+    </a>
+  </main>
+</Layout>
+
+<style>
+  .prose-thought :global(h2) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--color-paper);
+    margin-top: 2rem;
+  }
+  .prose-thought :global(p) {
+    margin-top: 0.75rem;
+    color: rgba(245, 244, 241, 0.75);
+  }
+</style>
