@@ -2,11 +2,41 @@
 // Logo↔video pairings pulled directly from the reference site's DOM
 // (each video card's sibling image), not guessed.
 const items = [
-  { video: "tEJyLiw78Otl9HT31lSl71Igd1Q", logo: "FjrV6A6BMgIskLefRyIyKKghyk", label: "H.LLS" },
-  { video: "5olowgzf0BM9OmmN6A4xMDB6k", logo: "yuF8Glfc9MYdKuectWW9bWH02Dg", label: "Navinder Nangla" },
-  { video: "FCXfnqK5mg3OLagHvnz8bTwiFVU", logo: "bqSpvsAFrdiCphSWU5uPtwaVbw", label: "Crocs" },
-  { video: "Wx86FMdjp6N48XUOZVyO07ZCsE", logo: "AUEHB6WEWqPGdQCUOCZs3Kw2cJs", label: "G-Shock" },
-  { video: "zwjFGabSp2mAmVuDqPu2ZZBOOc", logo: "E21lJiPj6h90n7vTYyeyZSiZ0Y", label: "Genesys" },
+  {
+    video: "tEJyLiw78Otl9HT31lSl71Igd1Q",
+    logo: "FjrV6A6BMgIskLefRyIyKKghyk",
+    label: "H.LLS",
+    slug: "hlls-10k-projects",
+    poster: "/images/work/hlls-10k-projects/0.webp",
+  },
+  {
+    video: "5olowgzf0BM9OmmN6A4xMDB6k",
+    logo: "yuF8Glfc9MYdKuectWW9bWH02Dg",
+    label: "Navinder Nangla",
+    slug: "navinder-nangla",
+    poster: "/images/work/navinder-nangla/0.webp",
+  },
+  {
+    video: "FCXfnqK5mg3OLagHvnz8bTwiFVU",
+    logo: "bqSpvsAFrdiCphSWU5uPtwaVbw",
+    label: "Crocs",
+    slug: "crocs-kasina",
+    poster: "/images/work/crocs-kasina/0.webp",
+  },
+  {
+    video: "Wx86FMdjp6N48XUOZVyO07ZCsE",
+    logo: "AUEHB6WEWqPGdQCUOCZs3Kw2cJs",
+    label: "G-Shock",
+    slug: "g-shock-who-eats-art",
+    poster: "/images/work/g-shock-who-eats-art/3.webp",
+  },
+  {
+    video: "zwjFGabSp2mAmVuDqPu2ZZBOOc",
+    logo: "E21lJiPj6h90n7vTYyeyZSiZ0Y",
+    label: "Genesys",
+    slug: "genesys",
+    poster: "/images/work/genesys/0.webp",
+  },
 ];
 ---
 
@@ -15,49 +45,69 @@ const items = [
   data-partner-videos
 >
   {
-    items.map(({ video, logo, label }) => (
-      <div class="relative aspect-[3/2] w-[85vw] shrink-0 snap-center overflow-hidden rounded-xl bg-line/20 sm:w-[420px]">
+    items.map(({ video, logo, label, slug, poster }) => (
+      <a
+        href={`/work/${slug}`}
+        class="group relative block aspect-[3/2] w-[85vw] shrink-0 snap-center overflow-hidden rounded-xl bg-line/20 sm:w-[420px]"
+      >
         <video
           src={`/videos/partners/${video}.mp4`}
+          poster={poster}
           muted
           loop
           playsinline
           preload="none"
-          class="h-full w-full object-cover"
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           data-autoplay-in-view
         />
         <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
           <img src={`/images/logos/${logo}.png`} alt={label} class="max-h-[12%] max-w-[35%] object-contain" />
         </div>
-      </div>
+      </a>
     ))
   }
 </div>
 
 <script>
-  const videos = document.querySelectorAll<HTMLVideoElement>("[data-autoplay-in-view]");
-  // Belt-and-braces: set the muted property in JS too, not just the HTML
-  // attribute — some browsers can let sound through on a script-triggered
-  // play() after user interaction if only the attribute is set.
-  videos.forEach((v) => {
-    v.muted = true;
-    v.volume = 0;
-  });
-  const io = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        const video = entry.target as HTMLVideoElement;
-        if (entry.isIntersecting) {
-          video.muted = true;
-          video.play().catch(() => {});
-        } else {
-          video.pause();
+  // Re-runs on every Astro page load, including client-side navigations
+  // via View Transitions — without this, a plain top-level script only
+  // ever runs once, so the observer never (re)attaches after navigating
+  // away from and back to a page with these videos, leaving them stuck
+  // paused indefinitely.
+  let partnerVideosObserver: IntersectionObserver | null = null;
+
+  function initPartnerVideos() {
+    const videos = document.querySelectorAll<HTMLVideoElement>("[data-autoplay-in-view]");
+    if (!videos.length) return;
+
+    partnerVideosObserver?.disconnect();
+
+    // Belt-and-braces: set the muted property in JS too, not just the HTML
+    // attribute — some browsers can let sound through on a script-triggered
+    // play() after user interaction if only the attribute is set.
+    videos.forEach((v) => {
+      v.muted = true;
+      v.volume = 0;
+    });
+
+    partnerVideosObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            video.muted = true;
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
         }
-      }
-    },
-    { threshold: 0.5 }
-  );
-  videos.forEach((v) => io.observe(v));
+      },
+      { threshold: 0.5 }
+    );
+    videos.forEach((v) => partnerVideosObserver!.observe(v));
+  }
+
+  document.addEventListener("astro:page-load", initPartnerVideos);
 </script>
 
 <style>

@@ -20,12 +20,12 @@ images:
   - "/images/work/coca-cola-piccadilly/3.webp"
 order: 19
 stats:
-  - value: "783.5m²"
-    label: "Curved screen, largest OOH ad display in Europe"
-  - value: "6"
-    label: "Brands sharing the rotation"
-  - value: "40s"
-    label: "Full takeover every 10 minutes"
+  - value: "100M+"
+    label: "People see Piccadilly Lights every year (Landsec)"
+  - value: "90 min"
+    label: "Live 'Caroloke' takeover, screen given to the crowd"
+  - value: "1.4x"
+    label: "Screen resolution vs. 4K"
 ---
 
 ## Brief

@@ -19,12 +19,14 @@ images:
   - "/images/work/hlls-10k-projects/3.webp"
 order: 2
 stats:
-  - value: "50"
-    label: "Countries, audience built from zero"
-  - value: "~67%"
-    label: "Opt-in rate"
-  - value: "12mo"
-    label: "Partnership secured from trial"
+  - value: "65%"
+    label: "Marketing opt-in, vs. 20–30% platform norm"
+  - value: "137"
+    label: "Fans identified in 11 days, standing start"
+  - value: "35%"
+    label: "Return sessions, unprompted (504 of 1,446)"
+  - value: "4.7×"
+    label: "Portal actions vs. streaming click-throughs"
 ---
 
 ## Brief
@@ -47,8 +49,9 @@ Physical taps accounted for a small share of the audience — and the highest-ra
 The second thing we didn't expect: clients buy the dashboard and then act on the drop-off. The interesting number was never the total. It was the gap between two rungs.
 
 Three months. Partial hardware rollout. No fan education, no paid media.
-— A named, consented audience built from zero across 50 countries
-— Opt-in rate of roughly 67%
-— One release measured end to end for the first time — first tap to streaming click — with portal actions outnumbering click-throughs off it
-— A working fan ranking that separated a small top tier from a much larger warm middle, giving the label a targetable segment it had never been able to see
+— 137 fans identified in 11 days, from 650 units across 5 experiences — a standing start, no pre-existing list
+— 65% opted into marketing, against a 20–30% platform norm, on a rollout with zero fan education
+— Roughly 35% of fans returned to the portal unprompted (504 of 1,446 sessions) — retention on a page nobody was told to revisit
+— One release measured end to end for the first time: 66% video completion, and 450 on-site actions against 95 streaming click-throughs — the portal held attention rather than sending fans elsewhere
+— A named, consented audience built from zero across 50 countries, with a working fan ranking that separated a small top tier from a much larger warm middle.
 The trial converted into a twelve-month partnership covering software, quarterly hardware and campaign delivery.

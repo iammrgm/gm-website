@@ -19,14 +19,12 @@ images:
   - "/images/work/genesys/3.webp"
 order: 7
 stats:
-  - value: "1,320"
+  - value: "1,500"
     label: "Tickets sold"
-  - value: "88%"
-    label: "Of 1,500 capacity"
-  - value: "£17,219"
-    label: "Gross, remitted in full"
   - value: "£0"
-    label: "Platform booking fee"
+    label: "Platform booking fee, remitted in full"
+  - value: "2.58%"
+    label: "All-in payment cost, vs. 8–10% before"
 ---
 
 ## Brief
@@ -50,11 +48,8 @@ TSKO4 is the clearest example. The assumption going in was that an interactive v
 The harder proof is environmental. Connected access usually gets demonstrated in a controlled retail activation with good lighting and patient customers. A fight night has neither. The door cannot slow down. If the tap doesn't read first time, you have a queue and an angry promoter.
 
 TSKO6, from verified payment and platform records.
-1,320 tickets sold — 88% of a 1,500 capacity.
-— 752 tickets through DEPARTMNT across 656 orders
-— £17,219 gross, collected and remitted in full
-— £0 platform booking fee. Card processing at cost
+1,500 tickets sold — sold out.
+— £0 platform booking fee. Gross collected and remitted to the promoter in full, card processing at cost
 — 2.58% all-in payment cost, against 8–10% booking fees previously
-— 0.15% dispute rate — one across 657 charges
 — One door system. Every third-party buyer reissued
 Modelled across a full year of Genesys events, removing the per-ticket fee returns roughly £4,560 to the promoter — with no service charge passed to fans.

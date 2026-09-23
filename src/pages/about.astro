@@ -4,13 +4,16 @@ import SectionLabel from "../components/SectionLabel.astro";
 import AtmospherePhotos from "../components/AtmospherePhotos.astro";
 
 const cascadeLead =
-  "Fifteen years watching culture generate attention no brand could hold onto, and brands spend fortunes reaching people they'd never be able to name. The room was always the asset. Nobody was building for it. So I did.";
+  "Fifteen years watching culture generate attention no brand could hold onto, and brands spend fortunes reaching people they'd never be able to name. The room was always the asset.";
+const cascadeClose = "Nobody was building for it. So I did.";
 
 const memoNarrative = [
   "I started in rooms. DJing since I was 13, then a residency at Ministry of Sound, club nights at Egg and Brixton Academy, stage management at SW4 and Farr Festival. Then managing Novelist: booking his first world tour through Tokyo, Shanghai and Seoul, and his partnerships with Uniqlo, New Era and Casio G-Shock.",
   "Then I went to learn how the biggest brands actually work. Programme director on Mercedes-Benz, the National Lottery rebrand, AB InBev's BEES. National campaigns, global platforms, budgets in the millions.",
   "Both sides had the same gap. Culture creates attention no brand can hold on to. Brands spend fortunes reaching people they can never name. The value was always in the room, and everyone kept building for the screen.",
   "DEPARTMNT isn't a turn away from that past. It's the argument that past was making all along. We build the layer that lets a garment, a wristband or a door remember who was there, so the relationship made in the room doesn't disappear when the lights come up.",
+  "In practice, it starts with a tap. Hold your phone to something real and it gives you more than it did a second ago: a ticket that knows you came, a jacket that unlocks the next drop, a wristband that brings you back to the artist a month later. For the person tapping, that's access to something they actually want. For the brand, it's the first time the people who showed up in person have a name, and a reason to hear from them again.",
+  "That's the bigger shift. The digital world has always known what you care about. The physical world never could. We're giving it that context, one object at a time, so the things around you start working as hard for you as the phone in your pocket. Better experiences for the people in the room. Real relationships for the brands that bring them there. That's what we mean by the physical internet.",
 ];
 
 const memoPrinciples = [
@@ -120,6 +123,9 @@ const faqSchema = {
         <p class="text-3xl font-medium leading-snug tracking-tight text-paper sm:text-4xl">
           {cascadeLead}
         </p>
+        <p class="mt-4 text-3xl font-medium leading-snug tracking-tight text-paper sm:text-4xl">
+          {cascadeClose}
+        </p>
         <p class="mt-8 text-lg font-normal leading-relaxed text-muted sm:text-xl">
           DEPARTMNT builds the infrastructure for connected products — tag, platform, app —
           turning a physical object into the start of a relationship rather than the end of a
@@ -140,7 +146,7 @@ const faqSchema = {
         {memoNarrative.map((para) => <p class="text-lg leading-relaxed text-paper/90">{para}</p>)}
       </div>
 
-      <h2 class="mt-12 text-sm font-semibold uppercase tracking-widest text-muted">How I Work</h2>
+      <h2 class="mt-12 text-sm font-semibold uppercase tracking-widest text-muted">How I Think</h2>
       <ul class="mt-6 divide-y divide-line border-t border-line">
         {
           memoPrinciples.map((p) => (
@@ -155,8 +161,9 @@ const faqSchema = {
       <div class="mt-12 max-w-2xl">
         <h2 class="text-sm font-semibold uppercase tracking-widest text-muted">Open Lines</h2>
         <p class="mt-4 text-lg leading-relaxed text-paper/90">
-          If you're building something at the edge of culture and technology, or want to put me
-          in front of a room: partnerships, speaking, press and advisory. Get in touch.
+          Get in touch for speaking, partnerships, press and media, pilots, or advisory —
+          if you're building something at the edge of culture and technology, or want to put
+          me in front of a room, this is the door.
         </p>
         <a
           href="/#contact"

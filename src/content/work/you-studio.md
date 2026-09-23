@@ -21,10 +21,12 @@ order: 4
 stats:
   - value: "36,000"
     label: "Sq ft creative studio"
+  - value: "4"
+    label: "Integrated systems built (member, production, admin, hardware)"
   - value: "3"
-    label: "Studio spaces, one booking system"
+    label: "Existing systems kept and integrated, not rebuilt"
   - value: "12"
-    label: "Competitor workspaces benchmarked"
+    label: "Competitor workspaces benchmarked, zero ran this as one system"
 ---
 
 ## Brief

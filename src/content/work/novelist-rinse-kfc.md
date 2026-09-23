@@ -23,6 +23,8 @@ stats:
     label: "People reached by the live stream"
   - value: "87%"
     label: "Of target audience reached in 5 days"
+  - value: "3,800"
+    label: "Comments in 48 hours, 77% positive"
   - value: "1st"
     label: "Livestream Facebook ever promoted"
 ---

@@ -19,12 +19,14 @@ images:
   - "/images/work/navinder-nangla/3.webp"
 order: 6
 stats:
-  - value: "75"
-    label: "Verified entrants, zero duplicates"
+  - value: "75%"
+    label: "Of garments converted to a verified entrant"
+  - value: "81%"
+    label: "Of all entries landed in a single day"
   - value: "49.3%"
     label: "Opted into marketing"
-  - value: "0"
-    label: "Fraud anomalies detected"
+  - value: "0%"
+    label: "Duplicate or fraud rate"
 ---
 
 ## Brief

@@ -19,6 +19,13 @@ images:
   - "/images/work/novelist-new-era/2.webp"
   - "/images/work/novelist-new-era/3.webp"
 order: 14
+stats:
+  - value: "3"
+    label: "MCs, three eras of grime"
+  - value: "3-part"
+    label: "Tim & Barry documentary series"
+  - value: "2"
+    label: "Flagship retail drops, Carnaby St & Westfield Stratford"
 ---
 
 ## Brief

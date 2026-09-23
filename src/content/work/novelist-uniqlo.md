@@ -33,4 +33,5 @@ The decision was the pairing itself. A Lewisham grime MC, performing on a retail
 
 ## Outcome
 
-A flagship launch turned into a live moment, and an NTS film that carried it well beyond the people standing in the store. It sat in a run of brand work for Novelist across that period, alongside Casio G-Shock, New Era, KFC and Boiler Room × O2, and set the terms for all of it: culture first, and the brand earns its place by backing the artist on their own terms.
+The set itself is the record. Novelist and his DJ, KC, running a full live set between the rails — no stage, no barrier, a retail floor doing a different job for twenty minutes. He runs it like a proper show: track into track, thanking the room, thanking KC, "let's go in again." NTS filmed the whole thing and it's still up, nine years on — a flagship launch that left behind an actual document instead of a press photo.
+It sat in a run of brand work for Novelist across that period, alongside Casio G-Shock, New Era, KFC and Boiler Room × O2, and set the terms for all of it: culture first, and the brand earns its place by backing the artist on their own terms.

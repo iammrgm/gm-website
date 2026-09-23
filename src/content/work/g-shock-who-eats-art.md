@@ -23,8 +23,8 @@ stats:
     label: "Completed the full journey"
   - value: "39%"
     label: "Shared to social, no incentive"
-  - value: "100%"
-    label: "Mobile traffic"
+  - value: "22×"
+    label: "Engagement spike on the peak day"
   - value: "338"
     label: "Total engagements"
 ---
