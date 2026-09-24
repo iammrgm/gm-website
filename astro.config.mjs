@@ -8,6 +8,7 @@ import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import keystatic from '@keystatic/astro';
 import react from '@astrojs/react';
+import markdoc from '@astrojs/markdoc';
 
 // Keystatic (the /keystatic CMS admin) ships in both dev and production —
 // production uses GitHub-backed storage (see keystatic.config.ts), which
@@ -24,7 +25,7 @@ const isDev = process.argv.includes('dev');
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.garethmatthews.uk',
-  integrations: [sitemap(), react(), keystatic()],
+  integrations: [sitemap(), react(), keystatic(), markdoc()],
 
   vite: {
     plugins: [tailwindcss()]

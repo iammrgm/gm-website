@@ -1,9 +1,52 @@
 import { config, fields, collection } from "@keystatic/core";
+import { block } from "@keystatic/core/content-components";
 
 const marketOptions = [
   { label: "DEPARTMNT", value: "departmnt" },
   { label: "Personal / Agency-Era", value: "personal" },
 ];
+
+// Insertable blocks for the article body — drop a video, reel, or image
+// gallery in wherever the text calls for it, rather than being stuck with
+// fixed hero/carousel/reel/video fields in a fixed position. Tag names here
+// must match markdoc.config.mjs exactly, since that's what actually renders
+// them on the site.
+function mediaBlocks(paths: {
+  videoDirectory: string;
+  videoPublicPath: string;
+  imageDirectory: string;
+  imagePublicPath: string;
+}) {
+  return {
+    video: block({
+      label: "Video",
+      description: "A standard 16:9 video, inserted at this point in the text.",
+      schema: {
+        video: fields.file({ label: "Video file", directory: paths.videoDirectory, publicPath: paths.videoPublicPath }),
+      },
+    }),
+    reel: block({
+      label: "Reel",
+      description: "A short vertical video (9:16), inserted at this point in the text.",
+      schema: {
+        video: fields.file({ label: "Video file", directory: paths.videoDirectory, publicPath: paths.videoPublicPath }),
+      },
+    }),
+    gallery: block({
+      label: "Gallery",
+      description: "A grid of images, inserted at this point in the text.",
+      schema: {
+        images: fields.array(
+          fields.object({
+            image: fields.image({ label: "Image", directory: paths.imageDirectory, publicPath: paths.imagePublicPath }),
+            alt: fields.text({ label: "Alt text", description: "Describe the image for accessibility." }),
+          }),
+          { label: "Images", itemLabel: (props) => props.fields.alt.value || "Image" }
+        ),
+      },
+    }),
+  };
+}
 
 // Local dev writes straight to disk (fast, no commits for every keystroke).
 // The deployed site has no filesystem to write to, so it goes through
@@ -16,7 +59,17 @@ const marketOptions = [
 const isDev = import.meta.env.DEV;
 
 export default config({
-  storage: isDev ? { kind: "local" } : { kind: "github", repo: { owner: "iammrgm", name: "gm-website" } },
+  storage: isDev
+    ? { kind: "local" }
+    : {
+        kind: "github",
+        repo: { owner: "iammrgm", name: "gm-website" },
+        // Branch protection on main (set up separately in GitHub) makes
+        // Keystatic prompt for a new branch instead of committing straight
+        // to main. branchPrefix just keeps those edit-branches clearly
+        // named and grouped together.
+        branchPrefix: "keystatic/",
+      },
   collections: {
     work: collection({
       label: "Work",
@@ -86,7 +139,17 @@ export default config({
           }),
           { label: "Stats", itemLabel: (props) => props.fields.value.value || "Stat" }
         ),
-        content: fields.markdoc({ label: "Content", extension: "md" }),
+        content: fields.markdoc({
+          label: "Content",
+          extension: "mdoc",
+          options: { image: { directory: "public/images/work", publicPath: "/images/work/" } },
+          components: mediaBlocks({
+            videoDirectory: "public/videos/work",
+            videoPublicPath: "/videos/work/",
+            imageDirectory: "public/images/work",
+            imagePublicPath: "/images/work/",
+          }),
+        }),
       },
     }),
     thoughts: collection({
@@ -125,7 +188,17 @@ export default config({
           directory: "public/videos/thoughts",
           publicPath: "/videos/thoughts/",
         }),
-        content: fields.markdoc({ label: "Content", extension: "md" }),
+        content: fields.markdoc({
+          label: "Content",
+          extension: "mdoc",
+          options: { image: { directory: "public/images/thoughts", publicPath: "/images/thoughts/" } },
+          components: mediaBlocks({
+            videoDirectory: "public/videos/thoughts",
+            videoPublicPath: "/videos/thoughts/",
+            imageDirectory: "public/images/thoughts",
+            imagePublicPath: "/images/thoughts/",
+          }),
+        }),
       },
     }),
   },

@@ -1,0 +1,12 @@
+---
+interface Props {
+  video: string;
+}
+const { video } = Astro.props;
+---
+
+<div class="my-8 aspect-[9/16] w-full max-w-xs overflow-hidden rounded-2xl bg-line/20" data-reveal>
+  <video src={video} controls loop playsinline muted class="h-full w-full object-cover">
+    <track kind="captions" />
+  </video>
+</div>
