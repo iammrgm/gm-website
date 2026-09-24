@@ -9,7 +9,11 @@ const marketOptions = [
 // The deployed site has no filesystem to write to, so it goes through
 // GitHub instead: every save there becomes a real commit + push, which
 // triggers the normal Cloudflare deploy.
-const isDev = process.argv.includes("dev");
+// This file is bundled for BOTH the server and the client-side CMS UI, so
+// the dev/prod check has to be something safe in a browser bundle too —
+// process.argv doesn't exist there and crashes the app on load.
+// import.meta.env.DEV is Vite's own flag and works in both contexts.
+const isDev = import.meta.env.DEV;
 
 export default config({
   storage: isDev ? { kind: "local" } : { kind: "github", repo: { owner: "iammrgm", name: "gm-website" } },
