@@ -8,16 +8,7 @@ const PROTECTED_PREFIXES = ["/keystatic", "/api/keystatic"];
 // "cloudflare:workers" import only resolves under the Cloudflare adapter
 // (production), never under the Node adapter dev runs on, so it's loaded
 // dynamically and only when actually needed.
-export const onRequest = defineMiddleware(async ({ request, url, redirect }, next) => {
-  // /cms is just a short, memorable alias — Keystatic's own client code
-  // hardcodes "/keystatic" and "/api/keystatic" internally in a lot of
-  // places (the OAuth callback, its own fetch calls, redirects), so a true
-  // rename isn't realistic without forking the library. Once this redirect
-  // lands, the URL bar will settle on /keystatic.
-  if (url.pathname === "/cms" || url.pathname.startsWith("/cms/")) {
-    return redirect(url.pathname.replace(/^\/cms/, "/keystatic") + url.search, 307);
-  }
-
+export const onRequest = defineMiddleware(async ({ request, url }, next) => {
   const isProtected = PROTECTED_PREFIXES.some((prefix) => url.pathname === prefix || url.pathname.startsWith(`${prefix}/`));
   if (!isProtected || !import.meta.env.PROD) {
     return next();

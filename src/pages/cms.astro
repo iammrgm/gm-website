@@ -1,0 +1,9 @@
+---
+// A short, memorable alias for /keystatic. Keystatic's own client code
+// hardcodes "/keystatic" and "/api/keystatic" internally in a lot of
+// places (the OAuth callback, its own fetch calls, redirects), so a true
+// rename isn't realistic without forking the library — the URL bar settles
+// on /keystatic once the app loads.
+export const prerender = false;
+return Astro.redirect("/keystatic" + Astro.url.search, 307);
+---

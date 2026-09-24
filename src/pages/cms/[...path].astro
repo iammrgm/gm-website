@@ -1,0 +1,5 @@
+---
+// See ../cms.astro — same alias, covers /cms/anything.
+export const prerender = false;
+return Astro.redirect(`/keystatic/${Astro.params.path ?? ""}${Astro.url.search}`, 307);
+---
