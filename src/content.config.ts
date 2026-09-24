@@ -7,7 +7,7 @@ const work = defineCollection({
     title: z.string(),
     description: z.string(),
     categories: z.array(z.string()),
-    market: z.enum(["departmnt", "personal"]),
+    capacity: z.enum(["departmnt", "personal"]),
     clients: z.array(z.object({ name: z.string(), url: z.string().optional().default("") })),
     role: z.string().optional(),
     duration: z.string(),

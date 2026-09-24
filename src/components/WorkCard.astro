@@ -6,16 +6,16 @@ interface Props {
   index: number;
 }
 const { entry, index } = Astro.props;
-const { title, categories, clients, cover, market } = entry.data;
+const { title, categories, clients, cover, capacity } = entry.data;
 const num = String(index).padStart(2, "0");
 const clientNames = clients.map((c) => c.name).join(" · ");
-const marketLabel = market === "departmnt" ? "DEPARTMNT" : "Personal / Agency-Era";
+const capacityLabel = capacity === "departmnt" ? "DEPARTMNT" : "Personal / Agency-Era";
 ---
 
 <a
   href={`/work/${entry.id}`}
   data-work-card
-  data-market={market}
+  data-capacity={capacity}
   data-search={`${title} ${categories.join(" ")} ${clientNames}`.toLowerCase()}
   class="group flex items-center justify-between gap-6 py-8 transition-colors hover:bg-paper/[0.03]"
 >
@@ -32,7 +32,7 @@ const marketLabel = market === "departmnt" ? "DEPARTMNT" : "Personal / Agency-Er
     <div>
       <p class="text-xs font-semibold uppercase tracking-widest text-muted">
         {categories.join(" / ")} <span class="text-line">·</span>{" "}
-        <span class="font-carbon tracking-wider">{marketLabel}</span>
+        <span class="font-carbon tracking-wider">{capacityLabel}</span>
       </p>
       <p class="mt-1 text-xl font-semibold tracking-tight text-paper sm:text-2xl">{title}</p>
     </div>

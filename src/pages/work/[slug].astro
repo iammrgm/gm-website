@@ -12,9 +12,9 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { title, categories, clients, duration, location, liveUrl, images, reel, video, pullQuote, stats, market } =
+const { title, categories, clients, duration, location, liveUrl, images, reel, video, pullQuote, stats, capacity } =
   entry.data;
-const marketLabel = market === "departmnt" ? "DEPARTMNT" : "Personal / Agency-Era";
+const capacityLabel = capacity === "departmnt" ? "DEPARTMNT" : "Personal / Agency-Era";
 const { Content } = await render(entry);
 
 // Only case studies whose source cover photo is high-res enough to crop to a
@@ -85,8 +85,8 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
 
       <aside class="space-y-8 border-t border-line pt-8 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Market</p>
-          <p class="font-carbon mt-1 tracking-wider text-paper">{marketLabel}</p>
+          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Capacity</p>
+          <p class="font-carbon mt-1 tracking-wider text-paper">{capacityLabel}</p>
         </div>
         <div>
           <p class="text-xs font-semibold uppercase tracking-widest text-muted">Category</p>
