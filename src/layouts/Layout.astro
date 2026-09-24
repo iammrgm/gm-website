@@ -3,17 +3,21 @@ import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
+import fontMediumUrl from "../fonts/MonumentGrotesk-Medium.woff2?url";
+import fontBoldUrl from "../fonts/MonumentGrotesk-Bold.woff2?url";
 
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
   description = "Gareth Matthews: Founder & CEO, DEPARTMNT. Building the infrastructure for a more connected world.",
   ogImage = "/og.png",
+  noindex = false,
 } = Astro.props;
 
 const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url.origin).toString();
@@ -33,7 +37,7 @@ const personSchema = {
   sameAs: [
     "https://www.linkedin.com/in/gareth-matthews/",
     "https://instagram.com/iammrgm",
-    "https://x.com/MandroDesign",
+    "https://x.com/iammrgm",
     "https://iammrgm.substack.com/",
   ],
   knowsAbout: [
@@ -51,9 +55,12 @@ const personSchema = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" href={fontMediumUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={fontBoldUrl} as="font" type="font/woff2" crossorigin />
     <meta name="google-site-verification" content="NEG8D2K0dc3PcRrwDLIjcKDZf7b_mIpBHlejomhGZ6g" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />

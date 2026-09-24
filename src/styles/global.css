@@ -4,28 +4,36 @@
    licensed files from the team's Drive, not a public font source. */
 @font-face {
   font-family: "Monument Grotesk";
-  src: url("../fonts/MonumentGrotesk-Regular.otf") format("opentype");
+  src:
+    url("../fonts/MonumentGrotesk-Regular.woff2") format("woff2"),
+    url("../fonts/MonumentGrotesk-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Monument Grotesk";
-  src: url("../fonts/MonumentGrotesk-Medium.otf") format("opentype");
+  src:
+    url("../fonts/MonumentGrotesk-Medium.woff2") format("woff2"),
+    url("../fonts/MonumentGrotesk-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Monument Grotesk";
-  src: url("../fonts/MonumentGrotesk-Bold.otf") format("opentype");
+  src:
+    url("../fonts/MonumentGrotesk-Bold.woff2") format("woff2"),
+    url("../fonts/MonumentGrotesk-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Monument Grotesk";
-  src: url("../fonts/MonumentGrotesk-Italic.otf") format("opentype");
+  src:
+    url("../fonts/MonumentGrotesk-Italic.woff2") format("woff2"),
+    url("../fonts/MonumentGrotesk-Italic.otf") format("opentype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -35,7 +43,9 @@
    for the market-tag labels. Licensed file from the team's Drive. */
 @font-face {
   font-family: "Carbon";
-  src: url("../fonts/Carbon-Regular.ttf") format("truetype");
+  src:
+    url("../fonts/Carbon-Regular.woff2") format("woff2"),
+    url("../fonts/Carbon-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;

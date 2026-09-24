@@ -16,6 +16,25 @@ const { title, categories, clients, duration, location, liveUrl, images, pullQuo
 const marketLabel = market === "departmnt" ? "DEPARTMNT" : "Personal / Agency-Era";
 const { Content } = await render(entry);
 
+// Only case studies whose source cover photo is high-res enough to crop to a
+// clean 1200×630 OG image without visible upscaling get a dedicated crop
+// (generated to /images/og/{slug}.jpg); the rest fall back to the site default.
+const OG_CROPPED_SLUGS = new Set([
+  "boogle-asia-tour",
+  "crocs-kasina",
+  "e-gucewicz-genesis",
+  "g-shock-who-eats-art",
+  "hlls-10k-projects",
+  "mulaa-joans-atlantic",
+  "novelist-boiler-room-o2",
+  "novelist-casio-g-shock",
+  "novelist-new-era",
+  "novelist-rinse-kfc",
+  "novelist-tours",
+  "you-studio",
+]);
+const ogImage = OG_CROPPED_SLUGS.has(entry.data.slug) ? `/images/og/${entry.data.slug}.jpg` : undefined;
+
 const caseStudySchema = {
   "@context": "https://schema.org",
   "@type": "CreativeWork",
@@ -30,6 +49,16 @@ const caseStudySchema = {
   image: new URL(entry.data.cover, Astro.site ?? Astro.url.origin).toString(),
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: new URL("/", Astro.site).toString() },
+    { "@type": "ListItem", position: 2, name: "Work", item: new URL("/work", Astro.site).toString() },
+    { "@type": "ListItem", position: 3, name: title, item: new URL(`/work/${entry.data.slug}`, Astro.site).toString() },
+  ],
+};
+
 const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.data.order);
 const currentIndex = allWork.findIndex((w) => w.data.slug === entry.data.slug);
 const related = Array.from({ length: 2 }, (_, i) => allWork[(currentIndex + i + 1) % allWork.length]);
@@ -40,9 +69,10 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
 <Layout
   title={`${title} | Gareth Matthews`}
   description={entry.data.description}
-  ogImage={entry.data.cover}
+  ogImage={ogImage}
 >
   <script type="application/ld+json" set:html={JSON.stringify(caseStudySchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <main id="main-content" class="mx-auto max-w-[1480px] px-5 pt-32 pb-28 sm:px-10">
     <a href="/work" class="text-sm text-muted transition-colors hover:text-paper">{title} /</a>
     <h1 class="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">{title}</h1>

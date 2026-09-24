@@ -7,7 +7,7 @@ import SectionLabel from "../components/SectionLabel.astro";
 import ClientLogos from "../components/ClientLogos.astro";
 import AtmospherePhotos from "../components/AtmospherePhotos.astro";
 import PartnerVideos from "../components/PartnerVideos.astro";
-import RoleCycler from "../components/RoleCycler.tsx";
+import RoleCycler from "../components/RoleCycler.astro";
 
 const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.data.order);
 // The live site features the first 5 works, in CMS order.
@@ -36,6 +36,7 @@ const featured = allWork.slice(0, 5);
             loop
             playsinline
             disablepictureinpicture
+            fetchpriority="high"
             aria-label="Gareth Matthews"
           ></video>
         </div>
@@ -43,7 +44,7 @@ const featured = allWork.slice(0, 5);
 
       <div class="mt-8">
         <SectionLabel mark="PROFILE" number="01">
-          <RoleCycler client:load />
+          <RoleCycler />
         </SectionLabel>
       </div>
     </section>

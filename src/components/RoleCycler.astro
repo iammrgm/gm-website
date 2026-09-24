@@ -1,0 +1,36 @@
+---
+const ROLES = ["Founder", "Builder", "Operator", "Strategist", "Technologist", "DJ"];
+---
+
+<span class="inline-block transition-opacity duration-300 ease-out" data-role-cycler data-roles={ROLES.join("|")}>
+  {ROLES[0]}
+</span>
+
+<script>
+  function initRoleCycler() {
+    const els = document.querySelectorAll<HTMLElement>("[data-role-cycler]");
+    els.forEach((el) => {
+      const roles = (el.dataset.roles ?? "").split("|").filter(Boolean);
+      if (!roles.length) return;
+      let index = 0;
+      const id = setInterval(() => {
+        el.style.opacity = "0";
+        setTimeout(() => {
+          index = (index + 1) % roles.length;
+          el.textContent = roles[index];
+          el.style.opacity = "1";
+        }, 300);
+      }, 2200);
+      cleanups.push(() => clearInterval(id));
+    });
+  }
+
+  let cleanups: Array<() => void> = [];
+  function teardown() {
+    cleanups.forEach((fn) => fn());
+    cleanups = [];
+  }
+
+  document.addEventListener("astro:before-swap", teardown);
+  document.addEventListener("astro:page-load", initRoleCycler);
+</script>
