@@ -4,7 +4,7 @@ export const prerender = false;
 
 const CONTACT_EMAIL = "hello@departmnt.xyz";
 
-export const POST: APIRoute = async ({ request, locals }) => {
+export const POST: APIRoute = async ({ request }) => {
   const data = await request.formData();
   const name = String(data.get("name") || "").trim();
   const email = String(data.get("email") || "").trim();
@@ -14,8 +14,9 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return new Response(JSON.stringify({ error: "Missing required fields" }), { status: 400 });
   }
 
-  const env = (locals as { runtime?: { env?: Record<string, string> } }).runtime?.env ?? {};
-  const apiKey = env.RESEND_API_KEY;
+  // Cloudflare env bindings only resolve under the Cloudflare adapter
+  // (production); local dev runs on the Node adapter and has no secret here.
+  const apiKey = import.meta.env.PROD ? (await import("cloudflare:workers")).env.RESEND_API_KEY : undefined;
 
   if (!apiKey) {
     return new Response(JSON.stringify({ error: "Contact form is not configured yet" }), {

@@ -6,13 +6,14 @@ import WorkCard from "../../components/WorkCard.astro";
 export async function getStaticPaths() {
   const allWork = await getCollection("work");
   return allWork.map((entry) => ({
-    params: { slug: entry.data.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
-const { title, categories, clients, duration, location, liveUrl, images, pullQuote, stats, market } = entry.data;
+const { title, categories, clients, duration, location, liveUrl, images, reel, video, pullQuote, stats, market } =
+  entry.data;
 const marketLabel = market === "departmnt" ? "DEPARTMNT" : "Personal / Agency-Era";
 const { Content } = await render(entry);
 
@@ -33,7 +34,7 @@ const OG_CROPPED_SLUGS = new Set([
   "novelist-tours",
   "you-studio",
 ]);
-const ogImage = OG_CROPPED_SLUGS.has(entry.data.slug) ? `/images/og/${entry.data.slug}.jpg` : undefined;
+const ogImage = OG_CROPPED_SLUGS.has(entry.id) ? `/images/og/${entry.id}.jpg` : undefined;
 
 const caseStudySchema = {
   "@context": "https://schema.org",
@@ -55,12 +56,12 @@ const breadcrumbSchema = {
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: new URL("/", Astro.site).toString() },
     { "@type": "ListItem", position: 2, name: "Work", item: new URL("/work", Astro.site).toString() },
-    { "@type": "ListItem", position: 3, name: title, item: new URL(`/work/${entry.data.slug}`, Astro.site).toString() },
+    { "@type": "ListItem", position: 3, name: title, item: new URL(`/work/${entry.id}`, Astro.site).toString() },
   ],
 };
 
 const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.data.order);
-const currentIndex = allWork.findIndex((w) => w.data.slug === entry.data.slug);
+const currentIndex = allWork.findIndex((w) => w.id === entry.id);
 const related = Array.from({ length: 2 }, (_, i) => allWork[(currentIndex + i + 1) % allWork.length]);
 const prevWork = allWork[(currentIndex - 1 + allWork.length) % allWork.length];
 const nextWork = allWork[(currentIndex + 1) % allWork.length];
@@ -177,6 +178,26 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
     }
 
     {
+      video && (
+        <div class="mt-24 aspect-video w-full max-w-3xl overflow-hidden rounded-2xl bg-line/20" data-reveal>
+          <video src={video} controls playsinline class="h-full w-full object-cover">
+            <track kind="captions" />
+          </video>
+        </div>
+      )
+    }
+
+    {
+      reel && (
+        <div class="mt-24 aspect-[9/16] w-full max-w-xs overflow-hidden rounded-2xl bg-line/20" data-reveal>
+          <video src={reel} controls loop playsinline muted class="h-full w-full object-cover">
+            <track kind="captions" />
+          </video>
+        </div>
+      )
+    }
+
+    {
       images.length > 0 && (
         <div class="mt-24 grid gap-4 sm:grid-cols-2" data-reveal>
           {images.map((src, i) => (
@@ -202,13 +223,13 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
 
     <div class="mt-16 flex items-center justify-between gap-6 border-t border-line pt-10">
       <a
-        href={`/work/${prevWork.data.slug}`}
+        href={`/work/${prevWork.id}`}
         class="text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4"
       >
         ← {prevWork.data.title}
       </a>
       <a
-        href={`/work/${nextWork.data.slug}`}
+        href={`/work/${nextWork.id}`}
         class="text-right text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4"
       >
         {nextWork.data.title} →

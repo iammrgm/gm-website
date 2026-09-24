@@ -13,7 +13,7 @@ const marketLabel = market === "departmnt" ? "DEPARTMNT" : "Personal / Agency-Er
 ---
 
 <a
-  href={`/work/${entry.data.slug}`}
+  href={`/work/${entry.id}`}
   data-work-card
   data-market={market}
   data-search={`${title} ${categories.join(" ")} ${clientNames}`.toLowerCase()}

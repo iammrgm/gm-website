@@ -25,7 +25,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: 
       ) : (
         <div class="mt-16 divide-y divide-line border-t border-line" data-reveal>
           {allThoughts.map((entry) => (
-            <a href={`/thoughts/${entry.data.slug}`} class="group block py-8 transition-colors hover:bg-paper/[0.03]">
+            <a href={`/thoughts/${entry.id}`} class="group block py-8 transition-colors hover:bg-paper/[0.03]">
               <p class="text-xs font-semibold uppercase tracking-widest text-muted">
                 {dateFormatter.format(entry.data.date)}
               </p>
