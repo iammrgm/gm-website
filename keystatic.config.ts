@@ -1,7 +1,7 @@
 import { config, fields, collection } from "@keystatic/core";
 import { block } from "@keystatic/core/content-components";
 
-const marketOptions = [
+const capacityOptions = [
   { label: "DEPARTMNT", value: "departmnt" },
   { label: "Personal / Agency-Era", value: "personal" },
 ];
@@ -89,7 +89,7 @@ export default config({
           itemLabel: (props) => props.value || "Category",
           validation: { length: { min: 1 } },
         }),
-        market: fields.select({ label: "Market", options: marketOptions, defaultValue: "departmnt" }),
+        capacity: fields.select({ label: "Capacity", options: capacityOptions, defaultValue: "departmnt" }),
         clients: fields.array(
           fields.object({
             name: fields.text({ label: "Name", validation: { isRequired: true } }),

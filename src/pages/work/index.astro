@@ -23,24 +23,24 @@ const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.da
         />
       </label>
     </div>
-    <div class="mt-6 flex flex-wrap gap-2" data-market-filter>
+    <div class="mt-6 flex flex-wrap gap-2" data-capacity-filter>
       <button
         type="button"
-        data-market-btn="all"
+        data-capacity-btn="all"
         class="font-carbon rounded-full border border-paper bg-paper px-4 py-1.5 text-xs uppercase tracking-wider text-ink"
       >
         All
       </button>
       <button
         type="button"
-        data-market-btn="departmnt"
+        data-capacity-btn="departmnt"
         class="font-carbon rounded-full border border-line px-4 py-1.5 text-xs uppercase tracking-wider text-muted transition-colors hover:border-paper hover:text-paper"
       >
         DEPARTMNT
       </button>
       <button
         type="button"
-        data-market-btn="personal"
+        data-capacity-btn="personal"
         class="font-carbon rounded-full border border-line px-4 py-1.5 text-xs uppercase tracking-wider text-muted transition-colors hover:border-paper hover:text-paper"
       >
         Personal / Agency-Era
@@ -58,18 +58,18 @@ const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.da
     const input = document.querySelector<HTMLInputElement>("[data-work-search]");
     const cards = document.querySelectorAll<HTMLAnchorElement>("[data-work-card]");
     const empty = document.querySelector<HTMLParagraphElement>("[data-work-empty]");
-    const marketBtns = document.querySelectorAll<HTMLButtonElement>("[data-market-btn]");
+    const capacityBtns = document.querySelectorAll<HTMLButtonElement>("[data-capacity-btn]");
     if (!input) return;
 
-    let activeMarket = "all";
+    let activeCapacity = "all";
 
     function applyFilters() {
       const q = input!.value.trim().toLowerCase();
       let visibleCount = 0;
       cards.forEach((card) => {
         const matchesSearch = !q || (card.dataset.search ?? "").includes(q);
-        const matchesMarket = activeMarket === "all" || card.dataset.market === activeMarket;
-        const match = matchesSearch && matchesMarket;
+        const matchesCapacity = activeCapacity === "all" || card.dataset.capacity === activeCapacity;
+        const match = matchesSearch && matchesCapacity;
         card.classList.toggle("hidden", !match);
         if (match) visibleCount++;
       });
@@ -79,10 +79,10 @@ const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.da
     input.value = "";
     input.addEventListener("input", applyFilters);
 
-    marketBtns.forEach((btn) => {
+    capacityBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
-        activeMarket = btn.dataset.marketBtn ?? "all";
-        marketBtns.forEach((b) => {
+        activeCapacity = btn.dataset.capacityBtn ?? "all";
+        capacityBtns.forEach((b) => {
           const isActive = b === btn;
           b.classList.toggle("bg-paper", isActive);
           b.classList.toggle("border-paper", isActive);
