@@ -18,6 +18,18 @@
 			"id": "9b9d094e35064eb288439c31ed00b8c4"
 		}
 	],
+	// Branch/PR preview deploys use `wrangler preview`, which reads bindings
+	// from this separate "previews" block rather than the top-level one
+	// above — without it, the Cloudflare adapter auto-fills a SESSION
+	// binding here with no namespace_id, which fails deployment.
+	"previews": {
+		"kv_namespaces": [
+			{
+				"binding": "SESSION",
+				"id": "9b9d094e35064eb288439c31ed00b8c4"
+			}
+		]
+	},
 	"observability": {
 		"enabled": true
 	}
