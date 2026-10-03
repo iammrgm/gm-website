@@ -3,7 +3,7 @@ import { block } from "@keystatic/core/content-components";
 
 const capacityOptions = [
   { label: "DEPARTMNT", value: "departmnt" },
-  { label: "Personal / Agency-Era", value: "personal" },
+  { label: "Before DEPARTMNT", value: "personal" },
 ];
 
 // Insertable blocks for the article body — drop a video, reel, or image
@@ -139,6 +139,53 @@ export default config({
           }),
           { label: "Stats", itemLabel: (props) => props.fields.value.value || "Stat" }
         ),
+        departmnt: fields.object(
+          {
+            labsSlug: fields.text({
+              label: "DEPARTMNT case study slug",
+              description: "The project's slug on the DEPARTMNT site, e.g. genesys. Leave empty for work before DEPARTMNT.",
+            }),
+            headline: fields.text({ label: "Headline result", multiline: true }),
+            status: fields.select({
+              label: "Status",
+              options: [
+                { label: "Live", value: "live" },
+                { label: "Opening", value: "opening" },
+                { label: "Ended", value: "ended" },
+              ],
+              defaultValue: "ended",
+            }),
+            tagsUsed: fields.array(fields.text({ label: "Tag" }), {
+              label: "Tags used",
+              itemLabel: (props) => props.value || "Tag",
+            }),
+            learned: fields.text({ label: "What we learned", multiline: true }),
+            next: fields.text({ label: "What happened next", multiline: true }),
+            ...Object.fromEntries(
+              (
+                [
+                  ["room", "In the room"],
+                  ["tags", "The tags"],
+                  ["portal", "The Portal"],
+                  ["core", "The office, in Core"],
+                ] as const
+              ).map(([key, label]) => [
+                key,
+                fields.array(
+                  fields.object({
+                    image: fields.image({ label: "Image", directory: "public/images/work", publicPath: "/images/work/" }),
+                    alt: fields.text({ label: "Caption and alt text" }),
+                  }),
+                  { label, itemLabel: (props) => props.fields.alt.value || "Image" }
+                ),
+              ])
+            ),
+          },
+          {
+            label: "DEPARTMNT overview",
+            description: "Only for DEPARTMNT projects. Fill in the slug and the page switches to the overview layout that links out to DEPARTMNT.",
+          }
+        ),
         content: fields.markdoc({
           label: "Content",
           extension: "mdoc",
@@ -166,6 +213,11 @@ export default config({
           validation: { isRequired: true },
         }),
         date: fields.date({ label: "Date", validation: { isRequired: true } }),
+        draft: fields.checkbox({
+          label: "Draft",
+          description: "Drafts show on the local preview with a Draft badge and never on the live site.",
+          defaultValue: false,
+        }),
         cover: fields.image({
           label: "Hero Image",
           description: "Optional. Shown at the top of the article.",
