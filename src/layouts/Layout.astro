@@ -3,6 +3,7 @@ import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
+import { pageGraph, PROFILES } from "../lib/identity";
 import fontMediumUrl from "../fonts/MonumentGrotesk-Medium.woff2?url";
 import fontBoldUrl from "../fonts/MonumentGrotesk-Bold.woff2?url";
 
@@ -11,6 +12,7 @@ interface Props {
   description?: string;
   ogImage?: string;
   noindex?: boolean;
+  profile?: boolean;
 }
 
 const {
@@ -18,40 +20,17 @@ const {
   description = "Gareth Matthews: Founder & CEO, DEPARTMNT. Building the infrastructure for a more connected world.",
   ogImage = "/og.png",
   noindex = false,
+  profile = false,
 } = Astro.props;
 
 const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url.origin).toString();
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
 
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Gareth Matthews",
-  jobTitle: "Founder & CEO",
-  worksFor: {
-    "@type": "Organization",
-    name: "DEPARTMNT",
-    url: "https://departmnt.xyz",
-  },
-  url: "https://www.garethmatthews.uk",
-  sameAs: [
-    "https://www.linkedin.com/in/gareth-matthews/",
-    "https://instagram.com/iammrgm",
-    "https://x.com/iammrgm",
-    "https://iammrgm.substack.com/",
-  ],
-  knowsAbout: [
-    "NFC infrastructure",
-    "Ticketing systems",
-    "Connected fashion",
-    "Brand activation",
-    "Live events",
-  ],
-};
+const graph = pageGraph({ url: canonicalUrl, title, description, profile });
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -65,13 +44,21 @@ const personSchema = {
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={profile ? "profile" : "website"} />
+    {profile && <meta property="profile:first_name" content="Gareth" />}
+    {profile && <meta property="profile:last_name" content="Matthews" />}
+    <meta property="og:site_name" content="Gareth Matthews" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="en_GB" />
     <meta property="og:image" content={ogImageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@iammrgm" />
+    <meta name="twitter:creator" content="@iammrgm" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
-    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    {PROFILES.map((href) => <link rel="me" href={href} />)}
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} />
     <ClientRouter />
     <script
       type="module"
