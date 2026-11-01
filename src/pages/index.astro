@@ -21,17 +21,17 @@ const enquiries = ["Speaking", "Advisory", "Partnerships", "Press", "Pilots"];
 
 ---
 
-<Layout title="Gareth Matthews: Founder & CEO, DEPARTMNT">
+<Layout title="Gareth Matthews: Founder & CEO, DEPARTMNT" profile>
   <main id="main-content">
     <!-- Hero -->
     <section class="mx-auto max-w-[1480px] px-5 pt-32 sm:px-10">
-      <p class="text-sm font-semibold uppercase tracking-widest text-muted">
+      <h1 class="text-sm font-semibold uppercase tracking-widest text-muted">
         Gareth Matthews: Founder &amp; CEO, DEPARTMNT
-      </p>
+      </h1>
       <div class="mt-4 grid gap-8 sm:grid-cols-[1.3fr_1fr] sm:items-end" data-reveal>
-        <h1 class="text-left text-6xl font-medium leading-[1.05] tracking-tight text-paper sm:text-8xl">
+        <p class="text-left text-6xl font-medium leading-[1.05] tracking-tight text-paper sm:text-8xl">
           Building the infrastructure for a more connected world.
-        </h1>
+        </p>
         <div class="aspect-video w-full overflow-hidden rounded-2xl bg-line/20">
           <video
             class="h-full w-full object-cover"
@@ -49,7 +49,7 @@ const enquiries = ["Speaking", "Advisory", "Partnerships", "Press", "Pilots"];
       </div>
 
       <div class="mt-8">
-        <SectionLabel mark="PROFILE" number="01">
+        <SectionLabel mark="PROFILE">
           <RoleCycler />
         </SectionLabel>
       </div>
@@ -69,7 +69,7 @@ const enquiries = ["Speaking", "Advisory", "Partnerships", "Press", "Pilots"];
         <div class="flex min-w-0 flex-1 flex-col justify-center gap-8">
           <div>
             <p class="max-w-lg text-xl text-muted sm:text-2xl">
-              15+ years<sup class="text-xs">™</sup> across culture and commerce, and the growing
+              15+ years across culture and commerce, and the growing
               conviction that the two were never properly wired together.
             </p>
             <div class="mt-6 flex flex-wrap items-center gap-2">
@@ -89,6 +89,14 @@ const enquiries = ["Speaking", "Advisory", "Partnerships", "Press", "Pilots"];
                   </a>
                 ))
               }
+              <a
+                href="https://calendly.com/gareth-departmnt/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-full border border-line px-4 py-2 text-sm text-paper transition-colors hover:border-paper"
+              >
+                Book a call ↗
+              </a>
             </div>
           </div>
           <ClientLogos />
@@ -100,7 +108,7 @@ const enquiries = ["Speaking", "Advisory", "Partnerships", "Press", "Pilots"];
 
     <!-- About (teaser — full story, founder memo, speaking and FAQ live on /about) -->
     <section class="mx-auto max-w-[1480px] px-5 py-28 sm:px-10">
-      <SectionLabel mark="ABOUT" number="02" subtitle="The Long Way Round" />
+      <SectionLabel mark="ABOUT" subtitle="The Long Way Round" />
 
       <p class="mt-10 max-w-xl text-2xl font-medium tracking-tight text-paper sm:text-3xl" data-reveal>
         Nightclubs, then boardrooms.
@@ -126,7 +134,7 @@ const enquiries = ["Speaking", "Advisory", "Partnerships", "Press", "Pilots"];
 
     <!-- Now: DEPARTMNT -->
     <section class="mx-auto max-w-[1480px] px-5 pb-28 sm:px-10">
-      <SectionLabel mark="NOW" number="03" subtitle="DEPARTMNT" />
+      <SectionLabel mark="NOW" subtitle="DEPARTMNT" />
       <div class="mt-10 grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-end" data-reveal>
         <div>
           <p class="max-w-xl text-3xl font-medium leading-tight tracking-tight text-paper sm:text-4xl">
@@ -160,7 +168,7 @@ const enquiries = ["Speaking", "Advisory", "Partnerships", "Press", "Pilots"];
 
     <!-- Featured Work -->
     <section class="mx-auto max-w-[1480px] px-5 pb-28 sm:px-10">
-      <SectionLabel mark="FEATURED WORK" number="04" subtitle="Fifteen Years, One Thread" />
+      <SectionLabel mark="FEATURED WORK" subtitle="Fifteen Years, One Thread" />
       <div class="mt-10 flex items-baseline justify-between border-b border-line pb-6">
         <h2 class="text-2xl font-semibold tracking-tight">Select Works©</h2>
         <a href="/work" class="text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4">
@@ -176,7 +184,7 @@ const enquiries = ["Speaking", "Advisory", "Partnerships", "Press", "Pilots"];
     {
       latestThoughts.length > 0 && (
         <section class="mx-auto max-w-[1480px] px-5 pb-28 sm:px-10">
-          <SectionLabel mark="THOUGHTS" number="05" subtitle="Short Perspectives" />
+          <SectionLabel mark="THOUGHTS" subtitle="Short Perspectives" />
           <div class="mt-10 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2" data-reveal>
             {latestThoughts.map((t) => (
               <a href={`/thoughts/${t.id}`} class="group block bg-ink p-8 transition-colors hover:bg-[#111]">
@@ -204,7 +212,7 @@ const enquiries = ["Speaking", "Advisory", "Partnerships", "Press", "Pilots"];
 
     <!-- Brand Partners -->
     <section class="mx-auto max-w-[1480px] px-5 pb-28 sm:px-10">
-      <SectionLabel mark="Featured Clients" number="06" subtitle="Select Clients" />
+      <SectionLabel mark="Featured Clients" subtitle="Select Clients" />
       <div class="mt-10" data-reveal>
         <PartnerVideos />
       </div>

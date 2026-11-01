@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import WorkCard from "../../components/WorkCard.astro";
+import { PERSON_ID } from "../../lib/identity";
 import DepartmntOverview from "../../components/DepartmntOverview.astro";
 
 export async function getStaticPaths() {
@@ -42,7 +43,7 @@ const caseStudySchema = {
   "@type": "CreativeWork",
   name: title,
   description: entry.data.description,
-  creator: { "@type": "Person", name: "Gareth Matthews" },
+  creator: { "@id": PERSON_ID },
   about: categories.join(", "),
   ...(clients.length && {
     client: clients.map((c) => ({ "@type": "Organization", name: c.name, ...(c.url && { url: c.url }) })),
