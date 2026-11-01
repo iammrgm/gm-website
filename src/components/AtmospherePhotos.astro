@@ -11,7 +11,9 @@ const photos = [
     photos.map((photo) => (
       <div class="group aspect-[3/4] overflow-hidden rounded-lg bg-line/20">
         <img
-          src={photo.src}
+          src={photo.src.replace(/\.webp$/, "-thumb.webp")}
+          srcset={`${photo.src.replace(/\.webp$/, "-thumb.webp")} 720w, ${photo.src} 1200w`}
+          sizes="(min-width: 640px) 30vw, 33vw"
           alt={photo.alt}
           loading="lazy"
           class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"

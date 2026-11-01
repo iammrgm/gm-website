@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import WorkCard from "../../components/WorkCard.astro";
+import DepartmntOverview from "../../components/DepartmntOverview.astro";
 
 export async function getStaticPaths() {
   const allWork = await getCollection("work");
@@ -14,7 +15,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { title, categories, clients, duration, location, liveUrl, images, reel, video, pullQuote, stats, capacity } =
   entry.data;
-const capacityLabel = capacity === "departmnt" ? "DEPARTMNT" : "Personal / Agency-Era";
+const capacityLabel = capacity === "departmnt" ? "DEPARTMNT" : "Before DEPARTMNT";
 const { Content } = await render(entry);
 
 // Only case studies whose source cover photo is high-res enough to crop to a
@@ -78,6 +79,10 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
     <a href="/work" class="text-sm text-muted transition-colors hover:text-paper">{title} /</a>
     <h1 class="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">{title}</h1>
 
+    {entry.data.departmnt?.labsSlug ? (
+      <DepartmntOverview entry={entry} />
+    ) : (
+    <>
     <div class="mt-16 grid gap-16 lg:grid-cols-[1fr_320px]">
       <article class="prose-work max-w-2xl space-y-10 text-lg text-paper/90">
         <Content />
@@ -213,6 +218,8 @@ const nextWork = allWork[(currentIndex + 1) % allWork.length];
         </div>
       )
     }
+    </>
+    )}
 
     <div class="mt-24 border-t border-line pt-10">
       <p class="text-xs font-semibold uppercase tracking-widest text-muted">More Work</p>

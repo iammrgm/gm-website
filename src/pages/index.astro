@@ -9,9 +9,15 @@ import AtmospherePhotos from "../components/AtmospherePhotos.astro";
 import PartnerVideos from "../components/PartnerVideos.astro";
 import RoleCycler from "../components/RoleCycler.astro";
 
+import { DEPARTMNT_SITE, TAPTECH_PARTS } from "../lib/departmnt";
+import { getVisibleThoughts } from "../lib/thoughts";
+
 const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.data.order);
 // The live site features the first 5 works, in CMS order.
 const featured = allWork.slice(0, 5);
+const latestThoughts = (await getVisibleThoughts()).slice(0, 2);
+const dateFormatter = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric" });
+const enquiries = ["Speaking", "Advisory", "Partnerships", "Press", "Pilots"];
 
 ---
 
@@ -66,12 +72,24 @@ const featured = allWork.slice(0, 5);
               15+ years<sup class="text-xs">™</sup> across culture and commerce, and the growing
               conviction that the two were never properly wired together.
             </p>
-            <a
-              href="/#contact"
-              class="mt-6 inline-block rounded-full bg-paper px-8 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-80"
-            >
-              Contact
-            </a>
+            <div class="mt-6 flex flex-wrap items-center gap-2">
+              <a
+                href="/#contact"
+                class="mr-2 inline-block rounded-full bg-paper px-8 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-80"
+              >
+                Contact
+              </a>
+              {
+                enquiries.map((e) => (
+                  <a
+                    href="/#contact"
+                    class="rounded-full border border-line px-4 py-2 text-sm text-muted transition-colors hover:border-paper hover:text-paper"
+                  >
+                    {e}
+                  </a>
+                ))
+              }
+            </div>
           </div>
           <ClientLogos />
         </div>
@@ -106,9 +124,43 @@ const featured = allWork.slice(0, 5);
       </div>
     </section>
 
+    <!-- Now: DEPARTMNT -->
+    <section class="mx-auto max-w-[1480px] px-5 pb-28 sm:px-10">
+      <SectionLabel mark="NOW" number="03" subtitle="DEPARTMNT" />
+      <div class="mt-10 grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-end" data-reveal>
+        <div>
+          <p class="max-w-xl text-3xl font-medium leading-tight tracking-tight text-paper sm:text-4xl">
+            Your best moments happen in the real world.
+          </p>
+          <p class="mt-4 max-w-md text-lg text-muted">
+            With TapTech, you can measure, programme and own physical moments.
+          </p>
+          <a
+            href={DEPARTMNT_SITE}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-6 inline-block rounded-full border border-line px-6 py-3 text-sm text-paper transition-colors hover:border-paper"
+          >
+            Visit DEPARTMNT ↗
+          </a>
+        </div>
+        <ol class="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3">
+          {
+            TAPTECH_PARTS.map((part, i) => (
+              <li class="bg-ink p-6">
+                <p class="text-xs font-semibold uppercase tracking-widest text-muted">0{i + 1}</p>
+                <p class="mt-6 text-2xl font-semibold tracking-tight text-paper">{part.name}</p>
+                <p class="mt-2 text-sm text-muted">{part.line}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
     <!-- Featured Work -->
     <section class="mx-auto max-w-[1480px] px-5 pb-28 sm:px-10">
-      <SectionLabel mark="FEATURED WORK" number="03" subtitle="Fifteen Years, One Thread" />
+      <SectionLabel mark="FEATURED WORK" number="04" subtitle="Fifteen Years, One Thread" />
       <div class="mt-10 flex items-baseline justify-between border-b border-line pb-6">
         <h2 class="text-2xl font-semibold tracking-tight">Select Works©</h2>
         <a href="/work" class="text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4">
@@ -120,9 +172,39 @@ const featured = allWork.slice(0, 5);
       </div>
     </section>
 
+    <!-- Thoughts -->
+    {
+      latestThoughts.length > 0 && (
+        <section class="mx-auto max-w-[1480px] px-5 pb-28 sm:px-10">
+          <SectionLabel mark="THOUGHTS" number="05" subtitle="Short Perspectives" />
+          <div class="mt-10 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2" data-reveal>
+            {latestThoughts.map((t) => (
+              <a href={`/thoughts/${t.id}`} class="group block bg-ink p-8 transition-colors hover:bg-[#111]">
+                <p class="text-xs font-semibold uppercase tracking-widest text-muted">
+                  {dateFormatter.format(t.data.date)}
+                  {t.data.draft && <span class="ml-2 rounded-full border border-paper/40 px-2 py-0.5 text-paper">Draft</span>}
+                </p>
+                <p class="mt-4 text-2xl font-semibold tracking-tight text-paper">{t.data.title}</p>
+                <p class="mt-2 text-muted">{t.data.description}</p>
+                <span class="mt-6 inline-block text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4">
+                  Read →
+                </span>
+              </a>
+            ))}
+          </div>
+          <a
+            href="/thoughts"
+            class="mt-6 inline-block text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4"
+          >
+            All thoughts →
+          </a>
+        </section>
+      )
+    }
+
     <!-- Brand Partners -->
     <section class="mx-auto max-w-[1480px] px-5 pb-28 sm:px-10">
-      <SectionLabel mark="Featured Clients" number="04" subtitle="Select Clients" />
+      <SectionLabel mark="Featured Clients" number="06" subtitle="Select Clients" />
       <div class="mt-10" data-reveal>
         <PartnerVideos />
       </div>

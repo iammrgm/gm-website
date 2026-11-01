@@ -1,9 +1,10 @@
 ---
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import { getVisibleThoughts } from "../../lib/thoughts";
 
 export async function getStaticPaths() {
-  const allThoughts = await getCollection("thoughts");
+  const allThoughts = await getVisibleThoughts();
   return allThoughts.map((entry) => ({
     params: { slug: entry.id },
     props: { entry },
@@ -11,11 +12,11 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { title, description, date, cover, carousel, reel, video } = entry.data;
+const { title, description, date, cover, carousel, reel, video, draft } = entry.data;
 const { Content, headings } = await render(entry);
 const sections = headings.filter((h) => h.depth === 2);
 
-const allThoughts = (await getCollection("thoughts")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const allThoughts = await getVisibleThoughts();
 const currentIndex = allThoughts.findIndex((t) => t.id === entry.id);
 const prevThought = currentIndex > 0 ? allThoughts[currentIndex - 1] : null;
 const nextThought = currentIndex < allThoughts.length - 1 ? allThoughts[currentIndex + 1] : null;
@@ -38,6 +39,7 @@ const articleSchema = {
     <a href="/thoughts" class="text-sm text-muted transition-colors hover:text-paper">Thoughts /</a>
     <p class="mt-4 text-xs font-semibold uppercase tracking-widest text-muted">
       {dateFormatter.format(date)}
+      {draft && <span class="ml-2 rounded-full border border-paper/40 px-2 py-0.5 text-paper">Draft, for review</span>}
     </p>
     <h1 class="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">{title}</h1>
 

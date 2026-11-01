@@ -9,12 +9,42 @@ const shortBio =
   "Gareth Matthews is the Founder & CEO of DEPARTMNT, building the infrastructure that connects physical products and live events to the brands and audiences behind them.";
 
 const mediumBio =
-  "Gareth Matthews is the Founder & CEO of DEPARTMNT. He has 15+ years in culture, music, and global brand innovation, from artist management and live event production to brand activation for Crocs, Mercedes-Benz, AB InBev and The National Lottery. In 2025 he co-founded DEPARTMNT with Kadeem Henry to build TapTech: the tag, platform and app infrastructure that turns physical products and live moments into a digital relationship a brand actually owns.";
+  "Gareth Matthews is the Founder & CEO of DEPARTMNT. He has 15+ years in culture, music and global brand innovation, from artist management and live event production to programmes for Mercedes-Benz, AB InBev, Coca-Cola and The National Lottery. He started DEPARTMNT in 2021 and incorporated it in May 2025; Kadeem Henry later joined as co-founder. DEPARTMNT builds TapTech: the tags people tap, the Portal a tap opens and Core, where brands run it, turning physical products and live moments into a relationship a brand actually owns. No app, ever.";
+
+const appearances = [
+  "Barclays Rise, London: presented the E Gucewicz Genesis connected eyewear prototypes",
+  "Breakpoint, Lisbon, November 2022: Genesis prototypes shown",
+  "Featured in a WGSN keynote",
+];
+
+const coverage = [
+  {
+    title: "G-SHOCK news: the event, credited to TapTech powered by DEPARTMNT",
+    outlet: "G-SHOCK Singapore",
+    href: "https://gshock.casio.com/sg/g-news/events/2025/gshock-active-lifestyle/",
+  },
+  {
+    title: "END. Features: Londone Fassion Weak",
+    outlet: "END.",
+    href: "https://www.endclothing.com/gb/features/navinder-nangla-presents-londone-fassion-weak",
+  },
+  {
+    title: "G-Shock × Novelist, Lucien Clarke and Benny Fairfax",
+    outlet: "Highsnobiety",
+    href: "https://www.highsnobiety.com/p/g-shock-novelist-lucien-clarke-benny-fairfax/",
+  },
+  {
+    title: "KFC brings gamers and grimers together",
+    outlet: "Campaign",
+    href: "https://www.campaignlive.co.uk/article/kfc-brings-gamers-grimers-together-facebook-live-video-first/1417532",
+  },
+];
 
 const facts = [
   { label: "Role", value: "Founder & CEO, DEPARTMNT" },
   { label: "Location", value: "London, UK" },
-  { label: "Company", value: "DEPARTMNT (departmnt.xyz), incorporated 21 May 2025" },
+  { label: "Company", value: "DEPARTMNT LABS UK LTD (departmnt.xyz). Started 2021, incorporated 21 May 2025" },
+  { label: "Co-founder", value: "Kadeem Henry" },
   { label: "Focus", value: "NFC infrastructure, ticketing, connected fashion, brand activation, live events" },
   { label: "Background", value: "15+ years in culture, music and global brand innovation" },
 ];
@@ -25,7 +55,7 @@ const facts = [
   description="Press kit for Gareth Matthews, Founder & CEO of DEPARTMNT: boilerplate, bio, headshots and company facts for media use."
 >
   <main id="main-content" class="mx-auto max-w-[1480px] px-5 pt-32 pb-28 sm:px-10">
-    <SectionLabel mark="PRESS" number="06" subtitle="Press Kit" />
+    <SectionLabel mark="PRESS" number="08" subtitle="Press Kit" />
 
     <h1 class="mt-10 max-w-2xl text-5xl font-semibold tracking-tight sm:text-7xl">Press</h1>
 
@@ -36,15 +66,15 @@ const facts = [
           <p class="mt-4 text-lg leading-relaxed text-paper/90">
             Gareth Matthews spent fifteen years watching culture generate attention no brand
             could hold onto, and brands spend fortunes reaching people they'd never be able to
-            name. In 2025 he founded DEPARTMNT to build the infrastructure for that instead: tag,
-            platform, app, turning a physical object into the start of a relationship rather than
-            the end of a transaction.
+            name. In 2021 he started DEPARTMNT to build the infrastructure for that instead: TapTech,
+            the tags, Portal and Core that turn a physical object into the start of a relationship
+            rather than the end of a transaction.
           </p>
           <p class="mt-4 text-lg leading-relaxed text-paper/90">
             Before DEPARTMNT, he built his career the same way brands couldn't: in the room,
             managing artists, building fan infrastructure, and running the connected layer behind
-            product launches, live events and brand activations for clients including Crocs,
-            Mercedes-Benz, AB InBev and The National Lottery.
+            product launches, live events and brand activations for clients including Mercedes-Benz,
+            AB InBev, Coca-Cola and The National Lottery.
           </p>
         </section>
 
@@ -67,13 +97,42 @@ const facts = [
               class="w-full object-cover"
             />
           </div>
+          <a
+            href="/press/gareth-matthews-headshot.jpg"
+            download
+            class="mt-4 inline-block rounded-full border border-line px-5 py-2.5 text-sm text-paper transition-colors hover:border-paper"
+          >
+            Download headshot (JPG, 1200 × 1500)
+          </a>
         </section>
 
         <section>
           <p class="text-xs font-semibold uppercase tracking-widest text-muted">Press & Interviews</p>
           <ul class="mt-4 space-y-2 text-lg leading-relaxed text-paper/90">
-            <li>• Speaker, Barclays</li>
-            <li>• Featured in a WGSN keynote</li>
+            {
+              appearances.map((a) => (
+                <li>• {a}</li>
+              ))
+            }
+          </ul>
+          <p class="mt-10 text-xs font-semibold uppercase tracking-widest text-muted">Selected Coverage</p>
+          <ul class="mt-4 space-y-2 text-lg leading-relaxed text-paper/90">
+            {
+              coverage.map((c) => (
+                <li>
+                  •{" "}
+                  <a
+                    href={c.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="underline decoration-paper/30 underline-offset-4 hover:text-muted"
+                  >
+                    {c.title} ↗
+                  </a>{" "}
+                  <span class="text-muted">{c.outlet}</span>
+                </li>
+              ))
+            }
           </ul>
         </section>
       </div>

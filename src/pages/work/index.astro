@@ -2,17 +2,36 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import WorkCard from "../../components/WorkCard.astro";
+import { DEPARTMNT_SITE } from "../../lib/departmnt";
 
 const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.data.order);
+const chapters = [
+  {
+    id: "departmnt",
+    kicker: "Now",
+    title: "DEPARTMNT",
+    intro: "Founder and CEO. TapTech: the tags people tap, the Portal a tap opens, and Core, where brands run it.",
+    link: { href: `${DEPARTMNT_SITE}/work`, label: "Full case studies on DEPARTMNT ↗" },
+    entries: allWork.filter((w) => w.data.capacity === "departmnt"),
+  },
+  {
+    id: "before",
+    kicker: "Before",
+    title: "Before DEPARTMNT",
+    intro: "Artist management, events, agencies and programme work: the rooms and the boardrooms.",
+    link: null,
+    entries: allWork.filter((w) => w.data.capacity === "personal"),
+  },
+];
 ---
 
 <Layout
   title="Work | Gareth Matthews"
-  description="19 case studies spanning connected products, brand activations, fan infrastructure and artist campaigns for Gareth Matthews and DEPARTMNT."
+  description={`${allWork.length} projects: connected products, fan infrastructure and events at DEPARTMNT, and the artist, brand and programme work that came before it.`}
 >
   <main id="main-content" class="mx-auto max-w-[1480px] px-5 pt-32 pb-28 sm:px-10">
     <div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-      <h1 class="text-4xl font-semibold tracking-tight sm:text-6xl">All Works ({allWork.length})</h1>
+      <h1 class="text-4xl font-semibold tracking-tight sm:text-6xl">Work ({allWork.length})</h1>
       <label class="relative w-full sm:w-64">
         <span class="sr-only">Search work</span>
         <input
@@ -23,76 +42,76 @@ const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.da
         />
       </label>
     </div>
-    <div class="mt-6 flex flex-wrap gap-2" data-capacity-filter>
-      <button
-        type="button"
-        data-capacity-btn="all"
-        class="font-carbon rounded-full border border-paper bg-paper px-4 py-1.5 text-xs uppercase tracking-wider text-ink"
-      >
-        All
-      </button>
-      <button
-        type="button"
-        data-capacity-btn="departmnt"
-        class="font-carbon rounded-full border border-line px-4 py-1.5 text-xs uppercase tracking-wider text-muted transition-colors hover:border-paper hover:text-paper"
-      >
-        DEPARTMNT
-      </button>
-      <button
-        type="button"
-        data-capacity-btn="personal"
-        class="font-carbon rounded-full border border-line px-4 py-1.5 text-xs uppercase tracking-wider text-muted transition-colors hover:border-paper hover:text-paper"
-      >
-        Personal / Agency-Era
-      </button>
-    </div>
+    <nav class="mt-6 flex flex-wrap gap-2" aria-label="Chapters">
+      {
+        chapters.map((c) => (
+          <a
+            href={`#${c.id}`}
+            class="font-carbon rounded-full border border-line px-4 py-1.5 text-xs uppercase tracking-wider text-muted transition-colors hover:border-paper hover:text-paper"
+          >
+            {c.title} ({c.entries.length})
+          </a>
+        ))
+      }
+    </nav>
     <p class="mt-4 hidden text-sm text-muted" data-work-empty>No work matches that search.</p>
-    <div class="mt-8 divide-y divide-line border-t border-line" data-work-list data-reveal>
-      {allWork.map((entry, i) => <WorkCard entry={entry} index={i + 1} />)}
-    </div>
+
+    {
+      chapters.map((c) => (
+        <section id={c.id} class="mt-20 scroll-mt-28" data-work-chapter>
+          <div class="grid gap-6 border-t border-line pt-6 sm:grid-cols-[1fr_auto] sm:items-end">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-widest text-muted">{c.kicker}</p>
+              <h2 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">{c.title}</h2>
+              <p class="mt-3 max-w-xl text-muted">{c.intro}</p>
+            </div>
+            {c.link && (
+              <a
+                href={c.link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-fit rounded-full border border-line px-5 py-2.5 text-sm text-paper transition-colors hover:border-paper"
+              >
+                {c.link.label}
+              </a>
+            )}
+          </div>
+          <div class="mt-6 divide-y divide-line border-t border-line" data-reveal>
+            {c.entries.map((entry, i) => (
+              <WorkCard entry={entry} index={i + 1} />
+            ))}
+          </div>
+        </section>
+      ))
+    }
   </main>
 </Layout>
 
 <script>
   function initWorkSearch() {
     const input = document.querySelector<HTMLInputElement>("[data-work-search]");
-    const cards = document.querySelectorAll<HTMLAnchorElement>("[data-work-card]");
+    const chapters = document.querySelectorAll<HTMLElement>("[data-work-chapter]");
     const empty = document.querySelector<HTMLParagraphElement>("[data-work-empty]");
-    const capacityBtns = document.querySelectorAll<HTMLButtonElement>("[data-capacity-btn]");
     if (!input) return;
-
-    let activeCapacity = "all";
 
     function applyFilters() {
       const q = input!.value.trim().toLowerCase();
       let visibleCount = 0;
-      cards.forEach((card) => {
-        const matchesSearch = !q || (card.dataset.search ?? "").includes(q);
-        const matchesCapacity = activeCapacity === "all" || card.dataset.capacity === activeCapacity;
-        const match = matchesSearch && matchesCapacity;
-        card.classList.toggle("hidden", !match);
-        if (match) visibleCount++;
+      chapters.forEach((chapter) => {
+        let chapterCount = 0;
+        chapter.querySelectorAll<HTMLAnchorElement>("[data-work-card]").forEach((card) => {
+          const match = !q || (card.dataset.search ?? "").includes(q);
+          card.classList.toggle("hidden", !match);
+          if (match) chapterCount++;
+        });
+        chapter.classList.toggle("hidden", chapterCount === 0);
+        visibleCount += chapterCount;
       });
       empty?.classList.toggle("hidden", visibleCount !== 0);
     }
 
     input.value = "";
     input.addEventListener("input", applyFilters);
-
-    capacityBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        activeCapacity = btn.dataset.capacityBtn ?? "all";
-        capacityBtns.forEach((b) => {
-          const isActive = b === btn;
-          b.classList.toggle("bg-paper", isActive);
-          b.classList.toggle("border-paper", isActive);
-          b.classList.toggle("text-ink", isActive);
-          b.classList.toggle("border-line", !isActive);
-          b.classList.toggle("text-muted", !isActive);
-        });
-        applyFilters();
-      });
-    });
   }
 
   document.addEventListener("astro:page-load", initWorkSearch);
