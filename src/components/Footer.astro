@@ -66,6 +66,19 @@ const CONTACT_EMAIL = "hello@departmnt.xyz";
           {requestOptions.map((option) => <option value={option}>{option}</option>)}
         </select>
       </label>
+      <label class="grid gap-2">
+        <span class="text-sm text-muted">Message</span>
+        <textarea
+          name="message"
+          rows="4"
+          maxlength="4000"
+          class="resize-y border-b border-line bg-transparent py-3 text-lg text-paper outline-none placeholder:text-muted focus:border-paper"
+        ></textarea>
+      </label>
+      <label class="hidden" aria-hidden="true">
+        Leave this empty
+        <input type="text" name="website" tabindex="-1" autocomplete="off" />
+      </label>
       <button
         type="submit"
         class="mt-4 w-fit rounded-full bg-paper px-8 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-80"

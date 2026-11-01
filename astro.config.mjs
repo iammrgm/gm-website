@@ -25,7 +25,7 @@ const isDev = process.argv.includes('dev');
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.garethmatthews.uk',
-  integrations: [sitemap(), react(), keystatic(), markdoc()],
+  integrations: [sitemap({ filter: (page) => !/\/(cms|keystatic)(\/|$)/.test(new URL(page).pathname) }), react(), keystatic(), markdoc()],
 
   vite: {
     plugins: [tailwindcss()]

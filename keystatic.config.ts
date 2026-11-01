@@ -151,9 +151,9 @@ export default config({
               options: [
                 { label: "Live", value: "live" },
                 { label: "Opening", value: "opening" },
-                { label: "Ended", value: "ended" },
+                { label: "Completed", value: "completed" },
               ],
-              defaultValue: "ended",
+              defaultValue: "completed",
             }),
             tagsUsed: fields.array(fields.text({ label: "Tag" }), {
               label: "Tags used",

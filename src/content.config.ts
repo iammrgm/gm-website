@@ -26,7 +26,7 @@ const work = defineCollection({
       .object({
         labsSlug: z.string().default(""),
         headline: z.string().default(""),
-        status: z.enum(["live", "ended", "opening"]).default("ended"),
+        status: z.enum(["live", "completed", "opening"]).default("completed"),
         tagsUsed: z.array(z.string()).default([]),
         learned: z.string().default(""),
         next: z.string().optional(),

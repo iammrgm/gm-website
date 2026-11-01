@@ -28,8 +28,20 @@
 				"binding": "SESSION",
 				"id": "9b9d094e35064eb288439c31ed00b8c4"
 			}
+		],
+		"send_email": [
+			{
+				"name": "SEND_EMAIL",
+				"destination_address": "gareth@departmnt.xyz"
+			}
 		]
 	},
+	"send_email": [
+		{
+			"name": "SEND_EMAIL",
+			"destination_address": "gareth@departmnt.xyz"
+		}
+	],
 	"observability": {
 		"enabled": true
 	}
