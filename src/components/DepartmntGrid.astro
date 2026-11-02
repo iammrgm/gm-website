@@ -1,0 +1,57 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Mark from "./Mark.astro";
+import { STATUS_LABEL, departmntWorkUrl } from "../lib/departmnt";
+import { WORK_LOGO } from "../lib/brands";
+
+// DEPARTMNT projects as cards, three across, in the same shape as departmnt.xyz/work: photograph,
+// then sector and city with the client's mark, title and one-line result. Each opens the full
+// case study on departmnt.xyz.
+interface Props {
+  entries: CollectionEntry<"work">[];
+}
+const { entries } = Astro.props;
+
+// Portrait source photos need their focal point lifted so a landscape crop keeps the face.
+const FOCUS: Record<string, string> = { "e-gucewicz-genesis": "50% 25%" };
+---
+
+<ul class="grid grid-cols-1 gap-x-4 gap-y-12 sm:grid-cols-2 md:gap-x-6 lg:grid-cols-3 lg:gap-y-16">
+  {
+    entries.map((entry) => {
+      const { title, categories, location, cover, clients, departmnt } = entry.data;
+      const d = departmnt!;
+      const image = d.room[0] ?? { image: cover, alt: title };
+      const logo = WORK_LOGO[entry.id];
+      return (
+        <li>
+          <a href={departmntWorkUrl(d.labsSlug)} target="_blank" rel="noopener noreferrer" class="group block">
+            <div class="relative aspect-[4/3] overflow-hidden rounded-xl bg-tint">
+              <img
+                src={image.image}
+                alt={image.alt}
+                loading="lazy"
+                decoding="async"
+                width="1200"
+                height="900"
+                style={FOCUS[entry.id] ? `object-position:${FOCUS[entry.id]}` : undefined}
+                class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              />
+              <span class="status-chip absolute top-3 left-3">{STATUS_LABEL[d.status]}</span>
+            </div>
+            <div class="mt-4 flex h-6 items-center justify-between gap-4">
+              <p class="meta truncate">
+                {categories[0]} · {location}
+              </p>
+              {logo ? <Mark logo={logo} area={900} max={24} /> : <span class="meta text-fg">{clients[0]?.name}</span>}
+            </div>
+            <h3 class="mt-3 text-[21px] leading-tight font-medium tracking-[-0.015em] underline-offset-[0.18em] group-hover:underline md:text-[23px]">
+              {title}
+            </h3>
+            <p class="mt-2 max-w-[30em] text-[16px] leading-snug text-mute">{d.headline}</p>
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>

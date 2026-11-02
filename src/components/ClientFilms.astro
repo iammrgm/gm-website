@@ -1,0 +1,104 @@
+---
+import Mark from "./Mark.astro";
+import { CLIENT_FILMS } from "../lib/brands";
+
+// Client films as a sideways row of equal 3:2 cards, each with the client's mark over the film.
+// Films play muted while on screen and stop when they leave it; arrows step through on desktop.
+---
+
+<div data-films>
+  <ul class="films-row -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 md:-mx-6 md:gap-4 md:px-6" data-films-row>
+    {
+      CLIENT_FILMS.map((f) => (
+        <li class="w-[82vw] shrink-0 snap-start sm:w-[420px] xl:w-[460px]">
+          <a href={f.href} target="_blank" rel="noopener noreferrer" class="group relative block aspect-[3/2] overflow-hidden rounded-xl bg-fg" aria-label={`${f.title}: case study on departmnt.xyz`}>
+            <video
+              src={f.src}
+              poster={f.poster}
+              muted
+              loop
+              playsinline
+              preload="none"
+              disablepictureinpicture
+              class="h-full w-full object-cover"
+              data-inview-video
+              aria-hidden="true"
+            />
+            <span class="pointer-events-none absolute inset-0 flex items-center justify-center">
+              <Mark logo={f.logo} area={2800} max={44} white decorative />
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="mt-4 flex items-center justify-between gap-5">
+    <button type="button" class="meta text-fg hover:underline" data-films-toggle aria-pressed="false">Pause films</button>
+    <span class="flex gap-2">
+      <button type="button" class="film-arrow" data-films-step="-1" aria-label="Previous film">←</button>
+      <button type="button" class="film-arrow" data-films-step="1" aria-label="Next film">→</button>
+    </span>
+  </div>
+</div>
+
+<script>
+  let observer: IntersectionObserver | null = null;
+
+  function initFilms() {
+    observer?.disconnect();
+    const root = document.querySelector<HTMLElement>("[data-films]");
+    if (!root) return;
+    const row = root.querySelector<HTMLElement>("[data-films-row]")!;
+    const toggle = root.querySelector<HTMLButtonElement>("[data-films-toggle]")!;
+    const videos = [...root.querySelectorAll<HTMLVideoElement>("[data-inview-video]")];
+    let paused = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const visible = new Set<HTMLVideoElement>();
+
+    const sync = () => {
+      toggle.textContent = paused ? "Play films" : "Pause films";
+      toggle.setAttribute("aria-pressed", String(paused));
+      videos.forEach((v) => {
+        if (!paused && visible.has(v)) {
+          v.muted = true;
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
+      });
+    };
+
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          const v = e.target as HTMLVideoElement;
+          if (e.isIntersecting) visible.add(v);
+          else visible.delete(v);
+        });
+        sync();
+      },
+      { threshold: 0.35 }
+    );
+    videos.forEach((v) => observer!.observe(v));
+
+    toggle.addEventListener("click", () => {
+      paused = !paused;
+      sync();
+    });
+
+    root.querySelectorAll<HTMLButtonElement>("[data-films-step]").forEach((btn) =>
+      btn.addEventListener("click", () => {
+        const dir = Number(btn.dataset.filmsStep);
+        const items = [...row.children] as HTMLElement[];
+        const left = row.scrollLeft;
+        const target =
+          dir > 0
+            ? items.find((li) => li.offsetLeft - row.offsetLeft > left + 8)
+            : [...items].reverse().find((li) => li.offsetLeft - row.offsetLeft < left - 8);
+        row.scrollTo({ left: target ? target.offsetLeft - row.offsetLeft - parseFloat(getComputedStyle(row).paddingLeft) : dir > 0 ? row.scrollWidth : 0, behavior: "smooth" });
+      })
+    );
+    sync();
+  }
+
+  document.addEventListener("astro:page-load", initFilms);
+</script>

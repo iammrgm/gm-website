@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactForm from "../components/ContactForm.astro";
+import PageHead from "../components/PageHead.astro";
+
+const CALENDLY_URL = "https://calendly.com/gareth-departmnt/30min";
+const EMAIL = "hello@departmnt.xyz";
+---
+
+<Layout
+  title="Contact | Gareth Matthews"
+  description="Get in touch with Gareth Matthews for speaking, advisory, partnerships, press and pilots, or book a 30-minute call."
+>
+  <main id="main-content" class="frame pt-8 md:pt-12">
+    <PageHead title="Contact">
+      Speaking, advisory, partnerships, press and pilots. Send a message, email, or book 30 minutes.
+    </PageHead>
+    <div class="grid-12 mt-10 gap-y-12 border-t border-fg pt-6 md:mt-14">
+      <div class="col-span-4 md:col-span-5">
+        <dl>
+          <div class="border-b border-rule pb-3">
+            <dt class="meta">Email</dt>
+            <dd class="mt-1"><a href={`mailto:${EMAIL}`} class="ln text-[19px]">{EMAIL}</a></dd>
+          </div>
+          <div class="border-b border-rule py-3">
+            <dt class="meta">Call</dt>
+            <dd class="mt-1">
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" class="ln text-[19px]">Book 30 minutes</a>
+            </dd>
+          </div>
+          <div class="border-b border-rule py-3">
+            <dt class="meta">Press</dt>
+            <dd class="mt-1"><a href="/press" class="ln text-[19px]">Press kit</a></dd>
+          </div>
+        </dl>
+      </div>
+      <div class="col-span-4 md:col-span-6 md:col-start-7">
+        <ContactForm />
+      </div>
+    </div>
+  </main>
+</Layout>

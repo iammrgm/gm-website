@@ -1,0 +1,28 @@
+---
+// Section opener: a black rule, a small Carbon label, then the section's line as the heading with
+// any intro text beside it on desktop. The "action" slot holds a link that sits at the far right.
+interface Props {
+  mark: string;
+  title: string;
+}
+const { mark, title } = Astro.props;
+const hasIntro = Astro.slots.has("default");
+const hasAction = Astro.slots.has("action");
+---
+
+<div class="border-t border-fg pt-3">
+  <div class="flex items-baseline justify-between gap-4">
+    <p class="meta">{mark}</p>
+    {hasAction && <div class="text-[15px]"><slot name="action" /></div>}
+  </div>
+  <div class="grid-12 mt-4 gap-y-3 md:mt-5 md:items-end">
+    <h2 class="col-span-4 text-[34px] leading-[1.02] font-medium tracking-[-0.03em] md:col-span-6 md:text-[48px]">{title}</h2>
+    {
+      hasIntro && (
+        <div class="col-span-4 max-w-[30em] text-[16px] leading-snug text-mute md:col-span-5 md:col-start-8 md:pb-1.5">
+          <slot />
+        </div>
+      )
+    }
+  </div>
+</div>

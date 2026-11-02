@@ -51,56 +51,244 @@
   font-display: swap;
 }
 
+/* Archivo, expanded: the wide grotesk used for the name. Open source (SIL OFL), from the
+   Archivo Project; one variable file covering weight and width. */
+@font-face {
+  font-family: "Archivo Wide";
+  src: url("../fonts/Archivo-Variable-wdth.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sans: "Monument Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-carbon: "Carbon", ui-monospace, monospace;
-  --color-ink: #050505;
-  --color-paper: #f5f4f1;
-  --color-line: rgba(245, 244, 241, 0.14);
-  --color-muted: rgba(245, 244, 241, 0.56);
+  --color-bg: #f1f0eb;
+  --color-fg: #141414;
+  --color-mute: #6e6c66;
+  --color-rule: rgba(20, 20, 20, 0.16);
+  --color-tint: #e6e4dd;
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--color-ink);
-  color: var(--color-paper);
-  font-optical-sizing: auto;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-size: 17px;
+  line-height: 1.5;
+  font-feature-settings: "kern", "liga";
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: var(--color-paper);
-  color: var(--color-ink);
+  background: var(--color-fg);
+  color: var(--color-bg);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-paper);
+  outline: 2px solid var(--color-fg);
   outline-offset: 3px;
-  border-radius: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
 
-/* Scroll-reveal: only takes effect once JS confirms it can run the
-   observer, so content stays visible by default (progressive
-   enhancement, and a safe fallback if the script ever fails). */
-html.js-reveal [data-reveal] {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+@layer components {
+/* Page frame: full-width 12-column grid with fixed outer margins. */
+.frame {
+  padding-inline: 16px;
 }
-html.js-reveal [data-reveal].is-visible {
-  opacity: 1;
-  transform: none;
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 16px;
 }
+@media (min-width: 768px) {
+  .frame {
+    padding-inline: 24px;
+  }
+  .grid-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 24px;
+  }
+}
+
+/* Small technical labels: DEPARTMNT's Carbon, all caps. */
+.meta {
+  font-family: var(--font-carbon);
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-mute);
+}
+
+/* The name: wide, heavy capitals, set like a wordmark. */
+.name {
+  font-family: "Archivo Wide", var(--font-sans);
+  font-stretch: 125%;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.86;
+  text-transform: uppercase;
+}
+
+.display {
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+}
+
+/* Text links: a thin rule that thickens on hover. */
+.ln {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  transition: text-decoration-color 0.15s;
+}
+.ln:hover {
+  text-decoration-color: currentColor;
+}
+
+.rule-t {
+  border-top: 1px solid var(--color-rule);
+}
+
+/* Long-form text. */
+.prose {
+  font-size: 19px;
+  line-height: 1.55;
+  max-width: 38em;
+}
+.prose :where(p, ul, ol) + :where(p, ul, ol) {
+  margin-top: 0.85em;
+}
+.prose :where(h2) {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+.prose :where(ul) {
+  padding-left: 1.1em;
+  list-style: disc;
+}
+.prose :where(li) + :where(li) {
+  margin-top: 0.35em;
+}
+.prose :where(a) {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.prose :where(strong) {
+  font-weight: 500;
+}
+
+/* Client marks: the files are white, so on the light page they're set to solid ink. */
+.mark-ink {
+  filter: brightness(0);
+  opacity: 0.88;
+}
+.mark-white {
+  filter: brightness(0) invert(1);
+}
+
+.logo-wall {
+  --mark-scale: 0.55;
+}
+@media (min-width: 768px) {
+  .logo-wall {
+    --mark-scale: 0.7;
+  }
+}
+@media (min-width: 1024px) {
+  .logo-wall {
+    --mark-scale: 0.68;
+  }
+}
+@media (min-width: 1280px) {
+  .logo-wall {
+    --mark-scale: 0.85;
+  }
+}
+@media (min-width: 1536px) {
+  .logo-wall {
+    --mark-scale: 1;
+  }
+}
+
+/* Project status, set on the photo the way departmnt.xyz does it. */
+.status-chip {
+  display: inline-block;
+  padding: 3px 10px 4px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--color-fg);
+  font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+}
+
+/* Rolling role word: one line tall, the stack slides up a word at a time. */
+.roller {
+  --roll-h: 1.1em;
+  display: inline-block;
+  height: var(--roll-h);
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.roller-track {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.roller-track > span {
+  display: block;
+  height: var(--roll-h);
+  line-height: var(--roll-h);
+}
+
+/* Client films row. */
+.films-row {
+  scrollbar-width: none;
+  scroll-padding-inline: 16px;
+}
+@media (min-width: 768px) {
+  .films-row {
+    scroll-padding-inline: 24px;
+  }
+}
+.films-row::-webkit-scrollbar {
+  display: none;
+}
+.film-arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-rule);
+  border-radius: 999px;
+  font-size: 16px;
+  transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+}
+.film-arrow:hover {
+  border-color: var(--color-fg);
+  background: var(--color-fg);
+  color: var(--color-bg);
+}
+}
+

@@ -1,0 +1,84 @@
+---
+const requestOptions = ["Request Meeting", "Speaking Enquiry", "Partnership", "Press & Media", "Advisory", "Something else"];
+---
+
+<form class="grid gap-7" data-contact-form action="/api/contact" method="post">
+  <label class="grid gap-2">
+    <span class="meta">Name</span>
+    <input type="text" name="name" required autocomplete="name" class="field" />
+  </label>
+  <label class="grid gap-2">
+    <span class="meta">Email</span>
+    <input type="email" name="email" required autocomplete="email" class="field" />
+  </label>
+  <label class="grid gap-2">
+    <span class="meta">About</span>
+    <select name="request" required class="field">
+      <option value="" selected disabled>Choose one</option>
+      {requestOptions.map((option) => <option value={option}>{option}</option>)}
+    </select>
+  </label>
+  <label class="grid gap-2">
+    <span class="meta">Message</span>
+    <textarea name="message" rows="5" maxlength="4000" class="field resize-y"></textarea>
+  </label>
+  <label class="hidden" aria-hidden="true">
+    Leave this empty
+    <input type="text" name="website" tabindex="-1" autocomplete="off" />
+  </label>
+  <div class="flex items-center gap-6">
+    <button type="submit" class="rounded-full bg-fg px-7 py-3 text-[15px] text-bg transition-opacity hover:opacity-85 disabled:opacity-50">
+      Send
+    </button>
+    <p class="hidden text-[15px] text-mute" data-contact-status role="status"></p>
+  </div>
+</form>
+
+<style>
+  .field {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid var(--color-fg);
+    background: transparent;
+    padding: 0.5rem 0;
+    font-size: 19px;
+    color: var(--color-fg);
+    border-radius: 0;
+    outline: none;
+  }
+  .field:focus {
+    border-bottom-width: 2px;
+    padding-bottom: calc(0.5rem - 1px);
+  }
+</style>
+
+<script>
+  function initContactForm() {
+    const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
+    if (!form || form.dataset.bound) return;
+    form.dataset.bound = "1";
+    const status = form.querySelector<HTMLParagraphElement>("[data-contact-status]");
+    const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!status || !submitBtn) return;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+      status.classList.remove("hidden");
+      status.textContent = "";
+      try {
+        const res = await fetch("/api/contact", { method: "POST", body: new FormData(form) });
+        if (!res.ok) throw new Error("Request failed");
+        status.textContent = "Thanks, I'll be in touch soon.";
+        form.reset();
+      } catch {
+        status.textContent = "Something went wrong sending that. Try emailing directly instead.";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send";
+      }
+    });
+  }
+  document.addEventListener("astro:page-load", initContactForm);
+</script>

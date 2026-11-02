@@ -12,6 +12,8 @@ const work = defineCollection({
     capacity: z.enum(["departmnt", "personal"]),
     clients: z.array(z.object({ name: z.string(), url: z.string().optional().default("") })),
     role: z.string().optional(),
+    // The artist the work was done with, shown beside the title instead of in it (e.g. Novelist).
+    artist: z.string().optional(),
     duration: z.string(),
     location: z.string(),
     liveUrl: z.string().optional().default(""),

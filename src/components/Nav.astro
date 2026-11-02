@@ -1,43 +1,40 @@
 ---
 const links = [
-  { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
-  { href: "/thoughts", label: "Thoughts" },
-  { href: "/#contact", label: "Contact" },
+  // Thoughts live on Substack for now.
+  { href: "https://iammrgm.substack.com/", label: "Thoughts", external: true },
+  { href: "/contact", label: "Contact" },
 ];
+const path = Astro.url.pathname;
 ---
 
-<header class="fixed inset-x-0 top-0 z-50 mix-blend-difference">
-  <div class="mx-auto grid max-w-[1480px] grid-cols-3 items-center px-5 py-5 sm:px-10">
-    <a href="/" class="text-sm font-bold tracking-tight text-paper">GM®</a>
-    <a
-      href="/"
-      class="justify-self-center text-center text-xs font-bold uppercase tracking-tight text-paper sm:text-sm"
-    >
-      Gareth Matthews
+<header class="frame sticky top-0 z-50 border-b border-rule bg-bg">
+  <div class="grid-12 h-12 items-center text-[15px]">
+    <a href="/" class="col-span-1 font-medium md:col-span-6">
+      <span class="name text-[13px] tracking-[-0.01em]"><span class="md:hidden">GM</span><span class="hidden md:inline">Gareth Matthews</span></span>
     </a>
-    <div class="justify-self-end">
-      <nav class="hidden items-center gap-8 sm:flex">
-        {
-          links.map((link) => (
+    <nav class="col-span-3 flex justify-end gap-4 md:col-span-6 md:gap-7" aria-label="Main">
+      {
+        links.map((link) => {
+          const current = !link.external && path.startsWith(link.href);
+          return (
             <a
               href={link.href}
               target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noreferrer" : undefined}
-              class="text-sm font-medium text-paper/80 transition-colors hover:text-paper"
+              rel={link.external ? "me noopener noreferrer" : undefined}
+              aria-current={current ? "page" : undefined}
+              class:list={[
+                "transition-colors hover:text-fg",
+                current ? "text-fg underline underline-offset-[0.3em]" : "text-mute",
+              ]}
             >
               {link.label}
+              {link.external && <span class="sr-only"> (Substack, opens in a new tab)</span>}
             </a>
-          ))
-        }
-      </nav>
-      <a
-        href="/#contact"
-        class="text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4 sm:hidden"
-      >
-        Contact
-      </a>
-    </div>
+          );
+        })
+      }
+    </nav>
   </div>
 </header>

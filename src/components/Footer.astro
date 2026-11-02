@@ -1,193 +1,62 @@
 ---
-import Marquee from "./Marquee.astro";
-import SectionLabel from "./SectionLabel.astro";
 import { DEPARTMNT_SITE } from "../lib/departmnt";
-
-const requestOptions = [
-  "Request Meeting",
-  "Speaking Enquiry",
-  "Partnership",
-  "Press & Media",
-  "Advisory",
-  "Something else?",
-];
-
-const SUBSTACK_URL = "https://iammrgm.substack.com/";
-
-const networks = [
-  { label: "Instagram", href: "https://instagram.com/iammrgm" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/gareth-matthews/" },
-  { label: "SubStack", href: SUBSTACK_URL },
-  { label: "X", href: "https://x.com/iammrgm" },
-];
-
-const departmntNetworks = [
-  { label: "Instagram", href: "https://www.instagram.com/departmnt_hq/" },
-  { label: "X", href: "https://x.com/departmnt_hq" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/departmnt-hq/" },
-];
 
 const CONTACT_EMAIL = "hello@departmnt.xyz";
 const CALENDLY_URL = "https://calendly.com/gareth-departmnt/30min";
+
+const elsewhere = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/gareth-matthews/" },
+  { label: "Instagram", href: "https://instagram.com/iammrgm" },
+  { label: "X", href: "https://x.com/iammrgm" },
+  { label: "Substack", href: "https://iammrgm.substack.com/" },
+];
+
+const departmnt = [
+  { label: "departmnt.xyz", href: DEPARTMNT_SITE },
+  { label: "Instagram", href: "https://www.instagram.com/departmnt_hq/" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/departmnt-hq/" },
+  { label: "X", href: "https://x.com/departmnt_hq" },
+];
 ---
 
-<Marquee items={["Speaking", "Partnerships", "Press", "Advisory"]} size="sm" />
-
-<footer id="contact" class="border-t border-line bg-ink">
-  <div class="mx-auto max-w-[1480px] px-5 py-20 sm:px-10">
-    <SectionLabel mark="CONTACT" subtitle="Open Lines" />
-
-    <form class="mt-10 grid max-w-2xl gap-6" data-contact-form action="/api/contact" method="post">
-      <label class="grid gap-2">
-        <span class="text-sm text-muted">Name</span>
-        <input
-          type="text"
-          name="name"
-          required
-          class="border-b border-line bg-transparent py-3 text-lg text-paper outline-none placeholder:text-muted focus:border-paper"
-        />
-      </label>
-      <label class="grid gap-2">
-        <span class="text-sm text-muted">Email</span>
-        <input
-          type="email"
-          name="email"
-          required
-          class="border-b border-line bg-transparent py-3 text-lg text-paper outline-none placeholder:text-muted focus:border-paper"
-        />
-      </label>
-      <label class="grid gap-2">
-        <span class="text-sm text-muted">Request</span>
-        <select
-          name="request"
-          required
-          class="border-b border-line bg-transparent py-3 text-lg text-paper outline-none focus:border-paper"
-        >
-          <option value="" selected disabled>Select…</option>
-          {requestOptions.map((option) => <option value={option}>{option}</option>)}
-        </select>
-      </label>
-      <label class="grid gap-2">
-        <span class="text-sm text-muted">Message</span>
-        <textarea
-          name="message"
-          rows="4"
-          maxlength="4000"
-          class="resize-y border-b border-line bg-transparent py-3 text-lg text-paper outline-none placeholder:text-muted focus:border-paper"
-        ></textarea>
-      </label>
-      <label class="hidden" aria-hidden="true">
-        Leave this empty
-        <input type="text" name="website" tabindex="-1" autocomplete="off" />
-      </label>
-      <button
-        type="submit"
-        class="mt-4 w-fit rounded-full bg-paper px-8 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-80"
-      >
-        Submit
-      </button>
-      <p class="hidden text-sm text-muted" data-contact-status></p>
-    </form>
-
-    <p class="mt-16 max-w-xl text-lg text-muted">
-      I build places. Physical or digital, loud or quiet, but always alive. If you're building
-      something at the edge of culture and technology, or you want to put me in front of a room,
-      get in touch.
+<footer id="contact" class="frame mt-16 pb-8 md:mt-20">
+  <div class="grid-12 gap-y-4 border-t border-fg pt-3 md:items-end">
+    <div class="col-span-4 md:col-span-6">
+      <p class="meta">Contact</p>
+      <h2 class="mt-4 text-[34px] leading-[1.02] font-medium tracking-[-0.03em] md:mt-5 md:text-[48px]">Open Lines</h2>
+    </div>
+    <p class="col-span-4 max-w-[30em] text-[16px] leading-snug text-mute md:col-span-5 md:col-start-8 md:pb-1.5">
+      I build places. Physical or digital, loud or quiet, but always alive. If you're building something
+      at the edge of culture and technology, or you want to put me in front of a room, get in touch.
     </p>
-
-    <a
-      href={`mailto:${CONTACT_EMAIL}`}
-      class="mt-6 inline-block text-sm font-semibold text-paper underline decoration-paper/30 underline-offset-4"
-    >
-      Email Me
-    </a>
-
-    <a
-      href={CALENDLY_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="ml-6 mt-6 inline-block text-sm font-semibold text-paper underline decoration-paper/30 underline-offset-4"
-    >
-      Book a 30-minute call ↗
-    </a>
-
-    <div class="mt-20 flex flex-col flex-wrap gap-10 border-t border-line pt-10 sm:flex-row sm:justify-between">
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-widest text-muted">Quick Links</p>
-        <div class="mt-3 flex flex-wrap gap-x-2 gap-y-1 text-sm text-paper">
-          <a href="/" class="hover:text-muted">Home</a>,
-          <a href="/work" class="hover:text-muted">Work</a>,
-          <a href="/about" class="hover:text-muted">About</a>,
-          <a href="/thoughts" class="hover:text-muted">Thoughts</a>,
-          <a href="/press" class="hover:text-muted">Press</a>,
-          <a href="/#contact" class="hover:text-muted">Contact</a>
-        </div>
-      </div>
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-widest text-muted">Networks</p>
-        <div class="mt-3 flex flex-wrap gap-x-2 gap-y-1 text-sm text-paper">
-          {
-            networks.map((n, i) => (
-              <>
-                <a href={n.href} target="_blank" rel="me noopener noreferrer" class="hover:text-muted">
-                  {n.label}
-                </a>
-                {i < networks.length - 1 && ","}
-              </>
-            ))
-          }
-        </div>
-      </div>
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-widest text-muted">DEPARTMNT</p>
-        <div class="mt-3 flex flex-wrap gap-x-2 gap-y-1 text-sm text-paper">
-          <a href={DEPARTMNT_SITE} target="_blank" rel="noopener noreferrer" class="hover:text-muted">
-            departmnt.xyz
-          </a>
-          ,
-          {
-            departmntNetworks.map((n, i) => (
-              <>
-                <a href={n.href} target="_blank" rel="noopener noreferrer" class="hover:text-muted">
-                  {n.label}
-                </a>
-                {i < departmntNetworks.length - 1 && ","}
-              </>
-            ))
-          }
-        </div>
-      </div>
-      <p class="text-sm text-muted">
-        ©{new Date().getFullYear()} · <a href="/privacy" class="hover:text-paper">Privacy</a>
+  </div>
+  <div class="grid-12 mt-8 gap-y-8 border-t border-rule pt-5 md:mt-10">
+    <div class="col-span-4 md:col-span-6">
+      <a href={`mailto:${CONTACT_EMAIL}`} class="ln block text-[26px] leading-tight font-medium tracking-tight md:text-[36px]">
+        {CONTACT_EMAIL}
+      </a>
+      <p class="mt-3 flex flex-wrap gap-x-6 gap-y-1">
+        <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" class="ln">Book a 30-minute call</a>
+        <a href="/contact" class="ln">Send a message</a>
       </p>
     </div>
+    <div class="col-span-2 md:col-span-3">
+      <p class="meta">Elsewhere</p>
+      <ul class="mt-2 space-y-0.5">
+        {elsewhere.map((l) => <li><a href={l.href} target="_blank" rel="me noopener noreferrer" class="ln">{l.label}</a></li>)}
+      </ul>
+    </div>
+    <div class="col-span-2 md:col-span-3">
+      <p class="meta">DEPARTMNT</p>
+      <ul class="mt-2 space-y-0.5">
+        {departmnt.map((l) => <li><a href={l.href} target="_blank" rel="noopener noreferrer" class="ln">{l.label}</a></li>)}
+      </ul>
+    </div>
+  </div>
+  <div class="mt-10 flex items-end justify-between gap-4 md:mt-12">
+    <p class="meta">© {new Date().getFullYear()} Gareth Matthews · London</p>
+    <p class="meta">
+      <a href="/press" class="hover:text-fg">Press</a> · <a href="/privacy" class="hover:text-fg">Privacy</a>
+    </p>
   </div>
 </footer>
-
-<script>
-  const form = document.querySelector<HTMLFormElement>("[data-contact-form]");
-  const status = form?.querySelector<HTMLParagraphElement>("[data-contact-status]");
-  const submitBtn = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
-
-  form?.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    if (!status || !submitBtn) return;
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Sending…";
-    status.classList.remove("hidden");
-    status.textContent = "";
-
-    try {
-      const res = await fetch("/api/contact", { method: "POST", body: new FormData(form) });
-      if (!res.ok) throw new Error("Request failed");
-      status.textContent = "Thanks, I'll be in touch soon.";
-      form.reset();
-    } catch {
-      status.textContent = "Something went wrong sending that. Try emailing directly instead.";
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Submit";
-    }
-  });
-</script>

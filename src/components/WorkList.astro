@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+// Work from before DEPARTMNT: a plain index, one row per project. The homepage hides the dates.
+interface Props {
+  entries: CollectionEntry<"work">[];
+  dates?: boolean;
+}
+const { entries, dates = true } = Astro.props;
+---
+
+<ul class="border-t border-rule">
+  {
+    entries.map((entry) => {
+      const { title, clients, categories, duration, role, artist } = entry.data;
+      const client = clients.map((c) => c.name).join(", ");
+      return (
+        <li class="border-b border-rule">
+          <a href={`/work/${entry.id}`} class="grid-12 group items-baseline gap-y-1 py-4 transition-colors hover:bg-tint">
+            <span class="col-span-4 text-[17px] font-medium underline-offset-[0.2em] group-hover:underline md:col-span-4">
+              {title}
+            </span>
+            <span class="col-span-4 text-[15px] text-mute md:col-span-4">
+              {artist ? `With ${artist}` : client}
+              {role && <span class="hidden lg:inline"> · {role}</span>}
+            </span>
+            <span class:list={["meta", dates ? "col-span-2" : "col-span-4 md:text-right"]}>
+              {categories[0]}
+            </span>
+            {dates && <span class="meta col-span-2 text-right md:col-span-2">{duration}</span>}
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
