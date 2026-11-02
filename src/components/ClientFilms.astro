@@ -1,0 +1,110 @@
+---
+import Mark from "./Mark.astro";
+import { CLIENT_FILMS } from "../lib/brands";
+
+// Client films in one row at a shared height, each at its own shape, so portrait and landscape
+// sit side by side without cropping. The row scrolls sideways; arrows step through it on desktop.
+// Films play muted while on screen and stop when they leave it.
+---
+
+<div data-films>
+  <div class="mb-4 flex items-center justify-end gap-5">
+    <button type="button" class="meta text-fg hover:underline" data-films-toggle aria-pressed="false">Pause films</button>
+    <span class="hidden gap-2 md:flex">
+      <button type="button" class="film-arrow" data-films-step="-1" aria-label="Previous film">←</button>
+      <button type="button" class="film-arrow" data-films-step="1" aria-label="Next film">→</button>
+    </span>
+  </div>
+  <ul class="films-row -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 md:-mx-6 md:gap-6 md:px-6" data-films-row>
+    {
+      CLIENT_FILMS.map((f) => (
+        <li class="shrink-0 snap-start">
+          <a href={f.href} target="_blank" rel="noopener noreferrer" class="group block">
+            <div class="film-frame overflow-hidden bg-fg" style={`--ratio:${f.width / f.height}`}>
+              <video
+                src={f.src}
+                poster={f.poster}
+                width={f.width}
+                height={f.height}
+                muted
+                loop
+                playsinline
+                preload="none"
+                disablepictureinpicture
+                class="h-full w-full object-cover"
+                data-inview-video
+                aria-label={`${f.title} film`}
+              />
+            </div>
+            <div class="mt-3 flex items-center justify-between gap-4">
+              <span class="text-[15px] font-medium underline-offset-[0.18em] group-hover:underline">{f.title}</span>
+              <Mark logo={f.logo} area={600} max={18} decorative />
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<script>
+  let observer: IntersectionObserver | null = null;
+
+  function initFilms() {
+    observer?.disconnect();
+    const root = document.querySelector<HTMLElement>("[data-films]");
+    if (!root) return;
+    const row = root.querySelector<HTMLElement>("[data-films-row]")!;
+    const toggle = root.querySelector<HTMLButtonElement>("[data-films-toggle]")!;
+    const videos = [...root.querySelectorAll<HTMLVideoElement>("[data-inview-video]")];
+    let paused = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const visible = new Set<HTMLVideoElement>();
+
+    const sync = () => {
+      toggle.textContent = paused ? "Play films" : "Pause films";
+      toggle.setAttribute("aria-pressed", String(paused));
+      videos.forEach((v) => {
+        if (!paused && visible.has(v)) {
+          v.muted = true;
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
+      });
+    };
+
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          const v = e.target as HTMLVideoElement;
+          if (e.isIntersecting) visible.add(v);
+          else visible.delete(v);
+        });
+        sync();
+      },
+      { threshold: 0.35 }
+    );
+    videos.forEach((v) => observer!.observe(v));
+
+    toggle.addEventListener("click", () => {
+      paused = !paused;
+      sync();
+    });
+
+    root.querySelectorAll<HTMLButtonElement>("[data-films-step]").forEach((btn) =>
+      btn.addEventListener("click", () => {
+        const dir = Number(btn.dataset.filmsStep);
+        const items = [...row.children] as HTMLElement[];
+        const left = row.scrollLeft;
+        const target =
+          dir > 0
+            ? items.find((li) => li.offsetLeft - row.offsetLeft > left + 8)
+            : [...items].reverse().find((li) => li.offsetLeft - row.offsetLeft < left - 8);
+        row.scrollTo({ left: target ? target.offsetLeft - row.offsetLeft - parseFloat(getComputedStyle(row).paddingLeft) : dir > 0 ? row.scrollWidth : 0, behavior: "smooth" });
+      })
+    );
+    sync();
+  }
+
+  document.addEventListener("astro:page-load", initFilms);
+</script>

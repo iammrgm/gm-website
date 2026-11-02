@@ -1,0 +1,40 @@
+---
+// A slow band of keywords between sections. Two copies of the list make a seamless loop.
+// Hovering pauses it; with reduced motion it stands still.
+interface Props {
+  items: string[];
+  size?: "lg" | "sm";
+}
+const { items, size = "lg" } = Astro.props;
+const loop = [...items, ...items, ...items, ...items];
+---
+
+<div
+  class:list={["marquee overflow-hidden border-y border-rule", size === "lg" ? "py-5 md:py-7" : "py-3"]}
+  data-size={size}
+  aria-label={items.join(", ")}
+  role="img"
+>
+  <div class="marquee-track flex w-max" aria-hidden="true">
+    {
+      loop.map((item) => (
+        <span
+          class:list={[
+            "flex items-center whitespace-nowrap",
+            size === "lg"
+              ? "text-[44px] leading-none font-medium tracking-[-0.035em] md:text-[88px]"
+              : "meta text-fg",
+          ]}
+        >
+          {item}
+          <span
+            class:list={[
+              "inline-block bg-fg",
+              size === "lg" ? "mx-6 h-2.5 w-2.5 md:mx-12 md:h-4 md:w-4" : "mx-6 h-1 w-1",
+            ]}
+          />
+        </span>
+      ))
+    }
+  </div>
+</div>

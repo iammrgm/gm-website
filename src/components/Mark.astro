@@ -1,0 +1,28 @@
+---
+import type { Logo } from "../lib/brands";
+
+// A client mark sized by area rather than height, so a wide wordmark and a round badge carry the
+// same visual weight. `area` is the target in square pixels; `max` caps the height of tall marks.
+// A parent can shrink every mark inside it by setting --mark-scale.
+interface Props {
+  logo: Logo;
+  area: number;
+  max: number;
+  class?: string;
+  decorative?: boolean;
+}
+const { logo, area, max, class: className, decorative = false } = Astro.props;
+const height = Math.min(max, Math.sqrt(area / logo.ratio));
+const width = height * logo.ratio;
+---
+
+<img
+  src={logo.file}
+  alt={decorative ? "" : logo.name}
+  width={Math.round(width)}
+  height={Math.round(height)}
+  loading="lazy"
+  decoding="async"
+  style={`width:calc(${width.toFixed(1)}px * var(--mark-scale, 1));height:calc(${height.toFixed(1)}px * var(--mark-scale, 1))`}
+  class:list={["block shrink-0 object-contain", !logo.asIs && "mark-ink", className]}
+/>

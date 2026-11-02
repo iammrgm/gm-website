@@ -1,4 +1,5 @@
 ---
+import Marquee from "./Marquee.astro";
 import { DEPARTMNT_SITE } from "../lib/departmnt";
 
 const CONTACT_EMAIL = "hello@departmnt.xyz";
@@ -19,8 +20,22 @@ const departmnt = [
 ];
 ---
 
-<footer id="contact" class="frame mt-24 border-t border-fg pt-6 pb-8 md:mt-32">
-  <div class="grid-12 gap-y-10">
+<div class="mt-24 md:mt-36">
+  <Marquee items={["Speaking", "Partnerships", "Press", "Advisory"]} size="sm" />
+</div>
+
+<footer id="contact" class="frame pt-10 pb-8 md:pt-14">
+  <div class="grid-12 gap-y-6">
+    <p class="meta col-span-4 md:col-span-3">Contact</p>
+    <div class="col-span-4 md:col-span-9">
+      <h2 class="text-[34px] leading-[1.02] font-medium tracking-[-0.03em] md:text-[52px]">Open Lines</h2>
+      <p class="mt-4 max-w-[30em] text-[17px] text-mute">
+        I build places. Physical or digital, loud or quiet, but always alive. If you're building something
+        at the edge of culture and technology, or you want to put me in front of a room, get in touch.
+      </p>
+    </div>
+  </div>
+  <div class="grid-12 mt-14 gap-y-10 border-t border-rule pt-6 md:mt-20">
     <div class="col-span-4 md:col-span-6">
       <p class="meta">Get in touch</p>
       <a href={`mailto:${CONTACT_EMAIL}`} class="ln mt-3 block text-[28px] leading-tight font-medium tracking-tight md:text-[40px]">

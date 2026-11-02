@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import DepartmntGrid from "../../components/DepartmntGrid.astro";
 import WorkList from "../../components/WorkList.astro";
+import SectionHead from "../../components/SectionHead.astro";
 import { DEPARTMNT_SITE } from "../../lib/departmnt";
 
 const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.data.order);
@@ -15,28 +16,27 @@ const earlierWork = allWork.filter((w) => !w.data.departmnt?.labsSlug);
   description={`${allWork.length} projects: connected products, fan infrastructure and events at DEPARTMNT, and the artist, brand and programme work that came before it.`}
 >
   <main id="main-content" class="frame pt-10 md:pt-14">
-    <h1 class="display text-[22vw] md:text-[12vw] 2xl:text-[172px]"><span class="rise"><span>Work</span></span></h1>
+    <h1 class="display text-[22vw] md:text-[12vw] 2xl:text-[172px]">Work</h1>
 
     <section id="departmnt" class="mt-14 scroll-mt-16 md:mt-20">
-      <div class="grid-12 border-t border-fg pt-4">
-        <p class="meta col-span-4 md:col-span-3">DEPARTMNT · {departmntWork.length}</p>
-        <p class="col-span-4 mt-3 max-w-[34em] text-[17px] text-mute md:col-span-9 md:mt-0">
+      <SectionHead mark={`Now · ${departmntWork.length}`} title="DEPARTMNT">
+        <p class="mt-4 max-w-[34em] text-[17px] text-mute">
           Projects since founding DEPARTMNT in 2021. Each one opens the full case study on{" "}
           <a href={`${DEPARTMNT_SITE}/work`} target="_blank" rel="noopener noreferrer" class="ln text-fg">departmnt.xyz</a>.
         </p>
-      </div>
-      <div class="mt-10">
+      </SectionHead>
+      <div class="mt-12 md:mt-16">
         <DepartmntGrid entries={departmntWork} />
       </div>
     </section>
 
-    <section id="before" class="mt-24 scroll-mt-16 md:mt-32">
-      <div class="grid-12 border-t border-fg pt-4">
-        <p class="meta col-span-4 md:col-span-3">Before DEPARTMNT · {earlierWork.length}</p>
-        <p class="col-span-4 mt-3 max-w-[34em] text-[17px] text-mute md:col-span-9 md:mt-0">
-          Artist management, live events and brand programmes.
+    <section id="before" class="mt-24 scroll-mt-16 md:mt-36">
+      <SectionHead mark={`Before · ${earlierWork.length}`} title="Before DEPARTMNT">
+        <p class="mt-4 max-w-[34em] text-[17px] text-mute">
+          Artist management, live events and brand programmes, from Novelist's first world tour to
+          Mercedes-Benz and The National Lottery.
         </p>
-      </div>
+      </SectionHead>
       <div class="mt-8">
         <WorkList entries={earlierWork} />
       </div>

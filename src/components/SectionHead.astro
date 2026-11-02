@@ -1,0 +1,17 @@
+---
+// Section opener: a black rule, a small Carbon label on the left and the section's line as the
+// heading. Anything in the slot sits under the heading.
+interface Props {
+  mark: string;
+  title: string;
+}
+const { mark, title } = Astro.props;
+---
+
+<div class="grid-12 border-t border-fg pt-4">
+  <p class="meta col-span-4 md:col-span-3">{mark}</p>
+  <div class="col-span-4 mt-3 md:col-span-9 md:mt-0">
+    <h2 class="text-[34px] leading-[1.02] font-medium tracking-[-0.03em] md:text-[52px]">{title}</h2>
+    <slot />
+  </div>
+</div>

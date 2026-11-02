@@ -118,7 +118,7 @@ const faqSchema = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <main id="main-content" class="frame pt-10 md:pt-14">
-    <h1 class="display text-[22vw] md:text-[12vw] 2xl:text-[172px]"><span class="rise"><span>About</span></span></h1>
+    <h1 class="display text-[22vw] md:text-[12vw] 2xl:text-[172px]">About</h1>
 
     <div class="grid-12 mt-10 gap-y-8 md:mt-14">
       <p class="col-span-4 max-w-[22em] text-[24px] leading-[1.25] tracking-[-0.01em] md:col-span-8 md:text-[32px]">
@@ -130,9 +130,7 @@ const faqSchema = {
       {
         photos.map((p) => (
           <li class="col-span-4 md:col-span-4">
-            <div class="frame-open aspect-[4/5] overflow-hidden bg-tint">
-              <img src={p.src} alt={`Gareth Matthews: ${p.caption}`} loading="lazy" class="drift h-full w-full object-cover" />
-            </div>
+            <img src={p.src} alt={`Gareth Matthews: ${p.caption}`} loading="lazy" class="aspect-[4/5] w-full bg-tint object-cover" />
             <p class="meta mt-2">{p.caption}</p>
           </li>
         ))

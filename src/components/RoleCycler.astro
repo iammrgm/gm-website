@@ -1,0 +1,44 @@
+---
+// The roles roll through one line like a split-flap board: each word slides up and out as the
+// next arrives. Screen readers get the full list once; reduced motion shows "Founder" only.
+const ROLES = ["Founder", "Builder", "Operator", "Strategist", "Technologist", "DJ"];
+---
+
+<span class="roller" data-roller>
+  <span class="sr-only">{ROLES.join(", ")}</span>
+  <span class="roller-track" aria-hidden="true">
+    {[...ROLES, ROLES[0]].map((role) => <span>{role}</span>)}
+  </span>
+</span>
+
+<script>
+  let timers: number[] = [];
+
+  function initRollers() {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    document.querySelectorAll<HTMLElement>("[data-roller] .roller-track").forEach((track) => {
+      const count = track.children.length - 1;
+      let i = 0;
+      const step = () => {
+        i += 1;
+        track.style.transition = "";
+        track.style.transform = `translateY(calc(${-i} * var(--roll-h)))`;
+        if (i === count) {
+          // Landed on the repeated first word: jump back to the real one without animating.
+          window.setTimeout(() => {
+            track.style.transition = "none";
+            track.style.transform = "translateY(0)";
+            i = 0;
+          }, 800);
+        }
+      };
+      timers.push(window.setInterval(step, 2400));
+    });
+  }
+
+  document.addEventListener("astro:before-swap", () => {
+    timers.forEach(clearInterval);
+    timers = [];
+  });
+  document.addEventListener("astro:page-load", initRollers);
+</script>
