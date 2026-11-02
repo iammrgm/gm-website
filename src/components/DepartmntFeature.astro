@@ -4,8 +4,8 @@ import Mark from "./Mark.astro";
 import { STATUS_LABEL, departmntWorkUrl } from "../lib/departmnt";
 import { WORK_LOGO } from "../lib/brands";
 
-// One DEPARTMNT project told large, the way departmnt.xyz/work opens: the headline beside a
-// single big photograph. Links out to the full case study.
+// One DEPARTMNT project told large: a wide photograph across the page, then the title and result
+// on the left with the story and link on the right. Links out to the full case study.
 interface Props {
   entry: CollectionEntry<"work">;
 }
@@ -17,33 +17,35 @@ const logo = WORK_LOGO[entry.id];
 const href = departmntWorkUrl(d.labsSlug);
 ---
 
-<a href={href} target="_blank" rel="noopener noreferrer" class="group grid-12 gap-y-6">
-  <div class="col-span-4 flex flex-col md:order-2 md:col-span-7 md:col-start-6">
-    <div class="relative aspect-[4/3] overflow-hidden rounded-xl bg-tint md:aspect-[3/2]">
-      <img
-        src={image.image}
-        alt={image.alt}
-        loading="lazy"
-        decoding="async"
-        width="1200"
-        height="900"
-        class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-      />
-      <span class="status-chip absolute top-3 left-3">{STATUS_LABEL[d.status]}</span>
-    </div>
+<a href={href} target="_blank" rel="noopener noreferrer" class="group block">
+  <div class="relative aspect-[4/3] overflow-hidden rounded-xl bg-tint md:aspect-[21/9]">
+    <img
+      src={image.image}
+      alt={image.alt}
+      loading="lazy"
+      decoding="async"
+      width="1200"
+      height="900"
+      class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+    />
+    <span class="status-chip absolute top-3 left-3 md:top-4 md:left-4">{STATUS_LABEL[d.status]}</span>
   </div>
-  <div class="col-span-4 flex flex-col md:order-1 md:col-span-5">
-    <div class="flex items-center justify-between gap-4 border-b border-rule pb-3">
-      <p class="meta">{categories[0]} · {location}</p>
-      {logo && <Mark logo={logo} area={1400} max={24} />}
+  <div class="mt-4 flex items-center justify-between gap-4">
+    <p class="meta">{categories[0]} · {location}</p>
+    {logo && <Mark logo={logo} area={1400} max={24} />}
+  </div>
+  <div class="grid-12 mt-4 gap-y-4 md:mt-5">
+    <div class="col-span-4 md:col-span-6">
+      <h3 class="text-[32px] leading-[1.02] font-medium tracking-[-0.03em] underline-offset-[0.12em] group-hover:underline md:text-[44px]">
+        {title}
+      </h3>
+      <p class="mt-3 max-w-[24em] text-[19px] leading-[1.3] tracking-[-0.01em] md:text-[22px]">{d.headline}</p>
     </div>
-    <h3 class="mt-5 text-[34px] leading-[1.02] font-medium tracking-[-0.03em] md:mt-6 md:text-[48px]">
-      {title}
-    </h3>
-    <p class="mt-4 max-w-[22em] text-[20px] leading-[1.3] tracking-[-0.01em] md:text-[24px]">{d.headline}</p>
-    <p class="mt-4 max-w-[30em] text-[16px] leading-snug text-mute">{description}</p>
-    <p class="mt-8">
-      <span class="ln">Read the case study on departmnt.xyz</span> <span aria-hidden="true">↗</span>
-    </p>
+    <div class="col-span-4 md:col-span-5 md:col-start-8 md:pt-2">
+      <p class="max-w-[30em] text-[16px] leading-snug text-mute">{description}</p>
+      <p class="mt-4">
+        <span class="ln">Read the case study on departmnt.xyz</span> <span aria-hidden="true">↗</span>
+      </p>
+    </div>
   </div>
 </a>
