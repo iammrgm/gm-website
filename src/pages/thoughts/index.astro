@@ -10,6 +10,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: 
 ---
 
 <Layout
+  noindex={allThoughts.length === 0}
   title="Thoughts | Gareth Matthews"
   description="Short pieces on presence, connected products, culture and building DEPARTMNT."
 >
@@ -29,7 +30,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: 
           <ul>
             {allThoughts.map((entry) => (
               <li class="border-b border-rule">
-                <a href={`/thoughts/${entry.id}`} class="group grid-12 gap-y-2 py-5">
+                <a href={`/thoughts/${entry.id}/`} class="group grid-12 gap-y-2 py-5">
                   <span class="col-span-4 md:col-span-8">
                     <span class="block text-[22px] leading-snug font-medium tracking-[-0.01em] underline-offset-[0.2em] group-hover:underline md:text-[26px]">
                       {entry.data.title}

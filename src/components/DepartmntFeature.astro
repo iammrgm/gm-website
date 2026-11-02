@@ -39,6 +39,8 @@ const href = departmntWorkUrl(d.labsSlug);
         >
           <img
             src={img.image}
+            srcset={strip.length > 1 ? `${img.image.replace(/\.webp$/, "-800.webp")} 800w, ${img.image} 1200w` : undefined}
+            sizes={strip.length > 1 ? "(min-width: 768px) 31vw, 92vw" : undefined}
             alt={img.alt}
             loading="lazy"
             decoding="async"

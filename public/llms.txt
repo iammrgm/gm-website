@@ -1,37 +1,40 @@
 # Gareth Matthews
 
-> Founder & CEO of DEPARTMNT. 15+ years across culture and commerce, building
-> the infrastructure — tag, platform, app — that turns physical products,
-> live events and real-world moments into owned digital relationships.
+> Founder & CEO of DEPARTMNT. 15+ years across culture and commerce: clubs, artist management and
+> global brand programmes, now building the infrastructure for a more connected world.
 
-Gareth Matthews is the founder and CEO of DEPARTMNT (departmnt.xyz), a
-London-based company building NFC-powered connected-product infrastructure
-(TapTech: Tags, Portal, Core) for brands, artists and venues. Before
-DEPARTMNT he spent over a decade in artist management, brand partnerships
-and live event production across music and culture.
+Gareth Matthews is the founder and CEO of DEPARTMNT (https://departmnt.xyz), a London company
+building TapTech: the Tags people tap, the Portal a tap opens, and Core, where brands run it. No
+app, ever. He started DEPARTMNT in 2021; it incorporated in May 2025, and Kadeem Henry later joined
+as co-founder. Before DEPARTMNT he DJed from 13, held a residency at Ministry of Sound, managed
+the grime artist Novelist (his first world tour, partnerships with Uniqlo, New Era and Casio
+G-Shock), and led programmes for Mercedes-Benz, The National Lottery and AB InBev's BEES.
 
 ## Site structure
 
-- [Home](/): Profile, client list, and featured work.
-- [Work](/work): Full case study index — 19 projects spanning connected
-  product infrastructure (DEPARTMNT), and earlier artist management /
-  brand consulting work. Each project page includes a Brief, What We Built
-  and Outcome section with named clients, categories and quantified results
-  where available.
-- [About](/#about): Background, speaking topics, and FAQ.
-- [Press](/press): Boilerplate, bio (short and medium), headshots and
-  company/personal facts for media use.
-- [Thoughts](https://iammrgm.substack.com/): Long-form writing. Full
-  articles are published on this site first; Substack carries a teaser
-  and link back.
-- [Contact](/#contact): Direct enquiry form.
+- [Home](https://www.garethmatthews.uk/): Profile, clients, selected DEPARTMNT work, client
+  films, earlier work.
+- [Work](https://www.garethmatthews.uk/work/): Every project. DEPARTMNT projects link to their
+  full case studies on departmnt.xyz; earlier work (artist management, live events, brand
+  programmes) has case studies on this site with a Brief, What We Built and Outcome.
+- [About](https://www.garethmatthews.uk/about/): Background, founder memo, principles, speaking
+  topics and FAQ.
+- [Press](https://www.garethmatthews.uk/press/): Boilerplate, short and medium bios, headshot and
+  facts for media use.
+- [Thoughts](https://iammrgm.substack.com/): Writing, on Substack.
+- [Contact](https://www.garethmatthews.uk/contact/): Enquiry form, email (hello@departmnt.xyz)
+  and a 30-minute call link.
 
 ## Key facts
 
 - Role: Founder & CEO, DEPARTMNT (departmnt.xyz)
 - Location: London, UK
-- Areas of expertise: NFC infrastructure, ticketing systems, connected
-  fashion/product, brand activation, live events, artist management
-- DEPARTMNT clients referenced on this site: Genesys, Atlantic Records,
-  10K Projects, G-SHOCK, Crocs, Kasina, H.LLS, YOU Studio, Mulaa Joans
-- Social: LinkedIn, Instagram, X, Substack — linked in the site footer
+- Areas: NFC and connected products, fan infrastructure, ticketing, brand activation, live
+  events, artist management
+- DEPARTMNT work: Kasina × Crocs, H.LLS × 10K Projects, Mulaa Joans × Atlantic Records, YOU
+  Studio, G-SHOCK × Who Eats Art, Navinder Nangla × END., Genesys, E Gucewicz
+- Earlier clients: Mercedes-Benz, AB InBev, Coca-Cola, The National Lottery, Uniqlo, New Era,
+  Casio G-Shock, KFC, O2, Boiler Room, Reebok
+- Open to: speaking, advisory, partnerships, press, pilots
+- Social: LinkedIn (linkedin.com/in/gareth-matthews), Instagram and X (@iammrgm), Substack
+  (iammrgm.substack.com)

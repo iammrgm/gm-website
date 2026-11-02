@@ -29,6 +29,8 @@ const FOCUS: Record<string, string> = { "e-gucewicz-genesis": "50% 25%" };
             <div class="relative aspect-[4/3] overflow-hidden rounded-xl bg-tint">
               <img
                 src={image.image}
+                srcset={d.room[0] ? `${image.image.replace(/\.webp$/, "-800.webp")} 800w, ${image.image} 1200w` : undefined}
+                sizes="(min-width: 1024px) 31vw, (min-width: 640px) 48vw, 92vw"
                 alt={image.alt}
                 loading="lazy"
                 decoding="async"

@@ -56,10 +56,10 @@ const atmosphere = [
               poster="/videos/hero/poster.jpg"
               width="1280"
               height="720"
-              autoplay
               muted
               loop
               playsinline
+              preload="none"
               disablepictureinpicture
               class="h-full w-full object-cover"
               aria-label="A conversation with the DEPARTMNT founders: Building a New Interface for Culture"
@@ -85,7 +85,7 @@ const atmosphere = [
             alt="Gareth Matthews, Founder and CEO of DEPARTMNT"
             width="1200"
             height="1500"
-            loading="lazy"
+            loading="eager"
             class="absolute inset-0 h-full w-full rounded-xl bg-tint object-cover object-[50%_30%]"
           />
         </figure>
@@ -110,7 +110,7 @@ const atmosphere = [
           </dl>
           <p class="mt-4 flex flex-wrap gap-x-6 gap-y-1">
             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" class="ln">Book a call</a>
-            <a href="/contact" class="ln">Send a message</a>
+            <a href="/contact/" class="ln">Send a message</a>
             <a href="https://www.linkedin.com/in/gareth-matthews/" target="_blank" rel="me noopener noreferrer" class="ln">LinkedIn</a>
           </p>
           <div class="mt-8">
@@ -131,7 +131,7 @@ const atmosphere = [
             Fifteen years watching culture generate attention no brand could hold onto. The room was always
             the asset. Nobody was building for it. So I did.
           </p>
-          <a href="/about" class="ln mt-6 inline-block">Read the full story</a>
+          <a href="/about/" class="ln mt-6 inline-block">Read the full story</a>
         </div>
         <ul class="col-span-4 grid grid-cols-3 gap-3 md:col-span-7 md:gap-4">
           {
@@ -161,7 +161,7 @@ const atmosphere = [
         Since 2021, DEPARTMNT: the tags people tap, the Portal a tap opens, and Core, where brands run it.
         Every project opens its full case study on{" "}
         <a href={`${DEPARTMNT_SITE}/work`} target="_blank" rel="noopener noreferrer" class="ln text-fg">departmnt.xyz</a>.
-        <a slot="action" href="/work" class="ln">All work ({allWork.length})</a>
+        <a slot="action" href="/work/" class="ln">All work ({allWork.length})</a>
       </SectionHead>
       {
         featured && (
@@ -188,7 +188,7 @@ const atmosphere = [
       <SectionHead mark="Before" title="Before DEPARTMNT">
         Artist management, live events and brand programmes, from Novelist's first world tour to
         Mercedes-Benz and The National Lottery.
-        <a slot="action" href="/work#before" class="ln">All earlier work ({earlierWork.length})</a>
+        <a slot="action" href="/work/#before" class="ln">All earlier work ({earlierWork.length})</a>
       </SectionHead>
       <div class="mt-8 md:mt-10">
         <WorkList entries={earlierWork.slice(0, 6)} dates={false} />
@@ -206,7 +206,7 @@ const atmosphere = [
           <ul class="mt-6 border-t border-rule md:mt-8">
             {thoughts.map((t) => (
               <li class="border-b border-rule">
-                <a href={`/thoughts/${t.id}`} class="group grid grid-cols-[1fr_auto] items-baseline gap-4 py-3">
+                <a href={`/thoughts/${t.id}/`} class="group grid grid-cols-[1fr_auto] items-baseline gap-4 py-3">
                   <span class="text-[19px] leading-snug font-medium underline-offset-[0.2em] group-hover:underline md:text-[22px]">
                     {t.data.title}
                   </span>
@@ -232,8 +232,12 @@ const atmosphere = [
       toggle.textContent = paused ? "Play" : "Pause";
       toggle.setAttribute("aria-pressed", String(paused));
     };
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) set(true);
     toggle.addEventListener("click", () => set(!film.paused));
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return set(true);
+    // Start the film once the page has painted, so it doesn't hold up the first screen.
+    const start = () => set(false);
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start, { once: true });
   }
   document.addEventListener("astro:page-load", initHeroFilm);
 </script>

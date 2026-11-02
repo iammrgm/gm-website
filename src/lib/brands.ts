@@ -46,7 +46,7 @@ export interface WallEntry {
 }
 
 const xyz = (labsSlug: string, title: string) => ({ href: departmntWorkUrl(labsSlug), label: `${title}, case study on departmnt.xyz` });
-const here = (slug: string, title: string) => ({ href: `/work/${slug}`, label: `${title}, case study` });
+const here = (slug: string, title: string) => ({ href: `/work/${slug}/`, label: `${title}, case study` });
 
 /** The logo wall, in reading order. Fourteen marks plus one blank cell close the grid. */
 export const LOGO_WALL: WallEntry[] = [

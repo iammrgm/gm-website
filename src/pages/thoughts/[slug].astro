@@ -41,7 +41,7 @@ const articleSchema = {
     <div class="grid-12">
       <div class="col-span-4 md:col-span-9 md:col-start-4">
         <p class="meta">
-          <a href="/thoughts" class="hover:text-fg">Thoughts</a> · {dateFormatter.format(date)}
+          <a href="/thoughts/" class="hover:text-fg">Thoughts</a> · {dateFormatter.format(date)}
           {draft && <span> · Draft, not published</span>}
         </p>
         <h1 class="display mt-4 text-[11vw] md:text-[5.6vw] 2xl:text-[80px]">{title}</h1>
@@ -93,7 +93,7 @@ const articleSchema = {
 
     <nav class="grid-12 mt-20 border-t border-fg pt-4" aria-label="More thoughts">
       {prevThought ? (
-        <a href={`/thoughts/${prevThought.id}`} class="group col-span-2 md:col-span-6">
+        <a href={`/thoughts/${prevThought.id}/`} class="group col-span-2 md:col-span-6">
           <span class="meta">Newer</span>
           <span class="mt-1 block text-[17px] font-medium underline-offset-[0.2em] group-hover:underline">{prevThought.data.title}</span>
         </a>
@@ -101,7 +101,7 @@ const articleSchema = {
         <span class="col-span-2 md:col-span-6" />
       )}
       {nextThought ? (
-        <a href={`/thoughts/${nextThought.id}`} class="group col-span-2 text-right md:col-span-6">
+        <a href={`/thoughts/${nextThought.id}/`} class="group col-span-2 text-right md:col-span-6">
           <span class="meta">Older</span>
           <span class="mt-1 block text-[17px] font-medium underline-offset-[0.2em] group-hover:underline">{nextThought.data.title}</span>
         </a>

@@ -1,4 +1,5 @@
 // @ts-check
+import { readdirSync, readFileSync } from 'node:fs';
 import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
@@ -22,10 +23,24 @@ import markdoc from '@astrojs/markdoc';
 // doesn't take a function here.
 const isDev = process.argv.includes('dev');
 
+// The Thoughts index stays out of the sitemap (and is noindexed) until a piece is published, so
+// Google doesn't index an empty "Coming soon" page.
+const hasPublishedThoughts = readdirSync('src/content/thoughts')
+  .filter((f) => f.endsWith('.mdoc'))
+  .some((f) => !/^draft:\s*true\s*$/m.test(readFileSync(`src/content/thoughts/${f}`, 'utf8')));
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.garethmatthews.uk',
-  integrations: [sitemap({ filter: (page) => !/\/(cms|keystatic)(\/|$)/.test(new URL(page).pathname) }), react(), keystatic(), markdoc()],
+  integrations: [
+    sitemap({
+      filter: (page) => {
+        const path = new URL(page).pathname;
+        if (/\/(cms|keystatic)(\/|$)/.test(path)) return false;
+        if (!hasPublishedThoughts && path.startsWith('/thoughts')) return false;
+        return true;
+      },
+    }), react(), keystatic(), markdoc()],
 
   vite: {
     plugins: [tailwindcss()]
