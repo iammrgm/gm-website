@@ -1,33 +1,90 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-// Work from before DEPARTMNT: a plain index, one row per project.
+// Work from before DEPARTMNT: a plain index, one row per project. On desktop, hovering a
+// row shows that project's photo beside the cursor; without that, the list stands alone.
 interface Props {
   entries: CollectionEntry<"work">[];
 }
 const { entries } = Astro.props;
 ---
 
-<ul class="border-t border-rule">
-  {
-    entries.map((entry) => {
-      const { title, clients, categories, duration, role } = entry.data;
-      const client = clients.map((c) => c.name).join(", ");
-      return (
-        <li class="border-b border-rule">
-          <a href={`/work/${entry.id}`} class="grid-12 group items-baseline gap-y-1 py-4 transition-colors hover:bg-tint">
-            <span class="col-span-4 text-[17px] font-medium underline-offset-[0.2em] group-hover:underline md:col-span-4">
-              {title}
-            </span>
-            <span class="col-span-4 text-[15px] text-mute md:col-span-4">
-              {client}
-              {role && <span class="hidden lg:inline"> · {role}</span>}
-            </span>
-            <span class="meta col-span-2 md:col-span-2">{categories[0]}</span>
-            <span class="meta col-span-2 text-right md:col-span-2">{duration}</span>
-          </a>
-        </li>
-      );
-    })
+<div class="relative" data-work-list>
+  <ul class="border-t border-rule">
+    {
+      entries.map((entry) => {
+        const { title, clients, categories, duration, role, cover } = entry.data;
+        const client = clients.map((c) => c.name).join(", ");
+        return (
+          <li class="border-b border-rule">
+            <a
+              href={`/work/${entry.id}`}
+              data-preview={cover}
+              class="grid-12 group items-baseline gap-y-1 py-4 md:py-5"
+            >
+              <span class="col-span-4 text-[18px] font-medium tracking-[-0.01em] md:col-span-4 md:text-[20px]">
+                <span class="draw">{title}</span>
+              </span>
+              <span class="col-span-4 text-[15px] text-mute transition-colors group-hover:text-fg md:col-span-4">
+                {client}
+                {role && <span class="hidden lg:inline"> · {role}</span>}
+              </span>
+              <span class="meta col-span-2 md:col-span-2">{categories[0]}</span>
+              <span class="meta col-span-2 text-right md:col-span-2">{duration}</span>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+  <div
+    class="pointer-events-none fixed top-0 left-0 z-40 hidden aspect-[4/3] w-[22rem] overflow-hidden bg-tint opacity-0 transition-opacity duration-300"
+    data-work-preview
+    aria-hidden="true"
+  >
+    <img alt="" class="h-full w-full object-cover" />
+  </div>
+</div>
+
+<script>
+  function initWorkPreview() {
+    const list = document.querySelector<HTMLElement>("[data-work-list]");
+    const box = list?.querySelector<HTMLElement>("[data-work-preview]");
+    const img = box?.querySelector("img");
+    if (!list || !box || !img || list.dataset.bound) return;
+    if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    list.dataset.bound = "1";
+    box.classList.remove("hidden");
+
+    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let x = 0, y = 0, cx = 0, cy = 0, raf = 0;
+    const place = () => {
+      cx += (x - cx) * (still ? 1 : 0.18);
+      cy += (y - cy) * (still ? 1 : 0.18);
+      const w = box.offsetWidth;
+      const left = cx + 28 + w > innerWidth - 16 ? cx - w - 28 : cx + 28;
+      box.style.transform = `translate3d(${left}px, ${cy - box.offsetHeight / 2}px, 0)`;
+      raf = Math.abs(x - cx) + Math.abs(y - cy) > 0.5 ? requestAnimationFrame(place) : 0;
+    };
+    const move = (e: MouseEvent) => {
+      x = e.clientX;
+      y = e.clientY;
+      if (!raf) raf = requestAnimationFrame(place);
+    };
+
+    list.querySelectorAll<HTMLAnchorElement>("[data-preview]").forEach((row) => {
+      row.addEventListener("mouseenter", (e) => {
+        img.src = row.dataset.preview ?? "";
+        if (box.style.opacity !== "1") {
+          cx = x = e.clientX;
+          cy = y = e.clientY;
+        }
+        box.style.opacity = "1";
+        place();
+      });
+      row.addEventListener("mouseleave", () => (box.style.opacity = "0"));
+    });
+    list.addEventListener("mousemove", move);
   }
-</ul>
+  document.addEventListener("astro:page-load", initWorkPreview);
+</script>

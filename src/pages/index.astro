@@ -51,14 +51,17 @@ const atmosphere = [
   <main id="main-content">
     <!-- Introduction -->
     <section class="frame pt-10 md:pt-14">
-      <h1 class="display text-[17.5vw] md:text-[10.4vw] 2xl:text-[150px]">Gareth Matthews</h1>
+      <h1 class="display text-[17.5vw] whitespace-normal md:text-[9.6vw] md:whitespace-nowrap 2xl:text-[138px]">
+        <span class="rise inline-block align-top"><span style="--i:0">Gareth</span></span>
+        <span class="rise inline-block align-top"><span style="--i:1">Matthews</span></span>
+      </h1>
       <div class="grid-12 mt-10 gap-y-10 md:mt-14">
         <div class="col-span-4 md:col-span-6">
-          <p class="max-w-[22em] text-[24px] leading-[1.25] tracking-[-0.01em] md:text-[30px]">
+          <p class="fade-in max-w-[22em] text-[24px] leading-[1.25] tracking-[-0.01em] md:text-[30px]" style="--i:2">
             Founder and CEO of DEPARTMNT. Fifteen years across clubs, artists and boardrooms, now
             building the infrastructure for a more connected world.
           </p>
-          <div class="mt-12 max-w-[34rem]">
+          <div class="fade-in mt-12 max-w-[34rem]" style="--i:3">
             <dl class="border-t border-rule">
               {
                 facts.map((f) => (
@@ -77,14 +80,16 @@ const atmosphere = [
           </div>
         </div>
         <figure class="col-span-4 md:col-span-5 md:col-start-8">
-          <img
-            src={PORTRAIT.src}
-            alt={PORTRAIT.alt}
-            fetchpriority="high"
-            width="1200"
-            height="1500"
-            class="aspect-[4/5] w-full bg-tint object-cover"
-          />
+          <div class="aspect-[4/5] overflow-hidden bg-tint">
+            <img
+              src={PORTRAIT.src}
+              alt={PORTRAIT.alt}
+              fetchpriority="high"
+              width="1200"
+              height="1500"
+              class="settle h-full w-full object-cover"
+            />
+          </div>
         </figure>
       </div>
     </section>
@@ -102,9 +107,12 @@ const atmosphere = [
           </p>
         </div>
       </div>
-      <div class="mt-10">
-        <DepartmntGrid entries={departmntWork} />
+      <div class="mt-12 md:mt-16">
+        <DepartmntGrid entries={departmntWork.slice(0, 4)} />
       </div>
+      <p class="mt-16 md:mt-24">
+        <a href="/work" class="draw text-[20px] font-medium tracking-[-0.01em] md:text-[24px]">All {departmntWork.length} DEPARTMNT projects</a>
+      </p>
     </section>
 
     <!-- Before DEPARTMNT -->
@@ -133,14 +141,16 @@ const atmosphere = [
             Nightclubs, then boardrooms. Fifteen years watching culture generate attention no brand
             could hold onto. The room was always the asset. Nobody was building for it, so I did.
           </p>
-          <a href="/about" class="ln mt-5 inline-block">Read the full story</a>
+          <a href="/about" class="draw mt-5 inline-block">Read the full story</a>
         </div>
       </div>
       <ul class="grid-12 mt-10 gap-y-8">
         {
           atmosphere.map((a, i) => (
             <li class:list={["col-span-4 md:col-span-3", i === 0 && "md:col-start-4"]}>
-              <img src={a.src} alt={`Gareth Matthews: ${a.caption}`} loading="lazy" class="aspect-[4/5] w-full bg-tint object-cover" />
+              <div class="frame-open aspect-[4/5] overflow-hidden bg-tint">
+                <img src={a.src} alt={`Gareth Matthews: ${a.caption}`} loading="lazy" class="drift h-full w-full object-cover" />
+              </div>
               <p class="meta mt-2">{a.caption}</p>
             </li>
           ))

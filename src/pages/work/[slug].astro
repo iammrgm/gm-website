@@ -81,7 +81,7 @@ const facts = [
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <main id="main-content" class="frame pt-10 md:pt-14">
     <a href="/work#before" class="meta hover:text-fg">Work · Before DEPARTMNT</a>
-    <h1 class="display mt-4 max-w-[14em] text-[12vw] md:text-[6.4vw] 2xl:text-[92px]">{title}</h1>
+    <h1 class="display mt-4 max-w-[14em] text-[12vw] md:text-[6.4vw] 2xl:text-[92px]"><span class="rise"><span>{title}</span></span></h1>
     <p class="mt-6 max-w-[28em] text-[22px] leading-[1.3] tracking-[-0.01em] md:text-[26px]">{entry.data.description}</p>
 
     <div class="grid-12 mt-12 gap-y-10 border-t border-fg pt-6 md:mt-16">
@@ -159,13 +159,15 @@ const facts = [
         <ul class="grid-12 mt-16 gap-y-6">
           {gallery.map((src, i) => (
             <li class="col-span-4 md:col-span-6">
-              <img
-                src={src}
-                alt={`${title}, image ${i + 1} of ${gallery.length}`}
-                loading="lazy"
-                decoding="async"
-                class="aspect-[4/3] w-full bg-tint object-cover"
-              />
+              <div class="frame-open aspect-[4/3] overflow-hidden bg-tint">
+                <img
+                  src={src}
+                  alt={`${title}, image ${i + 1} of ${gallery.length}`}
+                  loading="lazy"
+                  decoding="async"
+                  class="drift h-full w-full object-cover"
+                />
+              </div>
             </li>
           ))}
         </ul>
