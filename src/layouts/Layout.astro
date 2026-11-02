@@ -53,12 +53,16 @@ const graph = pageGraph({ url: canonicalUrl, title, description, profile });
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogImage === "/og.png" ? "Gareth Matthews, Founder & CEO of DEPARTMNT" : title} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@iammrgm" />
     <meta name="twitter:creator" content="@iammrgm" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={ogImage === "/og.png" ? "Gareth Matthews, Founder & CEO of DEPARTMNT" : title} />
     {PROFILES.map((href) => <link rel="me" href={href} />)}
     <script type="application/ld+json" set:html={JSON.stringify(graph)} />
     <ClientRouter />

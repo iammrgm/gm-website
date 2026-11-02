@@ -16,7 +16,7 @@ const { entries, dates = true } = Astro.props;
       const client = clients.map((c) => c.name).join(", ");
       return (
         <li class="border-b border-rule">
-          <a href={`/work/${entry.id}`} class="grid-12 group items-baseline gap-y-1 py-4 transition-colors hover:bg-tint">
+          <a href={`/work/${entry.id}/`} class="grid-12 group items-baseline gap-y-1 py-4 transition-colors hover:bg-tint">
             <span class="col-span-4 text-[17px] font-medium underline-offset-[0.2em] group-hover:underline md:col-span-4">
               {title}
             </span>
