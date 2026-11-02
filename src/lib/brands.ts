@@ -56,8 +56,8 @@ export const LOGO_WALL: WallEntry[] = [
   { logo: LOGOS.atlantic, ...xyz("mulaa-joans", "Mulaa Joans × Atlantic Records") },
   // Atlantic is a Warner Music label; departmnt.xyz credits both on this project.
   { logo: LOGOS.warner, ...xyz("mulaa-joans", "Mulaa Joans × Atlantic Records") },
-  { logo: LOGOS.boilerRoom, ...here("novelist-boiler-room-o2", "Novelist × Boiler Room × O2") },
-  { logo: LOGOS.o2, ...here("novelist-boiler-room-o2", "Novelist × Boiler Room × O2") },
+  { logo: LOGOS.boilerRoom, ...here("novelist-boiler-room-o2", "Boiler Room × O2 with Novelist") },
+  { logo: LOGOS.o2, ...here("novelist-boiler-room-o2", "Boiler Room × O2 with Novelist") },
   { logo: LOGOS.abinbev, ...here("ab-inbev-bees", "AB InBev / BEES") },
   // Reebok was the Berlin show with Novelist, part of the worldwide tours.
   { logo: LOGOS.reebok, ...here("novelist-tours", "Novelist: Worldwide Tours") },

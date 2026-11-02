@@ -2,7 +2,8 @@
 const links = [
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
-  { href: "/thoughts", label: "Thoughts" },
+  // Thoughts live on Substack for now.
+  { href: "https://iammrgm.substack.com/", label: "Thoughts", external: true },
   { href: "/contact", label: "Contact" },
 ];
 const path = Astro.url.pathname;
@@ -16,10 +17,12 @@ const path = Astro.url.pathname;
     <nav class="col-span-3 flex justify-end gap-4 md:col-span-6 md:gap-7" aria-label="Main">
       {
         links.map((link) => {
-          const current = path.startsWith(link.href);
+          const current = !link.external && path.startsWith(link.href);
           return (
             <a
               href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "me noopener noreferrer" : undefined}
               aria-current={current ? "page" : undefined}
               class:list={[
                 "transition-colors hover:text-fg",
@@ -27,6 +30,7 @@ const path = Astro.url.pathname;
               ]}
             >
               {link.label}
+              {link.external && <span class="sr-only"> (Substack, opens in a new tab)</span>}
             </a>
           );
         })

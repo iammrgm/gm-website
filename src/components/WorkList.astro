@@ -12,7 +12,7 @@ const { entries, dates = true } = Astro.props;
 <ul class="border-t border-rule">
   {
     entries.map((entry) => {
-      const { title, clients, categories, duration, role } = entry.data;
+      const { title, clients, categories, duration, role, artist } = entry.data;
       const client = clients.map((c) => c.name).join(", ");
       return (
         <li class="border-b border-rule">
@@ -21,7 +21,7 @@ const { entries, dates = true } = Astro.props;
               {title}
             </span>
             <span class="col-span-4 text-[15px] text-mute md:col-span-4">
-              {client}
+              {artist ? `With ${artist}` : client}
               {role && <span class="hidden lg:inline"> · {role}</span>}
             </span>
             <span class:list={["meta", dates ? "col-span-2" : "col-span-4 md:text-right"]}>

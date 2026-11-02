@@ -98,6 +98,10 @@ export default config({
           { label: "Clients", itemLabel: (props) => props.fields.name.value || "Client" }
         ),
         role: fields.text({ label: "Role", description: "Optional — only for personal/agency-era work." }),
+        artist: fields.text({
+          label: "Artist",
+          description: "Optional — the artist this was done with (e.g. Novelist). Shown beside the title, so leave it out of the title.",
+        }),
         duration: fields.text({ label: "Duration", validation: { isRequired: true } }),
         location: fields.text({ label: "Location", validation: { isRequired: true } }),
         liveUrl: fields.text({ label: "Live URL", defaultValue: "" }),
