@@ -14,8 +14,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { title, description, date, cover, carousel, reel, video, draft } = entry.data;
-const { Content, headings } = await render(entry);
-const sections = headings.filter((h) => h.depth === 2);
+const { Content } = await render(entry);
 
 const allThoughts = await getVisibleThoughts();
 const currentIndex = allThoughts.findIndex((t) => t.id === entry.id);
@@ -38,122 +37,77 @@ const articleSchema = {
 
 <Layout title={`${title} | Gareth Matthews`} description={description}>
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
-  <main id="main-content" class="mx-auto max-w-[1480px] px-5 pt-32 pb-28 sm:px-10">
-    <a href="/thoughts" class="text-sm text-muted transition-colors hover:text-paper">Thoughts /</a>
-    <p class="mt-4 text-xs font-semibold uppercase tracking-widest text-muted">
-      {dateFormatter.format(date)}
-      {draft && <span class="ml-2 rounded-full border border-paper/40 px-2 py-0.5 text-paper">Draft, for review</span>}
-    </p>
-    <h1 class="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">{title}</h1>
+  <main id="main-content" class="frame pt-10 md:pt-14">
+    <div class="grid-12">
+      <div class="col-span-4 md:col-span-9 md:col-start-4">
+        <p class="meta">
+          <a href="/thoughts" class="hover:text-fg">Thoughts</a> · {dateFormatter.format(date)}
+          {draft && <span> · Draft, not published</span>}
+        </p>
+        <h1 class="display mt-4 text-[11vw] md:text-[5.6vw] 2xl:text-[80px]">{title}</h1>
+        <p class="mt-6 max-w-[28em] text-[22px] leading-[1.3] tracking-[-0.01em] text-mute md:text-[26px]">{description}</p>
+      </div>
+    </div>
 
     {
       cover && (
-        <div class="mt-10 aspect-video w-full max-w-3xl overflow-hidden rounded-2xl bg-line/20" data-reveal>
-          <img src={cover} alt={title} class="h-full w-full object-cover" />
-        </div>
+        <img src={cover} alt="" class="mt-12 aspect-[16/9] w-full bg-tint object-cover" />
       )
     }
 
-    {
-      sections.length > 1 && (
-        <nav class="mt-10 max-w-md rounded-2xl border border-line p-6" aria-label="Contents">
-          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Contents</p>
-          <ol class="mt-4 space-y-2">
-            {sections.map((section, i) => (
-              <li>
-                <a
-                  href={`#${section.slug}`}
-                  class="flex gap-3 text-sm text-paper/80 transition-colors hover:text-paper"
-                >
-                  <span class="text-muted">{String(i + 1).padStart(2, "0")}</span>
-                  {section.text}
-                </a>
-              </li>
-            ))}
-          </ol>
-        </nav>
-      )
-    }
-
-    <article class="prose-thought mt-16 max-w-2xl space-y-6 text-lg text-paper/90">
-      <Content />
-    </article>
+    <div class="grid-12 mt-12 border-t border-fg pt-8">
+      <article class="prose col-span-4 md:col-span-7 md:col-start-4">
+        <Content />
+      </article>
+    </div>
 
     {
       video && (
-        <div class="mt-16 aspect-video w-full max-w-3xl overflow-hidden rounded-2xl bg-line/20" data-reveal>
-          <video src={video} controls playsinline class="h-full w-full object-cover">
+        <div class="grid-12 mt-12">
+          <video src={video} controls playsinline class="col-span-4 w-full bg-tint md:col-span-7 md:col-start-4">
             <track kind="captions" />
           </video>
         </div>
       )
     }
-
     {
       reel && (
-        <div class="mt-16 aspect-[9/16] w-full max-w-xs overflow-hidden rounded-2xl bg-line/20" data-reveal>
-          <video src={reel} controls loop playsinline muted class="h-full w-full object-cover">
+        <div class="grid-12 mt-12">
+          <video src={reel} controls loop playsinline muted class="col-span-2 w-full bg-tint md:col-span-3 md:col-start-4">
             <track kind="captions" />
           </video>
         </div>
       )
     }
-
     {
       carousel.length > 0 && (
-        <div class="mt-16 grid max-w-3xl gap-4 sm:grid-cols-2" data-reveal>
+        <ul class="grid-12 mt-12 gap-y-6">
           {carousel.map((src, i) => (
-            <div class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-line/20">
-              <img
-                src={src}
-                alt={`${title}, image ${i + 1} of ${carousel.length}`}
-                loading="lazy"
-                class="h-full w-full object-cover"
-              />
-            </div>
+            <li class="col-span-4 md:col-span-6">
+              <img src={src} alt={`${title}, image ${i + 1} of ${carousel.length}`} loading="lazy" class="aspect-[4/3] w-full bg-tint object-cover" />
+            </li>
           ))}
-        </div>
+        </ul>
       )
     }
 
-    <div class="mt-16 grid gap-6 border-t border-line pt-10 sm:grid-cols-2">
+    <nav class="grid-12 mt-20 border-t border-fg pt-4" aria-label="More thoughts">
       {prevThought ? (
-        <a href={`/thoughts/${prevThought.id}`} class="group">
-          <p class="text-xs font-semibold uppercase tracking-widest text-muted">← Newer</p>
-          <p class="mt-2 text-lg font-medium text-paper underline decoration-paper/30 underline-offset-4 group-hover:decoration-paper">
-            {prevThought.data.title}
-          </p>
+        <a href={`/thoughts/${prevThought.id}`} class="group col-span-2 md:col-span-6">
+          <span class="meta">Newer</span>
+          <span class="mt-1 block text-[17px] font-medium underline-offset-[0.2em] group-hover:underline">{prevThought.data.title}</span>
         </a>
-      ) : <span />}
+      ) : (
+        <span class="col-span-2 md:col-span-6" />
+      )}
       {nextThought ? (
-        <a href={`/thoughts/${nextThought.id}`} class="group text-left sm:text-right">
-          <p class="text-xs font-semibold uppercase tracking-widest text-muted">Older →</p>
-          <p class="mt-2 text-lg font-medium text-paper underline decoration-paper/30 underline-offset-4 group-hover:decoration-paper">
-            {nextThought.data.title}
-          </p>
+        <a href={`/thoughts/${nextThought.id}`} class="group col-span-2 text-right md:col-span-6">
+          <span class="meta">Older</span>
+          <span class="mt-1 block text-[17px] font-medium underline-offset-[0.2em] group-hover:underline">{nextThought.data.title}</span>
         </a>
-      ) : <span />}
-    </div>
-
-    <a
-      href="/thoughts"
-      class="mt-10 inline-block text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4"
-    >
-      ← Back to Thoughts
-    </a>
+      ) : (
+        <span class="col-span-2 md:col-span-6" />
+      )}
+    </nav>
   </main>
 </Layout>
-
-<style>
-  .prose-thought :global(h2) {
-    font-size: 1.25rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--color-paper);
-    margin-top: 2rem;
-  }
-  .prose-thought :global(p) {
-    margin-top: 0.75rem;
-    color: rgba(245, 244, 241, 0.75);
-  }
-</style>

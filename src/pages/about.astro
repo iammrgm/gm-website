@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import AtmospherePhotos from "../components/AtmospherePhotos.astro";
 
 const cascadeLead =
   "Fifteen years watching culture generate attention no brand could hold onto, and brands spend fortunes reaching people they'd never be able to name. The room was always the asset.";
@@ -13,6 +12,21 @@ const memoNarrative = [
   "DEPARTMNT isn't a turn away from that past. It's the argument that past was making all along. We build the layer that lets a garment, a wristband or a door remember who was there, so the relationship made in the room doesn't disappear when the lights come up.",
   "In practice, it starts with a tap. Hold your phone to something real and it gives you more than it did a second ago: a ticket that knows you came, a jacket that unlocks the next drop, a wristband that brings you back to the artist a month later. For the person tapping, that's access to something they actually want. For the brand, it's the first time the people who showed up in person have a name, and a reason to hear from them again.",
   "That's the bigger shift. The digital world has always known what you care about. The physical world never could. We're giving it that context, one object at a time, so the things around you start working as hard for you as the phone in your pocket. Better experiences for the people in the room. Real relationships for the brands that bring them there. That's what we mean by the physical internet.",
+];
+
+const CALENDLY_URL = "https://calendly.com/gareth-departmnt/30min";
+
+const eras = [
+  { name: "Clubs", when: "From 13", text: "DJing, a residency at Ministry of Sound, club nights at Egg and Brixton Academy, stage management at SW4 and Farr Festival." },
+  { name: "Artists", when: "2016 to 2017", text: "Managing Novelist: his first world tour through Tokyo, Shanghai and Seoul, and partnerships with Uniqlo, New Era and Casio G-Shock." },
+  { name: "Boardrooms", when: "Agency years", text: "Programme lead on Mercedes-Benz, The National Lottery rebrand and AB InBev's BEES. National campaigns, global platforms." },
+  { name: "DEPARTMNT", when: "2021 to now", text: "Founder and CEO. The layer that lets a garment, a wristband or a door remember who was there." },
+];
+
+const photos = [
+  { src: "/images/about/bar-tokyo.webp", caption: "Japan, BOOGLE Asia Tour" },
+  { src: "/images/about/boiler-room-lee-valley.webp", caption: "Portrait" },
+  { src: "/images/about/navinder-brick-lane.webp", caption: "AI keynote, Barclays London" },
 ];
 
 const memoPrinciples = [
@@ -78,11 +92,11 @@ const faqs = [
   {
     question: "What kind of inquiries do you take?",
     answer:
-      "Speaking engagements, partnerships, press & media and advisory work, alongside DEPARTMNT client enquiries; the contact form on the home page lets you specify which.",
+      "Speaking engagements, partnerships, press & media and advisory work, alongside DEPARTMNT client enquiries; the contact page lets you say which, or you can book a call directly.",
   },
   {
     question: "Are you available for new projects?",
-    answer: "Reach out via the contact form and I'll get back to you on timing.",
+    answer: "Book a call or send a message, and I'll come back to you on timing.",
   },
 ];
 
@@ -100,111 +114,107 @@ const faqSchema = {
 <Layout
   profile
   title="About Gareth Matthews | Founder & CEO, DEPARTMNT"
-  description="Gareth Matthews: Founder & CEO of DEPARTMNT. Background, founder memo, speaking topics and FAQ."
+  description="Gareth Matthews: Founder & CEO of DEPARTMNT. From clubs and artist management to global brand programmes and DEPARTMNT: background, founder memo, speaking topics and FAQ."
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-  <main id="main-content" class="mx-auto max-w-[1480px] px-5 pt-32 pb-28 sm:px-10">
+  <main id="main-content" class="frame pt-10 md:pt-14">
+    <h1 class="display text-[22vw] md:text-[12vw] 2xl:text-[172px]">About</h1>
 
-    <h1 class="max-w-2xl text-5xl font-semibold tracking-tight sm:text-7xl">About</h1>
-
-    <!-- About Story -->
-    <div class="mt-16" data-reveal>
-      <p class="text-xs font-semibold uppercase tracking-widest text-muted">About Story</p>
-      <p class="mt-4 max-w-xl text-2xl font-medium tracking-tight text-paper sm:text-3xl">
-        Nightclubs, then boardrooms.
+    <div class="grid-12 mt-10 gap-y-8 md:mt-14">
+      <p class="col-span-4 max-w-[22em] text-[24px] leading-[1.25] tracking-[-0.01em] md:col-span-8 md:text-[32px]">
+        {cascadeLead} {cascadeClose}
       </p>
-
-      <div class="mt-12">
-        <AtmospherePhotos />
-      </div>
-
-      <div class="mt-16 max-w-3xl">
-        <p class="text-3xl font-medium leading-snug tracking-tight text-paper sm:text-4xl">
-          {cascadeLead}
-        </p>
-        <p class="mt-4 text-3xl font-medium leading-snug tracking-tight text-paper sm:text-4xl">
-          {cascadeClose}
-        </p>
-        <p class="mt-8 text-lg font-normal leading-relaxed text-muted sm:text-xl">
-          DEPARTMNT builds TapTech: the tags people tap, the Portal a tap opens, and Core, where
-          brands run it. No app, ever. A physical object becomes the start of a relationship
-          rather than the end of a transaction.
-        </p>
-        <p class="mt-6 text-lg font-normal leading-relaxed text-muted sm:text-xl">
-          Nightclubs, national brands, artist campaigns, connected products. Different rooms,
-          same question every time: how do you actually reach someone, and what happens once
-          you have?
-        </p>
-      </div>
     </div>
 
-    <!-- Founder Memo -->
-    <div class="mt-24 max-w-3xl border-t border-line pt-16" data-reveal>
-      <p class="text-xs font-semibold uppercase tracking-widest text-muted">Founder Memo</p>
-      <div class="mt-6 space-y-6">
-        {memoNarrative.map((para) => <p class="text-lg leading-relaxed text-paper/90">{para}</p>)}
-      </div>
+    <ul class="grid-12 mt-12 gap-y-8 md:mt-16">
+      {
+        photos.map((p) => (
+          <li class="col-span-4 md:col-span-4">
+            <img src={p.src} alt={`Gareth Matthews: ${p.caption}`} loading="lazy" class="aspect-[4/5] w-full bg-tint object-cover" />
+            <p class="meta mt-2">{p.caption}</p>
+          </li>
+        ))
+      }
+    </ul>
 
-      <h2 class="mt-12 text-sm font-semibold uppercase tracking-widest text-muted">How I Think</h2>
-      <ul class="mt-6 divide-y divide-line border-t border-line">
+    <!-- The long way round -->
+    <section class="grid-12 mt-24 border-t border-fg pt-4 md:mt-32">
+      <p class="meta col-span-4 md:col-span-3">The long way round</p>
+      <ol class="col-span-4 mt-3 md:col-span-9 md:mt-0">
         {
-          memoPrinciples.map((p) => (
-            <li class="grid gap-1 py-5 sm:grid-cols-[1fr_2fr] sm:gap-8">
-              <p class="text-lg font-semibold tracking-tight text-paper">{p.title}</p>
-              <p class="text-muted">{p.description}</p>
+          eras.map((era) => (
+            <li class="grid grid-cols-1 gap-1 border-b border-rule py-4 first:pt-0 md:grid-cols-[12rem_9rem_1fr] md:gap-6">
+              <span class="text-[20px] font-medium tracking-[-0.01em]">{era.name}</span>
+              <span class="meta md:pt-1.5">{era.when}</span>
+              <span class="text-[17px] text-mute">{era.text}</span>
             </li>
           ))
         }
-      </ul>
+      </ol>
+    </section>
 
-      <div class="mt-12 max-w-2xl">
-        <h2 class="text-sm font-semibold uppercase tracking-widest text-muted">Open Lines</h2>
-        <p class="mt-4 text-lg leading-relaxed text-paper/90">
-          Get in touch for speaking, partnerships, press and media, pilots, or advisory.
-          If you're building something at the edge of culture and technology, or want to put
-          me in front of a room, this is the door.
-        </p>
-        <a
-          href="/#contact"
-          class="mt-6 inline-block rounded-full bg-paper px-8 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-80"
-        >
-          Contact
-        </a>
+    <!-- Founder memo -->
+    <section class="grid-12 mt-24 border-t border-fg pt-4 md:mt-32">
+      <p class="meta col-span-4 md:col-span-3">Founder memo</p>
+      <div class="prose col-span-4 mt-3 md:col-span-7 md:mt-0">
+        {memoNarrative.map((para) => <p>{para}</p>)}
       </div>
-    </div>
+    </section>
+
+    <!-- How I think -->
+    <section class="grid-12 mt-24 border-t border-fg pt-4 md:mt-32">
+      <p class="meta col-span-4 md:col-span-3">How I think</p>
+      <ol class="col-span-4 mt-3 md:col-span-9 md:mt-0">
+        {
+          memoPrinciples.map((p, i) => (
+            <li class="grid grid-cols-[2.5rem_1fr] border-b border-rule py-4 first:pt-0 md:grid-cols-[3rem_1fr_1fr] md:gap-6">
+              <span class="meta pt-1.5">{String(i + 1).padStart(2, "0")}</span>
+              <span class="text-[20px] leading-snug font-medium tracking-[-0.01em]">{p.title}</span>
+              <span class="col-start-2 mt-1 text-[17px] text-mute md:col-start-3 md:mt-0">{p.description}</span>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
 
     <!-- Speaking -->
-    <div class="mt-24 max-w-3xl border-t border-line pt-16" data-reveal>
-      <p class="text-xs font-semibold uppercase tracking-widest text-muted">Speaking</p>
-      <ul class="mt-6 divide-y divide-line border-t border-line">
-        {
-          speakingTopics.map((topic) => (
-            <li class="grid gap-1 py-5 sm:grid-cols-[1fr_2fr] sm:gap-8">
-              <p class="text-lg font-semibold tracking-tight text-paper">{topic.title}</p>
-              <p class="text-muted">{topic.description}</p>
-            </li>
-          ))
-        }
-      </ul>
-      <p class="mt-6 text-sm text-muted">Past talks and clips: coming soon.</p>
-    </div>
+    <section class="grid-12 mt-24 border-t border-fg pt-4 md:mt-32">
+      <p class="meta col-span-4 md:col-span-3">Speaking</p>
+      <div class="col-span-4 mt-3 md:col-span-9 md:mt-0">
+        <ul>
+          {
+            speakingTopics.map((t) => (
+              <li class="grid gap-1 border-b border-rule py-4 first:pt-0 md:grid-cols-2 md:gap-6">
+                <span class="text-[20px] leading-snug font-medium tracking-[-0.01em]">{t.title}</span>
+                <span class="text-[17px] text-mute">{t.description}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="mt-5 text-[15px] text-mute">
+          Recent: AI keynote at Barclays, London. More talks and clips coming soon. To put me in front of a room,{" "}
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" class="ln text-fg">book a call</a>.
+        </p>
+      </div>
+    </section>
 
     <!-- FAQ -->
-    <div class="mt-24 max-w-3xl border-t border-line pt-16" data-reveal>
-      <p class="text-xs font-semibold uppercase tracking-widest text-muted">FAQ</p>
-      <div class="mt-6 divide-y divide-line border-t border-line">
+    <section class="grid-12 mt-24 border-t border-fg pt-4 md:mt-32">
+      <p class="meta col-span-4 md:col-span-3">FAQ</p>
+      <div class="col-span-4 mt-3 md:col-span-9 md:mt-0">
         {
           faqs.map((faq) => (
-            <details class="group py-5">
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-medium text-paper">
+            <details class="group border-b border-rule py-4 first:pt-0">
+              <summary class="flex cursor-pointer list-none items-baseline justify-between gap-4 text-[20px] font-medium tracking-[-0.01em]">
                 {faq.question}
-                <span class="shrink-0 text-muted transition-transform group-open:rotate-45">+</span>
+                <span class="meta shrink-0 group-open:hidden">Open</span>
+                <span class="meta hidden shrink-0 group-open:inline">Close</span>
               </summary>
-              <p class="mt-3 text-muted">{faq.answer}</p>
+              <p class="mt-2 max-w-[38em] text-[17px] text-mute">{faq.answer}</p>
             </details>
           ))
         }
       </div>
-    </div>
+    </section>
   </main>
 </Layout>

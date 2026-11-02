@@ -7,9 +7,9 @@ const { images } = Astro.props;
 
 {
   images?.length > 0 && (
-    <div class="my-8 grid max-w-3xl gap-4 sm:grid-cols-2" data-reveal>
+    <div class="my-8 grid max-w-3xl gap-4 sm:grid-cols-2">
       {images.map((item) => (
-        <div class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-line/20">
+        <div class="aspect-[4/3] w-full overflow-hidden bg-tint">
           <img src={item.image} alt={item.alt ?? ""} loading="lazy" class="h-full w-full object-cover" />
         </div>
       ))}

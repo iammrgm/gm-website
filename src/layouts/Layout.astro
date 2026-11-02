@@ -66,10 +66,10 @@ const graph = pageGraph({ url: canonicalUrl, title, description, profile });
       data-cf-beacon='{"token": "7fea4352744b4e4f91ddc06f411671ed"}'
     ></script>
   </head>
-  <body class="min-h-screen antialiased">
+  <body class="min-h-screen">
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-paper focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-ink"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-fg focus:px-4 focus:py-2 focus:text-sm focus:text-bg"
     >
       Skip to content
     </a>
@@ -77,28 +77,5 @@ const graph = pageGraph({ url: canonicalUrl, title, description, profile });
     <slot />
     <Footer />
 
-    <script>
-      function initReveal() {
-        document.documentElement.classList.add("js-reveal");
-        const targets = document.querySelectorAll<HTMLElement>("[data-reveal]");
-        if (!targets.length) return;
-
-        const io = new IntersectionObserver(
-          (entries) => {
-            for (const entry of entries) {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                io.unobserve(entry.target);
-              }
-            }
-          },
-          { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
-        );
-        targets.forEach((el) => io.observe(el));
-      }
-
-      // Runs on first load and again after every client-side navigation.
-      document.addEventListener("astro:page-load", initReveal);
-    </script>
   </body>
 </html>

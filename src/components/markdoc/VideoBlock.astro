@@ -5,7 +5,7 @@ interface Props {
 const { video } = Astro.props;
 ---
 
-<div class="my-8 aspect-video w-full max-w-3xl overflow-hidden rounded-2xl bg-line/20" data-reveal>
+<div class="my-8 aspect-video w-full max-w-3xl overflow-hidden bg-tint">
   <video src={video} controls playsinline class="h-full w-full object-cover">
     <track kind="captions" />
   </video>
