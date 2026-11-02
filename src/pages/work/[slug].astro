@@ -141,12 +141,12 @@ const facts = [
       (video || reel) && (
         <div class="grid-12 mt-16 gap-y-6">
           {video && (
-            <video src={video} controls playsinline class="col-span-4 w-full bg-tint md:col-span-8">
+            <video src={video} controls playsinline class="col-span-4 w-full rounded-xl bg-tint md:col-span-8">
               <track kind="captions" />
             </video>
           )}
           {reel && (
-            <video src={reel} controls loop playsinline muted class="col-span-2 w-full bg-tint md:col-span-3">
+            <video src={reel} controls loop playsinline muted class="col-span-2 w-full rounded-xl bg-tint md:col-span-3">
               <track kind="captions" />
             </video>
           )}
@@ -164,7 +164,7 @@ const facts = [
                 alt={`${title}, image ${i + 1} of ${gallery.length}`}
                 loading="lazy"
                 decoding="async"
-                class="aspect-[4/3] w-full bg-tint object-cover"
+                class="aspect-[4/3] w-full rounded-xl bg-tint object-cover"
               />
             </li>
           ))}

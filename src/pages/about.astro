@@ -130,7 +130,7 @@ const faqSchema = {
       {
         photos.map((p) => (
           <li class="col-span-4 md:col-span-4">
-            <img src={p.src} alt={`Gareth Matthews: ${p.caption}`} loading="lazy" class="aspect-[4/5] w-full bg-tint object-cover" />
+            <img src={p.src} alt={`Gareth Matthews: ${p.caption}`} loading="lazy" class="aspect-[4/5] w-full rounded-xl bg-tint object-cover" />
             <p class="meta mt-2">{p.caption}</p>
           </li>
         ))

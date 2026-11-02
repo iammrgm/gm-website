@@ -2,20 +2,18 @@
 import Mark from "./Mark.astro";
 import { LOGO_WALL } from "../lib/brands";
 
-// Client marks on a ruled grid: seven across on desktop, four on tablets, three on phones, with
-// blank cells closing the last row where fourteen doesn't divide evenly. Every mark is sized by
-// area so the wordmarks and the badges carry the same weight.
+// Client marks in a soft-cornered ruled box: five across on desktop, three on smaller screens.
+// Fourteen marks plus one blank cell close both grids. Every mark is sized by area so the
+// wordmarks and the badges carry the same weight.
 ---
 
-<ul class="logo-wall grid grid-cols-3 border-t border-l border-rule sm:grid-cols-4 lg:grid-cols-7" aria-label="Clients">
+<ul class="logo-wall grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-rule bg-rule lg:grid-cols-5" aria-label="Clients">
   {
     LOGO_WALL.map((logo) => (
-      <li class="flex aspect-[3/2] items-center justify-center border-r border-b border-rule">
-        <Mark logo={logo} area={2200} max={46} />
+      <li class="flex aspect-[2/1] items-center justify-center bg-bg">
+        <Mark logo={logo} area={2000} max={42} />
       </li>
     ))
   }
-  <li class="border-r border-b border-rule sm:hidden" aria-hidden="true" />
-  <li class="hidden border-r border-b border-rule sm:block lg:hidden" aria-hidden="true" />
-  <li class="hidden border-r border-b border-rule sm:block lg:hidden" aria-hidden="true" />
+  <li class="bg-bg" aria-hidden="true"></li>
 </ul>

@@ -10,8 +10,10 @@ interface Props {
   max: number;
   class?: string;
   decorative?: boolean;
+  /** Show the file's own white mark, for use over film or photography. */
+  white?: boolean;
 }
-const { logo, area, max, class: className, decorative = false } = Astro.props;
+const { logo, area, max, class: className, decorative = false, white = false } = Astro.props;
 const height = Math.min(max, Math.sqrt(area / logo.ratio));
 const width = height * logo.ratio;
 ---
@@ -24,5 +26,5 @@ const width = height * logo.ratio;
   loading="lazy"
   decoding="async"
   style={`width:calc(${width.toFixed(1)}px * var(--mark-scale, 1));height:calc(${height.toFixed(1)}px * var(--mark-scale, 1))`}
-  class:list={["block shrink-0 object-contain", !logo.asIs && "mark-ink", className]}
+  class:list={["block shrink-0 object-contain", !logo.asIs && !white && "mark-ink", className]}
 />
