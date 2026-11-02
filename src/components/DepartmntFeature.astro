@@ -4,30 +4,51 @@ import Mark from "./Mark.astro";
 import { STATUS_LABEL, departmntWorkUrl } from "../lib/departmnt";
 import { WORK_LOGO } from "../lib/brands";
 
-// One DEPARTMNT project told large: a wide photograph across the page, then the title and result
-// on the left with the story and link on the right. Links out to the full case study.
+// One DEPARTMNT project told large: a strip of three portrait photographs across the page (one on
+// phones), then the title and result on the left with the story and link on the right. Links out
+// to the full case study. Projects without a chosen set fall back to their first room photo.
 interface Props {
   entry: CollectionEntry<"work">;
 }
 const { entry } = Astro.props;
 const { title, categories, location, description, cover, departmnt } = entry.data;
 const d = departmnt!;
-const image = d.room[0] ?? { image: cover, alt: title };
+// Picked from the departmnt.xyz set: the shots that carry the room best at portrait shape.
+const STRIPS: Record<string, { image: string; alt: string }[]> = {
+  "crocs-kasina": [
+    { image: "/images/work/crocs-kasina/feature-first-clue.webp", alt: "The Portal in hand, showing the first clue" },
+    { image: "/images/work/crocs-kasina/feature-lantern.webp", alt: "A lantern held over a plinth, finding what is hidden there" },
+    { image: "/images/work/crocs-kasina/feature-cup.webp", alt: "A glowing Kasina × Crocs cup under UV light" },
+  ],
+};
+const strip = STRIPS[entry.id] ?? [d.room[0] ?? { image: cover, alt: title }];
 const logo = WORK_LOGO[entry.id];
 const href = departmntWorkUrl(d.labsSlug);
 ---
 
 <a href={href} target="_blank" rel="noopener noreferrer" class="group block">
-  <div class="relative aspect-[4/3] overflow-hidden rounded-xl bg-tint md:aspect-[21/9]">
-    <img
-      src={image.image}
-      alt={image.alt}
-      loading="lazy"
-      decoding="async"
-      width="1200"
-      height="900"
-      class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.015]"
-    />
+  <div class:list={["relative grid gap-3 md:gap-4", strip.length > 1 && "md:grid-cols-3"]}>
+    {
+      strip.map((img, i) => (
+        <div
+          class:list={[
+            "overflow-hidden rounded-xl bg-tint",
+            strip.length > 1 ? "aspect-[4/5]" : "aspect-[4/3] md:aspect-[21/9]",
+            i > 0 && "hidden md:block",
+          ]}
+        >
+          <img
+            src={img.image}
+            alt={img.alt}
+            loading="lazy"
+            decoding="async"
+            width="1200"
+            height="1500"
+            class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+          />
+        </div>
+      ))
+    }
     <span class="status-chip absolute top-3 left-3 md:top-4 md:left-4">{STATUS_LABEL[d.status]}</span>
   </div>
   <div class="mt-4 flex items-center justify-between gap-4">

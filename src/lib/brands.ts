@@ -35,22 +35,35 @@ export const LOGOS = {
   boilerRoom: logo("AvKlIpwI4O2Ws5lHYtL7BWaSY", "Boiler Room", 1.0, true),
 } satisfies Record<string, Logo>;
 
-/** The logo wall, in reading order. Fourteen marks fill a 7 × 2 grid exactly. */
-export const LOGO_WALL: Logo[] = [
-  LOGOS.crocsKasina,
-  LOGOS.gshock,
-  LOGOS.mercedes,
-  LOGOS.atlantic,
-  LOGOS.warner,
-  LOGOS.boilerRoom,
-  LOGOS.o2,
-  LOGOS.abinbev,
-  LOGOS.reebok,
-  LOGOS.hlls,
-  LOGOS.genesys,
-  LOGOS.mulaa,
-  LOGOS.navinder,
-  LOGOS.you,
+/** A mark on the logo wall and the case study it opens. */
+export interface WallEntry {
+  logo: Logo;
+  href: string;
+  /** What the link opens, for screen readers and the hover title. */
+  label: string;
+}
+
+const xyz = (labsSlug: string, title: string) => ({ href: departmntWorkUrl(labsSlug), label: `${title}, case study on departmnt.xyz` });
+const here = (slug: string, title: string) => ({ href: `/work/${slug}`, label: `${title}, case study` });
+
+/** The logo wall, in reading order. Fourteen marks plus one blank cell close the grid. */
+export const LOGO_WALL: WallEntry[] = [
+  { logo: LOGOS.crocsKasina, ...xyz("kasina-crocs", "Kasina × Crocs") },
+  { logo: LOGOS.gshock, ...xyz("who-eats-art-gshock", "G-SHOCK × Who Eats Art") },
+  { logo: LOGOS.mercedes, ...here("mercedes-benz", "Mercedes-Benz") },
+  { logo: LOGOS.atlantic, ...xyz("mulaa-joans", "Mulaa Joans × Atlantic Records") },
+  // Atlantic is a Warner Music label; departmnt.xyz credits both on this project.
+  { logo: LOGOS.warner, ...xyz("mulaa-joans", "Mulaa Joans × Atlantic Records") },
+  { logo: LOGOS.boilerRoom, ...here("novelist-boiler-room-o2", "Novelist × Boiler Room × O2") },
+  { logo: LOGOS.o2, ...here("novelist-boiler-room-o2", "Novelist × Boiler Room × O2") },
+  { logo: LOGOS.abinbev, ...here("ab-inbev-bees", "AB InBev / BEES") },
+  // Reebok was the Berlin show with Novelist, part of the worldwide tours.
+  { logo: LOGOS.reebok, ...here("novelist-tours", "Novelist: Worldwide Tours") },
+  { logo: LOGOS.hlls, ...xyz("hlls", "H.LLS × 10K Projects") },
+  { logo: LOGOS.genesys, ...xyz("genesys", "Genesys") },
+  { logo: LOGOS.mulaa, ...xyz("mulaa-joans", "Mulaa Joans × Atlantic Records") },
+  { logo: LOGOS.navinder, ...xyz("navinder-nangla", "Navinder Nangla × END.") },
+  { logo: LOGOS.you, ...xyz("you-studio", "YOU Studio") },
 ];
 
 /** Mark shown on each DEPARTMNT project card, keyed by work entry id. */

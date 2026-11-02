@@ -3,17 +3,29 @@ import Mark from "./Mark.astro";
 import { LOGO_WALL } from "../lib/brands";
 
 // Client marks in a soft-cornered ruled box: five across on desktop, three on smaller screens.
-// Fourteen marks plus one blank cell close both grids. Every mark is sized by area so the
-// wordmarks and the badges carry the same weight.
+// Each mark opens its case study (departmnt.xyz for DEPARTMNT work, this site for earlier work).
+// Fourteen marks plus one blank cell close both grids.
 ---
 
 <ul class="logo-wall grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-rule bg-rule lg:grid-cols-5" aria-label="Clients">
   {
-    LOGO_WALL.map((logo) => (
-      <li class="flex aspect-[2/1] items-center justify-center bg-bg">
-        <Mark logo={logo} area={2000} max={42} />
-      </li>
-    ))
+    LOGO_WALL.map(({ logo, href, label }) => {
+      const external = href.startsWith("http");
+      return (
+        <li class="bg-bg">
+          <a
+            href={href}
+            aria-label={label}
+            title={label}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noopener noreferrer" : undefined}
+            class="logo-cell flex aspect-[2/1] items-center justify-center transition-colors duration-200 hover:bg-tint"
+          >
+            <Mark logo={logo} area={2000} max={42} decorative />
+          </a>
+        </li>
+      );
+    })
   }
   <li class="bg-bg" aria-hidden="true"></li>
 </ul>

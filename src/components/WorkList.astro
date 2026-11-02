@@ -1,11 +1,12 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-// Work from before DEPARTMNT: a plain index, one row per project.
+// Work from before DEPARTMNT: a plain index, one row per project. The homepage hides the dates.
 interface Props {
   entries: CollectionEntry<"work">[];
+  dates?: boolean;
 }
-const { entries } = Astro.props;
+const { entries, dates = true } = Astro.props;
 ---
 
 <ul class="border-t border-rule">
@@ -23,8 +24,10 @@ const { entries } = Astro.props;
               {client}
               {role && <span class="hidden lg:inline"> · {role}</span>}
             </span>
-            <span class="meta col-span-2 md:col-span-2">{categories[0]}</span>
-            <span class="meta col-span-2 text-right md:col-span-2">{duration}</span>
+            <span class:list={["meta", dates ? "col-span-2" : "col-span-4 md:text-right"]}>
+              {categories[0]}
+            </span>
+            {dates && <span class="meta col-span-2 text-right md:col-span-2">{duration}</span>}
           </a>
         </li>
       );

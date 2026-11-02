@@ -18,7 +18,9 @@ const allWork = (await getCollection("work")).sort((a, b) => a.data.order - b.da
 const departmntWork = allWork.filter((w) => w.data.departmnt?.labsSlug);
 const earlierWork = allWork.filter((w) => !w.data.departmnt?.labsSlug);
 const [featured, ...moreWork] = departmntWork;
-const thoughts = (await getVisibleThoughts()).slice(0, 3);
+// Only published pieces show here; until there are some, the section says "Coming soon".
+const thoughts = (await getVisibleThoughts()).filter((t) => !t.data.draft).slice(0, 3);
+const SUBSTACK_URL = "https://iammrgm.substack.com/";
 const dateFormatter = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric" });
 
 const facts = [
@@ -37,9 +39,9 @@ const atmosphere = [
 
 <Layout title="Gareth Matthews: Founder & CEO, DEPARTMNT" profile>
   <main id="main-content">
-    <!-- Hero: the name and line beside the founders film -->
+    <!-- Hero: the name and line beside the founders film, tops aligned -->
     <section class="frame pt-8 md:pt-12">
-      <div class="grid-12 gap-y-8 md:items-end">
+      <div class="grid-12 gap-y-8 md:items-start">
         <div class="col-span-4 md:col-span-8">
           <h1 class="name text-[12.2vw] md:text-[8vw] 2xl:text-[120px]">
             <span class="block">Gareth </span><span class="block">Matthews</span>
@@ -48,7 +50,7 @@ const atmosphere = [
             Building the infrastructure for a more connected world.
           </p>
         </div>
-        <figure class="col-span-4 md:col-span-4 md:col-start-9">
+        <figure class="col-span-4 md:col-span-4 md:col-start-9 md:mt-[0.75vw] 2xl:mt-[11px]">
           <div class="aspect-video overflow-hidden rounded-xl bg-fg">
             <video
               src="/videos/hero/hero-loop.mp4"
@@ -120,46 +122,6 @@ const atmosphere = [
       </div>
     </section>
 
-    <!-- Work -->
-    <section class="frame mt-16 md:mt-20" id="work">
-      <SectionHead mark="Work" title="Fifteen Years, One Thread">
-        Since 2021, DEPARTMNT: the tags people tap, the Portal a tap opens, and Core, where brands run it.
-        Every project opens its full case study on{" "}
-        <a href={`${DEPARTMNT_SITE}/work`} target="_blank" rel="noopener noreferrer" class="ln text-fg">departmnt.xyz</a>.
-        <a slot="action" href="/work" class="ln">All work ({allWork.length})</a>
-      </SectionHead>
-      {
-        featured && (
-          <div class="mt-10 md:mt-14">
-            <DepartmntFeature entry={featured} />
-          </div>
-        )
-      }
-      <div class="mt-16 md:mt-20">
-        <DepartmntGrid entries={moreWork.slice(0, 3)} />
-      </div>
-
-      <div class="mt-20 md:mt-24">
-        <div class="mb-4 flex items-baseline justify-between gap-4">
-          <p class="meta">Before DEPARTMNT</p>
-          <a href="/work#before" class="ln text-[15px]">All earlier work ({earlierWork.length})</a>
-        </div>
-        <WorkList entries={earlierWork.slice(0, 6)} />
-      </div>
-    </section>
-
-    <div class="mt-14 md:mt-16">
-      <Marquee items={["Infrastructure", "Systems", "Culture", "Commerce"]} />
-    </div>
-
-    <!-- Client films -->
-    <section class="frame mt-14 md:mt-16">
-      <SectionHead mark="Clients" title="Select Clients" />
-      <div class="mt-8 md:mt-10">
-        <ClientFilms />
-      </div>
-    </section>
-
     <!-- About -->
     <section class="frame mt-16 md:mt-20">
       <SectionHead mark="About" title="The Long Way Round" />
@@ -194,29 +156,73 @@ const atmosphere = [
       </div>
     </section>
 
+    <!-- Work: DEPARTMNT -->
+    <section class="frame mt-16 md:mt-20" id="work">
+      <SectionHead mark="Work" title="Fifteen Years, One Thread">
+        Since 2021, DEPARTMNT: the tags people tap, the Portal a tap opens, and Core, where brands run it.
+        Every project opens its full case study on{" "}
+        <a href={`${DEPARTMNT_SITE}/work`} target="_blank" rel="noopener noreferrer" class="ln text-fg">departmnt.xyz</a>.
+        <a slot="action" href="/work" class="ln">All work ({allWork.length})</a>
+      </SectionHead>
+      {
+        featured && (
+          <div class="mt-10 md:mt-14">
+            <DepartmntFeature entry={featured} />
+          </div>
+        )
+      }
+      <div class="mt-16 md:mt-20">
+        <DepartmntGrid entries={moreWork.slice(0, 3)} />
+      </div>
+    </section>
+
+    <!-- Select case studies: client films -->
+    <section class="frame mt-16 md:mt-20">
+      <SectionHead mark="Case studies" title="Select Case Studies" />
+      <div class="mt-8 md:mt-10">
+        <ClientFilms />
+      </div>
+    </section>
+
+    <!-- Before DEPARTMNT -->
+    <section class="frame mt-16 md:mt-20" id="before">
+      <SectionHead mark="Before" title="Before DEPARTMNT">
+        Artist management, live events and brand programmes, from Novelist's first world tour to
+        Mercedes-Benz and The National Lottery.
+        <a slot="action" href="/work#before" class="ln">All earlier work ({earlierWork.length})</a>
+      </SectionHead>
+      <div class="mt-8 md:mt-10">
+        <WorkList entries={earlierWork.slice(0, 6)} dates={false} />
+      </div>
+    </section>
+
+    <div class="mt-16 md:mt-20">
+      <Marquee items={["Infrastructure", "Systems", "Culture", "Commerce"]} />
+    </div>
+
     <!-- Thoughts -->
-    {
-      thoughts.length > 0 && (
-        <section class="frame mt-16 md:mt-20">
-          <SectionHead mark="Thoughts" title="Short Perspectives">
-            <a slot="action" href="/thoughts" class="ln">All thoughts</a>
-          </SectionHead>
+    <section class="frame mt-16 md:mt-20">
+      <SectionHead mark="Thoughts" title={thoughts.length > 0 ? "Short Perspectives" : "Coming soon"}>
+        {thoughts.length === 0 && "Short perspectives on culture, commerce and the rooms where they meet."}
+        <a slot="action" href={SUBSTACK_URL} target="_blank" rel="me noopener noreferrer" class="ln">Substack ↗</a>
+      </SectionHead>
+      {
+        thoughts.length > 0 && (
           <ul class="mt-6 border-t border-rule md:mt-8">
             {thoughts.map((t) => (
               <li class="border-b border-rule">
                 <a href={`/thoughts/${t.id}`} class="group grid grid-cols-[1fr_auto] items-baseline gap-4 py-3">
                   <span class="text-[19px] leading-snug font-medium underline-offset-[0.2em] group-hover:underline md:text-[22px]">
                     {t.data.title}
-                    {t.data.draft && <span class="meta ml-2 align-middle">Draft</span>}
                   </span>
                   <span class="meta">{dateFormatter.format(t.data.date)}</span>
                 </a>
               </li>
             ))}
           </ul>
-        </section>
-      )
-    }
+        )
+      }
+    </section>
   </main>
 </Layout>
 
