@@ -15,29 +15,25 @@ const earlierWork = allWork.filter((w) => !w.data.departmnt?.labsSlug);
   title="Work | Gareth Matthews"
   description={`${allWork.length} projects: connected products, fan infrastructure and events at DEPARTMNT, and the artist, brand and programme work that came before it.`}
 >
-  <main id="main-content" class="frame pt-10 md:pt-14">
-    <h1 class="display text-[22vw] md:text-[12vw] 2xl:text-[172px]">Work</h1>
+  <main id="main-content" class="frame pt-8 md:pt-12">
+    <h1 class="display text-[18vw] md:text-[9vw] 2xl:text-[128px]">Work</h1>
 
-    <section id="departmnt" class="mt-14 scroll-mt-16 md:mt-20">
+    <section id="departmnt" class="mt-10 scroll-mt-16 md:mt-14">
       <SectionHead mark={`Now · ${departmntWork.length}`} title="DEPARTMNT">
-        <p class="mt-4 max-w-[34em] text-[17px] text-mute">
-          Projects since founding DEPARTMNT in 2021. Each one opens the full case study on{" "}
-          <a href={`${DEPARTMNT_SITE}/work`} target="_blank" rel="noopener noreferrer" class="ln text-fg">departmnt.xyz</a>.
-        </p>
+        Projects since founding DEPARTMNT in 2021. Each one opens the full case study on{" "}
+        <a href={`${DEPARTMNT_SITE}/work`} target="_blank" rel="noopener noreferrer" class="ln text-fg">departmnt.xyz</a>.
       </SectionHead>
-      <div class="mt-12 md:mt-16">
+      <div class="mt-8 md:mt-10">
         <DepartmntGrid entries={departmntWork} />
       </div>
     </section>
 
-    <section id="before" class="mt-24 scroll-mt-16 md:mt-36">
+    <section id="before" class="mt-16 scroll-mt-16 md:mt-20">
       <SectionHead mark={`Before · ${earlierWork.length}`} title="Before DEPARTMNT">
-        <p class="mt-4 max-w-[34em] text-[17px] text-mute">
-          Artist management, live events and brand programmes, from Novelist's first world tour to
-          Mercedes-Benz and The National Lottery.
-        </p>
+        Artist management, live events and brand programmes, from Novelist's first world tour to
+        Mercedes-Benz and The National Lottery.
       </SectionHead>
-      <div class="mt-8">
+      <div class="mt-6 md:mt-8">
         <WorkList entries={earlierWork} />
       </div>
     </section>

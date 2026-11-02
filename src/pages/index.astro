@@ -37,13 +37,17 @@ const atmosphere = [
 
 <Layout title="Gareth Matthews: Founder & CEO, DEPARTMNT" profile>
   <main id="main-content">
-    <!-- Hero -->
+    <!-- Hero: the name and line beside the founders film -->
     <section class="frame pt-8 md:pt-12">
-      <h1 class="display text-[17.5vw] md:text-[10.4vw] 2xl:text-[150px]">Gareth Matthews</h1>
-      <div class="grid-12 mt-6 gap-y-6 md:mt-10 md:items-end">
-        <p class="col-span-4 max-w-[15em] text-[30px] leading-[1.06] font-medium tracking-[-0.028em] md:col-span-7 md:text-[44px] lg:text-[56px]">
-          Building the infrastructure for a more connected world.
-        </p>
+      <div class="grid-12 gap-y-8 md:items-end">
+        <div class="col-span-4 md:col-span-8">
+          <h1 class="name text-[12.2vw] md:text-[8vw] 2xl:text-[120px]">
+            <span class="block">Gareth </span><span class="block">Matthews</span>
+          </h1>
+          <p class="mt-6 max-w-[17em] text-[24px] leading-[1.12] font-medium tracking-[-0.022em] md:mt-8 md:text-[30px] lg:text-[36px]">
+            Building the infrastructure for a more connected world.
+          </p>
+        </div>
         <figure class="col-span-4 md:col-span-4 md:col-start-9">
           <div class="aspect-video overflow-hidden rounded-xl bg-fg">
             <video
@@ -70,8 +74,8 @@ const atmosphere = [
     </section>
 
     <!-- Profile -->
-    <section class="frame mt-16 md:mt-24">
-      <div class="grid-12 gap-y-8 border-t border-fg pt-6 md:pt-8">
+    <section class="frame mt-12 md:mt-16">
+      <div class="grid-12 gap-y-8 border-t border-fg pt-5 md:pt-6">
         <figure class="relative col-span-4 aspect-[4/5] md:col-span-5 md:aspect-auto">
           <img
             src="/images/about/headshot.webp"
@@ -116,50 +120,40 @@ const atmosphere = [
       </div>
     </section>
 
-    <div class="mt-14 md:mt-20">
-      <Marquee items={["Culture", "Commerce", "Infrastructure", "Systems"]} size="sm" />
-    </div>
-
     <!-- Work -->
-    <section class="frame mt-14 md:mt-20" id="work">
+    <section class="frame mt-16 md:mt-20" id="work">
       <SectionHead mark="Work" title="Fifteen Years, One Thread">
-        <p class="mt-4 max-w-[34em] text-[17px] text-mute">
-          Since 2021, DEPARTMNT: the tags people tap, the Portal a tap opens, and Core, where brands run
-          it. Every project opens its full case study on{" "}
-          <a href={`${DEPARTMNT_SITE}/work`} target="_blank" rel="noopener noreferrer" class="ln text-fg">departmnt.xyz</a>.
-        </p>
+        Since 2021, DEPARTMNT: the tags people tap, the Portal a tap opens, and Core, where brands run it.
+        Every project opens its full case study on{" "}
+        <a href={`${DEPARTMNT_SITE}/work`} target="_blank" rel="noopener noreferrer" class="ln text-fg">departmnt.xyz</a>.
+        <a slot="action" href="/work" class="ln">All work ({allWork.length})</a>
       </SectionHead>
       {
         featured && (
-          <div class="mt-10 md:mt-12">
+          <div class="mt-8 md:mt-10">
             <DepartmntFeature entry={featured} />
           </div>
         )
       }
-      <div class="mt-12 md:mt-14">
+      <div class="mt-10 md:mt-12">
         <DepartmntGrid entries={moreWork.slice(0, 3)} />
       </div>
-      <p class="mt-10 flex justify-end">
-        <a href="/work" class="ln">All DEPARTMNT work ({departmntWork.length})</a>
-      </p>
 
-      <div class="mt-16 md:mt-20">
-        <div class="grid-12 mb-6">
-          <p class="meta col-span-4 md:col-span-3">Before DEPARTMNT</p>
-          <p class="col-span-4 mt-2 max-w-[34em] text-[17px] text-mute md:col-span-9 md:mt-0">
-            Artist management, live events and brand programmes, from Novelist's first world tour to
-            Mercedes-Benz and The National Lottery.
-          </p>
+      <div class="mt-14 md:mt-16">
+        <div class="mb-3 flex items-baseline justify-between gap-4">
+          <p class="meta">Before DEPARTMNT</p>
+          <a href="/work#before" class="ln text-[15px]">All earlier work ({earlierWork.length})</a>
         </div>
         <WorkList entries={earlierWork.slice(0, 6)} />
-        <p class="mt-6 flex justify-end">
-          <a href="/work#before" class="ln">All earlier work ({earlierWork.length})</a>
-        </p>
       </div>
     </section>
 
+    <div class="mt-14 md:mt-16">
+      <Marquee items={["Infrastructure", "Systems", "Culture", "Commerce"]} />
+    </div>
+
     <!-- Client films -->
-    <section class="frame mt-16 md:mt-24">
+    <section class="frame mt-14 md:mt-16">
       <SectionHead mark="Clients" title="Select Clients" />
       <div class="mt-8 md:mt-10">
         <ClientFilms />
@@ -167,58 +161,59 @@ const atmosphere = [
     </section>
 
     <!-- About -->
-    <section class="frame mt-16 md:mt-24">
+    <section class="frame mt-16 md:mt-20">
       <SectionHead mark="About" title="The Long Way Round" />
-      <div class="grid-12 mt-8 gap-y-10 md:mt-10">
-        <div class="col-span-4 md:col-span-9 md:col-start-4">
-          <p class="text-[26px] leading-[1.18] tracking-[-0.015em] md:text-[34px]">Nightclubs, then boardrooms.</p>
-          <p class="mt-4 max-w-[24em] text-[26px] leading-[1.18] tracking-[-0.015em] text-mute md:text-[34px]">
+      <div class="grid-12 mt-8 gap-y-8 md:mt-10">
+        <div class="col-span-4 md:col-span-5">
+          <p class="text-[22px] leading-[1.22] tracking-[-0.012em] md:text-[28px]">Nightclubs, then boardrooms.</p>
+          <p class="mt-3 text-[22px] leading-[1.22] tracking-[-0.012em] text-mute md:text-[28px]">
             Fifteen years watching culture generate attention no brand could hold onto. The room was always
             the asset. Nobody was building for it. So I did.
           </p>
           <a href="/about" class="ln mt-6 inline-block">Read the full story</a>
         </div>
+        <ul class="col-span-4 grid grid-cols-3 gap-3 md:col-span-7 md:gap-4">
+          {
+            atmosphere.map((a) => (
+              <li>
+                <img
+                  src={a.src.replace(/\.webp$/, "-thumb.webp")}
+                  srcset={`${a.src.replace(/\.webp$/, "-thumb.webp")} 720w, ${a.src} 1200w`}
+                  sizes="(min-width: 768px) 19vw, 31vw"
+                  alt={`Gareth Matthews: ${a.caption}`}
+                  width="1200"
+                  height="1500"
+                  loading="lazy"
+                  class="aspect-[4/5] w-full rounded-xl bg-tint object-cover"
+                />
+                <p class="meta mt-2">{a.caption}</p>
+              </li>
+            ))
+          }
+        </ul>
       </div>
-      <ul class="grid-12 mt-10 gap-y-8 md:mt-12">
-        {
-          atmosphere.map((a, i) => (
-            <li class:list={["col-span-4 md:col-span-3", i === 0 && "md:col-start-4"]}>
-              <img
-                src={a.src.replace(/\.webp$/, "-thumb.webp")}
-                srcset={`${a.src.replace(/\.webp$/, "-thumb.webp")} 720w, ${a.src} 1200w`}
-                sizes="(min-width: 768px) 25vw, 100vw"
-                alt={`Gareth Matthews: ${a.caption}`}
-                width="1200"
-                height="1500"
-                loading="lazy"
-                class="aspect-[4/5] w-full rounded-xl bg-tint object-cover"
-              />
-              <p class="meta mt-2">{a.caption}</p>
-            </li>
-          ))
-        }
-      </ul>
     </section>
 
     <!-- Thoughts -->
     {
       thoughts.length > 0 && (
-        <section class="frame mt-16 md:mt-24">
+        <section class="frame mt-16 md:mt-20">
           <SectionHead mark="Thoughts" title="Short Perspectives">
-            <ul class="mt-8 border-t border-rule">
-              {thoughts.map((t) => (
-                <li class="border-b border-rule">
-                  <a href={`/thoughts/${t.id}`} class="group grid grid-cols-[1fr_auto] items-baseline gap-4 py-3">
-                    <span class="text-[20px] leading-snug font-medium underline-offset-[0.2em] group-hover:underline md:text-[24px]">
-                      {t.data.title}
-                      {t.data.draft && <span class="meta ml-2 align-middle">Draft</span>}
-                    </span>
-                    <span class="meta">{dateFormatter.format(t.data.date)}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <a slot="action" href="/thoughts" class="ln">All thoughts</a>
           </SectionHead>
+          <ul class="mt-6 border-t border-rule md:mt-8">
+            {thoughts.map((t) => (
+              <li class="border-b border-rule">
+                <a href={`/thoughts/${t.id}`} class="group grid grid-cols-[1fr_auto] items-baseline gap-4 py-3">
+                  <span class="text-[19px] leading-snug font-medium underline-offset-[0.2em] group-hover:underline md:text-[22px]">
+                    {t.data.title}
+                    {t.data.draft && <span class="meta ml-2 align-middle">Draft</span>}
+                  </span>
+                  <span class="meta">{dateFormatter.format(t.data.date)}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
       )
     }

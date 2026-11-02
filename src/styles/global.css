@@ -51,6 +51,17 @@
   font-display: swap;
 }
 
+/* Archivo, expanded: the wide grotesk used for the name. Open source (SIL OFL), from the
+   Archivo Project; one variable file covering weight and width. */
+@font-face {
+  font-family: "Archivo Wide";
+  src: url("../fonts/Archivo-Variable-wdth.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sans: "Monument Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-carbon: "Carbon", ui-monospace, monospace;
@@ -122,6 +133,16 @@ body {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-mute);
+}
+
+/* The name: wide, heavy capitals, set like a wordmark. */
+.name {
+  font-family: "Archivo Wide", var(--font-sans);
+  font-stretch: 125%;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.86;
+  text-transform: uppercase;
 }
 
 .display {
@@ -238,18 +259,20 @@ body {
   line-height: var(--roll-h);
 }
 
-/* Keyword band. */
-.marquee-track {
-  animation: marquee 70s linear infinite;
+/* Keyword strip: two identical halves, each at least the full width, slide left together,
+   so the loop never runs out. Hover pauses it; with reduced motion it stands still. */
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  min-width: 100%;
+  justify-content: space-around;
+  animation: marquee 40s linear infinite;
 }
-.marquee[data-size="sm"] .marquee-track {
-  animation-duration: 45s;
-}
-.marquee:hover .marquee-track {
+.marquee:hover .marquee-group {
   animation-play-state: paused;
 }
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
+  .marquee-group {
     animation: none;
   }
 }
@@ -286,6 +309,6 @@ body {
 
 @keyframes marquee {
   to {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
