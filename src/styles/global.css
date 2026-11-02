@@ -259,24 +259,6 @@ body {
   line-height: var(--roll-h);
 }
 
-/* Keyword strip: two identical halves, each at least the full width, slide left together,
-   so the loop never runs out. Hover pauses it; with reduced motion it stands still. */
-.marquee-group {
-  display: flex;
-  flex-shrink: 0;
-  min-width: 100%;
-  justify-content: space-around;
-  animation: marquee 40s linear infinite;
-}
-.marquee:hover .marquee-group {
-  animation-play-state: paused;
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee-group {
-    animation: none;
-  }
-}
-
 /* Client films row. */
 .films-row {
   scrollbar-width: none;
@@ -307,8 +289,3 @@ body {
 }
 }
 
-@keyframes marquee {
-  to {
-    transform: translateX(-100%);
-  }
-}

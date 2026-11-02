@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import SectionHead from "../components/SectionHead.astro";
 import RoleCycler from "../components/RoleCycler.astro";
-import Marquee from "../components/Marquee.astro";
 import LogoWall from "../components/LogoWall.astro";
 import DepartmntFeature from "../components/DepartmntFeature.astro";
 import DepartmntGrid from "../components/DepartmntGrid.astro";
@@ -195,10 +194,6 @@ const atmosphere = [
         <WorkList entries={earlierWork.slice(0, 6)} dates={false} />
       </div>
     </section>
-
-    <div class="mt-16 md:mt-20">
-      <Marquee items={["Infrastructure", "Systems", "Culture", "Commerce"]} />
-    </div>
 
     <!-- Thoughts -->
     <section class="frame mt-16 md:mt-20">
