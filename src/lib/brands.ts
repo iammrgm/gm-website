@@ -1,7 +1,8 @@
 import { departmntWorkUrl } from "./departmnt";
 
-// Client marks in /images/logos. The files are white marks on transparent backgrounds, so on the
-// light page they're filtered to solid ink. Boiler Room's is a filled black disc and is shown as is.
+// Client marks. SVGs (from the departmnt.xyz logo set) are used where they exist; the rest are PNGs
+// in /images/logos. Every mark is filtered to solid ink on the light page, or to white over film.
+// Boiler Room's PNG is a filled black disc and is shown as is.
 export interface Logo {
   file: string;
   name: string;
@@ -12,27 +13,28 @@ export interface Logo {
 }
 
 const logo = (id: string, name: string, ratio: number, asIs = false): Logo => ({
-  file: `/images/logos/${id}.png`,
+  file: id.endsWith(".svg") ? `/images/logos/svg/${id}` : `/images/logos/${id}.png`,
   name,
   ratio,
   asIs,
 });
 
 export const LOGOS = {
-  crocsKasina: logo("bqSpvsAFrdiCphSWU5uPtwaVbw", "Kasina × Crocs", 6.52),
-  hlls: logo("FjrV6A6BMgIskLefRyIyKKghyk", "H.LLS", 6.92),
-  mulaa: logo("y96VKNNaIjlQE3bFRtU3N8Hc4", "Mulaa Joans", 3.69),
-  atlantic: logo("Wr0gyvkynQO6OB9JGga4qfdrV0", "Atlantic Records", 1.0),
-  you: logo("zJqyT4D83X29dP9syrdfPsOdfzo", "YOU Studio", 2.71),
-  gshock: logo("AUEHB6WEWqPGdQCUOCZs3Kw2cJs", "G-SHOCK", 6.16),
-  navinder: logo("yuF8Glfc9MYdKuectWW9bWH02Dg", "Navinder Nangla", 0.95),
-  genesys: logo("E21lJiPj6h90n7vTYyeyZSiZ0Y", "Genesys", 1.54),
+  crocsKasina: logo("kasina-crocs.svg", "Kasina × Crocs", 9.71),
+  hlls: logo("hlls.svg", "H.LLS", 6.87),
+  mulaa: logo("mulaa-joans.svg", "Mulaa Joans", 4.62),
+  atlantic: logo("atlantic.svg", "Atlantic Records", 1.57),
+  you: logo("you-studio.svg", "YOU Studio", 2.83),
+  gshock: logo("g-shock.svg", "G-SHOCK", 6.22),
+  navinder: logo("navinder-nangla.svg", "Navinder Nangla", 0.95),
+  genesys: logo("genesys.svg", "Genesys", 1.54),
   mercedes: logo("T8uAOScR0xkvP4hhxllTYf1ZPI4", "Mercedes-Benz", 0.96),
   abinbev: logo("R2myBgMMbe0q7niUKEh9od3Zdw", "AB InBev", 3.08),
   o2: logo("SW3j5FpP9H6YKwpbJv505JfMwHA", "O2", 1.15),
   reebok: logo("VGysfM7eIhu9bvbn1d7vVmqqs1I", "Reebok", 1.99),
-  warner: logo("rfiZuSlNifP1XA00obYNVBpbTUE", "Warner Music UK", 1.0),
+  warner: logo("warner-music.svg", "Warner Music", 2.31),
   boilerRoom: logo("AvKlIpwI4O2Ws5lHYtL7BWaSY", "Boiler Room", 1.0, true),
+  egucewicz: logo("e-gucewicz.svg", "E Gucewicz", 6.25),
 } satisfies Record<string, Logo>;
 
 /** A mark on the logo wall and the case study it opens. */
@@ -75,6 +77,7 @@ export const WORK_LOGO: Record<string, Logo> = {
   "g-shock-who-eats-art": LOGOS.gshock,
   "navinder-nangla": LOGOS.navinder,
   genesys: LOGOS.genesys,
+  "e-gucewicz-genesis": LOGOS.egucewicz,
 };
 
 // Client films. Shown at their own shape (portrait or landscape) rather than cropped.

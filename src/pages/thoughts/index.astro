@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import PageHead from "../../components/PageHead.astro";
 
 import { getVisibleThoughts } from "../../lib/thoughts";
 
@@ -13,39 +14,38 @@ const dateFormatter = new Intl.DateTimeFormat("en-GB", { day: "numeric", month: 
   description="Short pieces on presence, connected products, culture and building DEPARTMNT."
 >
   <main id="main-content" class="frame pt-8 md:pt-12">
-    <h1 class="display text-[18vw] md:text-[9vw] 2xl:text-[128px]">Thoughts</h1>
-    <div class="grid-12 mt-10 border-t border-fg pt-4 md:mt-14">
-      <p class="meta col-span-4 md:col-span-3">Short pieces</p>
-      <div class="col-span-4 mt-3 md:col-span-9 md:mt-0">
-        {
-          allThoughts.length === 0 ? (
-            <p class="text-[19px] text-mute">Nothing published yet.</p>
-          ) : (
-            <ul>
-              {allThoughts.map((entry) => (
-                <li class="border-b border-rule">
-                  <a href={`/thoughts/${entry.id}`} class="group grid gap-2 py-5 md:grid-cols-[1fr_10rem] md:gap-6">
-                    <span>
-                      <span class="block text-[22px] leading-snug font-medium tracking-[-0.01em] underline-offset-[0.2em] group-hover:underline md:text-[26px]">
-                        {entry.data.title}
-                      </span>
-                      <span class="mt-1 block max-w-[36em] text-[17px] text-mute">{entry.data.description}</span>
+    <PageHead title="Thoughts">
+      Short perspectives on culture, commerce and the rooms where they meet. Longer pieces go out on{" "}
+      <a href="https://iammrgm.substack.com/" target="_blank" rel="me noopener noreferrer" class="ln">Substack</a>.
+    </PageHead>
+    <div class="mt-10 border-t border-fg pt-3 md:mt-14">
+      {
+        allThoughts.length === 0 ? (
+          <>
+            <p class="meta">Short Perspectives</p>
+            <p class="mt-4 text-[34px] leading-[1.02] font-medium tracking-[-0.03em] md:mt-5 md:text-[48px]">Coming soon</p>
+          </>
+        ) : (
+          <ul>
+            {allThoughts.map((entry) => (
+              <li class="border-b border-rule">
+                <a href={`/thoughts/${entry.id}`} class="group grid-12 gap-y-2 py-5">
+                  <span class="col-span-4 md:col-span-8">
+                    <span class="block text-[22px] leading-snug font-medium tracking-[-0.01em] underline-offset-[0.2em] group-hover:underline md:text-[26px]">
+                      {entry.data.title}
                     </span>
-                    <span class="meta md:pt-2 md:text-right">
-                      {dateFormatter.format(entry.data.date)}
-                      {entry.data.draft && <span class="block">Draft</span>}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )
-        }
-        <p class="mt-6 text-[15px] text-mute">
-          Longer pieces go out on
-          <a href="https://iammrgm.substack.com/" target="_blank" rel="me noopener noreferrer" class="ln text-fg">Substack</a>.
-        </p>
-      </div>
+                    <span class="mt-1 block max-w-[36em] text-[17px] text-mute">{entry.data.description}</span>
+                  </span>
+                  <span class="meta col-span-4 md:col-span-4 md:pt-2 md:text-right">
+                    {dateFormatter.format(entry.data.date)}
+                    {entry.data.draft && <span class="block">Draft</span>}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
     </div>
   </main>
 </Layout>

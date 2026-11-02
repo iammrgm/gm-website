@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageHead from "../components/PageHead.astro";
 
 const PRESS_EMAIL = "press@departmnt.xyz";
 const GENERAL_EMAIL = "hello@departmnt.xyz";
@@ -59,7 +60,7 @@ const facts = [
   description="Press kit for Gareth Matthews, Founder & CEO of DEPARTMNT: boilerplate, bios, headshot and company facts for media use."
 >
   <main id="main-content" class="frame pt-8 md:pt-12">
-    <h1 class="display text-[18vw] md:text-[9vw] 2xl:text-[128px]">Press</h1>
+    <PageHead title="Press">Boilerplate, bios, headshot and company facts, cleared for media use.</PageHead>
 
     <div class="grid-12 mt-10 gap-y-12 border-t border-fg pt-6 md:mt-14">
       <div class="col-span-4 space-y-12 md:col-span-7">

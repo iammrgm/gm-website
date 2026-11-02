@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageHead from "../components/PageHead.astro";
+import SectionHead from "../components/SectionHead.astro";
 
 const cascadeLead =
   "Fifteen years watching culture generate attention no brand could hold onto, and brands spend fortunes reaching people they'd never be able to name. The room was always the asset.";
@@ -118,19 +120,22 @@ const faqSchema = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <main id="main-content" class="frame pt-8 md:pt-12">
-    <h1 class="display text-[18vw] md:text-[9vw] 2xl:text-[128px]">About</h1>
+    <PageHead title="About">{`${cascadeLead} ${cascadeClose}`}</PageHead>
 
-    <div class="grid-12 mt-10 gap-y-8 md:mt-14">
-      <p class="col-span-4 max-w-[22em] text-[24px] leading-[1.25] tracking-[-0.01em] md:col-span-8 md:text-[32px]">
-        {cascadeLead} {cascadeClose}
-      </p>
-    </div>
-
-    <ul class="grid-12 mt-12 gap-y-8 md:mt-16">
+    <ul class="mt-10 grid grid-cols-3 gap-3 md:mt-14 md:gap-6">
       {
-        photos.map((p) => (
-          <li class="col-span-4 md:col-span-4">
-            <img src={p.src} alt={`Gareth Matthews: ${p.caption}`} loading="lazy" class="aspect-[4/5] w-full rounded-xl bg-tint object-cover" />
+        photos.map((p, i) => (
+          <li>
+            <img
+              src={p.src.replace(/\.webp$/, "-thumb.webp")}
+              srcset={`${p.src.replace(/\.webp$/, "-thumb.webp")} 720w, ${p.src} 1200w`}
+              sizes="33vw"
+              alt={`Gareth Matthews: ${p.caption}`}
+              width="1200"
+              height="1500"
+              loading={i === 0 ? "eager" : "lazy"}
+              class="aspect-[4/5] w-full rounded-xl bg-tint object-cover"
+            />
             <p class="meta mt-2">{p.caption}</p>
           </li>
         ))
@@ -138,15 +143,15 @@ const faqSchema = {
     </ul>
 
     <!-- The long way round -->
-    <section class="grid-12 mt-16 border-t border-fg pt-4 md:mt-20">
-      <p class="meta col-span-4 md:col-span-3">The long way round</p>
-      <ol class="col-span-4 mt-3 md:col-span-9 md:mt-0">
+    <section class="mt-16 md:mt-20">
+      <SectionHead mark="Background" title="The Long Way Round" />
+      <ol class="mt-6 border-t border-rule md:mt-8">
         {
           eras.map((era) => (
-            <li class="grid grid-cols-1 gap-1 border-b border-rule py-4 first:pt-0 md:grid-cols-[12rem_9rem_1fr] md:gap-6">
-              <span class="text-[20px] font-medium tracking-[-0.01em]">{era.name}</span>
-              <span class="meta md:pt-1.5">{era.when}</span>
-              <span class="text-[17px] text-mute">{era.text}</span>
+            <li class="grid-12 gap-y-1 border-b border-rule py-4">
+              <span class="col-span-2 text-[20px] font-medium tracking-[-0.01em] md:col-span-3">{era.name}</span>
+              <span class="meta col-span-2 text-right md:col-span-2 md:pt-1.5 md:text-left">{era.when}</span>
+              <span class="col-span-4 text-[17px] text-mute md:col-span-6 md:col-start-7">{era.text}</span>
             </li>
           ))
         }
@@ -154,23 +159,30 @@ const faqSchema = {
     </section>
 
     <!-- Founder memo -->
-    <section class="grid-12 mt-16 border-t border-fg pt-4 md:mt-20">
-      <p class="meta col-span-4 md:col-span-3">Founder memo</p>
-      <div class="prose col-span-4 mt-3 md:col-span-7 md:mt-0">
-        {memoNarrative.map((para) => <p>{para}</p>)}
+    <section class="mt-16 md:mt-20">
+      <SectionHead mark="Founder memo" title="Why DEPARTMNT" />
+      <div class="grid-12 mt-8 gap-y-10 md:mt-10">
+        <div class="prose col-span-4 md:col-span-7">
+          {memoNarrative.map((para) => <p>{para}</p>)}
+        </div>
+        <aside class="col-span-4 md:col-span-4 md:col-start-9">
+          <p class="border-t border-fg pt-4 text-[26px] leading-[1.15] font-medium tracking-[-0.02em] md:sticky md:top-20 md:text-[32px]">
+            The room was always the asset. Nobody was building for it. So I did.
+          </p>
+        </aside>
       </div>
     </section>
 
     <!-- How I think -->
-    <section class="grid-12 mt-16 border-t border-fg pt-4 md:mt-20">
-      <p class="meta col-span-4 md:col-span-3">How I think</p>
-      <ol class="col-span-4 mt-3 md:col-span-9 md:mt-0">
+    <section class="mt-16 md:mt-20">
+      <SectionHead mark="Principles" title="How I Think" />
+      <ol class="mt-6 border-t border-rule md:mt-8">
         {
           memoPrinciples.map((p, i) => (
-            <li class="grid grid-cols-[2.5rem_1fr] border-b border-rule py-4 first:pt-0 md:grid-cols-[3rem_1fr_1fr] md:gap-6">
-              <span class="meta pt-1.5">{String(i + 1).padStart(2, "0")}</span>
-              <span class="text-[20px] leading-snug font-medium tracking-[-0.01em]">{p.title}</span>
-              <span class="col-start-2 mt-1 text-[17px] text-mute md:col-start-3 md:mt-0">{p.description}</span>
+            <li class="grid-12 gap-y-1 border-b border-rule py-4">
+              <span class="meta col-span-1 pt-1.5">{String(i + 1).padStart(2, "0")}</span>
+              <span class="col-span-3 text-[20px] leading-snug font-medium tracking-[-0.01em] md:col-span-5">{p.title}</span>
+              <span class="col-span-3 col-start-2 text-[17px] text-mute md:col-span-6 md:col-start-7">{p.description}</span>
             </li>
           ))
         }
@@ -178,39 +190,38 @@ const faqSchema = {
     </section>
 
     <!-- Speaking -->
-    <section class="grid-12 mt-16 border-t border-fg pt-4 md:mt-20">
-      <p class="meta col-span-4 md:col-span-3">Speaking</p>
-      <div class="col-span-4 mt-3 md:col-span-9 md:mt-0">
-        <ul>
-          {
-            speakingTopics.map((t) => (
-              <li class="grid gap-1 border-b border-rule py-4 first:pt-0 md:grid-cols-2 md:gap-6">
-                <span class="text-[20px] leading-snug font-medium tracking-[-0.01em]">{t.title}</span>
-                <span class="text-[17px] text-mute">{t.description}</span>
-              </li>
-            ))
-          }
-        </ul>
-        <p class="mt-5 text-[15px] text-mute">
-          Recent: AI keynote at Barclays, London. More talks and clips coming soon. To put me in front of a room,{" "}
-          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" class="ln text-fg">book a call</a>.
-        </p>
-      </div>
+    <section class="mt-16 md:mt-20">
+      <SectionHead mark="Speaking" title="Talks and Topics">
+        Recent: AI keynote at Barclays, London. More talks and clips coming soon.
+        <a slot="action" href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" class="ln">Book a call</a>
+      </SectionHead>
+      <ul class="mt-6 border-t border-rule md:mt-8">
+        {
+          speakingTopics.map((t) => (
+            <li class="grid-12 gap-y-1 border-b border-rule py-4">
+              <span class="col-span-4 text-[20px] leading-snug font-medium tracking-[-0.01em] md:col-span-6">{t.title}</span>
+              <span class="col-span-4 text-[17px] text-mute md:col-span-6 md:col-start-7">{t.description}</span>
+            </li>
+          ))
+        }
+      </ul>
     </section>
 
     <!-- FAQ -->
-    <section class="grid-12 mt-16 border-t border-fg pt-4 md:mt-20">
-      <p class="meta col-span-4 md:col-span-3">FAQ</p>
-      <div class="col-span-4 mt-3 md:col-span-9 md:mt-0">
+    <section class="mt-16 md:mt-20">
+      <SectionHead mark="FAQ" title="Questions" />
+      <div class="mt-6 border-t border-rule md:mt-8">
         {
           faqs.map((faq) => (
-            <details class="group border-b border-rule py-4 first:pt-0">
-              <summary class="flex cursor-pointer list-none items-baseline justify-between gap-4 text-[20px] font-medium tracking-[-0.01em]">
-                {faq.question}
-                <span class="meta shrink-0 group-open:hidden">Open</span>
-                <span class="meta hidden shrink-0 group-open:inline">Close</span>
+            <details class="group border-b border-rule py-4">
+              <summary class="grid-12 cursor-pointer list-none items-baseline">
+                <span class="col-span-3 text-[20px] font-medium tracking-[-0.01em] md:col-span-6">{faq.question}</span>
+                <span class="meta col-span-1 text-right group-open:hidden md:col-span-6">Open</span>
+                <span class="meta col-span-1 hidden text-right group-open:inline md:col-span-6">Close</span>
               </summary>
-              <p class="mt-2 max-w-[38em] text-[17px] text-mute">{faq.answer}</p>
+              <div class="grid-12 mt-2">
+                <p class="col-span-4 max-w-[38em] text-[17px] text-mute md:col-span-6 md:col-start-7">{faq.answer}</p>
+              </div>
             </details>
           ))
         }

@@ -1,8 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageHead from "../components/PageHead.astro";
 
 const CONTACT_EMAIL = "hello@departmnt.xyz";
-const LAST_UPDATED = "23 September 2026";
+const LAST_UPDATED = "2 November 2026";
 
 const sections = [
   {
@@ -26,11 +27,10 @@ const sections = [
   {
     heading: "Who processes it",
     body: [
-      "Two third parties are involved in running this site, both acting as data processors:",
+      "One third party runs this site, acting as a data processor:",
     ],
     list: [
-      "Resend: delivers the contact form email. Your name, email and message pass through their systems to reach the inbox.",
-      "Cloudflare: hosts the site and provides Web Analytics, a cookieless, privacy-first analytics tool that reports aggregated traffic (pages viewed, approximate location, device type) without tracking or identifying individual visitors.",
+      "Cloudflare: hosts the site, delivers the contact form email (your name, email and message pass through Cloudflare Email to reach the inbox), and provides Web Analytics, a cookieless, privacy-first analytics tool that reports aggregated traffic (pages viewed, approximate location, device type) without tracking or identifying individual visitors.",
     ],
   },
   {
@@ -64,10 +64,9 @@ const sections = [
   description="Privacy policy for garethmatthews.uk: what data is collected, how it's used, and your rights."
 >
   <main id="main-content" class="frame pt-8 md:pt-12">
-    <h1 class="display text-[18vw] md:text-[9vw] 2xl:text-[128px]">Privacy</h1>
-    <div class="grid-12 mt-10 border-t border-fg pt-4 md:mt-14">
-      <p class="meta col-span-4 md:col-span-3">Last updated {LAST_UPDATED}</p>
-      <div class="col-span-4 mt-6 space-y-10 md:col-span-7 md:mt-0">
+    <PageHead title="Privacy">What this site collects, why, and your rights. Last updated {LAST_UPDATED}.</PageHead>
+    <div class="grid-12 mt-10 border-t border-fg pt-6 md:mt-14">
+      <div class="col-span-4 space-y-10 md:col-span-7">
         {
           sections.map((section) => (
             <section>

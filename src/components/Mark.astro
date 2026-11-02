@@ -26,5 +26,5 @@ const width = height * logo.ratio;
   loading="lazy"
   decoding="async"
   style={`width:calc(${width.toFixed(1)}px * var(--mark-scale, 1));height:calc(${height.toFixed(1)}px * var(--mark-scale, 1))`}
-  class:list={["block shrink-0 object-contain", !logo.asIs && !white && "mark-ink", className]}
+  class:list={["block shrink-0 object-contain", !logo.asIs && (white ? "mark-white" : "mark-ink"), className]}
 />

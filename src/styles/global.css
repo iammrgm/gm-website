@@ -203,6 +203,9 @@ body {
   filter: brightness(0);
   opacity: 0.88;
 }
+.mark-white {
+  filter: brightness(0) invert(1);
+}
 
 .logo-wall {
   --mark-scale: 0.55;
